@@ -68,11 +68,13 @@ export default function RootLayout({
                 Sign in
               </Link>
               */}
+              {/* Was "List your practice" -> /login. Repointed to the public
+                  claim flow while auth/dashboard is hidden. */}
               <Link
-                href="/login"
+                href="/directory"
                 className="whitespace-nowrap rounded-lg bg-navy-900 px-4 py-2 text-sm font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-navy-800"
               >
-                List your practice
+                Claim your firm
               </Link>
             </div>
 
@@ -99,8 +101,10 @@ export default function RootLayout({
                 <span className="sm:hidden"> — get matched with clients.</span>
               </p>
             </div>
+            {/* Was "Get listed" -> /dashboard/upgrade. Repointed to the public
+                claim flow while billing/dashboard is hidden. */}
             <Link
-              href="/dashboard/upgrade"
+              href="/directory"
               className="group inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white transition-all hover:bg-brand-700 sm:gap-1.5 sm:px-4 sm:py-2 sm:text-sm sm:shadow-soft sm:hover:-translate-y-0.5"
             >
               Get listed
@@ -138,12 +142,14 @@ export default function RootLayout({
                   { href: '/guides', label: 'Tax guides' },
                 ]}
               />
+              {/* "List your practice" (/login) and "Premium plans"
+                  (/dashboard/upgrade) removed while auth/billing is hidden. */}
               <FooterCol
                 title="For firms"
                 links={[
                   { href: '/directory', label: 'Claim your firm' },
-                  { href: '/login', label: 'List your practice' },
-                  { href: '/dashboard/upgrade', label: 'Premium plans' },
+                  { href: '/directory', label: 'Firms directory' },
+                  { href: '/guides', label: 'Tax guides' },
                 ]}
               />
               <FooterCol

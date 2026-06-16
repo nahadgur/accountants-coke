@@ -79,16 +79,18 @@ export function HeroToggle() {
         </div>
       ) : (
         <div className="mt-6">
+          {/* Was "List your practice" -> /login. Repointed to the public claim
+              flow while auth/dashboard is hidden. */}
           <Link
-            href="/login"
+            href="/directory"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-brand-600 px-7 text-base font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-brand-700"
           >
-            List your practice
+            Claim your firm
             <ArrowRight className="h-4 w-4" />
           </Link>
           <p className="mt-3 text-sm text-white/80">
-            Get listed, receive matched client leads and post jobs to the
-            community.
+            Find your firm on the ICPAK register and claim your listing to
+            receive matched client leads.
           </p>
         </div>
       )}

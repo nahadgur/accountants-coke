@@ -88,12 +88,14 @@ export function MobileNav() {
           Sign in
         </Link>
         */}
+        {/* Was "List your practice" -> /login. Repointed to the public claim
+            flow while auth/dashboard is hidden. */}
         <Link
-          href="/login"
+          href="/directory"
           onClick={close}
           className="flex-1 rounded-xl bg-navy-900 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-navy-800"
         >
-          List your practice
+          Claim your firm
         </Link>
       </div>
     </div>

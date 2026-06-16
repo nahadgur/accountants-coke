@@ -339,14 +339,16 @@ export default async function HomePage() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/login">
+              {/* Was "List your practice" -> /login. Repointed to the public
+                  claim flow while auth/dashboard is hidden. */}
+              <Link href="/directory">
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-white/15 bg-white/5 text-white hover:bg-white/10"
                 >
                   <Building2 className="h-4 w-4" />
-                  List your practice
+                  Claim your firm
                 </Button>
               </Link>
             </div>
