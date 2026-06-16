@@ -1,117 +1,53 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import {
-  parseDirectoryFilters,
-  queryDirectory,
-  buildDirectoryHref,
-  type RawSearchParams,
-} from '@/lib/directory';
-import { DirectoryFilters } from '@/components/directory/DirectoryFilters';
-import { ProfileCard } from '@/components/directory/ProfileCard';
+import { ShieldCheck } from 'lucide-react';
+import { FirmsBrowser } from '@/components/firms/FirmsBrowser';
+import { LICENSED_FIRMS, LICENSED_FIRM_COUNT } from '@/data/firms';
 
-// Filters live in the URL, so the page is fully cacheable per-querystring.
-export const dynamic = 'force-static';
-export const revalidate = 300; // ISR: refresh listings every 5 minutes
+export const metadata: Metadata = {
+  title: 'Licensed Accounting Firms in Kenya — ICPAK Directory',
+  description: `Browse all ${LICENSED_FIRM_COUNT.toLocaleString()} ICPAK-licensed accounting and audit firms in Kenya. Search by name, find a verified firm, or claim and manage your own firm's listing.`,
+  alternates: { canonical: '/directory' },
+};
 
-type PageProps = { searchParams: Promise<RawSearchParams> };
+const firms = [...LICENSED_FIRMS].sort((a, b) =>
+  a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }),
+);
 
-// Dynamic, filter-aware SEO metadata for category/location landing pages.
-export async function generateMetadata({
-  searchParams,
-}: PageProps): Promise<Metadata> {
-  const f = parseDirectoryFilters(await searchParams);
-  const bits = [
-    f.certification && `${f.certification} accountants`,
-    f.specialization,
-    f.location && `in ${f.town ? `${f.town}, ` : ''}${f.location}`,
-  ].filter(Boolean);
-
-  const title = bits.length
-    ? `${bits.join(' ')} | Accountants Directory`
-    : 'Accountants & Firms Directory — Kenya';
-
-  return {
-    title,
-    description: `Browse verified ${
-      f.certification ?? 'CPA-K, ACCA & CIFA'
-    } accountants${f.location ? ` in ${f.location}` : ' across Kenya'}. Premium, verified professionals listed first.`,
-    alternates: { canonical: buildDirectoryHref(f, { page: null }) },
-  };
-}
-
-export default async function DirectoryPage({ searchParams }: PageProps) {
-  const filters = parseDirectoryFilters(await searchParams);
-  const { profiles, total, page, totalPages } = await queryDirectory(filters);
-
+export default function DirectoryPage() {
   return (
-    <div className="shell grid grid-cols-1 gap-8 py-12 lg:grid-cols-[280px_1fr]">
-      <aside className="lg:sticky lg:top-20 lg:self-start">
-        <DirectoryFilters filters={filters} />
-      </aside>
+    <div className="shell py-10 sm:py-12">
+      <div className="max-w-2xl">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-700">
+          <ShieldCheck className="h-3.5 w-3.5" />
+          ICPAK register
+        </span>
+        <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          Licensed Accounting Firms in Kenya
+        </h1>
+        <p className="mt-3 text-base leading-relaxed text-slate-600">
+          Every one of the {LICENSED_FIRM_COUNT.toLocaleString()} accounting and
+          audit firms licensed by ICPAK, in one searchable directory. Find a firm
+          by name, or if you run one, claim your listing to add your details and
+          start receiving client leads.
+        </p>
+      </div>
 
-      <section>
-        <div className="mb-6 flex items-end justify-between">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-navy-900">
-              Accountants & Firms Directory
-            </h1>
-            <p className="mt-1 text-sm text-slate-500">
-              {total} professional{total === 1 ? '' : 's'} found
-              {filters.location ? ` in ${filters.location}` : ' across Kenya'}.
-              Premium members listed first.
-            </p>
-          </div>
-        </div>
+      <div className="mt-8">
+        <FirmsBrowser firms={firms} />
+      </div>
 
-        {profiles.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-slate-300 bg-white p-12 text-center">
-            <p className="text-slate-500">
-              No accountants match these filters yet.
-            </p>
-            <Link
-              href="/directory"
-              className="mt-3 inline-block text-sm font-semibold text-navy-700 hover:underline"
-            >
-              Clear filters
-            </Link>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {profiles.map((p) => (
-              <ProfileCard key={p.id} profile={p} />
-            ))}
-          </div>
-        )}
-
-        {totalPages > 1 && (
-          <nav
-            className="mt-8 flex items-center justify-center gap-2"
-            aria-label="Pagination"
-          >
-            {page > 1 && (
-              <Link
-                href={buildDirectoryHref(filters, { page: page - 1 })}
-                className="rounded-md border border-slate-300 px-4 py-2 text-sm font-medium hover:bg-slate-50"
-                rel="prev"
-              >
-                Previous
-              </Link>
-            )}
-            <span className="px-2 text-sm text-slate-500">
-              Page {page} of {totalPages}
-            </span>
-            {page < totalPages && (
-              <Link
-                href={buildDirectoryHref(filters, { page: page + 1 })}
-                className="rounded-md border border-slate-300 px-4 py-2 text-sm font-medium hover:bg-slate-50"
-                rel="next"
-              >
-                Next
-              </Link>
-            )}
-          </nav>
-        )}
-      </section>
+      <div className="mt-12 rounded-2xl border border-brand-200/70 bg-brand-50/60 p-6 sm:p-8">
+        <h2 className="font-display text-xl font-bold text-navy-900">
+          Is this your firm?
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
+          These listings come straight from the ICPAK register, so most are not
+          yet managed by their owners. Claim yours to add your contact details,
+          services and team, appear higher in search, and receive matched client
+          enquiries. We verify every claim against the register before granting
+          access.
+        </p>
+      </div>
     </div>
   );
 }

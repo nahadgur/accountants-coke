@@ -131,16 +131,16 @@ export default function RootLayout({
               <FooterCol
                 title="For clients"
                 links={[
-                  { href: '/directory', label: 'Find an accountant' },
-                  { href: '/firms', label: 'Browse firms' },
+                  { href: '/directory', label: 'Find a firm' },
                   { href: '/match', label: 'Get matched' },
+                  { href: '/guides', label: 'Tax guides' },
                 ]}
               />
               <FooterCol
-                title="For professionals"
+                title="For firms"
                 links={[
+                  { href: '/directory', label: 'Claim your firm' },
                   { href: '/login', label: 'List your practice' },
-                  { href: '/jobs/new', label: 'Post a job' },
                   { href: '/dashboard/upgrade', label: 'Premium plans' },
                 ]}
               />
@@ -148,8 +148,8 @@ export default function RootLayout({
                 title="Explore"
                 links={[
                   { href: '/jobs', label: 'Accounting jobs' },
-                  { href: '/directory?designation=CPA-K', label: 'CPA-K directory' },
-                  { href: '/directory?designation=ACCA', label: 'ACCA directory' },
+                  { href: '/services', label: 'Services' },
+                  { href: '/directory', label: 'Firms directory' },
                 ]}
               />
             </div>

@@ -6,24 +6,16 @@ import { GUIDES } from '@/data/guides';
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://accountants.co.ke';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let profiles: { slug: string | null; id: string }[] = [];
   let jobs: { slug: string | null; id: string; updated_at: string | null }[] = [];
-  let firms: { slug: string | null; id: string }[] = [];
 
   try {
     const supabase = await createClient();
-    const [pr, jb, fm] = await Promise.all([
-      supabase.from('public_directory_profiles').select('slug, id').limit(5000),
-      supabase
-        .from('job_postings')
-        .select('slug, id, updated_at')
-        .eq('is_published', true)
-        .limit(5000),
-      supabase.from('firms').select('slug, id').eq('is_published', true).limit(5000),
-    ]);
-    profiles = pr.data ?? [];
+    const jb = await supabase
+      .from('job_postings')
+      .select('slug, id, updated_at')
+      .eq('is_published', true)
+      .limit(5000);
     jobs = jb.data ?? [];
-    firms = fm.data ?? [];
   } catch {
     // No env / DB unreachable at build: ship the static + content routes only.
   }
@@ -33,7 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/directory`, priority: 0.9 },
     { url: `${BASE}/services`, priority: 0.9 },
     { url: `${BASE}/jobs`, priority: 0.9 },
-    { url: `${BASE}/firms`, priority: 0.8 },
     { url: `${BASE}/match`, priority: 0.8 },
     { url: `${BASE}/guides`, priority: 0.8 },
   ];
@@ -47,27 +38,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(g.updated),
     priority: 0.7,
   }));
-
-  const profileRoutes = (profiles ?? []).map((p) => ({
-    url: `${BASE}/directory/${p.slug ?? p.id}`,
-    priority: 0.6,
-  }));
   const jobRoutes = (jobs ?? []).map((j) => ({
     url: `${BASE}/jobs/${j.slug ?? j.id}`,
     lastModified: j.updated_at ? new Date(j.updated_at) : undefined,
     priority: 0.7,
   }));
-  const firmRoutes = (firms ?? []).map((f) => ({
-    url: `${BASE}/firms/${f.slug ?? f.id}`,
-    priority: 0.6,
-  }));
 
-  return [
-    ...staticRoutes,
-    ...serviceRoutes,
-    ...guideRoutes,
-    ...profileRoutes,
-    ...jobRoutes,
-    ...firmRoutes,
-  ];
+  return [...staticRoutes, ...serviceRoutes, ...guideRoutes, ...jobRoutes];
 }
