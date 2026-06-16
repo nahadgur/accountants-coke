@@ -218,7 +218,7 @@ export default async function HomePage() {
       </section>
 
       {/* ---------- Featured accountants ---------- */}
-      <section className="bg-slate-50">
+      <section className="bg-brand-50/60">
         <div className="shell py-8 sm:py-20">
           <SectionHead
             title="Featured Professionals"
