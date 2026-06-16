@@ -10,10 +10,14 @@ type CookieToSet = { name: string; value: string; options?: CookieOptions };
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  // If Supabase isn't configured, skip the session refresh rather than 500
+  // every request through the middleware.
+  if (!url || !key) return response;
+
+  try {
+    const supabase = createServerClient(url, key, {
       cookies: {
         getAll() {
           return request.cookies.getAll();
@@ -28,11 +32,14 @@ export async function middleware(request: NextRequest) {
           );
         },
       },
-    },
-  );
+    });
 
-  // Touch the session so it refreshes if near expiry.
-  await supabase.auth.getUser();
+    // Touch the session so it refreshes if near expiry.
+    await supabase.auth.getUser();
+  } catch {
+    // Session refresh failed (env/edge/network): continue unauthenticated.
+  }
+
   return response;
 }
 
