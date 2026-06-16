@@ -6,8 +6,10 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV = [
   { href: '/directory', label: 'Directory' },
-  { href: '/firms', label: 'Firms' },
+  { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
+  { href: '/guides', label: 'Guides' },
+  { href: '/firms', label: 'Firms' },
   { href: '/match', label: 'Get matched' },
 ];
 

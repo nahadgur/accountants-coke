@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
+import { NavSegments } from '@/components/layout/NavSegments';
 import './globals.css';
 
 const inter = Inter({
@@ -34,13 +35,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const NAV = [
-  { href: '/directory', label: 'Directory' },
-  { href: '/firms', label: 'Firms' },
-  { href: '/jobs', label: 'Jobs' },
-  { href: '/match', label: 'Get matched' },
-];
-
 export default function RootLayout({
   children,
 }: {
@@ -61,17 +55,7 @@ export default function RootLayout({
               </span>
             </Link>
 
-            <nav className="hidden items-center gap-1 md:flex">
-              {NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="whitespace-nowrap rounded-lg px-3.5 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-navy-900"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <NavSegments />
 
             <div className="hidden items-center gap-2 md:flex">
               <Link
