@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import { createClient, createServiceClient } from '@/lib/supabase/server';
+import { postToSheet } from '@/lib/sheet';
 import { SPECIALIZATIONS, KENYAN_CITIES } from '@/lib/types';
 
 const LeadSchema = z.object({
@@ -39,6 +40,19 @@ export async function submitLead(
     return { status: 'error', message: 'Please check the form and try again.' };
   }
   const lead = parsed.data;
+
+  // Mirror every lead into the capture sheet (reliable + email alert),
+  // independent of the Supabase routing below.
+  await postToSheet({
+    formType: 'lead',
+    client_name: lead.client_name,
+    client_email: lead.client_email,
+    client_phone: lead.client_phone || '',
+    service_needed: lead.service_needed,
+    location: lead.location,
+    town: lead.town || '',
+    message: lead.message || '',
+  });
 
   const supabase = await createClient();
   const { data: inserted, error: insertError } = await supabase

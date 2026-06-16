@@ -143,8 +143,14 @@ function ClaimForm({ ctx, onClose }: { ctx: Ctx; onClose: () => void }) {
           <input name="claimant_email" type="email" required className={inputCls} />
         </Field>
 
-        <Field label="Phone (optional)">
-          <input name="claimant_phone" type="tel" className={inputCls} />
+        <Field label="Phone">
+          <input
+            name="claimant_phone"
+            type="tel"
+            required
+            placeholder="07XX XXX XXX"
+            className={inputCls}
+          />
         </Field>
 
         <Field label="What should we add or update? (optional)">
