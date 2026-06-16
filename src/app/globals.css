@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    overflow-x: clip;
+  }
+  ::selection {
+    background-color: theme('colors.brand.200');
+    color: theme('colors.navy.900');
+  }
+}
+
+@layer components {
+  /* Centered page container */
+  .shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  /* Display heading */
+  .display {
+    font-family: var(--font-display);
+    @apply font-extrabold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+  /* Pill chip — consistent small tag on light surfaces */
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600;
+  }
+  /* Status badges — one shape, colour carries meaning */
+  .badge {
+    @apply inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide;
+  }
+  .badge-premium {
+    @apply bg-gold-500 text-navy-900;
+  }
+  .badge-featured {
+    @apply bg-navy-900 text-white;
+  }
+  /* Icon tile — single consistent treatment everywhere */
+  .icon-tile {
+    @apply flex shrink-0 items-center justify-center rounded-lg bg-navy-900 text-white;
+  }
+  /* Fine film-grain texture (SVG fractal noise) */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 150px 150px;
+  }
+}
