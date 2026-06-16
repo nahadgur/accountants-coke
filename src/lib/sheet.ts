@@ -23,7 +23,10 @@ export async function postToSheet(
       // Server-to-server; don't let a slow Sheet hang the request forever.
       signal: AbortSignal.timeout(8000),
     });
-    return res.ok;
+    if (!res.ok) return false;
+    // The Apps Script returns { ok: true } only when the row actually saved.
+    const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+    return data?.ok === true;
   } catch {
     return false;
   }

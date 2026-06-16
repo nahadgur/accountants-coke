@@ -65,6 +65,24 @@ const TABS = {
       return 'New firm claim: ' + (d.firm_name || 'Unknown firm');
     },
   },
+  contact: {
+    name: 'Contact',
+    tabColor: COLORS.ink,
+    headers: ['Timestamp', 'Name', 'Email', 'Subject', 'Message'],
+    widths: [150, 180, 220, 220, 360],
+    row: function (d) {
+      return [
+        new Date(),
+        d.name || '',
+        d.email || '',
+        d.subject || '',
+        d.message || '',
+      ];
+    },
+    subject: function (d) {
+      return 'New contact message' + (d.subject ? ': ' + d.subject : '');
+    },
+  },
   lead: {
     name: 'Leads',
     tabColor: COLORS.gold,
@@ -163,6 +181,7 @@ function setup() {
   ss.rename('Accountants.co.ke — Captures');
   buildTab(ss, TABS.claim);
   buildTab(ss, TABS.lead);
+  buildTab(ss, TABS.contact);
 
   // Remove the default empty "Sheet1" if it is still there and unused.
   var def = ss.getSheetByName('Sheet1');
@@ -176,7 +195,7 @@ function setup() {
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
-    var type = data.formType === 'lead' ? 'lead' : 'claim';
+    var type = TABS[data.formType] ? data.formType : 'claim';
     var cfg = TABS[type];
 
     var ss = getSpreadsheet();

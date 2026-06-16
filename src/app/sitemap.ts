@@ -27,6 +27,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/jobs`, priority: 0.9 },
     { url: `${BASE}/match`, priority: 0.8 },
     { url: `${BASE}/guides`, priority: 0.8 },
+    { url: `${BASE}/how-it-works`, priority: 0.6 },
+    { url: `${BASE}/about`, priority: 0.5 },
+    { url: `${BASE}/faq`, priority: 0.5 },
+    { url: `${BASE}/contact`, priority: 0.4 },
+    { url: `${BASE}/privacy`, priority: 0.3 },
+    { url: `${BASE}/terms`, priority: 0.3 },
   ];
 
   const serviceRoutes = SERVICES.map((s) => ({

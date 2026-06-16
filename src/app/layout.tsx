@@ -162,9 +162,29 @@ export default function RootLayout({
               />
             </div>
 
-            <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-              <p>© {new Date().getFullYear()} Accountants.co.ke. All rights reserved.</p>
-              <p>Nairobi, Kenya</p>
+            <div className="mt-12 border-t border-white/10 pt-6">
+              <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+                {[
+                  { href: '/about', label: 'About' },
+                  { href: '/how-it-works', label: 'How it works' },
+                  { href: '/faq', label: 'FAQ' },
+                  { href: '/contact', label: 'Contact' },
+                  { href: '/privacy', label: 'Privacy' },
+                  { href: '/terms', label: 'Terms' },
+                ].map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="text-slate-400 transition-colors hover:text-brand-400"
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+              </nav>
+              <div className="mt-4 flex flex-col gap-2 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+                <p>© {new Date().getFullYear()} Accountants.co.ke. All rights reserved.</p>
+                <p>Nairobi, Kenya</p>
+              </div>
             </div>
           </div>
         </footer>
