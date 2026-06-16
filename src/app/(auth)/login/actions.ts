@@ -20,7 +20,12 @@ export async function signIn(
   const parsed = CredsSchema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) return { error: 'Enter a valid email and password.' };
 
-  const supabase = await createClient();
+  let supabase;
+  try {
+    supabase = await createClient();
+  } catch {
+    return { error: 'Sign-in is temporarily unavailable. Please try again shortly.' };
+  }
   const { error } = await supabase.auth.signInWithPassword({
     email: parsed.data.email,
     password: parsed.data.password,
@@ -42,7 +47,12 @@ export async function signUp(
 
   const role = formData.get('role') === 'seeker' ? 'seeker' : 'professional';
 
-  const supabase = await createClient();
+  let supabase;
+  try {
+    supabase = await createClient();
+  } catch {
+    return { error: 'Sign-up is temporarily unavailable. Please try again shortly.' };
+  }
   const { data, error } = await supabase.auth.signUp({
     email: parsed.data.email,
     password: parsed.data.password,
