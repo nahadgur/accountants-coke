@@ -168,16 +168,17 @@ export default async function HomePage() {
       </section>
 
       {/* ---------- Trust strip ---------- */}
-      <section className="border-y border-slate-200/70">
-        <div className="shell flex flex-col items-center justify-between gap-5 py-7 sm:flex-row">
-          <p className="text-sm font-medium text-slate-500">
-            Verified against recognised professional bodies
+      <section className="border-y border-slate-200 bg-slate-50">
+        <div className="shell flex flex-col items-center gap-4 py-9 text-center">
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-slate-500">
+            <ShieldCheck className="h-4 w-4 text-brand-600" />
+            Every professional verified against recognised bodies
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2.5">
             {['CPA-K', 'ACCA', 'CIFA', 'ICPAK'].map((c) => (
               <span
                 key={c}
-                className="rounded-lg border border-slate-200 bg-white px-4 py-2 font-display text-sm font-bold text-navy-800"
+                className="rounded-lg border border-slate-200 bg-white px-4 py-2 font-display text-sm font-bold text-navy-800 shadow-soft"
               >
                 {c}
               </span>
@@ -217,7 +218,7 @@ export default async function HomePage() {
       </section>
 
       {/* ---------- Featured accountants ---------- */}
-      <section>
+      <section className="bg-slate-50">
         <div className="shell py-8 sm:py-20">
           <SectionHead
             title="Featured Professionals"
@@ -233,28 +234,31 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ---------- How it works ---------- */}
-      <section className="shell py-8 sm:py-20">
-        <SectionHead
-          title="Three Steps to the Right Accountant"
-          subtitle="From first search to a signed engagement, without the back and forth."
-        />
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <Step
-            n="1"
-            title="Search and Filter"
-            body="Narrow the directory by location, specialization and certification to build a shortlist."
+      {/* ---------- How it works (dark anchor) ---------- */}
+      <section className="bg-navy-950">
+        <div className="shell py-12 sm:py-24">
+          <SectionHead
+            dark
+            title="Three Steps to the Right Accountant"
+            subtitle="From first search to a signed engagement, without the back and forth."
           />
-          <Step
-            n="2"
-            title="Compare Credentials"
-            body="Review verified certifications, specializations and firm affiliations on each profile."
-          />
-          <Step
-            n="3"
-            title="Connect or Get Matched"
-            body="Contact premium members directly, or tell us your needs and we route you privately."
-          />
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <Step
+              n="1"
+              title="Search and Filter"
+              body="Narrow the directory by location, specialization and certification to build a shortlist."
+            />
+            <Step
+              n="2"
+              title="Compare Credentials"
+              body="Review verified certifications, specializations and firm affiliations on each profile."
+            />
+            <Step
+              n="3"
+              title="Connect or Get Matched"
+              body="Contact premium members directly, or tell us your needs and we route you privately."
+            />
+          </div>
         </div>
       </section>
 
@@ -287,7 +291,8 @@ export default async function HomePage() {
 
       {/* ---------- Latest jobs ---------- */}
       {jobs.length > 0 && (
-        <section className="shell py-8 sm:py-20">
+        <section className="bg-slate-50">
+          <div className="shell py-8 sm:py-20">
           <SectionHead
             title="Open Accounting Roles"
             subtitle="Featured positions from firms and direct employers across Kenya."
@@ -336,6 +341,7 @@ export default async function HomePage() {
                 </Link>
               );
             })}
+          </div>
           </div>
         </section>
       )}
@@ -467,24 +473,38 @@ function SectionHead({
   subtitle,
   href,
   cta,
+  dark,
 }: {
   title: string;
   subtitle?: string;
   href?: string;
   cta?: string;
+  dark?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div className="max-w-2xl">
-        <h2 className="display text-3xl text-navy-900 sm:text-[2.1rem]">
+        <h2
+          className={[
+            'display text-3xl sm:text-[2.1rem]',
+            dark ? 'text-white' : 'text-navy-900',
+          ].join(' ')}
+        >
           {title}
         </h2>
-        {subtitle && <p className="mt-3 text-slate-600">{subtitle}</p>}
+        {subtitle && (
+          <p className={dark ? 'mt-3 text-slate-300' : 'mt-3 text-slate-600'}>
+            {subtitle}
+          </p>
+        )}
       </div>
       {href && cta && (
         <Link
           href={href}
-          className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-navy-900 hover:text-brand-700"
+          className={[
+            'group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold',
+            dark ? 'text-white hover:text-brand-300' : 'text-navy-900 hover:text-brand-700',
+          ].join(' ')}
         >
           {cta}
           <ArrowRight className="h-4 w-4 text-brand-600 transition-transform group-hover:translate-x-1" />
