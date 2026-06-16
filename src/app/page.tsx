@@ -18,8 +18,6 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
-import { queryDirectory } from '@/lib/directory';
-import { ProfileCard } from '@/components/directory/ProfileCard';
 import { VerifiedMark } from '@/components/ui/VerifiedMark';
 import { HeroToggle } from '@/components/home/HeroToggle';
 import { Button } from '@/components/ui/button';
@@ -39,18 +37,6 @@ const SPEC_ICONS: Record<string, LucideIcon> = {
   'Company Secretarial': Stamp,
 };
 
-async function getFeatured() {
-  const { profiles } = await queryDirectory({
-    q: null,
-    location: null,
-    town: null,
-    specialization: null,
-    certification: null,
-    page: 1,
-  });
-  return profiles.slice(0, 3);
-}
-
 async function getLatestJobs() {
   try {
     const supabase = await createClient();
@@ -67,7 +53,7 @@ async function getLatestJobs() {
 }
 
 export default async function HomePage() {
-  const [featured, jobs] = await Promise.all([getFeatured(), getLatestJobs()]);
+  const jobs = await getLatestJobs();
 
   return (
     <>
@@ -214,23 +200,6 @@ export default async function HomePage() {
             title="Hire and Get Hired"
             body="Post accounting roles and apply to openings from firms across Kenya."
           />
-        </div>
-      </section>
-
-      {/* ---------- Featured accountants ---------- */}
-      <section className="bg-brand-50/60">
-        <div className="shell py-8 sm:py-20">
-          <SectionHead
-            title="Featured Professionals"
-            subtitle="Premium members first, followed by the wider verified directory."
-            href="/directory"
-            cta="Browse the directory"
-          />
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((p) => (
-              <ProfileCard key={p.id} profile={p} />
-            ))}
-          </div>
         </div>
       </section>
 

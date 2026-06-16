@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
 import { SERVICES, getService } from '@/data/services';
 import { LOCATIONS } from '@/data/locations';
 import { getGuide } from '@/data/guides';
@@ -13,11 +12,9 @@ import {
   FaqAccordion,
   Prose,
 } from '@/components/page/blocks';
-import { ProfileCard } from '@/components/directory/ProfileCard';
-import { Button } from '@/components/ui/button';
 import { Icon } from '@/lib/icons';
 import { titleCase } from '@/lib/utils';
-import { getServicePros, faqJsonLd } from '@/lib/seo';
+import { faqJsonLd } from '@/lib/seo';
 
 export const revalidate = 300;
 
@@ -53,7 +50,6 @@ export default async function ServicePage({ params }: Props) {
   const s = getService((await params).service);
   if (!s) notFound();
 
-  const pros = await getServicePros(s.specialization);
   const guide = s.relatedGuide ? getGuide(s.relatedGuide) : undefined;
 
   return (
@@ -76,7 +72,6 @@ export default async function ServicePage({ params }: Props) {
           items={[
             { label: 'The Essentials', id: 'essentials' },
             { label: 'What It Covers', id: 'about' },
-            { label: 'Accountants', id: 'accountants' },
             { label: 'By Location', id: 'locations' },
             { label: 'FAQ', id: 'faq' },
           ]}
@@ -109,30 +104,6 @@ export default async function ServicePage({ params }: Props) {
           matchLabel={s.name}
         />
       </div>
-
-      <section id="accountants" className="mt-12 scroll-mt-28">
-        <h2 className="font-display text-2xl font-extrabold tracking-tight text-navy-900">
-          {titleCase(`Verified ${s.noun}s`)}
-        </h2>
-        {pros.length > 0 ? (
-          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {pros.map((p) => (
-              <ProfileCard key={p.id} profile={p} />
-            ))}
-          </div>
-        ) : (
-          <div className="mt-5 rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center">
-            <p className="text-slate-600">
-              No {s.noun}s listed here yet. Get matched and we’ll find one for you.
-            </p>
-            <Link href="/match" className="mt-4 inline-block">
-              <Button variant="brand">
-                Get matched <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        )}
-      </section>
 
       <section id="locations" className="mt-12 scroll-mt-28">
         <h2 className="font-display text-2xl font-extrabold tracking-tight text-navy-900">
