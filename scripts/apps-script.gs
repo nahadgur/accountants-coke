@@ -186,13 +186,19 @@ function doPost(e) {
     var row = cfg.row(data);
     sheet.appendRow(row);
 
-    if (NOTIFY_EMAIL) {
-      var body = cfg.headers
-        .map(function (h, i) {
-          return h + ': ' + row[i];
-        })
-        .join('\n');
-      MailApp.sendEmail(NOTIFY_EMAIL, cfg.subject(data), body);
+    // Email is best-effort: the row is already saved, so a missing config or a
+    // send failure must never fail the capture.
+    try {
+      if (typeof NOTIFY_EMAIL !== 'undefined' && NOTIFY_EMAIL) {
+        var body = cfg.headers
+          .map(function (h, i) {
+            return h + ': ' + row[i];
+          })
+          .join('\n');
+        MailApp.sendEmail(NOTIFY_EMAIL, cfg.subject(data), body);
+      }
+    } catch (mailErr) {
+      // ignore — capture succeeded
     }
 
     return json({ ok: true });
