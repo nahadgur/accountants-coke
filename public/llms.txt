@@ -1,0 +1,22 @@
+# Accountants.co.ke
+
+> Kenya's directory of verified CPA-K, ACCA and CIFA accounting firms and
+> professionals, with a job board and private client matching. Searching and
+> getting matched are free. Firm listings come from the ICPAK register; firms
+> claim and verify their own listing.
+
+## Key pages
+- [Firms directory](https://accountants.co.ke/directory): every ICPAK-licensed accounting firm in Kenya, searchable. Firms can claim their listing.
+- [Get matched](https://accountants.co.ke/match): tell us the service and location, get connected privately with verified firms.
+- [Accounting services](https://accountants.co.ke/services): tax, audit, bookkeeping, payroll, VAT, eTIMS, rental income tax and more.
+- [Guides](https://accountants.co.ke/guides): plain-language guides to Kenyan tax and compliance (rental income tax, eTIMS).
+- [Accounting jobs](https://accountants.co.ke/jobs): finance and accounting roles across Kenya.
+- [How it works](https://accountants.co.ke/how-it-works)
+- [About](https://accountants.co.ke/about)
+- [FAQ](https://accountants.co.ke/faq)
+- [Contact](https://accountants.co.ke/contact)
+
+## Notes
+- We are a directory and matching service, not an accountancy firm; we do not provide accounting, tax or audit advice.
+- We are independent and not affiliated with ICPAK or any regulator.
+- Data is handled under the Kenya Data Protection Act, 2019. See https://accountants.co.ke/privacy

@@ -37,6 +37,40 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const SITE_URL = 'https://accountants.co.ke';
+
+// Brand identity graph so Google can resolve the site name + a sitelinks
+// search box pointing at the directory.
+const SITE_JSONLD = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: 'Accountants.co.ke',
+    publisher: { '@id': `${SITE_URL}/#org` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/directory?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#org`,
+    name: 'Accountants.co.ke',
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon.svg`,
+    description:
+      'Kenya’s directory of verified CPA-K, ACCA and CIFA accounting firms and professionals, with private client matching.',
+    areaServed: 'KE',
+  },
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -45,6 +79,16 @@ export default function RootLayout({
   return (
     <html lang="en-KE" className={`${inter.variable} ${jakarta.variable}`}>
       <body className="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_JSONLD) }}
+        />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-lg focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
         <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex items-center gap-2">
@@ -113,7 +157,7 @@ export default function RootLayout({
           </div>
         </div>
 
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">{children}</main>
 
         <footer className="mt-24 border-t border-slate-200 bg-navy-950 text-slate-300">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
