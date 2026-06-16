@@ -7,6 +7,7 @@ import { Input, Label } from '@/components/ui/input';
 
 export function AuthForm() {
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
+  const [role, setRole] = useState<'professional' | 'seeker'>('professional');
   const action = mode === 'signin' ? signIn : signUp;
   const [state, formAction, pending] = useActionState<AuthState, FormData>(
     action,
@@ -38,10 +39,40 @@ export function AuthForm() {
 
       <form action={formAction} className="space-y-4">
         {mode === 'signup' && (
-          <div>
-            <Label htmlFor="full_name">Full name</Label>
-            <Input id="full_name" name="full_name" required autoComplete="name" />
-          </div>
+          <>
+            <div>
+              <Label>I am a…</Label>
+              <div className="mt-1.5 grid grid-cols-2 gap-2">
+                {(
+                  [
+                    ['professional', 'Accountant / firm'],
+                    ['seeker', 'Job seeker'],
+                  ] as const
+                ).map(([value, label]) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setRole(value)}
+                    className={[
+                      'rounded-lg border py-2.5 text-sm font-semibold transition-colors',
+                      role === value
+                        ? 'border-brand-500 bg-brand-50 text-navy-900'
+                        : 'border-slate-200 text-slate-600 hover:border-slate-300',
+                    ].join(' ')}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+              <input type="hidden" name="role" value={role} />
+            </div>
+            <div>
+              <Label htmlFor="full_name">
+                {role === 'seeker' ? 'Full name' : 'Your name or firm name'}
+              </Label>
+              <Input id="full_name" name="full_name" required autoComplete="name" />
+            </div>
+          </>
         )}
         <div>
           <Label htmlFor="email">Email</Label>

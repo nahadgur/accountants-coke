@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getCurrentProfile, requireUser } from '@/lib/auth';
+import { getCurrentProfile, requireUser, getUserRole } from '@/lib/auth';
 import { createClient } from '@/lib/supabase/server';
 
 export const metadata = { title: 'Dashboard', robots: { index: false } };
@@ -21,6 +21,13 @@ async function getStats(userId: string) {
 
 export default async function DashboardOverview() {
   const user = await requireUser();
+  const role = await getUserRole();
+  const firstName = ((user.user_metadata?.full_name as string) ?? '').split(
+    ' ',
+  )[0];
+
+  if (role === 'seeker') return <SeekerOverview firstName={firstName} />;
+
   const profile = await getCurrentProfile();
   const { leadCount, jobCount } = await getStats(user.id);
   const premium =
@@ -62,6 +69,34 @@ export default async function DashboardOverview() {
           </Link>
         </div>
       )}
+    </div>
+  );
+}
+
+function SeekerOverview({ firstName }: { firstName: string }) {
+  return (
+    <div>
+      <h1 className="text-2xl font-bold text-navy-900">
+        Welcome{firstName ? `, ${firstName}` : ''}
+      </h1>
+      <p className="mt-1 text-sm text-slate-500">
+        Find your next accounting role in Kenya.
+      </p>
+      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6">
+        <h2 className="font-display text-lg font-bold text-navy-900">
+          Browse accounting jobs
+        </h2>
+        <p className="mt-1 text-sm text-slate-600">
+          New roles from firms and direct employers across Kenya, updated
+          regularly. Apply in a couple of clicks.
+        </p>
+        <Link
+          href="/jobs"
+          className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-800"
+        >
+          Browse jobs
+        </Link>
+      </div>
     </div>
   );
 }

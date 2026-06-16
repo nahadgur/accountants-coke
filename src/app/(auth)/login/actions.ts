@@ -40,19 +40,22 @@ export async function signUp(
     return { error: 'Enter your name, a valid email and an 8+ char password.' };
   }
 
+  const role = formData.get('role') === 'seeker' ? 'seeker' : 'professional';
+
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     email: parsed.data.email,
     password: parsed.data.password,
     options: {
-      data: { full_name: parsed.data.full_name },
+      data: { full_name: parsed.data.full_name, role },
       emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
     },
   });
   if (error) return { error: error.message };
 
-  // Bootstrap a free profile row on first sign-up (idempotent).
-  if (data.user) {
+  // Bootstrap a free accountant profile only for professionals. Job seekers
+  // get no directory listing.
+  if (data.user && role === 'professional') {
     await supabase.from('profiles').upsert(
       {
         id: data.user.id,

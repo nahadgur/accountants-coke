@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import type { DirectoryProfile } from '@/lib/types';
 
+export type AccountRole = 'professional' | 'seeker';
+
 /** Returns the signed-in user or null. */
 export async function getUser() {
   const supabase = await createClient();
@@ -10,6 +12,12 @@ export async function getUser() {
     data: { user },
   } = await supabase.auth.getUser();
   return user;
+}
+
+/** Account role from user metadata. Existing accounts default to professional. */
+export async function getUserRole(): Promise<AccountRole> {
+  const user = await getUser();
+  return user?.user_metadata?.role === 'seeker' ? 'seeker' : 'professional';
 }
 
 /** Guard for protected routes: redirects to /login if not authed. */
