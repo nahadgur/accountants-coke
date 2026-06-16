@@ -5,13 +5,17 @@ import type { DirectoryProfile } from '@/lib/types';
 
 export type AccountRole = 'professional' | 'seeker';
 
-/** Returns the signed-in user or null. */
+/** Returns the signed-in user or null. Fails soft if Supabase is unreachable. */
 export async function getUser() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  return user;
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    return user;
+  } catch {
+    return null;
+  }
 }
 
 /** Account role from user metadata. Existing accounts default to professional. */

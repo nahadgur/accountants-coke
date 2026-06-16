@@ -43,7 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-KE" className={`${inter.variable} ${jakarta.variable}`}>
-      <body className="min-h-screen bg-white font-sans text-slate-900 antialiased">
+      <body className="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased">
         <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex items-center gap-2">
@@ -106,7 +106,7 @@ export default function RootLayout({
           </div>
         </div>
 
-        <main>{children}</main>
+        <main className="flex-1">{children}</main>
 
         <footer className="mt-24 border-t border-slate-200 bg-navy-950 text-slate-300">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
