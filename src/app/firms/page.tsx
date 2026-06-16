@@ -14,14 +14,19 @@ export const metadata: Metadata = {
 export const revalidate = 300;
 
 export default async function FirmsPage() {
-  const supabase = await createClient();
-  const { data } = await supabase
-    .from('firms')
-    .select('*')
-    .eq('is_published', true)
-    .order('premium_status', { ascending: false })
-    .order('name', { ascending: true });
-  const firms = (data as Firm[]) ?? [];
+  let firms: Firm[] = [];
+  try {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('firms')
+      .select('*')
+      .eq('is_published', true)
+      .order('premium_status', { ascending: false })
+      .order('name', { ascending: true });
+    firms = (data as Firm[]) ?? [];
+  } catch {
+    firms = [];
+  }
 
   return (
     <div className="shell py-12">

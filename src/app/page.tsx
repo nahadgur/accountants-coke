@@ -52,14 +52,18 @@ async function getFeatured() {
 }
 
 async function getLatestJobs() {
-  const supabase = await createClient();
-  const { data } = await supabase
-    .from('job_postings')
-    .select('*, firm:firms(id,name,logo_url,website,location)')
-    .order('is_featured', { ascending: false })
-    .order('created_at', { ascending: false })
-    .limit(4);
-  return (data as JobWithFirm[]) ?? [];
+  try {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from('job_postings')
+      .select('*, firm:firms(id,name,logo_url,website,location)')
+      .order('is_featured', { ascending: false })
+      .order('created_at', { ascending: false })
+      .limit(4);
+    return (data as JobWithFirm[]) ?? [];
+  } catch {
+    return [] as JobWithFirm[];
+  }
 }
 
 export default async function HomePage() {

@@ -22,16 +22,20 @@ function salaryBadge(job: JobWithFirm): string | null {
 }
 
 export default async function JobsPage() {
-  const supabase = await createClient();
-  // Featured first, then newest. Matches idx_jobs_feed.
-  const { data } = await supabase
-    .from('job_postings')
-    .select('*, firm:firms(id,name,logo_url,website,location)')
-    .order('is_featured', { ascending: false })
-    .order('created_at', { ascending: false })
-    .limit(50);
-
-  const jobs = (data as JobWithFirm[]) ?? [];
+  let jobs: JobWithFirm[] = [];
+  try {
+    const supabase = await createClient();
+    // Featured first, then newest. Matches idx_jobs_feed.
+    const { data } = await supabase
+      .from('job_postings')
+      .select('*, firm:firms(id,name,logo_url,website,location)')
+      .order('is_featured', { ascending: false })
+      .order('created_at', { ascending: false })
+      .limit(50);
+    jobs = (data as JobWithFirm[]) ?? [];
+  } catch {
+    jobs = [];
+  }
 
   return (
     <div className="shell max-w-3xl py-12">

@@ -6,17 +6,27 @@ import { GUIDES } from '@/data/guides';
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://accountants.co.ke';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const supabase = await createClient();
+  let profiles: { slug: string | null; id: string }[] = [];
+  let jobs: { slug: string | null; id: string; updated_at: string | null }[] = [];
+  let firms: { slug: string | null; id: string }[] = [];
 
-  const [{ data: profiles }, { data: jobs }, { data: firms }] = await Promise.all([
-    supabase.from('public_directory_profiles').select('slug, id').limit(5000),
-    supabase
-      .from('job_postings')
-      .select('slug, id, updated_at')
-      .eq('is_published', true)
-      .limit(5000),
-    supabase.from('firms').select('slug, id').eq('is_published', true).limit(5000),
-  ]);
+  try {
+    const supabase = await createClient();
+    const [pr, jb, fm] = await Promise.all([
+      supabase.from('public_directory_profiles').select('slug, id').limit(5000),
+      supabase
+        .from('job_postings')
+        .select('slug, id, updated_at')
+        .eq('is_published', true)
+        .limit(5000),
+      supabase.from('firms').select('slug, id').eq('is_published', true).limit(5000),
+    ]);
+    profiles = pr.data ?? [];
+    jobs = jb.data ?? [];
+    firms = fm.data ?? [];
+  } catch {
+    // No env / DB unreachable at build: ship the static + content routes only.
+  }
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, priority: 1 },
