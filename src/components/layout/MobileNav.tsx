@@ -79,6 +79,7 @@ export function MobileNav() {
       </nav>
 
       <div className="flex gap-3">
+        {/* Sign in hidden for now — restore when auth is live.
         <Link
           href="/login"
           onClick={close}
@@ -86,6 +87,7 @@ export function MobileNav() {
         >
           Sign in
         </Link>
+        */}
         <Link
           href="/login"
           onClick={close}

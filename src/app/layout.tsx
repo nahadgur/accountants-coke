@@ -60,12 +60,14 @@ export default function RootLayout({
             <NavSegments />
 
             <div className="hidden items-center gap-2 md:flex">
+              {/* Sign in hidden for now — restore when auth is live.
               <Link
                 href="/login"
                 className="whitespace-nowrap rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-700 transition-colors hover:text-navy-900"
               >
                 Sign in
               </Link>
+              */}
               <Link
                 href="/login"
                 className="whitespace-nowrap rounded-lg bg-navy-900 px-4 py-2 text-sm font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-navy-800"

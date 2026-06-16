@@ -48,12 +48,14 @@ export default async function JobsPage() {
             {jobs.length} open role{jobs.length === 1 ? '' : 's'} across Kenya.
           </p>
         </div>
+        {/* Post a job hidden for now — paid checkout not live yet.
         <Link
           href="/jobs/new"
           className="rounded-md bg-navy-900 px-4 py-2 text-sm font-semibold text-white hover:bg-navy-800"
         >
           Post a job
         </Link>
+        */}
       </div>
 
       <ul className="space-y-3">

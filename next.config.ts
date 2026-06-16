@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
     return [
       // Firms-only product: the firms list is the directory now.
       { source: '/firms', destination: '/directory', permanent: true },
+      // Job posting hidden for now (paid checkout not live). Temporary.
+      { source: '/jobs/new/:path*', destination: '/jobs', permanent: false },
     ];
   },
 };

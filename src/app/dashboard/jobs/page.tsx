@@ -21,12 +21,14 @@ export default async function MyJobsPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold text-navy-900">My job postings</h1>
+        {/* Post a job hidden for now — paid checkout not live yet.
         <Link
           href="/jobs/new"
           className="rounded-md bg-navy-900 px-4 py-2 text-sm font-semibold text-white hover:bg-navy-800"
         >
           Post a job
         </Link>
+        */}
       </div>
 
       {jobs.length === 0 ? (
