@@ -1,77 +1,51 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import { createClient } from '@/lib/supabase/server';
-import { Badge } from '@/components/ui/badge';
-import type { Firm } from '@/lib/types';
+import { ShieldCheck } from 'lucide-react';
+import { FirmsBrowser } from '@/components/firms/FirmsBrowser';
+import { LICENSED_FIRMS, LICENSED_FIRM_COUNT } from '@/data/firms';
 
 export const metadata: Metadata = {
-  title: 'Accounting Firms in Kenya',
-  description:
-    'Directory of accounting and audit firms across Kenya — Nairobi, Mombasa, Kisumu and beyond. Premium firms listed first.',
+  title: 'Licensed Accounting Firms in Kenya — ICPAK Register',
+  description: `Browse all ${LICENSED_FIRM_COUNT.toLocaleString()} ICPAK-licensed accounting and audit firms in Kenya. Search by name, find verified practitioners, or claim and manage your own firm's listing.`,
 };
 
-export const revalidate = 300;
+const firms = [...LICENSED_FIRMS].sort((a, b) =>
+  a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }),
+);
 
-export default async function FirmsPage() {
-  let firms: Firm[] = [];
-  try {
-    const supabase = await createClient();
-    const { data } = await supabase
-      .from('firms')
-      .select('*')
-      .eq('is_published', true)
-      .order('premium_status', { ascending: false })
-      .order('name', { ascending: true });
-    firms = (data as Firm[]) ?? [];
-  } catch {
-    firms = [];
-  }
-
+export default function FirmsPage() {
   return (
-    <div className="shell py-12">
-      <h1 className="text-2xl font-bold tracking-tight text-navy-900">
-        Accounting Firms
-      </h1>
-      <p className="mb-6 mt-1 text-sm text-slate-500">
-        {firms.length} firm{firms.length === 1 ? '' : 's'} across Kenya.
-      </p>
+    <div className="shell py-10 sm:py-12">
+      <div className="max-w-2xl">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-700">
+          <ShieldCheck className="h-3.5 w-3.5" />
+          ICPAK register
+        </span>
+        <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+          Licensed Accounting Firms in Kenya
+        </h1>
+        <p className="mt-3 text-base leading-relaxed text-slate-600">
+          Every one of the {LICENSED_FIRM_COUNT.toLocaleString()} accounting and
+          audit firms licensed by ICPAK, in one searchable directory. Find a firm
+          by name, or if you run one, claim your listing to add your details and
+          start receiving client leads.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {firms.map((firm) => (
-          <Link
-            key={firm.id}
-            href={`/firms/${firm.slug ?? firm.id}`}
-            className={`block rounded-xl border bg-white p-5 transition-all ${
-              firm.premium_status
-                ? 'border-gold-500/40 ring-1 ring-gold-500/20 hover:shadow-md'
-                : 'border-slate-200 hover:border-slate-300'
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg bg-slate-100">
-                {firm.logo_url ? (
-                  <Image src={firm.logo_url} alt={firm.name} fill sizes="44px" className="object-contain p-1" />
-                ) : (
-                  <span className="flex h-full w-full items-center justify-center font-semibold text-slate-400">
-                    {firm.name.charAt(0)}
-                  </span>
-                )}
-              </div>
-              <div className="min-w-0">
-                <h2 className="truncate font-semibold text-navy-900">{firm.name}</h2>
-                <p className="text-sm text-slate-500">
-                  {[firm.town, firm.location].filter(Boolean).join(', ')}
-                </p>
-              </div>
-            </div>
-            {firm.premium_status && (
-              <Badge variant="premium" className="mt-3">
-                Premium firm
-              </Badge>
-            )}
-          </Link>
-        ))}
+      <div className="mt-8">
+        <FirmsBrowser firms={firms} />
+      </div>
+
+      <div className="mt-12 rounded-2xl border border-brand-200/70 bg-brand-50/60 p-6 sm:p-8">
+        <h2 className="font-display text-xl font-bold text-navy-900">
+          Is this your firm?
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
+          These listings come straight from the ICPAK register, so most are not
+          yet managed by their owners. Claim yours to add your contact details,
+          services and team, appear higher in search, and receive matched client
+          enquiries. We verify every claim against the register before granting
+          access.
+        </p>
       </div>
     </div>
   );

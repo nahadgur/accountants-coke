@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { NavSegments } from '@/components/layout/NavSegments';
 import { MatchModal } from '@/components/match/MatchModal';
+import { ClaimModal } from '@/components/firms/ClaimModal';
 import './globals.css';
 
 const inter = Inter({
@@ -160,6 +161,7 @@ export default function RootLayout({
           </div>
         </footer>
         <MatchModal />
+        <ClaimModal />
       </body>
     </html>
   );
