@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { NavSegments } from '@/components/layout/NavSegments';
+import { MatchModal } from '@/components/match/MatchModal';
 import './globals.css';
 
 const inter = Inter({
@@ -158,6 +159,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <MatchModal />
       </body>
     </html>
   );

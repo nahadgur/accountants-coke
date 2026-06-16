@@ -105,6 +105,8 @@ export default async function ServicePage({ params }: Props) {
         <MatchCTA
           body={`Tell us what you need and we’ll connect you with up to 3 verified ${s.noun}s, free.`}
           ctaLabel="Get matched for free"
+          matchService={s.specialization ?? undefined}
+          matchLabel={s.name}
         />
       </div>
 

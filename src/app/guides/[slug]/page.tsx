@@ -106,6 +106,8 @@ export default async function GuidePage({ params }: Props) {
                     : 'Get matched with a verified accountant, free.'
                 }
                 ctaLabel="Get matched"
+                matchService={service?.specialization ?? undefined}
+                matchLabel={service?.name}
               />
             </div>
           )}

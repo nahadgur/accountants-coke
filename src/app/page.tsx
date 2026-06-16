@@ -364,7 +364,7 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">
-              <Link href="/match">
+              <Link href="/match" data-match>
                 <Button variant="brand" size="lg">
                   Get matched
                   <ArrowRight className="h-4 w-4" />

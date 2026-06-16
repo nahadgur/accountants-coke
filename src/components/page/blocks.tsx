@@ -123,6 +123,9 @@ export function MatchCTA({
   ctaLabel = 'Get matched',
   href = '/match',
   tone = 'dark',
+  matchService,
+  matchLabel,
+  matchLocation,
 }: {
   title?: string;
   body: string;
@@ -130,6 +133,9 @@ export function MatchCTA({
   ctaLabel?: string;
   href?: string;
   tone?: 'dark' | 'light';
+  matchService?: string;
+  matchLabel?: string;
+  matchLocation?: string;
 }) {
   const dark = tone === 'dark';
   return (
@@ -157,7 +163,14 @@ export function MatchCTA({
           </li>
         ))}
       </ul>
-      <Link href={href} className="mt-5 inline-block">
+      <Link
+        href={href}
+        data-match
+        data-match-service={matchService}
+        data-match-label={matchLabel}
+        data-match-location={matchLocation}
+        className="mt-5 inline-block"
+      >
         <Button variant={dark ? 'brand' : 'primary'} size="lg">
           {ctaLabel}
           <ArrowRight className="h-4 w-4" />
