@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { SERVICES } from '@/data/services';
 import { Icon } from '@/lib/icons';
 
@@ -22,26 +21,20 @@ export default function ServicesIndex() {
         CIFA professionals who handle it.
       </p>
 
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {SERVICES.map((s) => (
           <Link
             key={s.slug}
             href={`/services/${s.slug}`}
-            className="group flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-slate-300 hover:shadow-lift"
+            className="group flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-4 transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-soft"
           >
-            <span className="icon-tile h-11 w-11">
-              <Icon name={s.facts[0]?.icon ?? 'file'} />
-            </span>
-            <h2 className="mt-4 font-display text-lg font-bold text-navy-900">
+            <span className="text-sm font-semibold leading-snug text-navy-800">
               {s.name}
-            </h2>
-            <p className="mt-1.5 flex-1 text-sm leading-relaxed text-slate-600">
-              {s.lead('Kenya').slice(0, 110)}…
-            </p>
-            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 group-hover:text-brand-700">
-              Find a {s.noun}
-              <ArrowRight className="h-4 w-4 text-brand-600 transition-transform group-hover:translate-x-1" />
             </span>
+            <Icon
+              name={s.facts[0]?.icon ?? 'file'}
+              className="h-5 w-5 shrink-0 text-brand-600"
+            />
           </Link>
         ))}
       </div>
