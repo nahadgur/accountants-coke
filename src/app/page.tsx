@@ -97,7 +97,7 @@ export default async function HomePage() {
             className="grain absolute inset-0 opacity-[0.15] mix-blend-soft-light [mask-image:linear-gradient(to_right,black,black_35%,transparent_68%)]"
           />
 
-          <div className="relative flex min-h-[calc(100svh-8rem)] flex-col justify-center px-6 py-12 sm:min-h-[540px] sm:px-10 sm:py-16 lg:min-h-[600px] lg:px-14">
+          <div className="relative flex min-h-[calc(100svh-8rem)] flex-col justify-center px-6 py-12 sm:min-h-[460px] sm:px-10 sm:py-12 lg:min-h-[520px] lg:px-14">
             <div className="max-w-2xl animate-fade-up">
               <h1 className="display text-[2rem] font-extrabold leading-[1.02] tracking-[-0.03em] text-white [text-shadow:0_2px_30px_rgba(8,11,16,0.55)] sm:text-[3.5rem] sm:leading-[1.0] sm:tracking-[-0.035em] lg:text-[4.5rem]">
                 Kenya’s Verified Accountants,
