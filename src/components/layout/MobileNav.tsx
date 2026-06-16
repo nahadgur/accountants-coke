@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
@@ -39,9 +40,13 @@ export function MobileNav() {
     <div className="fixed inset-0 z-[60] flex flex-col bg-white px-6 pb-8 pt-4">
       <div className="flex items-center justify-between">
         <Link href="/" onClick={close} className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy-900 font-display text-sm font-extrabold text-white">
-            A
-          </span>
+          <Image
+            src="/logo-mark.png"
+            alt="Accountants.co.ke"
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
           <span className="font-display text-lg font-extrabold tracking-tight text-navy-900">
             Accountants<span className="text-brand-600">.co.ke</span>
           </span>

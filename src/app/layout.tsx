@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { NavSegments } from '@/components/layout/NavSegments';
@@ -92,9 +93,14 @@ export default function RootLayout({
         <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy-900 font-display text-sm font-extrabold text-white">
-                A
-              </span>
+              <Image
+                src="/logo-mark.png"
+                alt="Accountants.co.ke"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+                priority
+              />
               <span className="font-display text-lg font-extrabold tracking-tight text-navy-900">
                 Accountants
                 <span className="text-brand-600">.co.ke</span>
@@ -164,9 +170,13 @@ export default function RootLayout({
             <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
               <div className="col-span-2 md:col-span-1">
                 <div className="flex items-center gap-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500 font-display text-sm font-extrabold text-navy-950">
-                    A
-                  </span>
+                  <Image
+                    src="/logo-mark.png"
+                    alt="Accountants.co.ke"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8"
+                  />
                   <span className="font-display text-lg font-extrabold tracking-tight text-white">
                     Accountants<span className="text-brand-400">.co.ke</span>
                   </span>
