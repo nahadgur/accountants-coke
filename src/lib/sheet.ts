@@ -8,7 +8,7 @@ import 'server-only';
  * After deploying the Apps Script as a web app, paste its /exec URL here.
  */
 const WEBHOOK_URL =
-  'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec';
+  'https://script.google.com/macros/s/AKfycbygjPqH7ogrZ7rt_BNUqqHidg2vZkwvYYoBSztj8pN8G0dHQk7JQDi277VrSrDo9VsExg/exec';
 
 /** Fire-and-forget POST to the capture sheet. Returns true on a 2xx response. */
 export async function postToSheet(
