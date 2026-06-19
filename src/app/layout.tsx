@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     locale: 'en_KE',
   },
   robots: { index: true, follow: true },
+  verification: { google: 'u_yqaID2LILSgeM31wfmceaY5uwrgVZO3BFOq1Rl4U4' },
 };
 
 const SITE_URL = 'https://accountants.co.ke';
