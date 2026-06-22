@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { GUIDES, getGuide } from '@/data/guides';
 import { getService } from '@/data/services';
 import {
@@ -12,6 +14,24 @@ import {
   type Pro,
 } from '@/components/page/blocks';
 import { getServicePros, faqJsonLd, articleJsonLd } from '@/lib/seo';
+
+function renderInline(text: string): ReactNode[] {
+  const out: ReactNode[] = [];
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0; let m: RegExpExecArray | null; let k = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const label = m[1]; const href = m[2];
+    if (href.startsWith('/')) {
+      out.push(<Link key={`il-${k++}`} href={href}>{label}</Link>);
+    } else {
+      out.push(<a key={`il-${k++}`} href={href} target="_blank" rel="noopener noreferrer">{label}</a>);
+    }
+    last = re.lastIndex;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
 
 export const revalidate = 300;
 
@@ -86,12 +106,12 @@ export default async function GuidePage({ params }: Props) {
             <Prose>
               <h2>{sec.heading}</h2>
               {sec.body.map((p, j) => (
-                <p key={j}>{p}</p>
+                <p key={j}>{renderInline(p)}</p>
               ))}
               {sec.bullets && (
                 <ul>
                   {sec.bullets.map((b) => (
-                    <li key={b}>{b}</li>
+                    <li key={b}>{renderInline(b)}</li>
                   ))}
                 </ul>
               )}

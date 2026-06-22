@@ -155,6 +155,70 @@ export const GUIDES: Guide[] = [
     ],
     relatedService: 'etims',
   },
+  {
+    slug: 'vat-kenya',
+    title: 'VAT in Kenya: Registration, Rates and Filing',
+    metaTitle: 'VAT in Kenya: Rates, Registration and Filing (2026)',
+    description:
+      'When you must register for VAT in Kenya, the 16% standard rate and zero-rated and exempt supplies, plus how to file and pay on iTax by the 20th.',
+    lead: 'Value Added Tax is the consumption tax you charge on most goods and services you sell in Kenya. The real question for a growing business is usually whether you have crossed the line that makes registration compulsory, and what changes the day you do. This guide sets out who must register, the rates that apply, and how filing and payment work on iTax, with every figure checked against the Kenya Revenue Authority.',
+    updated: '2026-06-22',
+    sections: [
+      {
+        id: 'who-must-register',
+        heading: 'Who has to register for VAT',
+        body: [
+          "Registration turns on turnover, not profit. You must register for VAT once the value of your taxable goods and services reaches or is expected to reach KES 5 million in any twelve-month period, according to the [Kenya Revenue Authority's VAT guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/value-added-tax). The test is forward-looking as well as backward-looking: if you can reasonably see your sales crossing KES 5 million in the coming year, you are expected to register before you breach the threshold rather than after.",
+          "Businesses below KES 5 million can still apply for voluntary registration, which some do so they can reclaim the VAT they pay on stock and equipment. Voluntary registration is granted subject to KRA conditions, and it carries the same monthly filing duty as compulsory registration, so it is worth weighing the input tax you would recover against the ongoing compliance load.",
+          "If your turnover sits in the small-business range and VAT does not yet apply, your obligation may instead be Turnover Tax, which is a separate regime for smaller traders. The two do not overlap, so settle which one you fall under before you register for anything.",
+        ],
+      },
+      {
+        id: 'vat-rates',
+        heading: 'The rates: standard, zero-rated and exempt',
+        body: [
+          "Kenya runs three VAT categories, and the difference between them matters for what you can claim back.",
+          "The standard rate is 16%, and it applies to most taxable goods and services. This is the rate you add to your invoices and the rate buyers see at the till.",
+          "Zero-rated supplies are taxable but charged at 0%. These are listed in the Second Schedule to the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/) and include certain exports and a defined set of essential goods. Because zero-rated supplies are still taxable in law, a business making them can register and reclaim the input VAT it has paid, which is the practical reason the zero rate exists rather than a plain exemption.",
+          "Exempt supplies are different. They are listed in the First Schedule and are outside the VAT net entirely, which means you do not charge VAT on them but you also cannot deduct the input VAT on costs that relate to them. Getting the classification wrong is one of the more common ways businesses either overcharge customers or lose a refund they were entitled to, so confirm the schedule that covers your products before you set your prices.",
+        ],
+      },
+      {
+        id: 'filing-and-paying',
+        heading: 'How to file and pay VAT on iTax',
+        body: [
+          "VAT is a monthly tax. Both the return and the payment are due on or before the 20th day of the month following the tax period, and returns are filed online through iTax, as set out in the KRA VAT guidance. A return covering June, for example, is due by 20 July.",
+          "A registered business files every month even when there is nothing to declare. If you made no sales in a period you still submit a nil return rather than skipping the month, because the obligation attaches to your registration, not to whether you traded. This is the same NIL-return discipline that applies elsewhere in the KRA system, and missing it is treated as a failure to file rather than a harmless gap.",
+          "The return itself reconciles the VAT you charged on sales against the VAT you paid on purchases, and you remit the difference. That reconciliation now leans heavily on electronic invoicing: input VAT generally has to be supported by a valid electronic tax invoice for KRA to accept the deduction. If you are not yet set up for compliant invoicing, our explainer on [how eTIMS works for Kenyan businesses](/guides/etims-kenya/) covers what counts as a valid invoice and why an unvalidated purchase can be disallowed when you file your VAT.",
+        ],
+      },
+      {
+        id: 'late-penalties',
+        heading: 'What it costs to file or pay late',
+        body: [
+          "The penalties are deliberately steep enough to make timeliness cheaper than the alternative. For failing to file or remit VAT, KRA applies a penalty of the greater of 5% of the tax due or KES 10,000, and late payment then attracts interest of 1% per month on the unpaid amount until it is cleared. Because the interest compounds month on month, a balance left unpaid grows quietly in the background even after the one-off penalty has been charged.",
+          "The figures above are current at the time of writing, but VAT rates, thresholds and the exempt and zero-rated schedules are set by the Finance Act and can change each year. Always confirm the position for your own period against KRA before you rely on a number, especially around the June budget cycle when amendments take effect.",
+        ],
+      },
+      {
+        id: 'when-to-get-help',
+        heading: 'When to bring in an accountant',
+        body: [
+          "Plenty of businesses register for VAT and run their monthly returns themselves. The point where it usually pays to get help is when the classification gets messy: mixed supplies that are partly standard-rated and partly exempt, large input claims sitting in a refund position, or a backlog of unvalidated invoices threatening your deductions. Those are the situations where a single mistake repeats every month until someone catches it.",
+          "If you would rather have the registration decision, the monthly filing and the input-tax reconciliation handled properly from the start, tell us what your business needs and we will match you privately with up to three qualified accountants who handle VAT, free. You can also look through our [VAT service listings](/services/vat/) to see the kind of support available before you decide.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'When must I register for VAT in Kenya?', a: 'Once your taxable turnover reaches or is expected to reach KES 5 million in any twelve-month period. The test is forward-looking, so you should register before you cross the threshold if you can reasonably see sales reaching it.' },
+      { q: 'What is the VAT rate in Kenya?', a: 'The standard rate is 16% on most goods and services. Some supplies are zero-rated (taxable at 0%) and others are exempt (outside VAT entirely).' },
+      { q: 'What is the difference between zero-rated and exempt supplies?', a: 'Zero-rated supplies are taxable at 0%, so you can still reclaim input VAT on related costs. Exempt supplies are outside VAT, so you charge no VAT but cannot reclaim the input VAT on related costs.' },
+      { q: 'When are VAT returns due in Kenya?', a: 'VAT is monthly. The return and payment are due on or before the 20th of the month after the tax period, so June VAT is due by 20 July. File a NIL return for any month with nothing to declare.' },
+      { q: 'What is the penalty for filing or paying VAT late?', a: 'Failing to file or remit attracts a penalty of the greater of 5% of the tax due or KES 10,000, and late payment adds interest of 1% per month on the unpaid amount until it is cleared.' },
+      { q: 'Do I have to register for VAT below KES 5 million?', a: 'No, but you can apply for voluntary registration, often to reclaim input VAT on stock and equipment. It carries the same monthly filing duty. Smaller traders may fall under Turnover Tax instead.' },
+    ],
+    relatedService: 'vat',
+  },
 ];
 
 export const GUIDE_MAP = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
