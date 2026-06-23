@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { SERVICES } from '@/data/services';
 import { GUIDES } from '@/data/guides';
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://accountants.co.ke';
+const BASE = 'https://accountants.co.ke';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let jobs: { slug: string | null; id: string; updated_at: string | null }[] = [];
