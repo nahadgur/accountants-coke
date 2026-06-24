@@ -193,7 +193,6 @@ export default function RootLayout({
                 title="For clients"
                 links={[
                   { href: '/directory', label: 'Find a firm' },
-                  { href: '/best', label: 'Best firms by need' },
                   { href: '/match', label: 'Get matched' },
                   { href: '/guides', label: 'Tax guides' },
                 ]}
@@ -204,16 +203,16 @@ export default function RootLayout({
                 title="For firms"
                 links={[
                   { href: '/directory', label: 'Claim your firm' },
-                  { href: '/grow-your-practice', label: 'Grow your practice' },
                   { href: '/directory', label: 'Firms directory' },
+                  { href: '/guides', label: 'Tax guides' },
                 ]}
               />
               <FooterCol
                 title="Explore"
                 links={[
                   { href: '/jobs', label: 'Accounting jobs' },
-                  { href: '/careers', label: 'Accounting careers' },
                   { href: '/services', label: 'Services' },
+                  { href: '/directory', label: 'Firms directory' },
                 ]}
               />
             </div>

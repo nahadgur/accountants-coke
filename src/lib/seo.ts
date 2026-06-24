@@ -32,37 +32,6 @@ export function faqJsonLd(faqs: { q: string; a: string }[]) {
   };
 }
 
-/** BreadcrumbList structured data. Items are ordered root -> current. */
-export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      item: it.url,
-    })),
-  };
-}
-
-/** ItemList structured data for roundup pages. Emit ONLY when the list mirrors
- *  what is actually rendered on the page (never a fabricated ranking). */
-export function itemListJsonLd(items: { name: string; url: string }[], url: string) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    url,
-    numberOfItems: items.length,
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      url: it.url,
-    })),
-  };
-}
-
 /** Article structured data for guides. */
 export function articleJsonLd(opts: {
   title: string;

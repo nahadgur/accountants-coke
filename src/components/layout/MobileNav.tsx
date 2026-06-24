@@ -9,11 +9,8 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 const NAV = [
   { href: '/directory', label: 'Directory' },
-  { href: '/best', label: 'Best firms' },
   { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
-  { href: '/careers', label: 'Careers' },
-  { href: '/grow-your-practice', label: 'Grow your practice' },
   { href: '/guides', label: 'Guides' },
   { href: '/match', label: 'Get matched' },
 ];

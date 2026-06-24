@@ -9,11 +9,8 @@
 - [Firms directory](https://accountants.co.ke/directory): every ICPAK-licensed accounting firm in Kenya, searchable. Firms can claim their listing.
 - [Get matched](https://accountants.co.ke/match): tell us the service and location, get connected privately with verified firms.
 - [Accounting services](https://accountants.co.ke/services): tax, audit, bookkeeping, payroll, VAT, eTIMS, rental income tax and more.
-- [Guides](https://accountants.co.ke/guides): plain-language guides to Kenyan tax and compliance (rental income tax, eTIMS, VAT).
-- [Best firms by need](https://accountants.co.ke/best): how to choose an accounting firm in Kenya by sector and location, with verified ICPAK-licensed firms to compare.
+- [Guides](https://accountants.co.ke/guides): plain-language guides to Kenyan tax and compliance (rental income tax, eTIMS).
 - [Accounting jobs](https://accountants.co.ke/jobs): finance and accounting roles across Kenya.
-- [Accounting careers](https://accountants.co.ke/careers): how to qualify as an accountant in Kenya (KASNEB CPA, ICPAK), join the Big Four, salaries, and find jobs.
-- [Grow your practice](https://accountants.co.ke/grow-your-practice): for accounting firms, how to get clients, start a practice and market within ICPAK rules.
 - [How it works](https://accountants.co.ke/how-it-works)
 - [About](https://accountants.co.ke/about)
 - [FAQ](https://accountants.co.ke/faq)

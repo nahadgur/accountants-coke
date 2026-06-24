@@ -1,35 +1,7 @@
 import Link from 'next/link';
-import type { ReactNode } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { VerifiedMark } from '@/components/ui/VerifiedMark';
-
-/** Inline markdown-link parser shared by editorial renderers:
- *  [label](/internal) -> next/link, [label](https://x) -> new-tab anchor. */
-export function renderInline(text: string): ReactNode[] {
-  const out: ReactNode[] = [];
-  const re = /\[([^\]]+)\]\(([^)]+)\)/g;
-  let last = 0;
-  let m: RegExpExecArray | null;
-  let k = 0;
-  while ((m = re.exec(text)) !== null) {
-    if (m.index > last) out.push(text.slice(last, m.index));
-    const label = m[1];
-    const href = m[2];
-    if (href.startsWith('/')) {
-      out.push(<Link key={`il-${k++}`} href={href}>{label}</Link>);
-    } else {
-      out.push(
-        <a key={`il-${k++}`} href={href} target="_blank" rel="noopener noreferrer">
-          {label}
-        </a>,
-      );
-    }
-    last = re.lastIndex;
-  }
-  if (last < text.length) out.push(text.slice(last));
-  return out;
-}
 
 /* ============================================================
    Reusable editorial money-page template blocks.
@@ -197,68 +169,6 @@ export function MatchCTA({
         data-match-service={matchService}
         data-match-label={matchLabel}
         data-match-location={matchLocation}
-        className="mt-5 inline-block"
-      >
-        <Button variant={dark ? 'brand' : 'primary'} size="lg">
-          {ctaLabel}
-          <ArrowRight className="h-4 w-4" />
-        </Button>
-      </Link>
-    </div>
-  );
-}
-
-/** Plain-link CTA twin of MatchCTA for the non-matching funnels: the careers
- *  track links to the job board, the practice track opens the global ClaimModal
- *  (set `claim`). No `data-match`, so it never opens the match modal. */
-export function ActionCTA({
-  title = 'Take the next step',
-  body,
-  points = [],
-  ctaLabel,
-  href,
-  tone = 'dark',
-  claim = false,
-}: {
-  title?: string;
-  body: string;
-  points?: string[];
-  ctaLabel: string;
-  href: string;
-  tone?: 'dark' | 'light';
-  claim?: boolean;
-}) {
-  const dark = tone === 'dark';
-  return (
-    <div
-      className={[
-        'rounded-2xl p-6 sm:p-7',
-        dark
-          ? 'bg-navy-900 text-white'
-          : 'border border-slate-200 bg-white shadow-soft',
-      ].join(' ')}
-    >
-      <h3 className={dark ? 'font-display text-xl font-bold text-white' : 'font-display text-xl font-bold text-navy-900'}>
-        {title}
-      </h3>
-      <p className={dark ? 'mt-1.5 text-sm text-slate-300' : 'mt-1.5 text-sm text-slate-600'}>
-        {body}
-      </p>
-      {points.length > 0 && (
-        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          {points.map((p) => (
-            <li
-              key={p}
-              className={dark ? 'flex items-center gap-1.5 text-slate-200' : 'flex items-center gap-1.5 text-slate-700'}
-            >
-              <Check className="h-4 w-4 text-brand-500" /> {p}
-            </li>
-          ))}
-        </ul>
-      )}
-      <Link
-        href={href}
-        {...(claim ? { 'data-claim': true } : {})}
         className="mt-5 inline-block"
       >
         <Button variant={dark ? 'brand' : 'primary'} size="lg">

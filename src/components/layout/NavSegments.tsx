@@ -5,10 +5,8 @@ import { usePathname } from 'next/navigation';
 
 const ITEMS = [
   { href: '/directory', label: 'Directory' },
-  { href: '/best', label: 'Best firms' },
   { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
-  { href: '/careers', label: 'Careers' },
   { href: '/guides', label: 'Guides' },
 ];
 

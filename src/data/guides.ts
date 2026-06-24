@@ -1,11 +1,26 @@
-import type { Article, ArticleSection } from '@/data/content';
+import type { Faq } from '@/data/services';
 
 // Pillar guides (top-of-funnel SEO). Body is rendered as editorial prose with a
-// jump-nav; each guide funnels to matching via the related service. A Guide is
-// just an Article that uses `relatedService` instead of a generic `cta`.
+// jump-nav; each guide funnels to matching via the related service.
 
-export type GuideSection = ArticleSection;
-export type Guide = Article;
+export type GuideSection = {
+  id: string;
+  heading: string;
+  body: string[];
+  bullets?: string[];
+};
+
+export type Guide = {
+  slug: string;
+  title: string;
+  metaTitle?: string; // tight SEO title (falls back to title)
+  description: string;
+  lead: string;
+  updated: string; // ISO date
+  sections: GuideSection[];
+  faqs: Faq[];
+  relatedService?: string; // service slug, surfaces matching pros
+};
 
 export const GUIDES: Guide[] = [
   {
