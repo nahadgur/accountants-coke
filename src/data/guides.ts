@@ -219,6 +219,82 @@ export const GUIDES: Guide[] = [
     ],
     relatedService: 'vat',
   },
+  {
+    slug: 'how-to-file-vat-return-itax-kenya',
+    title: 'How to File a VAT Return on iTax in Kenya',
+    metaTitle: 'How to File a VAT Return on iTax in Kenya (2026)',
+    description:
+      'A step-by-step walkthrough of filing the monthly VAT3 return on iTax in Kenya, the 20th deadline, filing a NIL return, paying via M-Pesa, and the late-filing penalty.',
+    lead: 'Once you are VAT-registered, the return is a monthly job that runs whether or not you traded. This walks through filing the VAT3 on iTax, what to do in a month with no sales, how to pay, and the cost of missing the 20th.',
+    updated: '2026-06-27',
+    sections: [
+      {
+        id: 'before-you-file',
+        heading: 'Before you start',
+        body: [
+          "Filing a VAT return assumes you are already registered and have the VAT obligation active on your PIN. If you are not sure whether registration even applies to your turnover, our guide to [VAT in Kenya](/guides/vat-kenya/) sets out the KES 5 million threshold and the difference between standard, zero-rated and exempt supplies before you get to filing.",
+          "You file on iTax, the [Kenya Revenue Authority's online portal](https://itax.kra.go.ke), and you will need your PIN, your iTax password, and a complete record of every sale and purchase in the tax period. The return reconciles the VAT you charged on sales (output tax) against the VAT you paid on purchases (input tax), so a tidy record of both is what makes filing quick rather than painful.",
+          "One thing to settle first is your input tax. From 2026, KRA validates the purchases on your return against electronic invoices, so a cost without a valid eTIMS invoice can be disallowed and stripped out of your claim. Our explainer on [how eTIMS invoicing works](/guides/etims-kenya/) covers what counts as a valid invoice, which is worth reading before you total up your input VAT.",
+        ],
+      },
+      {
+        id: 'the-steps',
+        heading: 'Filing the VAT3 step by step',
+        body: [
+          "The return itself is the VAT3, and the flow on iTax is the same every month once you have done it once.",
+        ],
+        bullets: [
+          'Log in to iTax with your PIN and password',
+          'Open Returns, then File Return, and select the VAT obligation',
+          'Download the VAT3 Excel return template that iTax provides',
+          'Fill the sales schedule (output VAT) and the purchases schedule (input VAT) offline',
+          'Validate the template, which zips it ready for upload',
+          'Upload the zipped file back on iTax and submit',
+          'Download the acknowledgement receipt and keep it for your records',
+        ],
+      },
+      {
+        id: 'nil-return',
+        heading: 'Filing a NIL return when you did not trade',
+        body: [
+          "A registered business files every single month, even one with no sales at all. When there is nothing to declare you submit a NIL return rather than skipping the period, because the duty attaches to your registration, not to whether you traded that month. On iTax you select the same VAT obligation and choose the NIL filing option instead of uploading a full VAT3.",
+          "Treating a quiet month as a free pass is the most common avoidable mistake. A missed NIL return is recorded as a failure to file, and it carries the same penalty as failing to file a return with tax due, so the safest habit is to file something every month without exception.",
+        ],
+      },
+      {
+        id: 'paying',
+        heading: 'Paying what you owe',
+        body: [
+          "If your output VAT is higher than your input VAT for the period, the difference is payable and the deadline to pay is the same as the deadline to file: on or before the 20th of the month after the tax period. A return for June is filed and paid by 20 July.",
+          "To pay, you generate a payment slip on iTax and settle it through the listed channels, including M-Pesa using KRA's Paybill number 572572, your bank, or an authorised agent. Filing on time but paying late still triggers interest, so generate and clear the payment slip in the same sitting rather than filing and coming back to it.",
+        ],
+      },
+      {
+        id: 'deadlines-penalties',
+        heading: 'The deadline and what late costs you',
+        body: [
+          "The single date to hold onto is the 20th of the following month, which covers both filing and payment. The penalty structure behind that date is set in law under the Tax Procedures Act, alongside the wider VAT rules in the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/).",
+          "For failing to file or remit, KRA charges the greater of 5% of the tax due or KES 10,000. Late payment then adds interest of 1% per month on the unpaid amount until it is cleared, and because that interest compounds it keeps growing quietly even after the one-off penalty has landed. For a monthly tax those costs stack up fast across a year, which is why most businesses set a fixed reminder or hand the monthly filing to an accountant.",
+        ],
+      },
+      {
+        id: 'get-help',
+        heading: 'When to bring in help',
+        body: [
+          "Plenty of businesses run the VAT3 themselves once the routine is set. It usually pays to get help when the return gets complicated, for example mixed supplies that are partly exempt and partly standard-rated, a large input claim sitting in a refund position, or a backlog of purchases without valid invoices that threaten your deductions.",
+          "If you would rather hand the monthly filing and the input-tax reconciliation to someone who does it daily, tell us what your business needs and we will match you privately with up to three qualified accountants who handle VAT, free. You can also browse our [VAT service listings](/services/vat/) to see the support available first.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'How do I file a VAT return in Kenya?', a: 'Log in to iTax, open Returns then File Return, select the VAT obligation, download and fill the VAT3 Excel template with your sales and purchases, validate it to create a zip file, upload and submit, then save the acknowledgement.' },
+      { q: 'When is the VAT return deadline in Kenya?', a: 'The VAT3 return and any payment are due on or before the 20th of the month after the tax period. June VAT, for example, is filed and paid by 20 July.' },
+      { q: 'Do I have to file VAT if I had no sales?', a: 'Yes. You file a NIL return for any month with nothing to declare. A missed NIL return counts as a failure to file and carries the same penalty.' },
+      { q: 'How do I pay VAT in Kenya?', a: 'Generate a payment slip on iTax and pay it via M-Pesa using KRA Paybill 572572, through your bank, or an authorised agent, by the 20th.' },
+      { q: 'What is the penalty for filing a VAT return late?', a: 'Failing to file or remit attracts the greater of 5% of the tax due or KES 10,000, and late payment adds interest of 1% per month on the unpaid amount until cleared.' },
+    ],
+    relatedService: 'vat',
+  },
 ];
 
 export const GUIDE_MAP = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
