@@ -200,14 +200,6 @@ export const GUIDES: Guide[] = [
           "The figures above are current at the time of writing, but VAT rates, thresholds and the exempt and zero-rated schedules are set by the Finance Act and can change each year. Always confirm the position for your own period against KRA before you rely on a number, especially around the June budget cycle when amendments take effect.",
         ],
       },
-      {
-        id: 'when-to-get-help',
-        heading: 'When to bring in an accountant',
-        body: [
-          "Plenty of businesses register for VAT and run their monthly returns themselves. The point where it usually pays to get help is when the classification gets messy: mixed supplies that are partly standard-rated and partly exempt, large input claims sitting in a refund position, or a backlog of unvalidated invoices threatening your deductions. Those are the situations where a single mistake repeats every month until someone catches it.",
-          "If you would rather have the registration decision, the monthly filing and the input-tax reconciliation handled properly from the start, tell us what your business needs and we will match you privately with up to three qualified accountants who handle VAT, free. You can also look through our [VAT service listings](/services/vat/) to see the kind of support available before you decide.",
-        ],
-      },
     ],
     faqs: [
       { q: 'When must I register for VAT in Kenya?', a: 'Once your taxable turnover reaches or is expected to reach KES 5 million in any twelve-month period. The test is forward-looking, so you should register before you cross the threshold if you can reasonably see sales reaching it.' },
@@ -275,14 +267,6 @@ export const GUIDES: Guide[] = [
         body: [
           "The single date to hold onto is the 20th of the following month, which covers both filing and payment. The penalty structure behind that date is set in law under the Tax Procedures Act, alongside the wider VAT rules in the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/).",
           "For failing to file or remit, KRA charges the greater of 5% of the tax due or KES 10,000. Late payment then adds interest of 1% per month on the unpaid amount until it is cleared, and because that interest compounds it keeps growing quietly even after the one-off penalty has landed. For a monthly tax those costs stack up fast across a year, which is why most businesses set a fixed reminder or hand the monthly filing to an accountant.",
-        ],
-      },
-      {
-        id: 'get-help',
-        heading: 'When to bring in help',
-        body: [
-          "Plenty of businesses run the VAT3 themselves once the routine is set. It usually pays to get help when the return gets complicated, for example mixed supplies that are partly exempt and partly standard-rated, a large input claim sitting in a refund position, or a backlog of purchases without valid invoices that threaten your deductions.",
-          "If you would rather hand the monthly filing and the input-tax reconciliation to someone who does it daily, tell us what your business needs and we will match you privately with up to three qualified accountants who handle VAT, free. You can also browse our [VAT service listings](/services/vat/) to see the support available first.",
         ],
       },
     ],

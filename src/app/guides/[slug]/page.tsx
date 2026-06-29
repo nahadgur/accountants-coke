@@ -6,14 +6,11 @@ import { GUIDES, getGuide } from '@/data/guides';
 import { getService } from '@/data/services';
 import {
   PageHero,
-  JumpNav,
   MatchCTA,
   FaqAccordion,
   Prose,
-  ProsRow,
-  type Pro,
 } from '@/components/page/blocks';
-import { getServicePros, faqJsonLd, articleJsonLd } from '@/lib/seo';
+import { faqJsonLd, articleJsonLd } from '@/lib/seo';
 
 function renderInline(text: string): ReactNode[] {
   const out: ReactNode[] = [];
@@ -56,17 +53,6 @@ export default async function GuidePage({ params }: Props) {
   if (!g) notFound();
 
   const service = g.relatedService ? getService(g.relatedService) : undefined;
-  const profiles = service ? await getServicePros(service.specialization, 3) : [];
-  const pros: Pro[] = profiles.map((p) => ({
-    initial: p.full_name.charAt(0),
-    name: p.full_name,
-    cert: p.certification_type ?? 'CPA',
-    loc: [p.town, p.location].filter(Boolean).join(', '),
-    premium: p.design_tier === 'premium' && p.monthly_subscription_active,
-    bio: p.bio ?? '',
-    tags: p.specializations.slice(0, 2),
-    href: `/directory/${p.slug ?? p.id}`,
-  }));
 
   return (
     <article className="shell py-10">
@@ -91,15 +77,6 @@ export default async function GuidePage({ params }: Props) {
         lead={g.lead}
       />
 
-      <div className="mt-10">
-        <JumpNav
-          items={[
-            ...g.sections.map((s) => ({ label: s.heading, id: s.id })),
-            { label: 'FAQ', id: 'faq' },
-          ]}
-        />
-      </div>
-
       {g.sections.map((sec, i) => (
         <div key={sec.id}>
           <section id={sec.id} className="scroll-mt-28">
@@ -118,14 +95,12 @@ export default async function GuidePage({ params }: Props) {
             </Prose>
           </section>
           {i === 0 && (
-            <div className="my-10">
+            <div className="my-10 max-w-3xl">
               <MatchCTA
-                body={
-                  service
-                    ? `Rather hand it to a pro? Get matched with a verified ${service.noun}, free.`
-                    : 'Get matched with a verified accountant, free.'
-                }
-                ctaLabel="Get matched"
+                title="Need a hand with this?"
+                body="Tell us what you need and we'll get back to you. No charge to ask."
+                points={['Free to ask', 'No obligation', 'Quick reply']}
+                ctaLabel="Get in touch"
                 matchService={service?.specialization ?? undefined}
                 matchLabel={service?.name}
               />
@@ -134,18 +109,7 @@ export default async function GuidePage({ params }: Props) {
         </div>
       ))}
 
-      {pros.length > 0 && service && (
-        <section className="mt-12">
-          <ProsRow
-            heading={`${service.name} Accountants`}
-            sub="Verified CPA-K, ACCA and CIFA professionals who handle this."
-            pros={pros}
-            href={`/services/${service.slug}`}
-          />
-        </section>
-      )}
-
-      <section id="faq" className="mt-12 scroll-mt-28">
+      <section id="faq" className="mt-12 max-w-3xl scroll-mt-28">
         <h2 className="font-display text-2xl font-extrabold tracking-tight text-navy-900">
           Common Questions
         </h2>

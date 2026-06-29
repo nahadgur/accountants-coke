@@ -90,9 +90,7 @@ function MatchForm({ ctx, onClose }: { ctx: Ctx; onClose: () => void }) {
           Request received
         </h2>
         <p className="mt-2 text-sm text-slate-600">
-          {state.matched > 0
-            ? `We've notified ${state.matched} matching specialist${state.matched === 1 ? '' : 's'}. Expect to hear back shortly.`
-            : `We'll match you with a verified accountant and be in touch shortly.`}
+          Thanks. We&apos;ll review your request and be in touch shortly.
         </p>
         <button
           type="button"
@@ -117,12 +115,12 @@ function MatchForm({ ctx, onClose }: { ctx: Ctx; onClose: () => void }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="font-display text-xl font-extrabold text-navy-900">
-            Get matched, free
+            Tell us what you need
           </h2>
           <p className="mt-1 text-sm text-slate-600">
             {ctx.serviceLabel
-              ? `Tell us about your ${ctx.serviceLabel.toLowerCase()} needs and we'll connect you with up to 3 verified accountants.`
-              : `Tell us what you need and we'll connect you with up to 3 verified accountants.`}
+              ? `Share your ${ctx.serviceLabel.toLowerCase()} needs and we'll be in touch.`
+              : `Share what you need and we'll be in touch.`}
           </p>
         </div>
         <button
@@ -210,7 +208,7 @@ function MatchForm({ ctx, onClose }: { ctx: Ctx; onClose: () => void }) {
           disabled={pending}
           className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700 disabled:opacity-60"
         >
-          {pending ? 'Matching…' : 'Get matched'}
+          {pending ? 'Sending…' : 'Send'}
           {!pending && <ArrowRight className="h-4 w-4" />}
         </button>
         <p className="text-center text-xs text-slate-400">

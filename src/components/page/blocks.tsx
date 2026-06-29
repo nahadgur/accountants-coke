@@ -279,7 +279,7 @@ export function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
 /** Editorial body typography wrapper for guide prose. */
 export function Prose({ children }: { children: React.ReactNode }) {
   return (
-    <div className="max-w-2xl space-y-4 text-[1.0625rem] leading-relaxed text-slate-700 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:tracking-tight [&_h2]:text-navy-900 [&_h3]:mt-8 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-navy-900 [&_a]:font-semibold [&_a]:text-brand-700 [&_a:hover]:underline [&_strong]:text-navy-900 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5">
+    <div className="max-w-3xl space-y-4 text-[1.0625rem] leading-relaxed text-slate-700 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:tracking-tight [&_h2]:text-navy-900 [&_h3]:mt-8 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-navy-900 [&_a]:font-semibold [&_a]:text-brand-700 [&_a:hover]:underline [&_strong]:text-navy-900 [&_ul]:list-disc [&_ul]:space-y-1.5 [&_ul]:pl-5">
       {children}
     </div>
   );

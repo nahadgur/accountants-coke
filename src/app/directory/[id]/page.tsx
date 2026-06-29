@@ -125,63 +125,17 @@ export default async function ProfileDetailPage({ params }: PageProps) {
           </p>
         )}
 
-        {/* Contact / CTA block: premium-only */}
-        {premium ? (
-          <div className="mt-8 space-y-3 border-t border-slate-100 pt-6">
-            <div className="flex flex-wrap gap-3">
-              {profile.whatsapp && (
-                <a
-                  href={`https://wa.me/${profile.whatsapp.replace(/\D/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-md bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-600"
-                >
-                  WhatsApp
-                </a>
-              )}
-              {profile.phone && (
-                <a
-                  href={`tel:${profile.phone}`}
-                  className="rounded-md bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-800"
-                >
-                  Call {profile.phone}
-                </a>
-              )}
-              {profile.email && (
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="rounded-md border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                >
-                  Email
-                </a>
-              )}
-            </div>
-
-            {profile.calendly_url && (
-              <iframe
-                title="Book a consultation"
-                src={profile.calendly_url}
-                className="mt-4 h-[640px] w-full rounded-lg border border-slate-200"
-              />
-            )}
-          </div>
-        ) : (
-          <div className="mt-8 rounded-lg border border-gold-500/30 bg-gold-50/40 p-5 text-center">
-            <p className="text-sm font-medium text-navy-900">
-              Contact details are available on Premium profiles.
-            </p>
-            <p className="mt-1 text-sm text-slate-500">
-              Are you {profile.full_name}?{' '}
-              <Link
-                href="/dashboard/upgrade"
-                className="font-semibold text-gold-600 hover:underline"
-              >
-                Upgrade to Premium
-              </Link>{' '}
-              to display your phone, WhatsApp and booking link.
-            </p>
-          </div>
-        )}
+        {/* Lead capture: a single Message button opens the global lead modal.
+            Direct contact details are intentionally not surfaced for now. */}
+        <div className="mt-8 border-t border-slate-100 pt-6">
+          <button
+            type="button"
+            data-match
+            className="rounded-md bg-navy-900 px-6 py-2.5 text-sm font-semibold text-white hover:bg-navy-800"
+          >
+            Message
+          </button>
+        </div>
 
         {/* Premium: active job openings from the firm */}
         {premium && firmJobs.length > 0 && (
