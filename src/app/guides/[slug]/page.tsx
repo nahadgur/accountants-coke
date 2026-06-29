@@ -95,7 +95,7 @@ export default async function GuidePage({ params }: Props) {
             </Prose>
           </section>
           {i === 0 && (
-            <div className="my-10 max-w-3xl">
+            <div className="my-10">
               <MatchCTA
                 title="Need a hand with this?"
                 body="Tell us what you need and we'll get back to you. No charge to ask."
@@ -109,11 +109,11 @@ export default async function GuidePage({ params }: Props) {
         </div>
       ))}
 
-      <section id="faq" className="mt-12 max-w-3xl scroll-mt-28">
+      <section id="faq" className="mt-12 scroll-mt-28">
         <h2 className="font-display text-2xl font-extrabold tracking-tight text-navy-900">
           Common Questions
         </h2>
-        <div className="mt-5 max-w-3xl">
+        <div className="mt-5">
           <FaqAccordion items={g.faqs} />
         </div>
       </section>
