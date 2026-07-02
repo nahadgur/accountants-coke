@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { SERVICES } from '@/data/services';
-import { GUIDES } from '@/data/guides';
+import { PUBLISHED_GUIDES } from '@/data/guides';
 
 const BASE = 'https://accountants.co.ke';
 
@@ -39,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/services/${s.slug}`,
     priority: 0.8,
   }));
-  const guideRoutes = GUIDES.map((g) => ({
+  const guideRoutes = PUBLISHED_GUIDES().map((g) => ({
     url: `${BASE}/guides/${g.slug}`,
     lastModified: new Date(g.updated),
     priority: 0.7,
