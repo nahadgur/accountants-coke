@@ -20,11 +20,7 @@ export type Guide = {
   sections: GuideSection[];
   faqs: Faq[];
   relatedService?: string; // service slug, surfaces matching pros
-  draft?: boolean; // when true: 404s in prod, excluded from index + sitemap + static params
 };
-
-/** Guides that are live (not parked as drafts). Use everywhere a guide is listed publicly. */
-export const PUBLISHED_GUIDES = (): Guide[] => GUIDES.filter((g) => !g.draft);
 
 export const GUIDES: Guide[] = [
   {
@@ -282,77 +278,6 @@ export const GUIDES: Guide[] = [
       { q: 'What is the penalty for filing a VAT return late?', a: 'Failing to file or remit attracts the greater of 5% of the tax due or KES 10,000, and late payment adds interest of 1% per month on the unpaid amount until cleared.' },
     ],
     relatedService: 'vat',
-  },
-  {
-    slug: 'turnover-tax-kenya',
-    draft: true,
-    title: 'Turnover Tax in Kenya: Who Pays, the Rate and How to File',
-    metaTitle: 'Turnover Tax in Kenya: Rate, Threshold and Filing (2026)',
-    description:
-      'Turnover Tax in Kenya explained: the 1.5% rate on gross sales, the KES 1M to 25M threshold, who is excluded, filing by the 20th on iTax, and the penalties.',
-    lead: 'Turnover Tax is the simplified regime for smaller Kenyan businesses that sit below the VAT line but above the smallest traders. It taxes your sales, not your profit, so it is quick to work out and easy to get wrong. Here is who falls under it, the rate, and how filing works.',
-    updated: '2026-07-02',
-    sections: [
-      {
-        id: 'what-is-tot',
-        heading: 'What Turnover Tax is',
-        body: [
-          "Turnover Tax, usually shortened to TOT, is a simplified tax for small businesses that charges a flat rate on your gross sales rather than on your profit. Because it is worked out on turnover, you do not deduct costs, stock, rent or wages first; the rate applies to the money that comes in from your trade.",
-          "That simplicity is the whole point of the regime. It exists so that a small trader can meet their obligation from a basic sales record instead of preparing full accounts, and it sits deliberately between the smallest informal traders and the businesses large enough to fall under [VAT and the standard company tax rules](/guides/vat-kenya/). It is a final tax on that business income, so once you have paid it for the period there is nothing further to reconcile on those sales.",
-          "TOT covers business turnover only. It does not sweep in rental income, which is taxed under its own monthly regime, nor income that is management, professional or training fees, nor income that has already suffered a final withholding tax such as qualifying dividends or interest. If your income is a mix of these, only the trading turnover goes into the TOT calculation.",
-        ],
-      },
-      {
-        id: 'who-pays',
-        heading: 'Who has to pay TOT',
-        body: [
-          "The regime is defined by turnover, and the band is narrow. You fall under TOT if your gross turnover from business is more than KES 1 million and does not exceed KES 25 million in a year, according to the [Kenya Revenue Authority's Turnover Tax guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot). Below KES 1 million you are outside TOT; above KES 25 million you leave it and move onto the standard income tax and, once your taxable sales reach the registration line, VAT.",
-          "Both individuals and companies can be liable, so a limited company trading within that band is not automatically on corporation tax; it can sit under TOT the same as a sole trader. The regime applies to residents only. A non-resident carrying on business in Kenya is taxed under the ordinary rules, not TOT.",
-          "You can also choose to leave the regime. Under the [Income Tax (Turnover Tax) Rules](https://new.kenyalaw.org/akn/ke/act/ln/2008/5/eng@2022-12-31), a person may elect by written notice to the Commissioner not to be taxed under TOT and to be assessed under the annual income tax regime instead. That election is worth modelling with an accountant, because a business with thin margins can pay more on a percentage of gross sales than it would on its actual profit, and the standard regime lets you deduct real costs.",
-        ],
-        bullets: [
-          'Turnover above KES 1 million and up to KES 25 million a year',
-          'Open to both individuals and companies that are resident',
-          'Excludes rental income, professional or management fees, and final-withholding income',
-          'You can elect out in writing and be taxed on profit instead',
-        ],
-      },
-      {
-        id: 'rate',
-        heading: 'The rate and how it is worked out',
-        body: [
-          "The current rate is 1.5% of gross sales. It has moved in recent years: it was reduced back to 1.5% with effect from 1 July 2023 after a spell at a higher figure, so any guide still quoting 3% is out of date. Always confirm the live rate against KRA before you file, because the rate and the threshold are set by the Finance Act and can be changed in the annual budget cycle.",
-          "Working out what you owe is straightforward. You take the gross sales for the month, ignore your costs entirely, and apply 1.5%. On monthly sales of KES 400,000, for example, the TOT due is KES 6,000. There is no personal relief, no expense set-off and no capital allowance in this regime; the trade-off for the low headline rate is that you are taxed on the top line rather than the bottom line.",
-          "This is exactly why the election out matters. A business turning over KES 20 million on wafer-thin margins can find that 1.5% of sales dwarfs what the standard regime would charge on its slim profit, while a high-margin service business often prefers the simplicity of TOT. The maths is specific to your numbers, so it is a decision to run rather than assume.",
-        ],
-      },
-      {
-        id: 'filing',
-        heading: 'Filing and paying on iTax',
-        body: [
-          "TOT is a monthly obligation. The return and the payment are both due on or before the 20th day of the month following the tax period, so sales made in January are declared and paid by 20 February. You file through iTax, and you pay the tax due using the same channels as the rest of the KRA system, including M-Pesa via the KRA Paybill, your bank, or an authorised agent.",
-          "As with the other monthly taxes, a quiet month is not a month off. If you had no sales you still file a nil return for the period rather than skipping it, because the duty is tied to your registration for the tax, not to whether you traded. Falling into the same monthly rhythm you would use for [filing a VAT return](/guides/how-to-file-vat-return-itax-kenya/) keeps the 20th from slipping.",
-          "One practical point that catches people out is invoicing. Being on TOT rather than VAT does not exempt you from electronic tax invoicing; the requirement to issue invoices through the system applies to persons in business generally. Our explainer on [how eTIMS works](/guides/etims-kenya/) sets out what a valid electronic invoice looks like and why it matters even for a small trader on the simplified regime.",
-        ],
-      },
-      {
-        id: 'penalties',
-        heading: 'What late filing costs',
-        body: [
-          "The penalties are modest per month but they compound if ignored. Late filing of a TOT return attracts a penalty of KES 1,000 for each month the return is outstanding. Late payment of the tax adds a penalty of 5% of the tax due, and interest then runs at 1% per month on the unpaid amount until it is cleared, so a small balance left alone keeps growing quietly in the background.",
-          "Because the return is monthly, a habit of letting it drift turns a small tax into a running penalty. Most traders on TOT either set a fixed reminder for the 20th or hand the monthly filing to a professional, and a tax accountant can also file the election out and model whether TOT or the standard regime leaves you better off. If you would rather not manage the monthly cycle yourself, matching with a verified [tax accountant through our directory](/services/tax-returns/) takes the deadline off your plate.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What is the Turnover Tax rate in Kenya?', a: 'Turnover Tax is 1.5% of gross sales, applied with no deduction for costs. The rate was reduced to 1.5% with effect from 1 July 2023, so older figures such as 3% are out of date. Confirm the current rate on the KRA portal before you file.' },
-      { q: 'Who has to pay Turnover Tax in Kenya?', a: 'Resident individuals and companies whose gross business turnover is more than KES 1 million and up to KES 25 million a year. Below KES 1 million you are outside TOT; above KES 25 million you move to the standard income tax rules and possibly VAT.' },
-      { q: 'What income is excluded from Turnover Tax?', a: 'TOT does not apply to rental income, management, professional or training fees, or income already subject to a final withholding tax such as qualifying dividends or interest. It also does not apply to non-residents.' },
-      { q: 'When is Turnover Tax filed and paid?', a: 'TOT is monthly. Both the return and the payment are due on or before the 20th of the month after the tax period, filed on iTax. You file a nil return for any month with no sales.' },
-      { q: 'Can I opt out of Turnover Tax?', a: 'Yes. You can elect in writing to the Commissioner not to be taxed under TOT, which puts you on the annual income tax regime where you are taxed on profit and can deduct costs. It is worth modelling both with an accountant.' },
-      { q: 'What is the penalty for filing Turnover Tax late?', a: 'Late filing attracts a penalty of KES 1,000 for each month the return is outstanding. Late payment adds 5% of the tax due, plus interest of 1% per month on the unpaid amount until cleared.' },
-    ],
-    relatedService: 'tax-returns',
   },
 ];
 

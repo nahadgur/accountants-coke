@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { PUBLISHED_GUIDES, getGuide } from '@/data/guides';
+import { GUIDES, getGuide } from '@/data/guides';
 import { getService } from '@/data/services';
 import {
   PageHero,
@@ -35,12 +35,12 @@ export const revalidate = 300;
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return PUBLISHED_GUIDES().map((g) => ({ slug: g.slug }));
+  return GUIDES.map((g) => ({ slug: g.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const g = getGuide((await params).slug);
-  if (!g || g.draft) return { title: 'Guide not found' };
+  if (!g) return { title: 'Guide not found' };
   return {
     title: g.metaTitle ?? g.title,
     description: g.description,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function GuidePage({ params }: Props) {
   const g = getGuide((await params).slug);
-  if (!g || g.draft) notFound();
+  if (!g) notFound();
 
   const service = g.relatedService ? getService(g.relatedService) : undefined;
 
