@@ -354,6 +354,256 @@ export const GUIDES: Guide[] = [
     ],
     relatedService: 'tax-returns',
   },
+  {
+    slug: 'vat-registration-threshold-kenya',
+    draft: true,
+    title: 'VAT Registration Threshold in Kenya: When You Must Register',
+    metaTitle: 'VAT Registration Threshold in Kenya (KES 5M)',
+    description:
+      'The KES 5 million VAT registration threshold in Kenya explained: the forward-looking test, voluntary registration, deregistration, and what changes the day you register.',
+    lead: 'Value Added Tax turns on one line in your accounts more than any other. Cross it and registration becomes compulsory, with a new set of monthly duties from day one. Here is exactly where the line sits, how the test works both ways, and when it can pay to register before you have to.',
+    updated: '2026-07-03',
+    sections: [
+      {
+        id: 'the-threshold',
+        heading: 'The KES 5 million line',
+        body: [
+          "You must register for VAT once the value of your taxable supplies reaches or is expected to reach KES 5 million in any twelve-month period, according to the [Kenya Revenue Authority's VAT guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/value-added-tax). The figure is turnover, not profit, and it counts only your taxable supplies, meaning the standard-rated and zero-rated sales you make. Purely exempt supplies do not go into the count, which is why classifying your products correctly matters before you even get to the threshold question.",
+          "The test is measured across a rolling twelve months rather than a calendar or accounting year. That is easy to miss: a seasonal business can breach the line on a run of good months even if the full-year figure looks comfortable, so it is the trailing twelve months you watch, not the annual return.",
+        ],
+        bullets: [
+          'Registration is compulsory at KES 5 million of taxable supplies',
+          'The count is turnover, not profit, and excludes exempt supplies',
+          'The period is any rolling twelve months, not the accounting year',
+        ],
+      },
+      {
+        id: 'forward-looking',
+        heading: 'Why the test looks forward as well as back',
+        body: [
+          "The threshold is not only backward-looking. If you can reasonably expect your taxable supplies to reach KES 5 million in the coming twelve months, you are expected to register before you breach the line rather than after. A signed contract, a large order or a clear growth trend can trigger the expectation, and KRA treats the duty as arising when the expectation is reasonable, not when the money finally lands.",
+          "This is the point businesses get wrong most often. Waiting until the annual accounts confirm the breach can mean you have been trading above the line, and charging no VAT, for months you should have been registered. Any VAT you failed to charge in that window is generally still owed, which is a bill you have to find rather than one your customers covered. Watching a rolling total and registering on the expectation is what keeps that gap from opening, and it is the same discipline that runs through [VAT in Kenya](/guides/vat-kenya/) more broadly.",
+        ],
+      },
+      {
+        id: 'voluntary',
+        heading: 'Registering voluntarily below the line',
+        body: [
+          "A business under KES 5 million can apply for voluntary registration, and some do so deliberately. The usual reason is input tax: once registered, you can reclaim the VAT you pay on stock, equipment and other business costs, which a supplier buying heavily from VAT-registered wholesalers may find worthwhile. Selling mostly to other registered businesses is another common trigger, since they can reclaim the VAT you charge, so adding it does not raise your real price to them.",
+          "Voluntary registration is granted subject to KRA conditions and it carries exactly the same duties as compulsory registration. You file every month, you charge VAT on your standard-rated sales, and you must issue valid electronic invoices for the input tax to hold up, which is where [how eTIMS invoicing works](/guides/etims-kenya/) becomes part of the decision rather than a separate chore. Weigh the input tax you would recover against that ongoing compliance load before you apply, because the paperwork does not scale down just because you registered early.",
+        ],
+      },
+      {
+        id: 'after-you-register',
+        heading: 'What changes the day you register',
+        body: [
+          "Registration is the start of a monthly obligation, not a one-off event. From the effective date you charge 16% on standard-rated supplies, file a return every month, and pay the difference between the VAT you charged and the input VAT you can reclaim. The return and payment are due on or before the 20th of the following month on iTax, and a month with no sales still needs a nil return rather than a skipped filing. The full monthly routine, including how to complete the VAT3, is set out in the walkthrough on [filing a VAT return on iTax](/guides/how-to-file-vat-return-itax-kenya/).",
+          "Getting the effective date and the first return right is the part worth handing over. A verified [VAT accountant through the directory](/services/vat/) can confirm whether you have actually crossed the line, register you from the correct date, and set up compliant invoicing so your first filings do not unravel under KRA's expense validation.",
+        ],
+      },
+      {
+        id: 'deregistration',
+        heading: 'Coming back off the register',
+        body: [
+          "Registration is not permanent. A business that stops making taxable supplies altogether must apply to deregister, and a business whose turnover has fallen below KES 5 million in a year may opt to deregister, though that one is a choice rather than an automatic switch. The legal basis for the whole regime sits in the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/), which is worth reading alongside the KRA guidance when a borderline case comes up.",
+          "Two practical points catch people out. First, you keep filing returns until KRA confirms the deregistration, not from the day you apply, so a premature stop still counts as a missed filing. Second, KRA will not approve deregistration while you have outstanding returns or unpaid VAT, so the account has to be clean before the application goes in.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What is the VAT registration threshold in Kenya?', a: 'You must register for VAT once your taxable supplies reach or are expected to reach KES 5 million in any twelve-month period. The count is turnover, not profit, and it excludes exempt supplies.' },
+      { q: 'Is the VAT threshold based on the calendar year?', a: 'No. It is any rolling twelve-month period, not the calendar or accounting year. A seasonal run of strong months can breach the line even if the full-year figure looks lower.' },
+      { q: 'Can I register for VAT voluntarily in Kenya?', a: 'Yes. A business below KES 5 million can apply for voluntary registration, often to reclaim input VAT on stock and equipment. It carries the same monthly filing duty as compulsory registration.' },
+      { q: 'Do I have to register before I cross the threshold?', a: 'If you can reasonably expect taxable supplies to reach KES 5 million in the coming twelve months, you are expected to register before you breach the line, not after. VAT you failed to charge while above the line is generally still owed.' },
+      { q: 'How do I deregister from VAT in Kenya?', a: 'Apply to KRA. You must if you have stopped making taxable supplies, and you may if turnover has fallen below KES 5 million in a year. Keep filing until KRA confirms it, and clear all outstanding returns and VAT first.' },
+    ],
+    relatedService: 'vat',
+  },
+  {
+    slug: 'corporation-tax-in-kenya',
+    draft: true,
+    title: 'Corporation Tax in Kenya: The Rate, Who Pays and What Is Taxed',
+    metaTitle: 'Corporation Tax in Kenya: Rate and Scope (2026)',
+    description:
+      'Corporation tax in Kenya explained: the 30% resident company rate, how branches and non-residents are taxed, what counts as taxable profit, and the filing deadline.',
+    lead: 'Corporation tax is the tax a company pays on its profits, and for most Kenyan companies the headline rate is settled. What trips businesses up is the detail around it: residence, how branches are treated, and what actually counts as taxable profit once the accounts are adjusted. Here is how it works.',
+    updated: '2026-07-03',
+    sections: [
+      {
+        id: 'the-rate',
+        heading: 'The resident company rate',
+        body: [
+          "A resident company in Kenya is taxed on its profits at 30%, the standard corporation tax rate confirmed on the [Kenya Revenue Authority's company tax pages](https://www.kra.go.ke/business/companies-partnerships/companies-partnerships-pin-taxes). The rate applies to the taxable profit for the year of income, which is the accounting profit adjusted for tax purposes rather than the raw figure at the bottom of your profit and loss account. Rates are set by the annual Finance Act and can change, so confirm the live figure against KRA before you rely on it for a return.",
+          "Corporation tax sits apart from the other taxes a company handles. It is charged on profit, whereas VAT is charged on turnover and PAYE is deducted from staff wages, so a company can owe all three at once for entirely different reasons. A small trader below the VAT line can still owe corporation tax on its profit, and a loss-making company can still owe VAT on its sales.",
+        ],
+      },
+      {
+        id: 'residence',
+        heading: 'When a company is resident',
+        body: [
+          "Residence decides which rules apply. A company is resident in Kenya if it is incorporated under Kenyan law, or if the management and control of its affairs are exercised in Kenya in a given year of income. Incorporation abroad does not put a company outside Kenyan tax if the real decision-making happens in Nairobi, which is a point group structures need to think through carefully.",
+          "A resident company is taxed on its worldwide business income, subject to relief for foreign tax already paid, while a non-resident is taxed only on the income attributable to its Kenyan activity. That distinction is why residence is settled first and the rate second, because the two answers together decide what actually falls into the Kenyan tax net.",
+        ],
+      },
+      {
+        id: 'branches-non-residents',
+        heading: 'Branches and non-resident companies',
+        body: [
+          "A non-resident company trading in Kenya through a branch or permanent establishment is taxed at 30% on the profits attributable to that Kenyan presence, the same headline rate as a resident company, as summarised in the [PwC Kenya tax overview](https://taxsummaries.pwc.com/kenya/corporate/taxes-on-corporate-income). The older gap between the branch rate and the resident rate has closed, so the choice between a branch and a locally incorporated subsidiary now turns more on liability, repatriation and administration than on a raw rate difference.",
+          "Non-residents that supply services into Kenya over the internet or an electronic network may instead fall under the Significant Economic Presence tax, which replaced the Digital Service Tax and runs on a deemed-profit basis rather than the 30% company rate. If a foreign group is weighing how to structure a Kenyan operation, that is exactly the kind of question a verified [company tax accountant through the directory](/services/tax-returns/) is there to model before anything is registered.",
+        ],
+      },
+      {
+        id: 'taxable-profit',
+        heading: 'What counts as taxable profit',
+        body: [
+          "Taxable profit is not the same as accounting profit. You start from the profit in your accounts, then add back expenses the law does not allow, such as fines, private costs and general provisions, and you claim capital allowances in place of the depreciation you charged in the books. The result is the figure the 30% actually applies to, which is why two companies with identical accounting profit can owe different tax.",
+          "The adjustment that increasingly matters is expense validation. From 2026 KRA cross-checks the costs on a company return against electronic invoices, so a genuine expense without a valid record can be disallowed and pushed back into taxable profit. Keeping every purchase backed by a compliant invoice is now part of protecting the rate, which is where [how eTIMS invoicing works](/guides/etims-kenya/) feeds straight into your corporation tax bill.",
+        ],
+      },
+      {
+        id: 'filing',
+        heading: 'Filing and paying company tax',
+        body: [
+          "A company files an annual income tax return on iTax, and the balance of tax for the year is due by the end of the sixth month after the accounting year-end. For a December year-end that means the return and any balance are due by 30 June. The tax itself is not left entirely to year-end, though: profitable companies pay in advance during the year through instalment tax, and the annual return then reconciles what has already been paid against the final liability.",
+          "A company registered for VAT also runs that monthly cycle in parallel, which is a different tax on a different base with its own deadline. The overlap between the annual company return and the monthly [VAT obligation](/guides/vat-kenya/) is where a lot of small companies lose track, so mapping every deadline for your own year-end at the start of the year is time well spent.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What is the corporation tax rate in Kenya?', a: 'Resident companies are taxed on their profits at 30%. Rates are set by the Finance Act and can change, so confirm the current figure on the KRA portal before you file.' },
+      { q: 'How much tax do branches of foreign companies pay in Kenya?', a: 'A non-resident company trading through a Kenyan branch or permanent establishment is taxed at 30% on the profits attributable to that Kenyan presence, the same headline rate as a resident company.' },
+      { q: 'When is a company resident in Kenya for tax?', a: 'A company is resident if it is incorporated under Kenyan law, or if the management and control of its affairs are exercised in Kenya in a given year of income.' },
+      { q: 'Is corporation tax charged on turnover or profit?', a: 'On profit. Corporation tax applies to taxable profit, which is accounting profit adjusted for tax, including adding back disallowed expenses and claiming capital allowances in place of depreciation.' },
+      { q: 'When is the company tax return due in Kenya?', a: 'The annual income tax return and the balance of tax are due by the end of the sixth month after the accounting year-end, so 30 June for a December year-end. Profitable companies also pay instalment tax during the year.' },
+    ],
+    relatedService: 'tax-returns',
+  },
+  {
+    slug: 'instalment-tax-in-kenya',
+    draft: true,
+    title: 'Instalment Tax in Kenya: Who Pays, the Quarters and How to Estimate',
+    metaTitle: 'Instalment Tax in Kenya: Dates and Rules (2026)',
+    description:
+      'Instalment tax in Kenya explained: the KES 40,000 threshold, the 110% prior-year and current-year methods, the four quarterly dates, the agricultural schedule, and the balance of tax.',
+    lead: 'Instalment tax is how Kenya collects income tax during the year rather than all at once at the end of it. If your tax bill is large enough, KRA expects payments on account across four quarters. Here is who it applies to, how to work out each instalment, and the dates you cannot let slip.',
+    updated: '2026-07-03',
+    sections: [
+      {
+        id: 'what-it-is',
+        heading: 'What instalment tax is',
+        body: [
+          "Instalment tax is not a separate tax. It is income tax paid in advance, in stages, during the year of income, and then reconciled against your final liability when you file the annual return. The idea is to spread the burden and give KRA a steadier flow of revenue rather than a single year-end lump, so the money you pay in instalments is simply your own income tax settled early.",
+          "It applies to both individuals and companies with income that is not already taxed at source. Someone whose income is entirely PAYE has their tax deducted every month by their employer, so instalment tax rarely bites them. It is the business owner, landlord on the standard regime, or company with trading profit who has to pay it, because nobody is withholding their tax for them along the way.",
+        ],
+      },
+      {
+        id: 'who-pays',
+        heading: 'Who has to pay it',
+        body: [
+          "For an individual, instalment tax applies once your tax liability for the year is expected to exceed KES 40,000 after accounting for any PAYE and withholding tax already deducted, as set out in the [Kenya Revenue Authority's instalment tax guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/installment-tax). Below that, you settle the whole bill with your annual return instead. Companies with a corporation tax liability generally fall within the system regardless of that individual threshold.",
+          "There is one clear exclusion worth stating plainly. Businesses on the simplified Turnover Tax regime do not pay instalment tax, because it already collects a flat percentage of sales every month, so layering instalments on top would double up. That regime is the small-trader alternative to registering for a turnover-based tax like [VAT in Kenya](/guides/vat-kenya/), and if you sit under it this obligation is not yours; if you are on the standard income tax rules, it usually is.",
+        ],
+        bullets: [
+          'Individuals: applies when the tax due exceeds KES 40,000 after PAYE and withholding',
+          'Companies: generally within the system where corporation tax is due',
+          'Turnover Tax payers are excluded, since TOT already collects monthly',
+        ],
+      },
+      {
+        id: 'estimating',
+        heading: 'The two ways to estimate',
+        body: [
+          "You do not wait for the final figure to pay instalment tax; you estimate. KRA allows two methods, and you pick whichever fits. The prior-year basis takes the tax you paid last year and multiplies it by 110%, then spreads that across the instalments. It is the safe default for an established business with steady results, because it removes the guesswork and protects you from underpayment penalties as long as the previous year was a normal one.",
+          "The current-year basis lets you estimate this year's profit and calculate the tax on it directly. That suits a new business with no prior-year figure, or one whose results are swinging up or down sharply, where 110% of last year would be badly wrong in either direction. The trade-off is that if you lowball a current-year estimate, KRA can charge a penalty on the shortfall, so the current-year route rewards a realistic forecast and punishes an optimistic one.",
+        ],
+      },
+      {
+        id: 'the-dates',
+        heading: 'The four quarterly dates',
+        body: [
+          "For most taxpayers the year's instalment tax is split into four equal payments of 25% each, due on the 20th day of the fourth, sixth, ninth and twelfth months of the year of income. For a business on a standard January-to-December year, that lands on 20 April, 20 June, 20 September and 20 December. You pay each one on iTax, generating a payment slip and settling it the same way you would any other KRA liability.",
+          "Farmers get a different rhythm. The agricultural sector pays 75% of the instalment tax in the ninth month and the remaining 25% in the twelfth, which fits the seasonal pattern of income arriving around harvest rather than evenly across the year. The mechanics of generating and paying the slip on iTax are the same as for [filing a VAT return](/guides/how-to-file-vat-return-itax-kenya/), even though the tax and the schedule are different.",
+        ],
+      },
+      {
+        id: 'balance-and-penalties',
+        heading: 'The balance of tax and getting it wrong',
+        body: [
+          "Instalments are payments on account, not the final word. When you file the annual return, the total instalment tax you paid is set against your actual liability for the year. If you underpaid, you clear the balance of tax, which is due by the end of the fourth month after your year-end, so 30 April for a December year-end. If you overpaid, the excess sits as a credit you can carry forward or reclaim. The wider rules live in the Income Tax Act, available in full on [Kenya Law](https://new.kenyalaw.org/akn/ke/act/1973/16/).",
+          "Underpaying instalments has a cost beyond the balance itself. KRA can charge a penalty where the instalments paid fall short of what was properly due, on top of interest on the late amount, which is why a careless estimate is more expensive than a careful one. A verified [tax accountant through the directory](/services/tax-returns/) can pick the right estimation method for your position and keep the four dates from slipping, which for a growing business is usually cheaper than the penalties for guessing.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What is instalment tax in Kenya?', a: 'It is income tax paid in advance during the year of income, in stages, then reconciled against your final liability when you file the annual return. It is not a separate tax, just your own income tax paid early.' },
+      { q: 'Who has to pay instalment tax?', a: 'Individuals whose tax due for the year is expected to exceed KES 40,000 after PAYE and withholding, and companies with a corporation tax liability. Turnover Tax payers are excluded because TOT already collects monthly.' },
+      { q: 'How is instalment tax calculated in Kenya?', a: 'By one of two methods: the prior-year basis, which is 110% of last year’s tax spread across the instalments, or the current-year basis, where you estimate this year’s profit and calculate the tax directly. New or volatile businesses usually use the current-year basis.' },
+      { q: 'When is instalment tax due in Kenya?', a: 'For most taxpayers it is four equal payments of 25%, due on the 20th of the fourth, sixth, ninth and twelfth months of the year of income, so 20 April, 20 June, 20 September and 20 December for a calendar year. Agriculture pays 75% in the ninth month and 25% in the twelfth.' },
+      { q: 'What is the balance of tax?', a: 'It is the difference between your final annual liability and the instalment tax you already paid. It is due by the end of the fourth month after your year-end, so 30 April for a December year-end. Overpayments carry forward as a credit.' },
+    ],
+    relatedService: 'tax-returns',
+  },
+  {
+    slug: 'paye-employer-obligations-kenya',
+    draft: true,
+    title: 'PAYE Employer Obligations in Kenya: Deducting, Remitting and Filing',
+    metaTitle: 'PAYE Employer Obligations in Kenya (2026)',
+    description:
+      'What Kenyan employers must do for PAYE: register, deduct tax from wages, remit by the 9th, file the P10, issue P9A forms, and avoid the 25% failure-to-deduct penalty.',
+    lead: 'PAYE puts the responsibility for an employee’s income tax on the employer. You deduct it from wages, you remit it, and you file for it, all on a tight monthly clock. Getting this wrong is one of the fastest ways for a Kenyan business to run up penalties, so here is what the duty actually involves.',
+    updated: '2026-07-03',
+    sections: [
+      {
+        id: 'the-duty',
+        heading: 'The employer sits in the middle',
+        body: [
+          "Pay As You Earn is the system for collecting income tax from employment income, and the law places the mechanics on the employer rather than the worker. You calculate the tax due on each employee’s pay, deduct it before you hand over their net wage, and remit what you deducted to KRA. In effect you are collecting the government’s tax and passing it on, which is why the penalties for getting it wrong fall on you, not on the employee.",
+          "The employer side of that duty is registering, deducting, remitting and filing. If what you want is to see how a given salary breaks down into tax, statutory deductions and take-home, that is a different calculation, and the [Kenya PAYE calculator](https://payecalculator.co.ke) works through an employee’s net pay band by band rather than repeating it here.",
+        ],
+      },
+      {
+        id: 'register',
+        heading: 'Registering as an employer',
+        body: [
+          "Before you run a single payroll you register for a PAYE obligation on your KRA PIN. Any business that pays emoluments has to do this, whether it is a limited company with fifty staff or a sole proprietor with one employee, because the duty attaches to the act of paying wages, not to the size of the payroll.",
+          "Registration adds PAYE to the obligations already on your PIN, sitting alongside things like [VAT](/guides/vat-kenya/) if you are registered for it. Each obligation has its own return and its own deadline, so an employer that is also VAT-registered is running two separate monthly cycles that happen to share the same portal.",
+        ],
+      },
+      {
+        id: 'deduct',
+        heading: 'Deducting the right amount',
+        body: [
+          "Each month you work out the PAYE on every employee’s taxable pay using the graduated bands, apply the personal relief every resident employee is entitled to, and deduct the result from their gross before paying them. Taxable pay is not just the basic salary; it includes most cash allowances and the value of many non-cash benefits, so the calculation starts from a wider figure than the headline salary.",
+          "Getting the taxable figure right also means accounting for the deductions that reduce it, such as allowable pension contributions and the statutory deductions that now come off taxable income. This is where payroll errors cluster, because a wrong taxable base flows straight into a wrong deduction, and KRA reconciles what you filed against what you paid. Every expense and benefit you record should be backed by proper documentation, which is part of why [eTIMS invoicing](/guides/etims-kenya/) discipline reaches into payroll as well as your other costs.",
+        ],
+      },
+      {
+        id: 'remit-file',
+        heading: 'Remitting and filing by the 9th',
+        body: [
+          "The deadline that governs PAYE is the 9th of the following month, and it covers both jobs at once. You remit the PAYE you deducted, and you file the monthly PAYE return, the P10, on iTax on or before the 9th, as the [Kenya Revenue Authority's PAYE guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/paye) confirms. Miss it and you have missed a filing as well as a payment, so the safest habit is to run payroll early enough that the return and the remittance are both done well before the date.",
+          "The 9th is deliberately tighter than the 20th that governs VAT and several other taxes, which trips up employers who assume every KRA deadline lands mid-month. If you are also handling those monthly taxes, treat PAYE as the earlier of the two clocks so it is never the one you forget.",
+        ],
+      },
+      {
+        id: 'annual-penalties',
+        heading: 'Annual returns and the cost of slipping',
+        body: [
+          "On top of the monthly cycle there is an annual layer. You issue each employee a P9A form, the record of their pay and tax for the year, by the end of January so they can file their own individual return. Your P10 returns across the year should reconcile with those P9A figures, and a mismatch is one of the first things KRA looks at, so tidy monthly filing is what makes the year-end painless.",
+          "The penalties make timeliness the cheaper option. Failing to deduct or account for PAYE attracts a penalty of 25% of the tax involved or KES 10,000, whichever is higher, and late payment then adds interest on the unpaid amount until it is cleared. Because the duty repeats every month, a habit of slipping turns a manageable payroll into a running liability, which is why many employers hand the monthly cycle to a verified [payroll accountant through the directory](/services/payroll/) rather than carry the risk in-house.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What are an employer’s PAYE obligations in Kenya?', a: 'Register for a PAYE obligation on your KRA PIN, deduct the correct tax from each employee’s pay, remit it to KRA, file the monthly P10 return by the 9th, and issue P9A forms to employees by the end of January.' },
+      { q: 'When must an employer remit PAYE in Kenya?', a: 'PAYE is remitted and the P10 return filed on iTax on or before the 9th of the following month. That is tighter than the 20th that governs VAT, so it is easy to miss if you assume every deadline is mid-month.' },
+      { q: 'What is the penalty for not deducting or remitting PAYE?', a: 'Failing to deduct or account for PAYE attracts a penalty of 25% of the tax involved or KES 10,000, whichever is higher, plus interest on the unpaid amount until it is cleared.' },
+      { q: 'What is a P9A form?', a: 'It is the annual record of an employee’s pay and PAYE for the year, which the employer must issue to each employee by the end of January so they can file their own individual income tax return.' },
+      { q: 'Does an employer calculate the employee’s take-home pay?', a: 'The employer deducts PAYE and statutory deductions and pays the net wage, but the band-by-band take-home breakdown is a separate calculation. A dedicated PAYE calculator works through an employee’s net pay rather than the employer’s filing duty.' },
+    ],
+    relatedService: 'payroll',
+  },
 ];
 
 export const GUIDE_MAP = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
