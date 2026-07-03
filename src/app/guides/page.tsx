@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { GUIDES } from '@/data/guides';
+import { PUBLISHED_GUIDES } from '@/data/guides';
 
 export const metadata: Metadata = {
   title: 'Kenya tax & accounting guides',
@@ -22,7 +22,7 @@ export default function GuidesIndex() {
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {GUIDES.map((g) => (
+        {PUBLISHED_GUIDES().map((g) => (
           <Link
             key={g.slug}
             href={`/guides/${g.slug}`}
