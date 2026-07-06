@@ -988,44 +988,110 @@ export const GUIDES: Guide[] = [
     slug: 'ways-to-get-an-accounting-job-in-kenya',
     draft: false,
     kind: 'hub',
-    title: '9 Easiest Ways to Get an Accounting Job in Kenya',
-    metaTitle: '9 Easiest Ways to Get an Accounting Job in Kenya',
+    title: 'How To Get An Accounting Job In Kenya',
+    metaTitle: 'How to Get an Accounting Job in Kenya: A Practical Guide',
     description:
-      'The 9 easiest, highest-impact ways to get an accounting job in Kenya, kept short and simple: show your CPA progress, use a focused jobs board, apply early, tailor your CV, ask your network, gain experience and prepare for the interview.',
-    lead: 'You do not need a hundred steps to get hired. These are the nine easiest, highest-impact ways to get an accounting job in Kenya, kept short so you can read them on your phone and act today.',
+      'A practical, step-by-step guide to getting an accounting job in Kenya: the qualifications employers want, the skills and experience to build, where the jobs are, how to apply, what to expect in the interview and how much you can earn.',
+    lead: 'Getting an accounting job in Kenya comes down to a few things done well: the right qualification, proof that you can do the work, and applying in the right places at the right time. This guide walks the whole path, from what employers require through to landing and negotiating the offer.',
     updated: '2026-07-06',
     sections: [
       {
-        id: 'ways',
-        heading: 'The 9 easiest ways to get hired',
+        id: 'market',
+        heading: 'The Kenyan accounting job market, briefly',
         body: [
-          'Start with the ones you have not done yet. Each is a small move, and together they are what get most people into an accounting role in Kenya.',
-        ],
-        qa: [
-          { q: '1. Show your CPA progress.', a: 'Put your CPA stage at the top of your CV. Most jobs accept the [CPA from KASNEB](https://www.kasneb.or.ke/cpa) in progress, so say clearly which papers you have passed.' },
-          { q: '2. Use a focused jobs board.', a: 'Search accounting and finance roles in one place and apply through the [Kenyan accounting jobs board](/jobs) instead of scattering your effort.' },
-          { q: '3. Apply early.', a: 'Set job alerts and apply in the first day or two, while the pile of applicants is still small.' },
-          { q: '4. Tailor your CV to each job.', a: 'Use the same words as the advert and lead with results, not duties. The full method is in the guide to your [accounting CV in Kenya](/blog/accounting-cv-kenya).' },
-          { q: '5. Ask people you know.', a: 'Most jobs are filled through referrals, so tell friends, classmates and former bosses that you are looking.' },
-          { q: '6. Start small to get experience.', a: 'Take an internship, an attachment or a small bookkeeping job. Any real experience beats none on your CV.' },
-          { q: '7. Learn the everyday tools.', a: 'Get comfortable with Excel and QuickBooks or Sage, and with iTax and eTIMS, since day-to-day work in Kenya runs on them.' },
-          { q: '8. Prepare for the interview.', a: 'Practise the common [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) before the day so you answer with a clear structure.' },
-          { q: '9. Keep going.', a: 'Improve a little after each rejection and keep applying. Persistence is what finally lands the job.' },
+          'Accounting sits inside almost every organisation in Kenya, so demand is broad rather than tied to one industry. The biggest recruiters are in banking, finance and insurance, followed by manufacturing, audit and advisory firms, the public sector, NGOs and SACCOs. That breadth is the good news, because the same core skills travel across all of them.',
+          'The harder news is that entry-level roles are competitive. Many graduates qualify each year, so getting hired is as much about how you present and apply as about the certificate itself. The rest of this guide is the practical route through that. If you would rather see how the whole market is structured first, the overview of [accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) sets out the landscape.',
         ],
       },
       {
-        id: 'next',
-        heading: 'What to do next',
+        id: 'paths',
+        heading: 'Decide which kind of role fits you',
         body: [
-          'Pick two of these to do today, then browse the live roles on the [jobs board](/jobs) and apply to one. When you want the full picture of how the market works, read the longer guide to [finding and landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya).',
+          'Accounting roles in Kenya fall into a few families, and knowing which one you are aiming at makes every later step sharper. Practice work sits inside audit, tax and advisory firms, from the Big Four down to mid-tier and small local practices, and it is the classic training ground where you rotate across many clients and qualify quickly. Industry work means the finance team of a business that is not itself an accounting firm, running its books, reporting and controls, and it tends to offer more stability and more depth in a single sector.',
+          'Public and not-for-profit finance covers government bodies, county governments, SACCOs and NGOs, each with its own compliance rhythm and recruitment cycle. The pace, the day-to-day work and the progression differ across these families, so it pays to be honest about which suits you rather than applying to everything. A graduate who wants to qualify fast and see many businesses is well suited to practice, while someone who prefers to own a single set of books in depth is often happier in industry. Browsing how each type is advertised on the [live jobs board](/jobs) is the quickest way to see what the work really looks like before you commit your applications to one direction.',
+        ],
+      },
+      {
+        id: 'qualifications',
+        heading: 'What employers actually require',
+        body: [
+          'On paper, the dominant qualification is the Certified Public Accountant credential examined by [KASNEB](https://www.kasneb.or.ke/cpa). You usually enter the CPA after a KCSE mean grade of C+, though alternative routes exist through a diploma or the Accounting Technician certificate for those who do not meet that grade. Most listings ask for CPA completed or CPA in progress depending on the level, and a bachelor degree in commerce with an accounting option is common, although plenty of qualified accountants came through a diploma plus CPA rather than a degree.',
+          'For senior roles, employers increasingly ask for membership of the [Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/). Full membership requires three years of relevant experience; before you reach that, you can join in the Associate category. If you are still working through the papers, the [route to becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya) and the detail of the [CPA course levels and cost](/blog/cpa-course-kenya) show exactly where each stage takes you.',
+          'The single most important thing is to match your level to the role. An entry listing that asks for CPA Foundation and a year of exposure is a very different filter from a financial-controller role that asks for CPA(K) membership and five years, and applying two rungs above where you are rarely works.',
+        ],
+      },
+      {
+        id: 'skills',
+        heading: 'Build the skills that get you hired',
+        body: [
+          'A qualification opens the door; demonstrable skills get you through it. Employers expect practical fluency with accounting software, so be ready to name the packages you have used, from QuickBooks and Sage on smaller books to an ERP such as SAP in larger finance teams. Just as important in Kenya is comfort with the KRA systems, iTax and eTIMS, because day-to-day compliance runs through them, along with a working grasp of VAT, PAYE and withholding tax.',
+          'Strong Excel, clean reconciliations and the ability to close a month end are the everyday skills that separate a hireable candidate from a paper one. If your technical foundation is thin, build it deliberately rather than hoping the interview will not probe it, because in accounting it almost always does.',
+        ],
+      },
+      {
+        id: 'experience',
+        heading: 'Get experience, especially early on',
+        body: [
+          'Early in a career the barrier is almost always experience rather than qualification. The way through is to get real, citable work however you can: an internship or industrial attachment, a graduate trainee scheme, volunteering to keep the books of a church, SACCO or small NGO, or freelancing small bookkeeping and tax-filing jobs. Even a few months of genuine exposure turns "no experience" into a reference and a story you can tell.',
+          'Entry-level roles themselves, such as accounts assistant or accounts clerk, are a legitimate first rung, and the tactics for [breaking into entry-level accounting jobs in Kenya](/blog/entry-level-accounting-jobs-kenya) are worth reading before you apply. Do not dismiss unpaid or short-term work at this stage, because it is often the exact thing that unlocks the first paid role.',
+        ],
+      },
+      {
+        id: 'cv',
+        heading: 'Write a CV that gets shortlisted',
+        body: [
+          'Most applications are filtered before a person reads them closely, so your CV has to survive that first screen. Lead each role with what you delivered rather than a list of duties, quantify your results where you can, and put your CPA stage near the top where a recruiter scans first. Tailor it to each listing by mirroring the wording of the advert, keep it to two clean pages, and fix every typo, because in accounting a careless document implies careless work.',
+          'The full method, with the structure that gets Kenyan accountants shortlisted, is set out in the guide to your [accounting CV in Kenya](/blog/accounting-cv-kenya). A tuned, results-led CV does more work here than any covering note, so it is worth building carefully rather than sending one generic version everywhere.',
+        ],
+      },
+      {
+        id: 'find',
+        heading: 'Find the openings',
+        body: [
+          'Kenyan accounting vacancies appear across several channels at once, and relying on a single one is the most common reason a strong candidate misses roles. Watch a spread. A focused board that carries only accounting and finance roles cuts the noise, and you can browse and filter the live [accounting and finance jobs](/jobs) by function and seniority in one place.',
+          'Beyond that, follow the career pages of the firms you want to work for, since audit and graduate intakes are often posted there first, register with recruitment agencies that place finance staff, and keep an eye on professional networks such as LinkedIn where recruiters source passively. Set up alerts so you see roles early, and treat your own network as a channel in its own right, because a large share of roles are filled through referral before they are ever advertised.',
+          'It also helps to be visible in the profession itself. Attending ICPAK events and continuing professional development sessions puts you in the same room as the people who hire accountants, and a useful, up-to-date LinkedIn profile makes you findable when a recruiter is searching passively for someone at your level.',
+        ],
+      },
+      {
+        id: 'apply',
+        heading: 'Apply so you actually get a reply',
+        body: [
+          'Applying well matters as much as applying widely. Read the listing properly and address its must-have requirements explicitly rather than leaving them to be inferred. Apply within the first day or two while the applicant pool is still small, and apply through the pipeline rather than a generic inbox so your application stays inside the process.',
+          'Ten tailored applications will out-perform fifty generic ones, so resist the urge to mass-apply. Where you can, get a referral into the process, because a referred application is read differently from a cold one. If a role does not work out, ask for feedback where you can, improve, and come back for the next cycle.',
+        ],
+      },
+      {
+        id: 'interview',
+        heading: 'Pass the interview',
+        body: [
+          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you would handle a reconciliation that will not balance, and on judgement questions that have no clean answer.',
+          'Prepare structured answers ahead of the day, and have two or three real examples ready for the competency questions. Working through the common [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) beforehand is what separates a nervous candidate from a hireable one.',
+        ],
+      },
+      {
+        id: 'salary',
+        heading: 'What you can expect to earn',
+        body: [
+          'Pay varies widely with sector, seniority and location, so treat any single figure with caution. As a rough guide, public salary trackers put entry-level accounting pay in the region of KES 40,000 to KES 65,000 a month, with experienced CPA-qualified accountants often reaching the KES 150,000 to KES 250,000 range and finance managers and chief accountants higher still. Nairobi tends to pay more than Mombasa, Kisumu or the county towns.',
+          'The honest reference, though, is the band advertised on live listings for the specific role and level, which moves with the market, so quote what current roles are showing rather than a number pulled from the air. When an offer comes, weigh it against what comparable roles on the [live jobs board](/jobs) are advertising so the negotiation stays grounded in evidence.',
+        ],
+      },
+      {
+        id: 'timeline',
+        heading: 'How long it takes, and staying the course',
+        body: [
+          'There is no fixed timeline. How quickly you get hired depends on your level, your location and how actively you apply, and a search that runs for a few months is normal, especially for a first role. What shortens it is doing the controllable things consistently: keep your CPA moving, tailor every application, apply early, use referrals, and prepare properly for interviews.',
+          'Improve a little after each rejection rather than taking it personally, and keep going. Persistence paired with steady improvement is what eventually lands the job, and once you are ready, the quickest next step is to browse the current [accounting jobs in Kenya](/jobs) and apply to one today.',
         ],
       },
     ],
     faqs: [
-      { q: 'What is the easiest way to get an accounting job in Kenya?', a: 'Show clear CPA progress on your CV, apply early through a focused jobs board, and use referrals, since many roles are filled before they are advertised.' },
-      { q: 'Can I get an accounting job in Kenya without experience?', a: 'Yes. Target entry-level roles and get real, citable experience through an internship, an attachment, volunteering to keep small books, or freelance bookkeeping.' },
-      { q: 'Do I need full CPA to get hired?', a: 'Not always. Many junior roles accept CPA in progress, so state your stage clearly. Senior roles usually ask for completion and ICPAK membership.' },
-      { q: 'How long does it take to get an accounting job in Kenya?', a: 'It varies with your level and the market, but tailoring each application, applying early and using referrals shortens it. Persistence through rejections is normal.' },
+      { q: 'What qualifications do I need for an accounting job in Kenya?', a: 'Most roles expect the CPA qualification examined by KASNEB, either completed or in progress depending on the level. A bachelor degree in commerce is common but not universal, since a diploma plus CPA also qualifies. Senior roles increasingly ask for ICPAK membership, which requires three years of experience for the full category.' },
+      { q: 'Can I get an accounting job in Kenya without experience?', a: 'Yes, by targeting entry-level and support roles and making transferable exposure real. Internships, industrial attachments, graduate trainee schemes, volunteering to keep small books, and freelance bookkeeping all count as citable experience that gets you past the first barrier.' },
+      { q: 'How much do accountants earn in Kenya?', a: 'It varies with sector, seniority and location. Public salary trackers put entry-level pay roughly in the KES 40,000 to KES 65,000 a month range, with experienced CPA-qualified accountants often reaching KES 150,000 to KES 250,000 and senior managers higher. The honest reference is the band advertised on live listings for the specific role.' },
+      { q: 'Where are accounting jobs in Kenya advertised?', a: 'Across a spread of channels: a focused accounting and finance job board, firm career pages, recruitment agencies and professional networks such as LinkedIn. The same role often appears in several places, so watch more than one and apply early.' },
+      { q: 'How long does it take to get an accounting job in Kenya?', a: 'There is no fixed timeline, and a search of a few months is normal for a first role. Keeping your CPA moving, tailoring each application, applying early and using referrals all shorten it, so consistency matters more than luck.' },
     ],
   },
   {
