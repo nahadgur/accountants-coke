@@ -285,6 +285,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'turnover-tax-kenya',
+    draft: true,
     title: 'Turnover Tax in Kenya: Who Pays, the Rate and How to File',
     metaTitle: 'Turnover Tax in Kenya: Rate, Threshold and Filing (2026)',
     description:
