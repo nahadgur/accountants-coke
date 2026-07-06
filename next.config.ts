@@ -33,6 +33,8 @@ const nextConfig: NextConfig = {
       { source: '/jobs/new/:path*', destination: '/jobs', permanent: false },
       // Discontinued client-tax content (site is a jobs board): send the dead tax URL to the guides hub.
       { source: '/guides/turnover-tax-kenya', destination: '/guides', permanent: true },
+      // Moved from spoke (/blog) to guide (/guides) and reframed as the 9-ways guide.
+      { source: '/blog/ways-to-get-an-accounting-job-in-kenya', destination: '/guides/ways-to-get-an-accounting-job-in-kenya', permanent: true },
     ];
   },
 };
