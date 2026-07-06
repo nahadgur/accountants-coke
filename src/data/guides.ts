@@ -753,11 +753,11 @@ export const GUIDES: Guide[] = [
     draft: false,
     kind: 'spoke',
     hub: 'accounting-jobs-in-kenya',
-    title: 'Accounting Interview Questions in Kenya (With Answers)',
-    metaTitle: 'Accounting Interview Questions in Kenya (With Answers)',
+    title: 'Top 15 Accounting Interview Questions in Kenya (With Answers)',
+    metaTitle: 'Top 15 Accounting Interview Questions in Kenya (With Answers)',
     description:
-      'The accounting interview questions Kenyan employers actually ask, from technical and KRA-compliance questions to competency and judgement ones, with how to answer each.',
-    lead: 'An accounting interview in Kenya tests whether you can do the technical work and whether you will be steady doing it. Below are the questions employers actually ask, grouped by what they are probing, each with the answer an interviewer is listening for.',
+      'The 15 accounting interview questions Kenyan employers actually ask, from the opener and technical and KRA-compliance questions to competency and judgement ones, each numbered with how to answer it.',
+    lead: 'An accounting interview in Kenya tests whether you can do the technical work and whether you will be steady doing it. Below are the 15 questions employers actually ask, numbered and grouped by what they are probing, each with the answer an interviewer is listening for.',
     updated: '2026-07-06',
     sections: [
       {
@@ -765,7 +765,17 @@ export const GUIDES: Guide[] = [
         heading: 'What the interview is really testing',
         body: [
           'A Kenyan accounting interview usually has three layers running at once: can you handle the core accounting, do you understand local compliance, and will you exercise sound judgement when something is unclear. Employers rarely announce which layer a question belongs to, so part of interviewing well is hearing what a question is actually probing and answering that, not the surface of it.',
-          'This matters most for candidates coming straight out of the [KASNEB CPA examinations](https://www.kasneb.or.ke/cpa), where the instinct is to recite the syllabus. Interviewers want the syllabus applied to a messy situation, not repeated back. If you are still working towards the qualification, the study route is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya), but the interview is where you show you can use it.',
+          'This matters most for candidates coming straight out of the [KASNEB CPA examinations](https://www.kasneb.or.ke/cpa), where the instinct is to recite the syllabus. Interviewers want the syllabus applied to a messy situation, not repeated back. If you are still working towards the qualification, the study route is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya), but the interview is where you show you can use it. The 15 questions below are numbered in roughly the order they tend to come up.',
+        ],
+      },
+      {
+        id: 'opening',
+        heading: 'The opening question',
+        body: [
+          'Almost every accounting interview in Kenya starts here, and it is where many candidates waste their strongest minute rambling through the whole CV. Treat it as a chance to frame the story the rest of the interview will follow.',
+        ],
+        qa: [
+          { q: '1. Tell me about yourself and your experience as an accountant.', a: 'Give a tight sixty-second pitch: your qualification, whether a CPA stage or a B.Com, where you have worked and what you handled there, one strength backed by a result, and what you are looking for now. Point it at the role in front of you rather than reciting your CV top to bottom, and stop cleanly instead of trailing off.' },
         ],
       },
       {
@@ -775,10 +785,11 @@ export const GUIDES: Guide[] = [
           'Technical questions establish that the fundamentals are solid, and the strongest answers follow a shape: state the principle, show the steps, then name the check that confirms it. If you are asked about an area you have only studied, say so and reason from principle rather than bluffing, because interviewers in accounting are alert to a candidate who hides uncertainty. These are the ones that come up most.',
         ],
         qa: [
-          { q: 'What is the difference between accruals and cash accounting?', a: 'Accruals accounting records income when it is earned and costs when they are incurred, no matter when cash moves; cash accounting records them only when money changes hands. Add an example: a sale invoiced in June but paid in July is June income under accruals, and Kenyan financial statements are prepared on the accruals basis.' },
-          { q: 'Walk me through how a sale reaches the financial statements.', a: 'Start at the invoice, then the journal entry debiting the customer and crediting sales and output VAT, through the sales and general ledgers to the trial balance, and finally into the income statement as revenue and the balance sheet as a receivable until it is settled. Naming each stage shows you understand the flow, not just the endpoints.' },
-          { q: 'A bank reconciliation will not balance. How would you find the difference?', a: 'Tick off the matched items first, then hunt the usual culprits: unpresented cheques, bank charges or standing orders not yet in the cashbook, a transposition error, or an entry made twice or with the wrong sign. The proof is that the adjusted cashbook balance and the adjusted bank statement balance finally agree.' },
-          { q: 'What is the difference between depreciation and a provision for doubtful debts?', a: 'Depreciation spreads the cost of a fixed asset over its useful life; a provision for doubtful debts writes receivables down to what you realistically expect to collect. Both are non-cash adjustments, but one consumes an asset over time and the other reflects whether a debt is recoverable.' },
+          { q: '2. What is the difference between accruals and cash accounting?', a: 'Accruals accounting records income when it is earned and costs when they are incurred, no matter when cash moves; cash accounting records them only when money changes hands. Add an example: a sale invoiced in June but paid in July is June income under accruals, and Kenyan financial statements are prepared on the accruals basis.' },
+          { q: '3. Walk me through how a sale reaches the financial statements.', a: 'Start at the invoice, then the journal entry debiting the customer and crediting sales and output VAT, through the sales and general ledgers to the trial balance, and finally into the income statement as revenue and the balance sheet as a receivable until it is settled. Naming each stage shows you understand the flow, not just the endpoints.' },
+          { q: '4. A bank reconciliation will not balance. How would you find the difference?', a: 'Tick off the matched items first, then hunt the usual culprits: unpresented cheques, bank charges or standing orders not yet in the cashbook, a transposition error, or an entry made twice or with the wrong sign. The proof is that the adjusted cashbook balance and the adjusted bank statement balance finally agree.' },
+          { q: '5. What is the difference between depreciation and a provision for doubtful debts?', a: 'Depreciation spreads the cost of a fixed asset over its useful life; a provision for doubtful debts writes receivables down to what you realistically expect to collect. Both are non-cash adjustments, but one consumes an asset over time and the other reflects whether a debt is recoverable.' },
+          { q: '6. Which accounting software have you used, and how proficient are you?', a: 'Name the packages you have actually worked in, from QuickBooks and Sage on smaller books to SAP or another ERP in larger finance teams, and be honest about your level in each. Tie it to a real task you performed, such as running a month-end in the system or reconciling a ledger, and mention comfort with KRA iTax and eTIMS, since day-to-day Kenyan work runs through both.' },
         ],
       },
       {
@@ -788,10 +799,11 @@ export const GUIDES: Guide[] = [
           'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You are not expected to quote every figure from memory, but you are expected to know how it fits together and where to confirm a rate against the [Kenya Revenue Authority](https://www.kra.go.ke/). Answer each by showing you understand the shape of the obligation and its deadline, then say you would confirm the current rate before relying on it.',
         ],
         qa: [
-          { q: 'When are VAT returns due?', a: 'A VAT return and payment are due by the 20th of the month following the tax period, and a nil return is still required for a month with no activity. Mentioning the nil-return point shows you understand the deadline discipline, not just the date.' },
-          { q: 'What PAYE obligations does an employer have?', a: 'Register for PAYE, deduct tax from each employee monthly, and remit it to the KRA by the 9th of the following month along with the statutory deductions, then file the annual reconciliation. Showing you know it is a monthly remittance with an annual return behind it is what the question tests.' },
-          { q: 'How is rental income taxed?', a: 'Residential rental income is taxed under Monthly Rental Income, a final tax on gross rent filed monthly, unless the landlord elects the annual regime to claim expenses. You need not state the exact percentage under pressure, but you should know it is a monthly, final, gross-basis tax with an election available.' },
-          { q: 'What is eTIMS and why does it matter for an expense?', a: 'eTIMS is the KRA electronic tax invoicing system, and an expense generally needs a valid eTIMS invoice to be deductible. The point behind the question is that supplier compliance now affects your employer tax bill, so you would check that purchases carry valid invoices.' },
+          { q: '7. When are VAT returns due?', a: 'A VAT return and payment are due by the 20th of the month following the tax period, and a nil return is still required for a month with no activity. Mentioning the nil-return point shows you understand the deadline discipline, not just the date.' },
+          { q: '8. What PAYE obligations does an employer have?', a: 'Register for PAYE, deduct tax from each employee monthly, and remit it to the KRA by the 9th of the following month along with the statutory deductions, then file the annual reconciliation. Showing you know it is a monthly remittance with an annual return behind it is what the question tests.' },
+          { q: '9. What is withholding tax and when do you deduct it?', a: 'Withholding tax is deducted at source on specified payments such as professional or consultancy fees, rent, dividends, interest and royalties, then remitted to the KRA by the 20th of the following month with a withholding certificate issued to the payee. Say that the rate depends on the payment type and whether the recipient is resident, and that you would confirm the current rate before applying it.' },
+          { q: '10. How is rental income taxed?', a: 'Residential rental income is taxed under Monthly Rental Income, a final tax on gross rent filed monthly, unless the landlord elects the annual regime to claim expenses. You need not state the exact percentage under pressure, but you should know it is a monthly, final, gross-basis tax with an election available.' },
+          { q: '11. What is eTIMS and why does it matter for an expense?', a: 'eTIMS is the KRA electronic tax invoicing system, and an expense generally needs a valid eTIMS invoice to be deductible. The point behind the question is that supplier compliance now affects your employer tax bill, so you would check that purchases carry valid invoices.' },
         ],
       },
       {
@@ -801,10 +813,10 @@ export const GUIDES: Guide[] = [
           'Competency questions ask for a real example, and the reliable structure is situation, action, result. Pick examples that show ownership rather than luck; a vague answer with no clear outcome is what sinks otherwise strong candidates. The judgement questions have no clean answer, and that is the point: the interviewer is watching your integrity and your escalation instinct.',
         ],
         qa: [
-          { q: 'Tell me about a time you spotted an error.', a: 'Name the specific error, what you did to confirm and correct it, and the result. "I noticed a supplier invoice posted twice during a month-end review, reversed it, and added a duplicate-payment check to the routine" beats a general claim of being detail-oriented.' },
-          { q: 'Tell me about a deadline you protected under pressure.', a: 'Describe the deadline, the risk to it, and the concrete step you took, whether reprioritising, flagging early, or staying to finish a reconciliation, and the outcome. The interviewer is testing whether you manage a deadline actively rather than hoping it holds.' },
-          { q: 'What would you do if you were asked to record something you believed was wrong?', a: 'Name the line you would not cross, raise it with the person who asked and then a manager if needed, and document your position. An escalation instinct matters more than sounding agreeable.' },
-          { q: 'You find a mistake after a return has already been filed. What do you do?', a: 'Quantify the error, tell your manager promptly, and correct it through the proper route, an amended return or the next filing, rather than hiding it. Employers listen for someone who surfaces problems early, because a hidden error costs far more later.' },
+          { q: '12. Tell me about a time you spotted an error.', a: 'Name the specific error, what you did to confirm and correct it, and the result. "I noticed a supplier invoice posted twice during a month-end review, reversed it, and added a duplicate-payment check to the routine" beats a general claim of being detail-oriented.' },
+          { q: '13. Tell me about a deadline you protected under pressure.', a: 'Describe the deadline, the risk to it, and the concrete step you took, whether reprioritising, flagging early, or staying to finish a reconciliation, and the outcome. The interviewer is testing whether you manage a deadline actively rather than hoping it holds.' },
+          { q: '14. What would you do if you were asked to record something you believed was wrong?', a: 'Name the line you would not cross, raise it with the person who asked and then a manager if needed, and document your position. An escalation instinct matters more than sounding agreeable.' },
+          { q: '15. You find a mistake after a return has already been filed. What do you do?', a: 'Quantify the error, tell your manager promptly, and correct it through the proper route, an amended return or the next filing, rather than hiding it. Employers listen for someone who surfaces problems early, because a hidden error costs far more later.' },
         ],
       },
       {
