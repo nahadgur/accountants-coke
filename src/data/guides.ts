@@ -604,6 +604,398 @@ export const GUIDES: Guide[] = [
     ],
     relatedService: 'payroll',
   },
+
+  // ----- GROUP B: Careers (jobs-board pivot). All draft until published. -----
+  // These funnel to the live /jobs board, not /match. Facts verified against
+  // KASNEB, ICPAK and ACCA at write time. No invented salary figures.
+  {
+    slug: 'accounting-jobs-in-kenya',
+    draft: true,
+    title: 'Accounting Jobs in Kenya: How to Find and Land Them',
+    metaTitle: 'Accounting Jobs in Kenya: How to Find and Land Them',
+    description:
+      'How to find accounting jobs in Kenya and actually get hired: where roles are advertised, what employers screen for, and how to move from applying to an offer.',
+    lead: 'The accounting job market in Kenya rewards people who apply in the right places, in the right way, and with the right proof on the page. Here is how the market is structured, where the roles sit, and what it takes to move from an application to an offer.',
+    updated: '2026-07-06',
+    sections: [
+      {
+        id: 'the-market',
+        heading: 'How the market is shaped',
+        body: [
+          'Accounting sits inside almost every organisation in Kenya, so demand is spread widely rather than concentrated in one sector. Audit and advisory firms hire in cohorts, industry finance teams hire as they grow, and the public sector, SACCOs, NGOs and county governments all run their own finance functions. That breadth is why an accounting qualification travels: the same core skills open doors in banking, manufacturing, retail, development work and practice.',
+          'Roles cluster into a few families. Practice work covers audit, tax and advisory inside firms, from the Big Four down to mid-tier and small local firms. Industry work covers the finance team of a business that is not itself an accounting firm, running the books, the reporting and the controls. Public and not-for-profit finance covers government bodies, SACCOs and NGOs, each with its own compliance rhythm. Knowing which family a role belongs to tells you what the day actually looks like, and browsing the live roles on the [Kenyan accounting job board](/jobs/) is the quickest way to see how each one is advertised.',
+        ],
+      },
+      {
+        id: 'qualifications',
+        heading: 'What employers expect on paper',
+        body: [
+          'The dominant local qualification is the Certified Public Accountant credential examined by the Kenya Accountants and Secretaries National Examinations Board, sat over Foundation, Intermediate and Advanced levels. Many listings ask for CPA completion, some for CPA in progress, and senior roles increasingly ask for full membership of the Institute of Certified Public Accountants of Kenya alongside years of experience. The full route, and how far you need to be to apply for a given role, is covered in the walkthrough on [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/).',
+          'A degree in commerce, finance or a related field is common but not universal; plenty of qualified accountants came through a diploma and CPA rather than a bachelor degree. What employers screen hardest is the match between the level you are at and the level the role sits at. An entry-level listing that asks for CPA Foundation and a year of exposure is a different filter from a financial-controller listing that asks for CPA(K) membership and five years, and applying up two rungs rarely works.',
+        ],
+      },
+      {
+        id: 'where-to-look',
+        heading: 'Where the roles are actually advertised',
+        body: [
+          'Kenyan accounting vacancies surface across general job boards, recruiter shortlists, firm career pages and professional networks, and the same role can appear in several of these at once. Relying on a single channel is the most common reason a strong candidate misses roles that would have suited them, so it pays to watch a spread rather than one site.',
+          'A focused board that only carries accounting, audit, tax and finance roles cuts the noise that comes with general listings. Browsing and filtering the [accounting and finance roles on our jobs board](/jobs/) lets you see the live market by function and seniority in one place, and applying through it keeps your application inside the pipeline rather than lost in a generic inbox.',
+        ],
+        bullets: [
+          'Dedicated accounting and finance job boards, filtered by function and level',
+          'Firm career pages, especially for graduate and audit-associate intakes',
+          'Recruitment agencies that place finance staff',
+          'Professional networks where recruiters source passively',
+        ],
+      },
+      {
+        id: 'get-shortlisted',
+        heading: 'Getting past the first screen',
+        body: [
+          'Most applications are filtered before a human reads them closely, so the first job of your documents is to survive that screen. A tuned, results-led curriculum vitae that mirrors the language of the listing does more work here than any covering note, which is why it is worth building the document carefully rather than sending one generic version everywhere. The specifics of what shortlists an accounting CV in Kenya sit in the guide to writing an [accounting CV that gets shortlisted](/guides/accounting-cv-kenya/).',
+          'If you are early in your career, the barrier is usually experience rather than qualification, and the way through is to target roles pitched at your level and to make transferable exposure legible. The route into a first accounting role, including attachments and internships, is set out in the guide to [entry-level accounting jobs in Kenya](/guides/entry-level-accounting-jobs-kenya/).',
+        ],
+      },
+      {
+        id: 'interview-offer',
+        heading: 'From interview to offer',
+        body: [
+          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you handle a reconciliation that will not balance, and on judgement questions that have no clean answer. Preparing real, structured responses ahead of time is what separates a nervous candidate from a hireable one, and the common questions and how to answer them are laid out in the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/).',
+          'On salary, be led by the market rather than a guess. Ranges advertised on live job listings are the honest reference point, and they move with sector, seniority and location, so quote the band the current roles are showing rather than a fixed number. When an offer comes, weighing it against what comparable roles on the [live jobs board](/jobs/) are advertising keeps the negotiation grounded in evidence.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What qualifications do I need for accounting jobs in Kenya?', a: 'Most roles expect the CPA qualification examined by KASNEB, either completed or in progress depending on the level. Senior roles often ask for ICPAK membership and several years of experience. A commerce or finance degree is common but not universal.' },
+      { q: 'Where are accounting jobs in Kenya advertised?', a: 'Across general job boards, dedicated accounting and finance boards, recruitment agencies, firm career pages and professional networks. The same role often appears in several places, so watch a spread of channels rather than one.' },
+      { q: 'Can I get an accounting job in Kenya without full CPA?', a: 'Yes, for entry-level and support roles that ask for CPA in progress rather than completion. The barrier early on is usually experience, so target roles pitched at your level and make transferable exposure clear.' },
+      { q: 'How much do accountants earn in Kenya?', a: 'Pay varies with sector, seniority and location. The honest reference is the range advertised on live job listings for the specific role and level, rather than a single figure, so check current listings for the band employers are actually offering.' },
+      { q: 'How do I stand out when applying?', a: 'Tune your CV to each listing, prepare structured answers to the common technical and judgement questions, and apply through a focused pipeline so your application is not lost in a generic inbox.' },
+    ],
+  },
+  {
+    slug: 'how-to-become-an-accountant-in-kenya',
+    draft: true,
+    title: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
+    metaTitle: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
+    description:
+      'The route to becoming an accountant in Kenya: the KASNEB CPA levels and papers, the entry grade, ICPAK membership and the practising certificate, and where ACCA fits.',
+    lead: 'Becoming an accountant in Kenya runs along a well-marked path: qualify through KASNEB, gain experience, and join ICPAK. Here is exactly how the CPA route works, what each step demands, and how the alternatives such as ACCA fit alongside it.',
+    updated: '2026-07-06',
+    sections: [
+      {
+        id: 'the-route',
+        heading: 'The route in outline',
+        body: [
+          'The standard path to becoming an accountant in Kenya has three stages: pass the professional examinations, build practical experience, and register with the professional body. The examinations are set by the Kenya Accountants and Secretaries National Examinations Board, known as KASNEB, and the leading qualification is the Certified Public Accountant credential. Membership of the Institute of Certified Public Accountants of Kenya, ICPAK, is what lets you use the CPA(K) designation and, in time, practise publicly.',
+          'None of these stages is skippable if you want to work as a recognised accountant, but they do not all have to happen in a strict order. Many people begin working in a finance role while still sitting KASNEB papers, which is often the fastest way to accumulate the experience that both employers and ICPAK will later ask for. Watching the [entry-level accounting roles on the jobs board](/jobs/) while you study is a practical way to line up that experience early.',
+        ],
+      },
+      {
+        id: 'cpa-levels',
+        heading: 'The CPA qualification: levels and papers',
+        body: [
+          'Under the revised KASNEB syllabus, the CPA course is examined across three levels: Foundation, Intermediate and Advanced. The Foundation level covers six papers including Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. The Intermediate level covers a further six, including Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation.',
+          'The Advanced level moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis, and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation elements. Because the syllabus has been revised, the exact paper list at the Advanced level and any transition rules are worth confirming against KASNEB before you register. The level-by-level detail, the cost and how long it takes are set out in the guide to the [CPA course in Kenya](/guides/cpa-course-kenya/).',
+        ],
+        bullets: [
+          'Foundation level: six papers, the accounting and business fundamentals',
+          'Intermediate level: six papers, reporting, audit, management accounting and tax',
+          'Advanced level: higher-level papers plus a specialisation and ethics and work-simulation elements',
+        ],
+      },
+      {
+        id: 'entry-exams',
+        heading: 'Who qualifies and how the exams run',
+        body: [
+          'The minimum entry requirement for the CPA course is a KCSE mean grade of C+, and holders of relevant diplomas or degrees can register too, with degree holders in accounting often eligible for exemptions from parts of the Foundation level. Confirm your own exemption position with KASNEB, since it depends on the exact qualification you hold.',
+          'KASNEB professional examinations are held three times a year, in April, August and December, which gives candidates several attempts within a single year and lets a focused student move through the levels quickly. You register with KASNEB, book the papers you are ready to sit, and pay the exam fees per paper, with the current fee schedule published on the KASNEB portal.',
+        ],
+      },
+      {
+        id: 'icpak',
+        heading: 'Joining ICPAK and practising',
+        body: [
+          'Passing the CPA examinations makes you a qualified accountant, but using the CPA(K) designation and being recognised professionally means registering with ICPAK, the [statutory body established under the Accountants Act to regulate the profession](https://www.icpak.com/member-categories/). Fresh graduates typically enter as associate members, then move to full membership once they have accumulated the required years of practical experience.',
+          'Offering audit and accountancy services to the public is a further step again, gated behind a practising certificate that ICPAK issues only to full members with additional supervised experience and up-to-date professional development. If your goal is to run your own practice rather than work in industry, that certificate is the milestone that matters, and the requirements around it are covered in the guide to [ICPAK membership and the practising certificate](/guides/icpak-membership-practising-certificate/).',
+        ],
+      },
+      {
+        id: 'acca-alternative',
+        heading: 'Where ACCA and other routes fit',
+        body: [
+          'CPA is not the only qualification recognised in Kenya. The [ACCA qualification](https://www.accaglobal.com/gb/en/qualifications/glance/acca/overview.html) offered by the UK-based Association of Chartered Certified Accountants is widely respected, particularly for roles with an international or multinational dimension, and it combines a series of exams with an ethics module and three years of practical experience to reach membership. Some Kenyan accountants hold both CPA and ACCA.',
+          'For most people building a career in Kenya, CPA is the natural spine because it is examined locally, is cheaper, and maps directly onto ICPAK membership and Kenyan tax and regulatory practice. ACCA is the stronger add-on where global mobility matters. Whichever route you take, the qualification only converts into a career when you pair it with real roles, so treat browsing the [live accounting jobs](/jobs/) as part of the plan rather than something you do only at the end.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'How do I become an accountant in Kenya?', a: 'Pass the KASNEB CPA examinations across the Foundation, Intermediate and Advanced levels, build practical experience, and register with ICPAK. ICPAK membership lets you use the CPA(K) designation, and a practising certificate is needed to offer services to the public.' },
+      { q: 'What is the entry requirement for CPA in Kenya?', a: 'A KCSE mean grade of C+ is the minimum for the CPA course. Holders of relevant diplomas or degrees can also register, and accounting degree holders may qualify for exemptions from parts of the Foundation level. Confirm your exemptions with KASNEB.' },
+      { q: 'How many CPA papers are there?', a: 'Under the revised KASNEB syllabus the CPA course runs across three levels, with six papers each at Foundation and Intermediate and a set of higher-level and specialisation papers plus ethics and work-simulation elements at Advanced. Confirm the current paper list with KASNEB.' },
+      { q: 'When are KASNEB CPA exams held?', a: 'KASNEB professional examinations are held three times a year, in April, August and December, so candidates can sit papers several times within a single year.' },
+      { q: 'Is ACCA recognised in Kenya?', a: 'Yes. The ACCA qualification is recognised and respected in Kenya, especially for international roles, and combines exams, an ethics module and three years of experience. CPA remains the natural local route because it is examined in Kenya and maps directly onto ICPAK membership.' },
+    ],
+  },
+  {
+    slug: 'accounting-interview-questions-kenya',
+    draft: true,
+    title: 'Accounting Interview Questions in Kenya (With Answers)',
+    metaTitle: 'Accounting Interview Questions in Kenya (With Answers)',
+    description:
+      'The accounting interview questions Kenyan employers actually ask, from technical and KRA-compliance questions to competency and judgement ones, with how to answer each.',
+    lead: 'An accounting interview in Kenya tests whether you can do the technical work and whether you will be steady doing it. This walks through the questions employers actually ask, why they ask them, and how to answer without waffling.',
+    updated: '2026-07-06',
+    sections: [
+      {
+        id: 'how-they-assess',
+        heading: 'What the interview is really testing',
+        body: [
+          'A Kenyan accounting interview usually has three layers running at once: can you handle the core accounting, do you understand local compliance, and will you exercise sound judgement when something is unclear. Employers rarely announce which layer a question belongs to, so part of interviewing well is hearing what a question is actually probing and answering that, not the surface of it.',
+          'This matters most for candidates coming straight out of the CPA examinations, where the instinct is to recite the syllabus. Interviewers want the syllabus applied to a messy situation, not repeated back. If you are still working towards the qualification, the study route is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/), but the interview is where you show you can use it.',
+        ],
+      },
+      {
+        id: 'technical',
+        heading: 'Technical questions and how to answer them',
+        body: [
+          'Technical questions establish that the fundamentals are solid. Expect to be asked to explain the difference between accruals and cash accounting, to walk through how a transaction flows from journal to trial balance to financial statements, or to describe how you would investigate a bank reconciliation that will not balance. The strongest answers are structured: state the principle, then show the steps you would take, then name the check that tells you it is right.',
+          'Do not fake certainty on something you have not done. If you are asked about an area you have only studied, say so and then reason through it from principle, because a candidate who reasons cleanly from what they know reads as more hireable than one who bluffs and gets caught. Interviewers in accounting are specifically alert to bluffing, since the job depends on flagging what you are unsure of rather than hiding it.',
+        ],
+        bullets: [
+          'Explain accruals versus cash accounting, with an example',
+          'Walk a transaction from journal entry to the financial statements',
+          'Describe how you would resolve a bank reconciliation that does not balance',
+          'Explain the difference between depreciation and an allowance for doubtful debts',
+        ],
+      },
+      {
+        id: 'compliance',
+        heading: 'The KRA and compliance questions',
+        body: [
+          'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You may be asked when VAT returns are due, what a PAYE obligation involves for an employer, how rental income is taxed, or what eTIMS means for the validity of an expense. You are not expected to quote every figure from memory, but you are expected to know how the system fits together and where to check a rate.',
+          'Answer these by showing you understand the shape of the obligation and the deadline discipline behind it, then be honest that you would confirm a specific rate against the current position before relying on it. That combination, structural understanding plus a habit of verifying, is exactly what an employer wants from someone who will be responsible for filings.',
+        ],
+      },
+      {
+        id: 'competency',
+        heading: 'Competency and judgement questions',
+        body: [
+          'Competency questions ask for a real example: a time you spotted an error, a deadline you protected under pressure, a disagreement you handled with a manager or a client. Use a simple structure, describe the situation, what you did, and what the result was, and pick examples that show ownership rather than luck. Vague answers with no specific outcome are the ones that sink otherwise strong candidates.',
+          'Judgement questions have no clean answer and are meant not to. What would you do if you were asked to record something you thought was wrong, or if you found a mistake after a return had been filed. Here the interviewer is watching your integrity and your escalation instinct, so answer by naming the professional line you would not cross and the sensible next step you would take, not by pretending the dilemma is easy.',
+        ],
+      },
+      {
+        id: 'closing',
+        heading: 'Closing well and following up',
+        body: [
+          'The end of the interview is part of the assessment. Having two or three genuine questions ready, about the team, the reporting cycle, or how the role grows, signals that you are weighing the fit rather than just wanting any job. Avoid making salary the first thing you raise; when it does come up, anchor to the ranges advertised on live listings for the role and level rather than naming a figure out of the air.',
+          'Preparation is what turns a nervous candidate into a hireable one, so rehearse structured answers before the day rather than improvising in the room. Once you are ready, applying to the roles on the [live accounting jobs board](/jobs/) puts that preparation to work, and reading the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya/) alongside it keeps the whole application, not just the interview, sharp.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'What questions are asked in an accounting interview in Kenya?', a: 'A mix of technical questions on the fundamentals, compliance questions rooted in KRA obligations such as VAT, PAYE and eTIMS, and competency and judgement questions that ask for real examples and test your integrity under pressure.' },
+      { q: 'How do I answer technical accounting questions?', a: 'Structure the answer: state the principle, show the steps you would take, then name the check that confirms it is right. If you have only studied an area, say so and reason from principle rather than bluffing.' },
+      { q: 'Do accounting interviews in Kenya test tax knowledge?', a: 'Yes. Because much of the work is compliance, expect questions on VAT deadlines, PAYE employer duties, rental income tax and eTIMS. You are expected to understand how the system fits together and to verify specific rates before relying on them.' },
+      { q: 'How should I answer competency questions?', a: 'Give a real example using a simple situation, action and result structure, and choose examples that show ownership. Vague answers with no clear outcome are the ones that let strong candidates down.' },
+      { q: 'What questions should I ask the interviewer?', a: 'Two or three genuine questions about the team, the reporting cycle or how the role grows. Avoid leading with salary, and when it comes up, anchor to the ranges advertised on live listings for the role and level.' },
+    ],
+  },
+  {
+    slug: 'accounting-cv-kenya',
+    draft: true,
+    title: 'Accounting CV in Kenya: How to Get Shortlisted',
+    metaTitle: 'Accounting CV in Kenya: How to Get Shortlisted',
+    description:
+      'How to write an accounting CV in Kenya that gets shortlisted: structure, how to show CPA and ICPAK status, quantifying results, tuning to the listing, and common mistakes.',
+    lead: 'Most accounting applications in Kenya are filtered before a person reads them closely, so your CV has one job first: survive the screen. Here is how to structure it, what to put where, and the mistakes that get strong candidates rejected on sight.',
+    updated: '2026-07-06',
+    sections: [
+      {
+        id: 'the-job-of-a-cv',
+        heading: 'What your CV has to do first',
+        body: [
+          'An accounting CV in Kenya is read twice: quickly, to decide whether you clear the basic bar, and then slowly, only if you clear it. The first read is often a scan against the listing for the qualification, the years, and a few keywords. If those are not visible in seconds, a strong candidate can be filtered out before anyone reads the detail, so the top third of the first page has to do the heavy lifting.',
+          'That means leading with the facts an employer is screening for: your CPA status, your ICPAK membership if you have it, your total relevant experience, and the kind of accounting you do. Burying the qualification on page two is one of the most common reasons a capable applicant never makes the shortlist. Tuning the CV to each listing, so those facts line up with what the role asks for, is what the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya/) treats as the single highest-leverage step.',
+        ],
+      },
+      {
+        id: 'structure',
+        heading: 'The structure that works',
+        body: [
+          'A clean, conventional structure beats a designed one for accounting roles. Lead with a short professional summary, then qualifications, then experience in reverse order, then education and any additional skills. Keep it to two pages, use plain formatting that survives being parsed by software, and avoid photos, tables and graphics that can scramble in an applicant-tracking system.',
+          'Put your qualifications where they are seen. State clearly whether you have completed CPA or are at a specific stage, and name your ICPAK membership category if you hold one, because those two lines answer the first question the employer has. The full qualification picture, and how far along you need to be for different roles, is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/).',
+        ],
+        bullets: [
+          'Professional summary: three or four lines, qualification and focus up front',
+          'Qualifications: CPA stage and ICPAK category stated plainly',
+          'Experience: reverse order, achievements not just duties',
+          'Education and skills: concise, relevant, no filler',
+        ],
+      },
+      {
+        id: 'quantify',
+        heading: 'Show results, not duties',
+        body: [
+          'The difference between a CV that lists duties and one that shows results is the difference between blending in and standing out. "Responsible for accounts payable" tells an employer nothing; "cleared a backlog of supplier reconciliations and cut month-end close from ten days to six" shows impact. Wherever you can, attach a number to what you did, because numbers are how an accountant demonstrates they think in outcomes.',
+          'Be truthful with those numbers. Inflated or invented figures are easy to unpick in an interview, and accounting is a field where getting caught embellishing is fatal to trust. If you cannot quantify something honestly, describe the scope instead, the size of the ledger, the number of entities, the systems you worked in, so the reader can gauge the level you operated at.',
+        ],
+      },
+      {
+        id: 'tune-to-listing',
+        heading: 'Tune it to the listing',
+        body: [
+          'One generic CV sent everywhere is the quiet reason many applications fail. Each listing uses particular language, for the software it runs, the standards it works to, the sector it sits in, and mirroring that language, honestly, is what gets you past the keyword screen and signals you actually read the role. This does not mean rewriting your history; it means reordering and rephrasing so the relevant parts surface first.',
+          'Read the listing and ask what this specific employer is screening for, then make sure those exact things are visible high up. When you apply through the [accounting jobs board](/jobs/), that tuned version is what enters the pipeline, and a version aimed at the role beats a stronger but generic CV aimed at nothing in particular.',
+        ],
+      },
+      {
+        id: 'mistakes',
+        heading: 'The mistakes that get you rejected',
+        body: [
+          'A handful of errors reject candidates before their experience is even weighed. Typos and inconsistent figures are read as carelessness, which is disqualifying for someone who will be trusted with the books. An unexplained gap, an email address that looks unprofessional, or a CV that runs to five pages all cost you before the interview.',
+          'Once the CV is clean, the rest of the application has to match it. A tuned covering note and, above all, being ready for the technical and judgement questions covered in the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/) are what convert a shortlisting into an offer. The CV opens the door; the preparation behind it is what walks you through.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'How do I write an accounting CV for the Kenyan job market?', a: 'Lead with your CPA status and ICPAK membership, keep it to two pages of clean, parseable formatting, show results with numbers rather than listing duties, and tune it to each listing so the facts the employer is screening for appear high on the first page.' },
+      { q: 'Where should I put my CPA and ICPAK details on my CV?', a: 'Near the top, in a clear qualifications section, stating whether you have completed CPA or your current stage and your ICPAK membership category. Employers screen for these first, so burying them costs you the shortlist.' },
+      { q: 'How long should an accounting CV be?', a: 'Two pages. Longer CVs dilute the facts that matter, and overly designed layouts can scramble when parsed by applicant-tracking software, so keep the formatting plain.' },
+      { q: 'Should I use one CV for every application?', a: 'No. Tune each CV to the listing, mirroring its language honestly and surfacing the relevant experience first. A version aimed at the specific role beats a stronger but generic CV.' },
+      { q: 'What are the most common accounting CV mistakes?', a: 'Typos and inconsistent numbers, burying your qualification, unexplained gaps, an unprofessional email address, and excessive length. In accounting, carelessness on the page reads as carelessness with the books.' },
+    ],
+  },
+  {
+    slug: 'entry-level-accounting-jobs-kenya',
+    draft: true,
+    title: 'Entry-Level Accounting Jobs in Kenya: How to Break In',
+    metaTitle: 'Entry-Level Accounting Jobs in Kenya: How to Break In',
+    description:
+      'How to break into entry-level accounting jobs in Kenya: the roles that hire juniors, using attachments and internships, what employers want, and how to apply well.',
+    lead: 'The hardest accounting job to get in Kenya is the first one, because almost every listing seems to want experience you do not yet have. Here is how the entry-level market actually works, the roles that hire juniors, and how to break in.',
+    updated: '2026-07-06',
+    sections: [
+      {
+        id: 'the-catch-22',
+        heading: 'The experience trap, and the way out',
+        body: [
+          'Every new accountant hits the same wall: roles ask for experience, and you need a role to get experience. The way out is to recognise that not every listing means it. Plenty of entry-level roles ask for CPA in progress and a willingness to learn rather than years on the job, and the skill early on is telling those apart from the roles that are genuinely out of reach so you spend your applications where they can land.',
+          'The other half of the answer is that experience does not only come from a permanent job. Attachments, internships and short contracts all count, and treating them as the on-ramp rather than a detour is what gets most people their first real role. Watching the junior and trainee listings on the [accounting jobs board](/jobs/) shows you which employers are hiring at that level right now.',
+        ],
+      },
+      {
+        id: 'roles-that-hire',
+        heading: 'The roles that actually hire juniors',
+        body: [
+          'A handful of role types are the usual entry points, and knowing their titles helps you search for them. Audit firms hire audit associates in cohorts, often straight out of the CPA examinations, and this is one of the most reliable ways into the profession because firms expect to train you. Industry finance teams hire accounts assistants, accounts clerks and junior accountants to handle payables, receivables and reconciliations under supervision.',
+          'Beyond those, bookkeeping roles in small businesses, finance-officer roles in SACCOs and NGOs, and trainee positions in shared-service centres all take people early in their careers. Each has a different texture, but all of them value someone who is reliable with detail and eager to learn over someone who claims to know everything, and the [live jobs board](/jobs/) lets you filter these entry points by function.',
+        ],
+        bullets: [
+          'Audit associate: cohort hiring in firms, structured training',
+          'Accounts assistant or clerk: payables, receivables, reconciliations',
+          'Junior accountant: supervised general ledger and reporting work',
+          'Finance officer: common in SACCOs and NGOs',
+        ],
+      },
+      {
+        id: 'attachments',
+        heading: 'Using attachments and internships',
+        body: [
+          'Industrial attachments and internships are the standard bridge into Kenyan accounting, and for many people they are how the first line of experience gets onto the CV. The value is not only the technical exposure; it is the reference, the professional network, and often the inside track when the same organisation next hires permanently. Treating an attachment as a serious audition rather than a box to tick is what turns it into a job.',
+          'Apply for these the way you would a permanent role, with a tuned CV and a clear reason for wanting that specific placement. The document that gets you shortlisted for an attachment is the same one that gets you shortlisted later, so it is worth building well from the start, which is what the guide to writing an [accounting CV that gets shortlisted](/guides/accounting-cv-kenya/) walks through.',
+        ],
+      },
+      {
+        id: 'what-employers-want',
+        heading: 'What employers want from a junior',
+        body: [
+          'At entry level, employers are not expecting deep expertise. They are looking for someone who is accurate with detail, honest about what they do not know, and quick to learn a process and stick to it. Reliability under a deadline and a willingness to ask rather than guess matter more than a long list of skills, because the technical depth is what the job itself will build.',
+          'Progress on the CPA qualification signals exactly this, that you are committed to the profession and are building the technical base in parallel. If you have not started or are early in the process, the study route and how it fits around a first job is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/), and being visibly in progress is often enough for an entry-level employer.',
+        ],
+      },
+      {
+        id: 'apply-well',
+        heading: 'Applying so you get noticed',
+        body: [
+          'Volume alone does not work; targeted applications do. Aim at roles pitched at your actual level, tune each application to the listing, and apply through a focused pipeline rather than scattering the same CV across the internet. A smaller number of well-aimed applications through the [accounting jobs board](/jobs/) beats a hundred generic ones, because each one lands in front of an employer who is hiring at your level.',
+          'Then prepare for the conversation. Entry-level interviews still test the fundamentals and your judgement, and walking in with structured answers, as covered in the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/), is what converts a first shortlisting into a first job. The candidates who break in are rarely the most experienced, because none of them are; they are the ones who applied precisely and prepared properly.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'How do I get an entry-level accounting job in Kenya with no experience?', a: 'Target roles that ask for CPA in progress rather than years of experience, use attachments and internships as the on-ramp, and apply with a tuned CV through a focused pipeline. The first line of experience often comes from a placement rather than a permanent job.' },
+      { q: 'What are the common entry-level accounting roles?', a: 'Audit associate positions in firms, accounts assistant or clerk roles handling payables and receivables, junior accountant roles doing supervised ledger work, and finance-officer roles in SACCOs and NGOs.' },
+      { q: 'Do internships and attachments help?', a: 'Yes. They are the standard bridge into the profession, providing the first experience, a reference, a network and often an inside track when the organisation next hires permanently. Apply for them as seriously as a permanent role.' },
+      { q: 'Do I need to have finished CPA for an entry-level job?', a: 'Usually not. Many entry-level roles accept CPA in progress. Being visibly on the qualification signals commitment and a growing technical base, which is what entry-level employers screen for alongside reliability and willingness to learn.' },
+      { q: 'What do employers want from a junior accountant?', a: 'Accuracy with detail, honesty about what you do not yet know, and the ability to learn and follow a process. Reliability under deadline and asking rather than guessing matter more than a long skills list at this stage.' },
+    ],
+  },
+  {
+    slug: 'cpa-course-kenya',
+    draft: true,
+    title: 'The CPA Course in Kenya: Levels, Papers & Cost',
+    metaTitle: 'The CPA Course in Kenya: Levels, Papers & Cost',
+    description:
+      'The KASNEB CPA course in Kenya explained: the Foundation, Intermediate and Advanced levels and their papers, entry grade, exam sittings, registration and fees, and duration.',
+    lead: 'The CPA course is the backbone qualification for accountants in Kenya, examined by KASNEB across three levels. Here is exactly how it is structured, what each level covers, how the exams and fees work, and how long the whole thing takes.',
+    updated: '2026-07-06',
+    sections: [
+      {
+        id: 'what-cpa-is',
+        heading: 'What the CPA course is',
+        body: [
+          'The Certified Public Accountant course is the professional accountancy qualification set by the Kenya Accountants and Secretaries National Examinations Board, KASNEB. It is the standard route to becoming a recognised accountant in Kenya, and completing it is what lets you apply for membership of the Institute of Certified Public Accountants of Kenya and use the CPA(K) designation. The wider route, from exams through experience to ICPAK, is laid out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/).',
+          'Under the revised KASNEB syllabus, the course is examined across three levels, Foundation, Intermediate and Advanced, each building on the last. It is designed to be studied alongside work, which is why many candidates sit papers while holding a finance role, and watching the [trainee and junior listings on the jobs board](/jobs/) is a practical way to line up that experience while you study.',
+        ],
+      },
+      {
+        id: 'levels-papers',
+        heading: 'The three levels and their papers',
+        body: [
+          'The Foundation level covers six papers that build the base: Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. This level assumes no prior accounting knowledge and is where most candidates start.',
+          'The Intermediate level covers a further six papers, moving into the working core of the profession: Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation. The Advanced level then moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation components. Because the syllabus was revised, confirm the exact Advanced-level paper list and any specialisation rules against the [KASNEB CPA course page](https://www.kasneb.or.ke/cpa) before you register.',
+        ],
+        bullets: [
+          'Foundation: six papers, the accounting and business fundamentals',
+          'Intermediate: six papers, reporting, audit, management accounting and tax',
+          'Advanced: higher-level papers, a specialisation, and ethics and work-simulation elements',
+        ],
+      },
+      {
+        id: 'entry-exams',
+        heading: 'Entry requirements and exam sittings',
+        body: [
+          'The minimum entry requirement for the CPA course is a KCSE mean grade of C+. Candidates with relevant diplomas or degrees can also register, and accounting degree holders are often eligible for exemptions from parts of the Foundation level, though the exact exemptions depend on the qualification and should be confirmed with KASNEB.',
+          'KASNEB professional examinations are held three times a year, in April, August and December. That three-sitting rhythm is one reason a committed candidate can move through the levels relatively quickly, since there is no long wait between attempts. You register with KASNEB, book the papers you are ready for, and sit them at an approved centre.',
+        ],
+      },
+      {
+        id: 'cost',
+        heading: 'Registration and exam fees',
+        body: [
+          'The cost of the CPA course is made up of a one-off registration fee with KASNEB and then a fee for each paper you sit, alongside separate charges such as an annual registration renewal. Exam fees are charged per paper and differ by level, so the total cost depends on how many papers you attempt and how many attempts each one takes.',
+          'Because these figures are set by KASNEB and updated periodically, the reliable source is the official fee schedule rather than any third-party summary. Check the current fees on the [KASNEB fee structures page](https://www.kasneb.or.ke/fee-structures) before you budget, and factor in tuition if you study with a college rather than privately, since that sits on top of the KASNEB fees.',
+        ],
+      },
+      {
+        id: 'duration',
+        heading: 'How long it takes',
+        body: [
+          'KASNEB guidance frames each level as requiring roughly a year on average, which puts the examinations at about three years for a candidate who progresses steadily and passes cleanly. On top of that, candidates are advised to allow additional time for the practical experience and workshop requirements built into the qualification, so the realistic end-to-end picture is a little longer than the exam timetable alone.',
+          'In practice the timeline varies widely with how many papers you take per sitting, how you balance study against work, and resits. Some finish faster by sitting a full level at once; others spread it out around a demanding job. Either way, the qualification only pays off when it meets real roles, so treating the [live accounting jobs](/jobs/) as part of the plan, and preparing for interviews using the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/), is what turns exam passes into a career.',
+        ],
+      },
+    ],
+    faqs: [
+      { q: 'How many levels and papers are in the CPA course in Kenya?', a: 'Under the revised KASNEB syllabus the CPA course has three levels: Foundation and Intermediate with six papers each, and Advanced with higher-level papers plus a specialisation and ethics and work-simulation elements. Confirm the exact Advanced-level paper list with KASNEB.' },
+      { q: 'What is the entry requirement for the CPA course?', a: 'A KCSE mean grade of C+ is the minimum. Holders of relevant diplomas or degrees can also register, and accounting degree holders may qualify for exemptions from parts of the Foundation level, subject to confirmation by KASNEB.' },
+      { q: 'How much does the CPA course cost in Kenya?', a: 'There is a one-off KASNEB registration fee, per-paper exam fees that differ by level, and periodic renewal charges, plus tuition if you study with a college. Fees are set and updated by KASNEB, so check the official fee structures page before budgeting.' },
+      { q: 'When are CPA exams held?', a: 'KASNEB professional examinations are held three times a year, in April, August and December, so there is no long wait between attempts.' },
+      { q: 'How long does the CPA course take in Kenya?', a: 'KASNEB frames each level as about a year on average, so roughly three years of examinations for a steady candidate, with extra time allowed for the practical experience and workshop requirements. Actual timelines vary with papers taken per sitting, work commitments and resits.' },
+    ],
+  },
 ];
 
 export const GUIDE_MAP = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
