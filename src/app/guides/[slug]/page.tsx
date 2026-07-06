@@ -85,6 +85,10 @@ export default async function GuidePage({ params }: Props) {
               {sec.body.map((p, j) => (
                 <p key={j}>{renderInline(p)}</p>
               ))}
+              {sec.qa?.flatMap((item, j) => [
+                <h3 key={`q-${j}`}>{renderInline(item.q)}</h3>,
+                <p key={`a-${j}`}>{renderInline(item.a)}</p>,
+              ])}
               {sec.bullets && (
                 <ul>
                   {sec.bullets.map((b) => (

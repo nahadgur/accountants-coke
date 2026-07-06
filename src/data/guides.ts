@@ -8,6 +8,8 @@ export type GuideSection = {
   heading: string;
   body: string[];
   bullets?: string[];
+  /** Q&A rendered as an h3 question + answer paragraph (e.g. interview questions). */
+  qa?: { q: string; a: string }[];
 };
 
 export type Guide = {
@@ -770,41 +772,39 @@ export const GUIDES: Guide[] = [
         id: 'technical',
         heading: 'Technical questions and how to answer them',
         body: [
-          'Technical questions establish that the fundamentals are solid, and the strongest answers follow a shape: state the principle, show the steps, then name the check that confirms it. These are the ones that come up most.',
-          '"What is the difference between accruals and cash accounting?" Accruals accounting records income when it is earned and costs when they are incurred, no matter when cash moves; cash accounting records them only when money changes hands. Add an example: a sale invoiced in June but paid in July is June income under accruals, and Kenyan financial statements are prepared on the accruals basis.',
-          '"Walk me through how a sale reaches the financial statements." Start at the invoice, then the journal entry debiting the customer and crediting sales and output VAT, through the sales and general ledgers to the trial balance, and finally into the income statement as revenue and the balance sheet as a receivable until it is settled. Naming each stage shows you understand the flow, not just the endpoints.',
-          '"A bank reconciliation will not balance. How would you find the difference?" Tick off the matched items first, then hunt the usual culprits: unpresented cheques, bank charges or standing orders not yet in the cashbook, a transposition error, or an entry made twice or with the wrong sign. The proof is that the adjusted cashbook balance and the adjusted bank statement balance finally agree.',
-          '"What is the difference between depreciation and a provision for doubtful debts?" Depreciation spreads the cost of a fixed asset over its useful life; a provision for doubtful debts writes receivables down to what you realistically expect to collect. Both are non-cash adjustments, but one consumes an asset over time and the other reflects whether a debt is recoverable.',
-          'If you are asked about an area you have only studied, say so and reason from principle rather than bluffing. Interviewers in accounting are alert to a candidate who hides uncertainty, because the job depends on flagging what you are unsure of.',
+          'Technical questions establish that the fundamentals are solid, and the strongest answers follow a shape: state the principle, show the steps, then name the check that confirms it. If you are asked about an area you have only studied, say so and reason from principle rather than bluffing, because interviewers in accounting are alert to a candidate who hides uncertainty. These are the ones that come up most.',
         ],
-        bullets: [
-          'Accruals versus cash accounting, with a worked example',
-          'A transaction from journal entry through to the financial statements',
-          'Resolving a bank reconciliation that will not balance',
-          'Depreciation versus a provision for doubtful debts',
+        qa: [
+          { q: 'What is the difference between accruals and cash accounting?', a: 'Accruals accounting records income when it is earned and costs when they are incurred, no matter when cash moves; cash accounting records them only when money changes hands. Add an example: a sale invoiced in June but paid in July is June income under accruals, and Kenyan financial statements are prepared on the accruals basis.' },
+          { q: 'Walk me through how a sale reaches the financial statements.', a: 'Start at the invoice, then the journal entry debiting the customer and crediting sales and output VAT, through the sales and general ledgers to the trial balance, and finally into the income statement as revenue and the balance sheet as a receivable until it is settled. Naming each stage shows you understand the flow, not just the endpoints.' },
+          { q: 'A bank reconciliation will not balance. How would you find the difference?', a: 'Tick off the matched items first, then hunt the usual culprits: unpresented cheques, bank charges or standing orders not yet in the cashbook, a transposition error, or an entry made twice or with the wrong sign. The proof is that the adjusted cashbook balance and the adjusted bank statement balance finally agree.' },
+          { q: 'What is the difference between depreciation and a provision for doubtful debts?', a: 'Depreciation spreads the cost of a fixed asset over its useful life; a provision for doubtful debts writes receivables down to what you realistically expect to collect. Both are non-cash adjustments, but one consumes an asset over time and the other reflects whether a debt is recoverable.' },
         ],
       },
       {
         id: 'compliance',
         heading: 'The KRA and compliance questions',
         body: [
-          'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You are not expected to quote every figure from memory, but you are expected to know how it fits together and where to confirm a rate against the [Kenya Revenue Authority](https://www.kra.go.ke/).',
-          '"When are VAT returns due?" A VAT return and payment are due by the 20th of the month following the tax period, and a nil return is still required for a month with no activity. Mentioning the nil-return point shows you understand the deadline discipline, not just the date.',
-          '"What are an employer PAYE obligations?" Register for PAYE, deduct tax from each employee monthly, and remit it to the KRA by the 9th of the following month along with the statutory deductions, then file the annual reconciliation. Showing you know it is a monthly remittance with an annual return behind it is what the question tests.',
-          '"How is rental income taxed?" Residential rental income is taxed under Monthly Rental Income, a final tax on gross rent filed monthly, unless the landlord elects the annual regime to claim expenses. You need not state the exact percentage under pressure, but you should know it is a monthly, final, gross-basis tax with an election available.',
-          '"What is eTIMS and why does it matter for an expense?" eTIMS is the KRA electronic tax invoicing system, and an expense generally needs a valid eTIMS invoice to be deductible. The point behind the question is that supplier compliance now affects your employer tax bill, so you would check that purchases carry valid invoices.',
-          'Answer each by showing you understand the shape of the obligation and its deadline, then say you would confirm the current rate before relying on it. Structural understanding plus a habit of verifying is exactly what an employer wants from someone responsible for filings.',
+          'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You are not expected to quote every figure from memory, but you are expected to know how it fits together and where to confirm a rate against the [Kenya Revenue Authority](https://www.kra.go.ke/). Answer each by showing you understand the shape of the obligation and its deadline, then say you would confirm the current rate before relying on it.',
+        ],
+        qa: [
+          { q: 'When are VAT returns due?', a: 'A VAT return and payment are due by the 20th of the month following the tax period, and a nil return is still required for a month with no activity. Mentioning the nil-return point shows you understand the deadline discipline, not just the date.' },
+          { q: 'What PAYE obligations does an employer have?', a: 'Register for PAYE, deduct tax from each employee monthly, and remit it to the KRA by the 9th of the following month along with the statutory deductions, then file the annual reconciliation. Showing you know it is a monthly remittance with an annual return behind it is what the question tests.' },
+          { q: 'How is rental income taxed?', a: 'Residential rental income is taxed under Monthly Rental Income, a final tax on gross rent filed monthly, unless the landlord elects the annual regime to claim expenses. You need not state the exact percentage under pressure, but you should know it is a monthly, final, gross-basis tax with an election available.' },
+          { q: 'What is eTIMS and why does it matter for an expense?', a: 'eTIMS is the KRA electronic tax invoicing system, and an expense generally needs a valid eTIMS invoice to be deductible. The point behind the question is that supplier compliance now affects your employer tax bill, so you would check that purchases carry valid invoices.' },
         ],
       },
       {
         id: 'competency',
         heading: 'Competency and judgement questions',
         body: [
-          'Competency questions ask for a real example, and the reliable structure is situation, action, result. Pick examples that show ownership rather than luck; a vague answer with no clear outcome is what sinks otherwise strong candidates.',
-          '"Tell me about a time you spotted an error." Name the specific error, what you did to confirm and correct it, and the result. "I noticed a supplier invoice posted twice during a month-end review, reversed it, and added a duplicate-payment check to the routine" beats a general claim of being detail-oriented.',
-          '"Tell me about a deadline you protected under pressure." Describe the deadline, the risk to it, and the concrete step you took, whether reprioritising, flagging early, or staying to finish a reconciliation, and the outcome. The interviewer is testing whether you manage a deadline actively rather than hoping it holds.',
-          '"What would you do if you were asked to record something you believed was wrong?" This is an integrity question with no clean answer, and that is the point. Name the line you would not cross, raise it with the person who asked and then a manager if needed, and document your position. An escalation instinct matters more than sounding agreeable.',
-          '"You find a mistake after a return has already been filed." Say you would quantify the error, tell your manager promptly, and correct it through the proper route, an amended return or the next filing, rather than hiding it. Employers listen for someone who surfaces problems early, because a hidden error costs far more later.',
+          'Competency questions ask for a real example, and the reliable structure is situation, action, result. Pick examples that show ownership rather than luck; a vague answer with no clear outcome is what sinks otherwise strong candidates. The judgement questions have no clean answer, and that is the point: the interviewer is watching your integrity and your escalation instinct.',
+        ],
+        qa: [
+          { q: 'Tell me about a time you spotted an error.', a: 'Name the specific error, what you did to confirm and correct it, and the result. "I noticed a supplier invoice posted twice during a month-end review, reversed it, and added a duplicate-payment check to the routine" beats a general claim of being detail-oriented.' },
+          { q: 'Tell me about a deadline you protected under pressure.', a: 'Describe the deadline, the risk to it, and the concrete step you took, whether reprioritising, flagging early, or staying to finish a reconciliation, and the outcome. The interviewer is testing whether you manage a deadline actively rather than hoping it holds.' },
+          { q: 'What would you do if you were asked to record something you believed was wrong?', a: 'Name the line you would not cross, raise it with the person who asked and then a manager if needed, and document your position. An escalation instinct matters more than sounding agreeable.' },
+          { q: 'You find a mistake after a return has already been filed. What do you do?', a: 'Quantify the error, tell your manager promptly, and correct it through the proper route, an amended return or the next filing, rather than hiding it. Employers listen for someone who surfaces problems early, because a hidden error costs far more later.' },
         ],
       },
       {
