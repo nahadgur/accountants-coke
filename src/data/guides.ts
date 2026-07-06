@@ -610,7 +610,7 @@ export const GUIDES: Guide[] = [
   // KASNEB, ICPAK and ACCA at write time. No invented salary figures.
   {
     slug: 'accounting-jobs-in-kenya',
-    draft: true,
+    draft: false,
     title: 'Accounting Jobs in Kenya: How to Find and Land Them',
     metaTitle: 'Accounting Jobs in Kenya: How to Find and Land Them',
     description:
@@ -630,7 +630,7 @@ export const GUIDES: Guide[] = [
         id: 'qualifications',
         heading: 'What employers expect on paper',
         body: [
-          'The dominant local qualification is the Certified Public Accountant credential examined by the Kenya Accountants and Secretaries National Examinations Board, sat over Foundation, Intermediate and Advanced levels. Many listings ask for CPA completion, some for CPA in progress, and senior roles increasingly ask for full membership of the Institute of Certified Public Accountants of Kenya alongside years of experience. The full route, and how far you need to be to apply for a given role, is covered in the walkthrough on [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/).',
+          'The dominant local qualification is the Certified Public Accountant credential examined by the [Kenya Accountants and Secretaries National Examinations Board](https://www.kasneb.or.ke/cpa), sat over Foundation, Intermediate and Advanced levels. Many listings ask for CPA completion, some for CPA in progress, and senior roles increasingly ask for full membership of the [Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/) alongside years of experience. How far along the [route to becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/) you need to be depends on the role, and junior positions are open well before the final papers.',
           'A degree in commerce, finance or a related field is common but not universal; plenty of qualified accountants came through a diploma and CPA rather than a bachelor degree. What employers screen hardest is the match between the level you are at and the level the role sits at. An entry-level listing that asks for CPA Foundation and a year of exposure is a different filter from a financial-controller listing that asks for CPA(K) membership and five years, and applying up two rungs rarely works.',
         ],
       },
@@ -652,15 +652,15 @@ export const GUIDES: Guide[] = [
         id: 'get-shortlisted',
         heading: 'Getting past the first screen',
         body: [
-          'Most applications are filtered before a human reads them closely, so the first job of your documents is to survive that screen. A tuned, results-led curriculum vitae that mirrors the language of the listing does more work here than any covering note, which is why it is worth building the document carefully rather than sending one generic version everywhere. The specifics of what shortlists an accounting CV in Kenya sit in the guide to writing an [accounting CV that gets shortlisted](/guides/accounting-cv-kenya/).',
-          'If you are early in your career, the barrier is usually experience rather than qualification, and the way through is to target roles pitched at your level and to make transferable exposure legible. The route into a first accounting role, including attachments and internships, is set out in the guide to [entry-level accounting jobs in Kenya](/guides/entry-level-accounting-jobs-kenya/).',
+          'Most applications are filtered before a human reads them closely, so the first job of your documents is to survive that screen. A tuned, results-led curriculum vitae that mirrors the language of the listing does more work here than any covering note, which is why it is worth building the document carefully rather than sending one generic version everywhere.',
+          'If you are early in your career, the barrier is usually experience rather than qualification, and the way through is to target roles pitched at your level and to make transferable exposure legible.',
         ],
       },
       {
         id: 'interview-offer',
         heading: 'From interview to offer',
         body: [
-          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you handle a reconciliation that will not balance, and on judgement questions that have no clean answer. Preparing real, structured responses ahead of time is what separates a nervous candidate from a hireable one, and the common questions and how to answer them are laid out in the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/).',
+          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you handle a reconciliation that will not balance, and on judgement questions that have no clean answer. Preparing real, structured responses ahead of time is what separates a nervous candidate from a hireable one.',
           'On salary, be led by the market rather than a guess. Ranges advertised on live job listings are the honest reference point, and they move with sector, seniority and location, so quote the band the current roles are showing rather than a fixed number. When an offer comes, weighing it against what comparable roles on the [live jobs board](/jobs/) are advertising keeps the negotiation grounded in evidence.',
         ],
       },
@@ -675,7 +675,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'how-to-become-an-accountant-in-kenya',
-    draft: true,
+    draft: false,
     title: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
     metaTitle: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
     description:
@@ -696,7 +696,7 @@ export const GUIDES: Guide[] = [
         heading: 'The CPA qualification: levels and papers',
         body: [
           'Under the revised KASNEB syllabus, the CPA course is examined across three levels: Foundation, Intermediate and Advanced. The Foundation level covers six papers including Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. The Intermediate level covers a further six, including Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation.',
-          'The Advanced level moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis, and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation elements. Because the syllabus has been revised, the exact paper list at the Advanced level and any transition rules are worth confirming against KASNEB before you register. The level-by-level detail, the cost and how long it takes are set out in the guide to the [CPA course in Kenya](/guides/cpa-course-kenya/).',
+          'The Advanced level moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis, and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation elements. Because the syllabus has been revised, the exact paper list at the Advanced level and any transition rules are worth confirming against KASNEB before you register.',
         ],
         bullets: [
           'Foundation level: six papers, the accounting and business fundamentals',
@@ -717,7 +717,7 @@ export const GUIDES: Guide[] = [
         heading: 'Joining ICPAK and practising',
         body: [
           'Passing the CPA examinations makes you a qualified accountant, but using the CPA(K) designation and being recognised professionally means registering with ICPAK, the [statutory body established under the Accountants Act to regulate the profession](https://www.icpak.com/member-categories/). Fresh graduates typically enter as associate members, then move to full membership once they have accumulated the required years of practical experience.',
-          'Offering audit and accountancy services to the public is a further step again, gated behind a practising certificate that ICPAK issues only to full members with additional supervised experience and up-to-date professional development. If your goal is to run your own practice rather than work in industry, that certificate is the milestone that matters, and the requirements around it are covered in the guide to [ICPAK membership and the practising certificate](/guides/icpak-membership-practising-certificate/).',
+          'Offering audit and accountancy services to the public is a further step again, gated behind a practising certificate that ICPAK issues only to full members with additional supervised experience and up-to-date professional development. If your goal is to run your own practice rather than work in industry, that certificate is the milestone that matters.',
         ],
       },
       {
@@ -725,7 +725,7 @@ export const GUIDES: Guide[] = [
         heading: 'Where ACCA and other routes fit',
         body: [
           'CPA is not the only qualification recognised in Kenya. The [ACCA qualification](https://www.accaglobal.com/gb/en/qualifications/glance/acca/overview.html) offered by the UK-based Association of Chartered Certified Accountants is widely respected, particularly for roles with an international or multinational dimension, and it combines a series of exams with an ethics module and three years of practical experience to reach membership. Some Kenyan accountants hold both CPA and ACCA.',
-          'For most people building a career in Kenya, CPA is the natural spine because it is examined locally, is cheaper, and maps directly onto ICPAK membership and Kenyan tax and regulatory practice. ACCA is the stronger add-on where global mobility matters. Whichever route you take, the qualification only converts into a career when you pair it with real roles, so treat browsing the [live accounting jobs](/jobs/) as part of the plan rather than something you do only at the end.',
+          'For most people building a career in Kenya, CPA is the natural spine because it is examined locally, is cheaper, and maps directly onto ICPAK membership and Kenyan tax and regulatory practice. ACCA is the stronger add-on where global mobility matters. Whichever route you take, the qualification only converts into a career when you pair it with real roles, so treat [finding accounting jobs in Kenya](/guides/accounting-jobs-in-kenya/) as part of the plan rather than something you do only at the end.',
         ],
       },
     ],
