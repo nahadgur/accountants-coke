@@ -1,31 +1,31 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { PUBLISHED_HUBS } from '@/data/guides';
+import { PUBLISHED_SPOKES } from '@/data/guides';
 
 export const metadata: Metadata = {
-  title: 'Kenya tax & accounting guides',
+  title: 'Accounting career guides in Kenya',
   description:
-    'Practical, current guides on Kenyan tax and accounting: rental income tax, eTIMS, VAT and more, for businesses and individuals.',
-  alternates: { canonical: '/guides' },
+    'Practical guides for accounting careers in Kenya: how to break into entry-level roles, write a CV that gets shortlisted, prepare for interviews, and take the CPA course.',
+  alternates: { canonical: '/blog' },
 };
 
-export default function GuidesIndex() {
+export default function BlogIndex() {
   return (
     <div className="shell py-12">
       <h1 className="font-display text-4xl font-extrabold tracking-tight text-navy-900">
-        Tax &amp; Accounting Guides
+        Accounting Career Guides
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-slate-600">
-        Clear, current guidance on Kenyan tax and compliance, and a verified
-        accountant to hand it to when you’re ready.
+        How to qualify, get shortlisted and land accounting jobs in Kenya, with
+        the live roles a click away when you’re ready to apply.
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {PUBLISHED_HUBS().map((g) => (
+        {PUBLISHED_SPOKES().map((g) => (
           <Link
             key={g.slug}
-            href={`/guides/${g.slug}`}
+            href={`/blog/${g.slug}`}
             className="group flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-slate-300 hover:shadow-lift"
           >
             <h2 className="font-display text-xl font-bold text-navy-900">

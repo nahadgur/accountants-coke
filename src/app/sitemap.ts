@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { SERVICES } from '@/data/services';
-import { PUBLISHED_GUIDES } from '@/data/guides';
+import { PUBLISHED_HUBS, PUBLISHED_SPOKES } from '@/data/guides';
 
 const BASE = 'https://accountants.co.ke';
 
@@ -27,6 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/jobs`, priority: 0.9 },
     { url: `${BASE}/match`, priority: 0.8 },
     { url: `${BASE}/guides`, priority: 0.8 },
+    { url: `${BASE}/blog`, priority: 0.8 },
     { url: `${BASE}/how-it-works`, priority: 0.6 },
     { url: `${BASE}/about`, priority: 0.5 },
     { url: `${BASE}/faq`, priority: 0.5 },
@@ -39,8 +40,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/services/${s.slug}`,
     priority: 0.8,
   }));
-  const guideRoutes = PUBLISHED_GUIDES().map((g) => ({
+  const guideRoutes = PUBLISHED_HUBS().map((g) => ({
     url: `${BASE}/guides/${g.slug}`,
+    lastModified: new Date(g.updated),
+    priority: 0.7,
+  }));
+  const blogRoutes = PUBLISHED_SPOKES().map((g) => ({
+    url: `${BASE}/blog/${g.slug}`,
     lastModified: new Date(g.updated),
     priority: 0.7,
   }));
@@ -50,5 +56,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...guideRoutes, ...jobRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...guideRoutes, ...blogRoutes, ...jobRoutes];
 }

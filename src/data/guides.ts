@@ -21,10 +21,17 @@ export type Guide = {
   faqs: Faq[];
   relatedService?: string; // service slug, surfaces matching pros
   draft?: boolean; // when true: 404s in prod, excluded from index + sitemap + static params
+  kind?: 'hub' | 'spoke'; // hub/pillar -> /guides; spoke -> /blog. Undefined = treated as hub/pillar (/guides).
+  hub?: string; // parent hub slug (spokes only), for the up-link to /guides/<hub>
 };
 
-/** Guides that are live (not parked as drafts). Use everywhere a guide is listed publicly. */
-export const PUBLISHED_GUIDES = (): Guide[] => GUIDES.filter((g) => !g.draft);
+/** Live hubs/pillars, served at /guides/<slug> (everything that is not a spoke). */
+export const PUBLISHED_HUBS = (): Guide[] =>
+  GUIDES.filter((g) => !g.draft && g.kind !== 'spoke');
+
+/** Live spokes, served at /blog/<slug>. */
+export const PUBLISHED_SPOKES = (): Guide[] =>
+  GUIDES.filter((g) => !g.draft && g.kind === 'spoke');
 
 export const GUIDES: Guide[] = [
   {
@@ -611,6 +618,7 @@ export const GUIDES: Guide[] = [
   {
     slug: 'accounting-jobs-in-kenya',
     draft: false,
+    kind: 'hub',
     title: 'Accounting Jobs in Kenya: How to Find and Land Them',
     metaTitle: 'Accounting Jobs in Kenya: How to Find and Land Them',
     description:
@@ -623,14 +631,14 @@ export const GUIDES: Guide[] = [
         heading: 'How the market is shaped',
         body: [
           'Accounting sits inside almost every organisation in Kenya, so demand is spread widely rather than concentrated in one sector. Audit and advisory firms hire in cohorts, industry finance teams hire as they grow, and the public sector, SACCOs, NGOs and county governments all run their own finance functions. That breadth is why an accounting qualification travels: the same core skills open doors in banking, manufacturing, retail, development work and practice.',
-          'Roles cluster into a few families. Practice work covers audit, tax and advisory inside firms, from the Big Four down to mid-tier and small local firms. Industry work covers the finance team of a business that is not itself an accounting firm, running the books, the reporting and the controls. Public and not-for-profit finance covers government bodies, SACCOs and NGOs, each with its own compliance rhythm. Knowing which family a role belongs to tells you what the day actually looks like, and browsing the live roles on the [Kenyan accounting job board](/jobs/) is the quickest way to see how each one is advertised.',
+          'Roles cluster into a few families. Practice work covers audit, tax and advisory inside firms, from the Big Four down to mid-tier and small local firms. Industry work covers the finance team of a business that is not itself an accounting firm, running the books, the reporting and the controls. Public and not-for-profit finance covers government bodies, SACCOs and NGOs, each with its own compliance rhythm. Knowing which family a role belongs to tells you what the day actually looks like, and browsing the live roles on the [Kenyan accounting job board](/jobs) is the quickest way to see how each one is advertised.',
         ],
       },
       {
         id: 'qualifications',
         heading: 'What employers expect on paper',
         body: [
-          'The dominant local qualification is the Certified Public Accountant credential examined by the [Kenya Accountants and Secretaries National Examinations Board](https://www.kasneb.or.ke/cpa), sat over Foundation, Intermediate and Advanced levels. Many listings ask for CPA completion, some for CPA in progress, and senior roles increasingly ask for full membership of the [Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/) alongside years of experience. How far along the [route to becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/) you need to be depends on the role, and junior positions are open well before the final papers.',
+          'The dominant local qualification is the Certified Public Accountant credential examined by the [Kenya Accountants and Secretaries National Examinations Board](https://www.kasneb.or.ke/cpa), sat over Foundation, Intermediate and Advanced levels. Many listings ask for CPA completion, some for CPA in progress, and senior roles increasingly ask for full membership of the [Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/) alongside years of experience. How far along the [route to becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya) you need to be depends on the role, and junior positions are open well before the final papers.',
           'A degree in commerce, finance or a related field is common but not universal; plenty of qualified accountants came through a diploma and CPA rather than a bachelor degree. What employers screen hardest is the match between the level you are at and the level the role sits at. An entry-level listing that asks for CPA Foundation and a year of exposure is a different filter from a financial-controller listing that asks for CPA(K) membership and five years, and applying up two rungs rarely works.',
         ],
       },
@@ -639,7 +647,7 @@ export const GUIDES: Guide[] = [
         heading: 'Where the roles are actually advertised',
         body: [
           'Kenyan accounting vacancies surface across general job boards, recruiter shortlists, firm career pages and professional networks, and the same role can appear in several of these at once. Relying on a single channel is the most common reason a strong candidate misses roles that would have suited them, so it pays to watch a spread rather than one site.',
-          'A focused board that only carries accounting, audit, tax and finance roles cuts the noise that comes with general listings. Browsing and filtering the [accounting and finance roles on our jobs board](/jobs/) lets you see the live market by function and seniority in one place, and applying through it keeps your application inside the pipeline rather than lost in a generic inbox.',
+          'A focused board that only carries accounting, audit, tax and finance roles cuts the noise that comes with general listings. Browsing and filtering the [accounting and finance roles on our jobs board](/jobs) lets you see the live market by function and seniority in one place, and applying through it keeps your application inside the pipeline rather than lost in a generic inbox.',
         ],
         bullets: [
           'Dedicated accounting and finance job boards, filtered by function and level',
@@ -652,16 +660,16 @@ export const GUIDES: Guide[] = [
         id: 'get-shortlisted',
         heading: 'Getting past the first screen',
         body: [
-          'Most applications are filtered before a human reads them closely, so the first job of your documents is to survive that screen. A tuned, results-led curriculum vitae that mirrors the language of the listing does more work here than any covering note, which is why it is worth building the document carefully rather than sending one generic version everywhere.',
-          'If you are early in your career, the barrier is usually experience rather than qualification, and the way through is to target roles pitched at your level and to make transferable exposure legible.',
+          'Most applications are filtered before a human reads them closely, so the first job of your documents is to survive that screen. A tuned, results-led [accounting CV in Kenya](/blog/accounting-cv-kenya) that mirrors the language of the listing does more work here than any covering note, which is why it is worth building the document carefully rather than sending one generic version everywhere.',
+          'If you are early in your career, the barrier is usually experience rather than qualification, and the way through is to target roles pitched at your level, the tactics for [breaking into entry-level accounting jobs in Kenya](/blog/entry-level-accounting-jobs-kenya), and making transferable exposure legible.',
         ],
       },
       {
         id: 'interview-offer',
         heading: 'From interview to offer',
         body: [
-          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you handle a reconciliation that will not balance, and on judgement questions that have no clean answer. Preparing real, structured responses ahead of time is what separates a nervous candidate from a hireable one.',
-          'On salary, be led by the market rather than a guess. Ranges advertised on live job listings are the honest reference point, and they move with sector, seniority and location, so quote the band the current roles are showing rather than a fixed number. When an offer comes, weighing it against what comparable roles on the [live jobs board](/jobs/) are advertising keeps the negotiation grounded in evidence.',
+          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you handle a reconciliation that will not balance, and on judgement questions that have no clean answer. Working through the common [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) and preparing real, structured responses ahead of time is what separates a nervous candidate from a hireable one.',
+          'On salary, be led by the market rather than a guess. Ranges advertised on live job listings are the honest reference point, and they move with sector, seniority and location, so quote the band the current roles are showing rather than a fixed number. When an offer comes, weighing it against what comparable roles on the [live jobs board](/jobs) are advertising keeps the negotiation grounded in evidence.',
         ],
       },
     ],
@@ -676,6 +684,7 @@ export const GUIDES: Guide[] = [
   {
     slug: 'how-to-become-an-accountant-in-kenya',
     draft: false,
+    kind: 'hub',
     title: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
     metaTitle: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
     description:
@@ -688,14 +697,14 @@ export const GUIDES: Guide[] = [
         heading: 'The route in outline',
         body: [
           'The standard path to becoming an accountant in Kenya has three stages: pass the professional examinations, build practical experience, and register with the professional body. The examinations are set by the Kenya Accountants and Secretaries National Examinations Board, known as KASNEB, and the leading qualification is the Certified Public Accountant credential. Membership of the Institute of Certified Public Accountants of Kenya, ICPAK, is what lets you use the CPA(K) designation and, in time, practise publicly.',
-          'None of these stages is skippable if you want to work as a recognised accountant, but they do not all have to happen in a strict order. Many people begin working in a finance role while still sitting KASNEB papers, which is often the fastest way to accumulate the experience that both employers and ICPAK will later ask for. Watching the [entry-level accounting roles on the jobs board](/jobs/) while you study is a practical way to line up that experience early.',
+          'None of these stages is skippable if you want to work as a recognised accountant, but they do not all have to happen in a strict order. Many people begin working in a finance role while still sitting KASNEB papers, which is often the fastest way to accumulate the experience that both employers and ICPAK will later ask for. Watching the [entry-level accounting roles on the jobs board](/jobs) while you study is a practical way to line up that experience early.',
         ],
       },
       {
         id: 'cpa-levels',
         heading: 'The CPA qualification: levels and papers',
         body: [
-          'Under the revised KASNEB syllabus, the CPA course is examined across three levels: Foundation, Intermediate and Advanced. The Foundation level covers six papers including Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. The Intermediate level covers a further six, including Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation.',
+          'Under the revised KASNEB syllabus, the [CPA course in Kenya](/blog/cpa-course-kenya) is examined across three levels: Foundation, Intermediate and Advanced. The Foundation level covers six papers including Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. The Intermediate level covers a further six, including Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation.',
           'The Advanced level moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis, and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation elements. Because the syllabus has been revised, the exact paper list at the Advanced level and any transition rules are worth confirming against KASNEB before you register.',
         ],
         bullets: [
@@ -725,7 +734,7 @@ export const GUIDES: Guide[] = [
         heading: 'Where ACCA and other routes fit',
         body: [
           'CPA is not the only qualification recognised in Kenya. The [ACCA qualification](https://www.accaglobal.com/gb/en/qualifications/glance/acca/overview.html) offered by the UK-based Association of Chartered Certified Accountants is widely respected, particularly for roles with an international or multinational dimension, and it combines a series of exams with an ethics module and three years of practical experience to reach membership. Some Kenyan accountants hold both CPA and ACCA.',
-          'For most people building a career in Kenya, CPA is the natural spine because it is examined locally, is cheaper, and maps directly onto ICPAK membership and Kenyan tax and regulatory practice. ACCA is the stronger add-on where global mobility matters. Whichever route you take, the qualification only converts into a career when you pair it with real roles, so treat [finding accounting jobs in Kenya](/guides/accounting-jobs-in-kenya/) as part of the plan rather than something you do only at the end.',
+          'For most people building a career in Kenya, CPA is the natural spine because it is examined locally, is cheaper, and maps directly onto ICPAK membership and Kenyan tax and regulatory practice. ACCA is the stronger add-on where global mobility matters. Whichever route you take, the qualification only converts into a career when you pair it with real roles, so treat [finding accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) as part of the plan rather than something you do only at the end.',
         ],
       },
     ],
@@ -739,7 +748,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'accounting-interview-questions-kenya',
-    draft: true,
+    draft: false,
+    kind: 'spoke',
+    hub: 'accounting-jobs-in-kenya',
     title: 'Accounting Interview Questions in Kenya (With Answers)',
     metaTitle: 'Accounting Interview Questions in Kenya (With Answers)',
     description:
@@ -752,7 +763,7 @@ export const GUIDES: Guide[] = [
         heading: 'What the interview is really testing',
         body: [
           'A Kenyan accounting interview usually has three layers running at once: can you handle the core accounting, do you understand local compliance, and will you exercise sound judgement when something is unclear. Employers rarely announce which layer a question belongs to, so part of interviewing well is hearing what a question is actually probing and answering that, not the surface of it.',
-          'This matters most for candidates coming straight out of the CPA examinations, where the instinct is to recite the syllabus. Interviewers want the syllabus applied to a messy situation, not repeated back. If you are still working towards the qualification, the study route is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/), but the interview is where you show you can use it.',
+          'This matters most for candidates coming straight out of the [KASNEB CPA examinations](https://www.kasneb.or.ke/cpa), where the instinct is to recite the syllabus. Interviewers want the syllabus applied to a messy situation, not repeated back. If you are still working towards the qualification, the study route is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya), but the interview is where you show you can use it.',
         ],
       },
       {
@@ -773,7 +784,7 @@ export const GUIDES: Guide[] = [
         id: 'compliance',
         heading: 'The KRA and compliance questions',
         body: [
-          'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You may be asked when VAT returns are due, what a PAYE obligation involves for an employer, how rental income is taxed, or what eTIMS means for the validity of an expense. You are not expected to quote every figure from memory, but you are expected to know how the system fits together and where to check a rate.',
+          'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You may be asked when VAT returns are due, what a PAYE obligation involves for an employer, how rental income is taxed, or what eTIMS means for the validity of an expense. You are not expected to quote every figure from memory, but you are expected to know how the system fits together and where to check a rate against the [Kenya Revenue Authority](https://www.kra.go.ke/).',
           'Answer these by showing you understand the shape of the obligation and the deadline discipline behind it, then be honest that you would confirm a specific rate against the current position before relying on it. That combination, structural understanding plus a habit of verifying, is exactly what an employer wants from someone who will be responsible for filings.',
         ],
       },
@@ -790,7 +801,7 @@ export const GUIDES: Guide[] = [
         heading: 'Closing well and following up',
         body: [
           'The end of the interview is part of the assessment. Having two or three genuine questions ready, about the team, the reporting cycle, or how the role grows, signals that you are weighing the fit rather than just wanting any job. Avoid making salary the first thing you raise; when it does come up, anchor to the ranges advertised on live listings for the role and level rather than naming a figure out of the air.',
-          'Preparation is what turns a nervous candidate into a hireable one, so rehearse structured answers before the day rather than improvising in the room. Once you are ready, applying to the roles on the [live accounting jobs board](/jobs/) puts that preparation to work, and reading the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya/) alongside it keeps the whole application, not just the interview, sharp.',
+          'Preparation is what turns a nervous candidate into a hireable one, so rehearse structured answers before the day rather than improvising in the room. A sharp [accounting CV in Kenya](/blog/accounting-cv-kenya) is what gets you into the room in the first place, and once you are ready, applying to the roles on the [live accounting jobs board](/jobs) puts that preparation to work. Reading the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) alongside it keeps the whole application, not just the interview, sharp.',
         ],
       },
     ],
@@ -804,7 +815,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'accounting-cv-kenya',
-    draft: true,
+    draft: false,
+    kind: 'spoke',
+    hub: 'accounting-jobs-in-kenya',
     title: 'Accounting CV in Kenya: How to Get Shortlisted',
     metaTitle: 'Accounting CV in Kenya: How to Get Shortlisted',
     description:
@@ -817,7 +830,7 @@ export const GUIDES: Guide[] = [
         heading: 'What your CV has to do first',
         body: [
           'An accounting CV in Kenya is read twice: quickly, to decide whether you clear the basic bar, and then slowly, only if you clear it. The first read is often a scan against the listing for the qualification, the years, and a few keywords. If those are not visible in seconds, a strong candidate can be filtered out before anyone reads the detail, so the top third of the first page has to do the heavy lifting.',
-          'That means leading with the facts an employer is screening for: your CPA status, your ICPAK membership if you have it, your total relevant experience, and the kind of accounting you do. Burying the qualification on page two is one of the most common reasons a capable applicant never makes the shortlist. Tuning the CV to each listing, so those facts line up with what the role asks for, is what the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya/) treats as the single highest-leverage step.',
+          'That means leading with the facts an employer is screening for: your CPA status, your ICPAK membership if you have it, your total relevant experience, and the kind of accounting you do. Burying the qualification on page two is one of the most common reasons a capable applicant never makes the shortlist. Tuning the CV to each listing, so those facts line up with what the role asks for, is what the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) treats as the single highest-leverage step.',
         ],
       },
       {
@@ -825,7 +838,7 @@ export const GUIDES: Guide[] = [
         heading: 'The structure that works',
         body: [
           'A clean, conventional structure beats a designed one for accounting roles. Lead with a short professional summary, then qualifications, then experience in reverse order, then education and any additional skills. Keep it to two pages, use plain formatting that survives being parsed by software, and avoid photos, tables and graphics that can scramble in an applicant-tracking system.',
-          'Put your qualifications where they are seen. State clearly whether you have completed CPA or are at a specific stage, and name your ICPAK membership category if you hold one, because those two lines answer the first question the employer has. The full qualification picture, and how far along you need to be for different roles, is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/).',
+          'Put your qualifications where they are seen. State clearly whether you have completed [the KASNEB CPA qualification](https://www.kasneb.or.ke/cpa) or are at a specific stage, and name your [ICPAK membership category](https://www.icpak.com/member-categories/) if you hold one, because those two lines answer the first question the employer has. The full qualification picture, and how far along you need to be for different roles, is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya).',
         ],
         bullets: [
           'Professional summary: three or four lines, qualification and focus up front',
@@ -847,7 +860,7 @@ export const GUIDES: Guide[] = [
         heading: 'Tune it to the listing',
         body: [
           'One generic CV sent everywhere is the quiet reason many applications fail. Each listing uses particular language, for the software it runs, the standards it works to, the sector it sits in, and mirroring that language, honestly, is what gets you past the keyword screen and signals you actually read the role. This does not mean rewriting your history; it means reordering and rephrasing so the relevant parts surface first.',
-          'Read the listing and ask what this specific employer is screening for, then make sure those exact things are visible high up. When you apply through the [accounting jobs board](/jobs/), that tuned version is what enters the pipeline, and a version aimed at the role beats a stronger but generic CV aimed at nothing in particular.',
+          'Read the listing and ask what this specific employer is screening for, then make sure those exact things are visible high up. When you apply through the [accounting jobs board](/jobs), that tuned version is what enters the pipeline, and a version aimed at the role beats a stronger but generic CV aimed at nothing in particular.',
         ],
       },
       {
@@ -855,7 +868,7 @@ export const GUIDES: Guide[] = [
         heading: 'The mistakes that get you rejected',
         body: [
           'A handful of errors reject candidates before their experience is even weighed. Typos and inconsistent figures are read as carelessness, which is disqualifying for someone who will be trusted with the books. An unexplained gap, an email address that looks unprofessional, or a CV that runs to five pages all cost you before the interview.',
-          'Once the CV is clean, the rest of the application has to match it. A tuned covering note and, above all, being ready for the technical and judgement questions covered in the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/) are what convert a shortlisting into an offer. The CV opens the door; the preparation behind it is what walks you through.',
+          'Once the CV is clean, the rest of the application has to match it. A tuned covering note and, above all, being ready for the technical and judgement questions in the [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) walkthrough are what convert a shortlisting into an offer. The CV opens the door; the preparation behind it is what walks you through.',
         ],
       },
     ],
@@ -869,7 +882,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'entry-level-accounting-jobs-kenya',
-    draft: true,
+    draft: false,
+    kind: 'spoke',
+    hub: 'accounting-jobs-in-kenya',
     title: 'Entry-Level Accounting Jobs in Kenya: How to Break In',
     metaTitle: 'Entry-Level Accounting Jobs in Kenya: How to Break In',
     description:
@@ -882,15 +897,15 @@ export const GUIDES: Guide[] = [
         heading: 'The experience trap, and the way out',
         body: [
           'Every new accountant hits the same wall: roles ask for experience, and you need a role to get experience. The way out is to recognise that not every listing means it. Plenty of entry-level roles ask for CPA in progress and a willingness to learn rather than years on the job, and the skill early on is telling those apart from the roles that are genuinely out of reach so you spend your applications where they can land.',
-          'The other half of the answer is that experience does not only come from a permanent job. Attachments, internships and short contracts all count, and treating them as the on-ramp rather than a detour is what gets most people their first real role. Watching the junior and trainee listings on the [accounting jobs board](/jobs/) shows you which employers are hiring at that level right now.',
+          'The other half of the answer is that experience does not only come from a permanent job. Attachments, internships and short contracts all count, and treating them as the on-ramp rather than a detour is what gets most people their first real role. Watching the junior and trainee listings on the [accounting jobs board](/jobs) shows you which employers are hiring at that level right now.',
         ],
       },
       {
         id: 'roles-that-hire',
         heading: 'The roles that actually hire juniors',
         body: [
-          'A handful of role types are the usual entry points, and knowing their titles helps you search for them. Audit firms hire audit associates in cohorts, often straight out of the CPA examinations, and this is one of the most reliable ways into the profession because firms expect to train you. Industry finance teams hire accounts assistants, accounts clerks and junior accountants to handle payables, receivables and reconciliations under supervision.',
-          'Beyond those, bookkeeping roles in small businesses, finance-officer roles in SACCOs and NGOs, and trainee positions in shared-service centres all take people early in their careers. Each has a different texture, but all of them value someone who is reliable with detail and eager to learn over someone who claims to know everything, and the [live jobs board](/jobs/) lets you filter these entry points by function.',
+          'A handful of role types are the usual entry points, and knowing their titles helps you search for them. Audit firms hire audit associates in cohorts, often straight out of the CPA examinations, and this is one of the most reliable ways into [the accountancy profession regulated by ICPAK](https://www.icpak.com/member-categories/) because firms expect to train you. Industry finance teams hire accounts assistants, accounts clerks and junior accountants to handle payables, receivables and reconciliations under supervision.',
+          'Beyond those, bookkeeping roles in small businesses, finance-officer roles in SACCOs and NGOs, and trainee positions in shared-service centres all take people early in their careers. Each has a different texture, but all of them value someone who is reliable with detail and eager to learn over someone who claims to know everything, and the [live jobs board](/jobs) lets you filter these entry points by function.',
         ],
         bullets: [
           'Audit associate: cohort hiring in firms, structured training',
@@ -904,7 +919,7 @@ export const GUIDES: Guide[] = [
         heading: 'Using attachments and internships',
         body: [
           'Industrial attachments and internships are the standard bridge into Kenyan accounting, and for many people they are how the first line of experience gets onto the CV. The value is not only the technical exposure; it is the reference, the professional network, and often the inside track when the same organisation next hires permanently. Treating an attachment as a serious audition rather than a box to tick is what turns it into a job.',
-          'Apply for these the way you would a permanent role, with a tuned CV and a clear reason for wanting that specific placement. The document that gets you shortlisted for an attachment is the same one that gets you shortlisted later, so it is worth building well from the start, which is what the guide to writing an [accounting CV that gets shortlisted](/guides/accounting-cv-kenya/) walks through.',
+          'Apply for these the way you would a permanent role, with a tuned CV and a clear reason for wanting that specific placement. The document that gets you shortlisted for an attachment is the same one that gets you shortlisted later, so it is worth building well from the start, which is what the guide to writing an [accounting CV that gets shortlisted](/blog/accounting-cv-kenya) walks through.',
         ],
       },
       {
@@ -912,15 +927,15 @@ export const GUIDES: Guide[] = [
         heading: 'What employers want from a junior',
         body: [
           'At entry level, employers are not expecting deep expertise. They are looking for someone who is accurate with detail, honest about what they do not know, and quick to learn a process and stick to it. Reliability under a deadline and a willingness to ask rather than guess matter more than a long list of skills, because the technical depth is what the job itself will build.',
-          'Progress on the CPA qualification signals exactly this, that you are committed to the profession and are building the technical base in parallel. If you have not started or are early in the process, the study route and how it fits around a first job is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/), and being visibly in progress is often enough for an entry-level employer.',
+          'Progress on the [KASNEB CPA qualification](https://www.kasneb.or.ke/cpa) signals exactly this, that you are committed to the profession and are building the technical base in parallel. If you have not started or are early in the process, the study route and how it fits around a first job is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya), and being visibly in progress is often enough for an entry-level employer.',
         ],
       },
       {
         id: 'apply-well',
         heading: 'Applying so you get noticed',
         body: [
-          'Volume alone does not work; targeted applications do. Aim at roles pitched at your actual level, tune each application to the listing, and apply through a focused pipeline rather than scattering the same CV across the internet. A smaller number of well-aimed applications through the [accounting jobs board](/jobs/) beats a hundred generic ones, because each one lands in front of an employer who is hiring at your level.',
-          'Then prepare for the conversation. Entry-level interviews still test the fundamentals and your judgement, and walking in with structured answers, as covered in the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/), is what converts a first shortlisting into a first job. The candidates who break in are rarely the most experienced, because none of them are; they are the ones who applied precisely and prepared properly.',
+          'Volume alone does not work; targeted applications do. Aim at roles pitched at your actual level, tune each application to the listing, and apply through a focused pipeline rather than scattering the same CV across the internet. A smaller number of well-aimed applications through the [accounting jobs board](/jobs) beats a hundred generic ones, because each one lands in front of an employer who is hiring at your level.',
+          'Then prepare for the conversation. Entry-level interviews still test the fundamentals and your judgement, and walking in with structured answers, as covered in the [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) walkthrough, is what converts a first shortlisting into a first job. The candidates who break in are rarely the most experienced, because none of them are; they are the ones who applied precisely and prepared properly.',
         ],
       },
     ],
@@ -934,7 +949,9 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'cpa-course-kenya',
-    draft: true,
+    draft: false,
+    kind: 'spoke',
+    hub: 'how-to-become-an-accountant-in-kenya',
     title: 'The CPA Course in Kenya: Levels, Papers & Cost',
     metaTitle: 'The CPA Course in Kenya: Levels, Papers & Cost',
     description:
@@ -946,8 +963,8 @@ export const GUIDES: Guide[] = [
         id: 'what-cpa-is',
         heading: 'What the CPA course is',
         body: [
-          'The Certified Public Accountant course is the professional accountancy qualification set by the Kenya Accountants and Secretaries National Examinations Board, KASNEB. It is the standard route to becoming a recognised accountant in Kenya, and completing it is what lets you apply for membership of the Institute of Certified Public Accountants of Kenya and use the CPA(K) designation. The wider route, from exams through experience to ICPAK, is laid out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya/).',
-          'Under the revised KASNEB syllabus, the course is examined across three levels, Foundation, Intermediate and Advanced, each building on the last. It is designed to be studied alongside work, which is why many candidates sit papers while holding a finance role, and watching the [trainee and junior listings on the jobs board](/jobs/) is a practical way to line up that experience while you study.',
+          'The Certified Public Accountant course is the professional accountancy qualification set by the Kenya Accountants and Secretaries National Examinations Board, KASNEB. It is the standard route to becoming a recognised accountant in Kenya, and completing it is what lets you apply for [membership of the Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/) and use the CPA(K) designation. The wider route, from exams through experience to ICPAK, is laid out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya).',
+          'Under the revised KASNEB syllabus, the course is examined across three levels, Foundation, Intermediate and Advanced, each building on the last. It is designed to be studied alongside work, which is why many candidates sit papers while holding a finance role, and watching the [trainee and junior listings on the jobs board](/jobs) is a practical way to line up that experience while you study.',
         ],
       },
       {
@@ -955,7 +972,7 @@ export const GUIDES: Guide[] = [
         heading: 'The three levels and their papers',
         body: [
           'The Foundation level covers six papers that build the base: Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. This level assumes no prior accounting knowledge and is where most candidates start.',
-          'The Intermediate level covers a further six papers, moving into the working core of the profession: Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation. The Advanced level then moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation components. Because the syllabus was revised, confirm the exact Advanced-level paper list and any specialisation rules against the [KASNEB CPA course page](https://www.kasneb.or.ke/cpa) before you register.',
+          'The Intermediate level covers a further six papers, moving into the working core of the profession: Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation. The Advanced level then moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation components. Because the syllabus was revised, confirm the exact Advanced-level paper list and any specialisation rules on the KASNEB CPA course page before you register.',
         ],
         bullets: [
           'Foundation: six papers, the accounting and business fundamentals',
@@ -984,7 +1001,7 @@ export const GUIDES: Guide[] = [
         heading: 'How long it takes',
         body: [
           'KASNEB guidance frames each level as requiring roughly a year on average, which puts the examinations at about three years for a candidate who progresses steadily and passes cleanly. On top of that, candidates are advised to allow additional time for the practical experience and workshop requirements built into the qualification, so the realistic end-to-end picture is a little longer than the exam timetable alone.',
-          'In practice the timeline varies widely with how many papers you take per sitting, how you balance study against work, and resits. Some finish faster by sitting a full level at once; others spread it out around a demanding job. Either way, the qualification only pays off when it meets real roles, so treating the [live accounting jobs](/jobs/) as part of the plan, and preparing for interviews using the guide to [accounting interview questions in Kenya](/guides/accounting-interview-questions-kenya/), is what turns exam passes into a career.',
+          'In practice the timeline varies widely with how many papers you take per sitting, how you balance study against work, and resits. Some finish faster by sitting a full level at once; others spread it out around a demanding job. Either way, the qualification only pays off when it meets real roles, so treating the [live accounting jobs](/jobs) as part of the plan, and preparing with the [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) walkthrough, is what turns exam passes into a career.',
         ],
       },
     ],

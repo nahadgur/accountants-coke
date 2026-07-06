@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { PUBLISHED_HUBS, getGuide } from '@/data/guides';
+import { PUBLISHED_SPOKES, getGuide } from '@/data/guides';
 import { getService } from '@/data/services';
 import {
   PageHero,
@@ -35,24 +35,33 @@ export const revalidate = 300;
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return PUBLISHED_HUBS().map((g) => ({ slug: g.slug }));
+  return PUBLISHED_SPOKES().map((g) => ({ slug: g.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const g = getGuide((await params).slug);
-  if (!g || g.draft || g.kind === 'spoke') return { title: 'Guide not found' };
+  if (!g || g.draft || g.kind !== 'spoke') return { title: 'Guide not found' };
   return {
     title: g.metaTitle ?? g.title,
     description: g.description,
-    alternates: { canonical: `/guides/${g.slug}` },
+    alternates: { canonical: `/blog/${g.slug}` },
   };
 }
 
-export default async function GuidePage({ params }: Props) {
+export default async function BlogPost({ params }: Props) {
   const g = getGuide((await params).slug);
-  if (!g || g.draft || g.kind === 'spoke') notFound();
+  if (!g || g.draft || g.kind !== 'spoke') notFound();
 
   const service = g.relatedService ? getService(g.relatedService) : undefined;
+  const hub = g.hub ? getGuide(g.hub) : undefined;
+
+  const breadcrumb = [
+    { label: 'Career Guides', href: '/blog' },
+    ...(hub && !hub.draft
+      ? [{ label: hub.title, href: `/guides/${hub.slug}` }]
+      : []),
+    { label: g.title },
+  ];
 
   return (
     <article className="shell py-10">
@@ -64,7 +73,7 @@ export default async function GuidePage({ params }: Props) {
               title: g.title,
               description: g.description,
               updated: g.updated,
-              url: `https://accountants.co.ke/guides/${g.slug}`,
+              url: `https://accountants.co.ke/blog/${g.slug}`,
             }),
             faqJsonLd(g.faqs),
           ]),
@@ -72,7 +81,7 @@ export default async function GuidePage({ params }: Props) {
       />
 
       <PageHero
-        breadcrumb={[{ label: 'Guides', href: '/guides' }, { label: g.title }]}
+        breadcrumb={breadcrumb}
         title={g.title}
         lead={g.lead}
       />

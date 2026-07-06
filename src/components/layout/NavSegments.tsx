@@ -8,6 +8,7 @@ const ITEMS = [
   { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
   { href: '/guides', label: 'Guides' },
+  { href: '/blog', label: 'Career Guides' },
 ];
 
 export function NavSegments() {
