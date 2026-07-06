@@ -31,6 +31,8 @@ const nextConfig: NextConfig = {
       { source: '/firms', destination: '/directory', permanent: true },
       // Job posting hidden for now (paid checkout not live). Temporary.
       { source: '/jobs/new/:path*', destination: '/jobs', permanent: false },
+      // Discontinued client-tax content (site is a jobs board): send the dead tax URL to the guides hub.
+      { source: '/guides/turnover-tax-kenya', destination: '/guides', permanent: true },
     ];
   },
 };
