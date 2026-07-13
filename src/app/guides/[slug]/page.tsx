@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { PUBLISHED_HUBS, getGuide } from '@/data/guides';
-import { getService } from '@/data/services';
 import {
   PageHero,
   MatchCTA,
@@ -52,8 +51,6 @@ export default async function GuidePage({ params }: Props) {
   const g = getGuide((await params).slug);
   if (!g || g.draft || g.kind === 'spoke') notFound();
 
-  const service = g.relatedService ? getService(g.relatedService) : undefined;
-
   return (
     <article className="shell py-10">
       <script
@@ -72,7 +69,7 @@ export default async function GuidePage({ params }: Props) {
       />
 
       <PageHero
-        breadcrumb={[{ label: 'Guides', href: '/guides' }, { label: g.title }]}
+        breadcrumb={[{ label: 'Career Guides', href: '/guides' }, { label: g.title }]}
         title={g.title}
         lead={g.lead}
       />
@@ -101,12 +98,11 @@ export default async function GuidePage({ params }: Props) {
           {i === 0 && (
             <div className="my-10">
               <MatchCTA
-                title="Need a hand with this?"
-                body="Tell us what you need and we'll get back to you. No charge to ask."
-                points={['Free to ask', 'No obligation', 'Quick reply']}
-                ctaLabel="Get in touch"
-                matchService={service?.specialization ?? undefined}
-                matchLabel={service?.name}
+                title="Looking for your next accounting role?"
+                body="Browse current accounting and finance vacancies across Kenya and apply directly. Free to search."
+                points={['Fresh listings', 'Apply directly', 'No fee to search']}
+                ctaLabel="Browse accounting jobs"
+                href="/jobs"
               />
             </div>
           )}

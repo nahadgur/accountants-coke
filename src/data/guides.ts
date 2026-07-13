@@ -35,1263 +35,638 @@ export const PUBLISHED_HUBS = (): Guide[] =>
 export const PUBLISHED_SPOKES = (): Guide[] =>
   GUIDES.filter((g) => !g.draft && g.kind === 'spoke');
 
+// 8-hub careers silo (Google-Sheet content map). Hubs only for now; spokes
+// (kind:'spoke' -> /blog) are added in later waves. FAQ answers render as plain
+// text, so links live only in section body/qa. Figures are reported ranges or
+// verified statutory rates; confirm fees/stipends at the cited source before
+// treating any single number as fixed.
 export const GUIDES: Guide[] = [
+  // ============================================================
+  // HUB 1 - Jobs
+  // ============================================================
   {
-    slug: 'rental-income-tax-kenya',
-    title: 'Rental Income Tax in Kenya: The Landlord’s Guide',
-    metaTitle: 'Rental Income Tax in Kenya (2026 Guide)',
+    slug: 'accounting-finance-jobs-kenya',
+    title: 'Accounting and Finance Jobs in Kenya: Latest Vacancies and How to Get Hired',
+    metaTitle: 'Accounting & Finance Jobs in Kenya (Full Guide)',
     description:
-      'How rental income tax (MRI) works in Kenya: the 7.5% rate, monthly filing, NIL returns, eRITS and penalties, plus when to get an accountant.',
-    lead: 'If you earn residential rent in Kenya, KRA expects a Monthly Rental Income return every month, even when a unit is empty. Here is exactly how it works, and how to stay compliant without overpaying.',
-    updated: '2026-06-16',
-    sections: [
-      {
-        id: 'how-it-works',
-        heading: 'How MRI Works',
-        body: [
-          'Residential rent in Kenya is taxed under Monthly Rental Income (MRI), a final tax of 7.5% on the gross rent you receive. The rate fell from 10% to 7.5% on 1 January 2024. Because it is a final tax, no expenses, losses or capital allowances are deductible; the 7.5% is charged on the full rent before any costs.',
-          'MRI applies to resident landlords, both individuals and companies, whose residential rental income is more than KES 280,000 and not more than KES 15 million in a year.',
-        ],
-        bullets: [
-          'Rate: 7.5% of gross rent received (down from 10% before 2024)',
-          'A final tax, with no expense, loss or capital deductions',
-          'For resident landlords earning KES 280,000 to 15 million a year',
-          'Charged on rent received, not on profit',
-        ],
-      },
-      {
-        id: 'who-pays',
-        heading: 'Who Pays MRI',
-        body: [
-          'Earn KES 280,000 or less from residential rent in a year and you fall outside MRI; that income is handled under the normal income-tax rules instead. Earn more than KES 15 million and you also leave MRI, declaring the rent in your annual income tax return at the normal rates alongside your other income.',
-          'MRI covers residential property only. Commercial rent is declared in your annual income tax return, where normal expenses are deductible, and it attracts 16% VAT once your turnover reaches KES 5 million. A landlord with both residential and commercial units runs both regimes at once.',
-          'Non-resident landlords are outside MRI too: their rent is subject to 30% withholding tax as a final tax, deducted by the tenant. KRA can also appoint rental income tax agents, usually property managers, to deduct MRI at source and remit it for you. Short-let or furnished (Airbnb-style) lettings and jointly owned property are treated differently, so confirm your exact position with an accountant.',
-        ],
-      },
-      {
-        id: 'filing',
-        heading: 'Filing and Paying on eRITS',
-        body: [
-          'MRI is filed every month. The return and payment are due on or before the 20th of the following month, so rent received in January is declared and paid by 20 February.',
-          'You must file a NIL return for any month you receive no rent; a skipped NIL is still a missed filing. KRA launched the Electronic Rental Income Tax System (eRITS) on 10 April 2025, built on the Gava Connect platform, to register properties, file and pay online.',
-          'Using eRITS is currently optional, you can still file MRI on iTax. But draft 2026 regulations propose making eRITS registration mandatory, with each property listed individually; they were out for public consultation in 2026, so treat compulsory registration as coming rather than settled law. Most landlords set a standing monthly routine or hand it to an accountant so the 20th never slips.',
-        ],
-      },
-      {
-        id: 'standard-regime',
-        heading: 'When the Standard Regime Is Better',
-        body: [
-          'MRI’s simplicity costs you deductions. When your expenses, mortgage interest, repairs, management and agent fees, are high relative to rent, a flat 7.5% on gross can exceed what you would pay on actual profit.',
-          'You may elect, by written notice to the Commissioner, not to be taxed under MRI. The annual income-tax regime then applies and you claim allowable expenses against the rent. An accountant models both, files the election correctly, and registers you for whichever leaves you better off.',
-        ],
-      },
-      {
-        id: 'penalties',
-        heading: 'Penalties to Avoid',
-        body: [
-          'The Tax Procedures Act fixes the cost of slipping. Late filing is KES 2,000 or 5% of the tax due (whichever is higher) for individuals, and KES 20,000 or 5% for companies. Late payment adds a 5% penalty plus interest of 1% per month on the unpaid tax. Because MRI is monthly, these stack up fast, and a missed NIL return still counts as a missed filing.',
-          'From January 2026, KRA also validates expenses against eTIMS. If you elect the standard regime to claim costs, those expenses generally need valid electronic invoices to be deductible, so your suppliers’ compliance now affects your tax bill. Staying current is far cheaper than catching up after an audit.',
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'How much is rental income tax in Kenya?', a: 'MRI is a final tax of 7.5% on gross rent (reduced from 10% in 2024) for resident landlords earning between KES 280,000 and 15 million a year.' },
-      { q: 'What is the rental income tax threshold?', a: 'MRI applies to residential rent above KES 280,000 and up to KES 15 million a year. Below that it is taxed under normal rules; above it, under the annual income-tax regime.' },
-      { q: 'Do I file even if I got no rent?', a: 'Yes. A NIL return is required for any month you receive no rent, by the 20th of the following month.' },
-      { q: 'Can I deduct expenses from rental income?', a: 'Not under MRI. You can elect in writing to the Commissioner to use the standard regime and claim deductions if your expenses are high.' },
-      { q: 'Does MRI apply to commercial property?', a: 'No. MRI is for residential rent only. Commercial rent is taxed under normal income tax and may attract VAT.' },
-      { q: 'Do non-resident landlords pay MRI?', a: 'No. A non-resident landlord’s rent is subject to 30% withholding tax as a final tax, deducted by the tenant, not MRI.' },
-    ],
-    relatedService: 'rental-income-tax',
-  },
-  {
-    slug: 'etims-kenya',
-    title: 'eTIMS in Kenya (2026): What Every Business Must Do',
-    metaTitle: 'eTIMS in Kenya 2026: What to Do',
-    description:
-      'KRA’s eTIMS expense validation is live from January 2026. Who must onboard, what counts as a valid invoice, and how to keep expenses deductible.',
-    lead: 'Since January 2026, KRA validates the expenses on your return against eTIMS. Purchases without a valid electronic invoice can be disallowed and taxed. Here is what that means and what to do.',
-    updated: '2026-06-16',
-    sections: [
-      {
-        id: 'what-changed',
-        heading: 'What Changed in 2026',
-        body: [
-          'From 1 January 2026, KRA cross-checks your income tax return against three data sources: TIMS/eTIMS invoice records, the gross amounts on Withholding Income Tax, and Customs import data. Anything that does not reconcile gets flagged.',
-          'Expenses not backed by a valid electronic invoice (carrying the buyer PIN where applicable) are disallowed, which raises your taxable profit and your tax. This builds on a rule already in force since 1 January 2024; 2026 simply switches on automated validation, starting with 2025 returns filed by 30 June 2026.',
-        ],
-      },
-      {
-        id: 'who',
-        heading: 'Who Has to Onboard',
-        body: [
-          'Since 1 September 2023, all persons carrying on business must onboard eTIMS and issue electronic invoices, whether or not they are VAT-registered.',
-        ],
-        bullets: [
-          'Companies, partnerships and sole proprietors',
-          'Associations, trusts and NGOs',
-          'VAT-exempt sectors: hospitals, schools, tours and travel',
-          'Landlords and turnover-tax payers',
-        ],
-      },
-      {
-        id: 'exempt',
-        heading: 'What’s Exempt',
-        body: [
-          'Section 23A of the Tax Procedures Act lets some payments sit outside the e-invoice requirement: emoluments (payroll), imports, investment allowances, interest, airline passenger ticketing and withholding-tax payments.',
-          'Almost everything else your business buys needs a valid eTIMS invoice to be deductible, so do not assume an expense is exempt without checking.',
-        ],
-      },
-      {
-        id: 'small-business',
-        heading: 'The Under-KES-5M Relief',
-        body: [
-          'Suppliers with annual turnover up to KES 5 million do not issue their own eTIMS invoices. Instead the buyer issues the invoice on the seller’s behalf, with the seller’s consent, through eCitizen or USSD *222#. This is buyer-initiated, or reverse, invoicing under the Tax Procedures Act.',
-          'It still has to be set up correctly, which is where an accountant helps.',
-        ],
-      },
-      {
-        id: 'stay-deductible',
-        heading: 'How to Stay Deductible',
-        body: [
-          'Onboard through the method that fits your size: eTIMS Lite (web via eCitizen, USSD *222#, or the "eTIMS Non VAT" app) for small and non-VAT businesses, or the online portal and eTIMS client for larger or multi-branch operations.',
-          'Then make sure every supplier issues a compliant invoice with your PIN, and reconcile monthly. An accountant configures invoicing, trains your team and keeps your expenses defensible.',
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'Who needs eTIMS in Kenya?', a: 'All persons in business since 1 September 2023, companies, sole proprietors, partnerships, NGOs, schools, hospitals and landlords, not only VAT-registered businesses.' },
-      { q: 'When did eTIMS start?', a: 'Onboarding has been required since 1 September 2023, with a window for non-VAT taxpayers to 31 March 2024. From January 2026 KRA validates returns against eTIMS.' },
-      { q: 'What expenses are exempt from eTIMS?', a: 'Section 23A exempts emoluments, imports, investment allowances, interest, airline tickets and withholding-tax payments. Most other purchases need a valid eTIMS invoice to be deductible.' },
-      { q: 'What if my supplier has no eTIMS?', a: 'Their invoice may not be valid for your deduction, so the expense can be disallowed. Push suppliers to comply, or use buyer-initiated invoicing where the supplier is under KES 5 million turnover.' },
-      { q: 'Is there relief for small businesses?', a: 'Yes. Suppliers under KES 5 million turnover use buyer-initiated (reverse) invoicing, where the buyer issues the invoice with the seller’s consent.' },
-    ],
-    relatedService: 'etims',
-  },
-  {
-    slug: 'vat-kenya',
-    title: 'VAT in Kenya: Registration, Rates and Filing',
-    metaTitle: 'VAT in Kenya: Rates, Registration and Filing (2026)',
-    description:
-      'When you must register for VAT in Kenya, the 16% standard rate and zero-rated and exempt supplies, plus how to file and pay on iTax by the 20th.',
-    lead: 'Value Added Tax is the consumption tax you charge on most goods and services you sell in Kenya. The real question for a growing business is usually whether you have crossed the line that makes registration compulsory, and what changes the day you do. This guide sets out who must register, the rates that apply, and how filing and payment work on iTax, with every figure checked against the Kenya Revenue Authority.',
-    updated: '2026-06-22',
-    sections: [
-      {
-        id: 'who-must-register',
-        heading: 'Who has to register for VAT',
-        body: [
-          "Registration turns on turnover, not profit. You must register for VAT once the value of your taxable goods and services reaches or is expected to reach KES 5 million in any twelve-month period, according to the [Kenya Revenue Authority's VAT guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/value-added-tax). The test is forward-looking as well as backward-looking: if you can reasonably see your sales crossing KES 5 million in the coming year, you are expected to register before you breach the threshold rather than after.",
-          "Businesses below KES 5 million can still apply for voluntary registration, which some do so they can reclaim the VAT they pay on stock and equipment. Voluntary registration is granted subject to KRA conditions, and it carries the same monthly filing duty as compulsory registration, so it is worth weighing the input tax you would recover against the ongoing compliance load.",
-          "If your turnover sits in the small-business range and VAT does not yet apply, your obligation may instead be Turnover Tax, which is a separate regime for smaller traders. The two do not overlap, so settle which one you fall under before you register for anything.",
-        ],
-      },
-      {
-        id: 'vat-rates',
-        heading: 'The rates: standard, zero-rated and exempt',
-        body: [
-          "Kenya runs three VAT categories, and the difference between them matters for what you can claim back.",
-          "The standard rate is 16%, and it applies to most taxable goods and services. This is the rate you add to your invoices and the rate buyers see at the till.",
-          "Zero-rated supplies are taxable but charged at 0%. These are listed in the Second Schedule to the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/) and include certain exports and a defined set of essential goods. Because zero-rated supplies are still taxable in law, a business making them can register and reclaim the input VAT it has paid, which is the practical reason the zero rate exists rather than a plain exemption.",
-          "Exempt supplies are different. They are listed in the First Schedule and are outside the VAT net entirely, which means you do not charge VAT on them but you also cannot deduct the input VAT on costs that relate to them. Getting the classification wrong is one of the more common ways businesses either overcharge customers or lose a refund they were entitled to, so confirm the schedule that covers your products before you set your prices.",
-        ],
-      },
-      {
-        id: 'filing-and-paying',
-        heading: 'How to file and pay VAT on iTax',
-        body: [
-          "VAT is a monthly tax. Both the return and the payment are due on or before the 20th day of the month following the tax period, and returns are filed online through iTax, as set out in the KRA VAT guidance. A return covering June, for example, is due by 20 July.",
-          "A registered business files every month even when there is nothing to declare. If you made no sales in a period you still submit a nil return rather than skipping the month, because the obligation attaches to your registration, not to whether you traded. This is the same NIL-return discipline that applies elsewhere in the KRA system, and missing it is treated as a failure to file rather than a harmless gap.",
-          "The return itself reconciles the VAT you charged on sales against the VAT you paid on purchases, and you remit the difference. That reconciliation now leans heavily on electronic invoicing: input VAT generally has to be supported by a valid electronic tax invoice for KRA to accept the deduction. If you are not yet set up for compliant invoicing, our explainer on [how eTIMS works for Kenyan businesses](/guides/etims-kenya/) covers what counts as a valid invoice and why an unvalidated purchase can be disallowed when you file your VAT.",
-        ],
-      },
-      {
-        id: 'late-penalties',
-        heading: 'What it costs to file or pay late',
-        body: [
-          "The penalties are deliberately steep enough to make timeliness cheaper than the alternative. For failing to file or remit VAT, KRA applies a penalty of the greater of 5% of the tax due or KES 10,000, and late payment then attracts interest of 1% per month on the unpaid amount until it is cleared. Because the interest compounds month on month, a balance left unpaid grows quietly in the background even after the one-off penalty has been charged.",
-          "The figures above are current at the time of writing, but VAT rates, thresholds and the exempt and zero-rated schedules are set by the Finance Act and can change each year. Always confirm the position for your own period against KRA before you rely on a number, especially around the June budget cycle when amendments take effect.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'When must I register for VAT in Kenya?', a: 'Once your taxable turnover reaches or is expected to reach KES 5 million in any twelve-month period. The test is forward-looking, so you should register before you cross the threshold if you can reasonably see sales reaching it.' },
-      { q: 'What is the VAT rate in Kenya?', a: 'The standard rate is 16% on most goods and services. Some supplies are zero-rated (taxable at 0%) and others are exempt (outside VAT entirely).' },
-      { q: 'What is the difference between zero-rated and exempt supplies?', a: 'Zero-rated supplies are taxable at 0%, so you can still reclaim input VAT on related costs. Exempt supplies are outside VAT, so you charge no VAT but cannot reclaim the input VAT on related costs.' },
-      { q: 'When are VAT returns due in Kenya?', a: 'VAT is monthly. The return and payment are due on or before the 20th of the month after the tax period, so June VAT is due by 20 July. File a NIL return for any month with nothing to declare.' },
-      { q: 'What is the penalty for filing or paying VAT late?', a: 'Failing to file or remit attracts a penalty of the greater of 5% of the tax due or KES 10,000, and late payment adds interest of 1% per month on the unpaid amount until it is cleared.' },
-      { q: 'Do I have to register for VAT below KES 5 million?', a: 'No, but you can apply for voluntary registration, often to reclaim input VAT on stock and equipment. It carries the same monthly filing duty. Smaller traders may fall under Turnover Tax instead.' },
-    ],
-    relatedService: 'vat',
-  },
-  {
-    slug: 'how-to-file-vat-return-itax-kenya',
-    title: 'How to File a VAT Return on iTax in Kenya',
-    metaTitle: 'How to File a VAT Return on iTax in Kenya (2026)',
-    description:
-      'A step-by-step walkthrough of filing the monthly VAT3 return on iTax in Kenya, the 20th deadline, filing a NIL return, paying via M-Pesa, and the late-filing penalty.',
-    lead: 'Once you are VAT-registered, the return is a monthly job that runs whether or not you traded. This walks through filing the VAT3 on iTax, what to do in a month with no sales, how to pay, and the cost of missing the 20th.',
-    updated: '2026-06-27',
-    sections: [
-      {
-        id: 'before-you-file',
-        heading: 'Before you start',
-        body: [
-          "Filing a VAT return assumes you are already registered and have the VAT obligation active on your PIN. If you are not sure whether registration even applies to your turnover, our guide to [VAT in Kenya](/guides/vat-kenya/) sets out the KES 5 million threshold and the difference between standard, zero-rated and exempt supplies before you get to filing.",
-          "You file on iTax, the [Kenya Revenue Authority's online portal](https://itax.kra.go.ke), and you will need your PIN, your iTax password, and a complete record of every sale and purchase in the tax period. The return reconciles the VAT you charged on sales (output tax) against the VAT you paid on purchases (input tax), so a tidy record of both is what makes filing quick rather than painful.",
-          "One thing to settle first is your input tax. From 2026, KRA validates the purchases on your return against electronic invoices, so a cost without a valid eTIMS invoice can be disallowed and stripped out of your claim. Our explainer on [how eTIMS invoicing works](/guides/etims-kenya/) covers what counts as a valid invoice, which is worth reading before you total up your input VAT.",
-        ],
-      },
-      {
-        id: 'the-steps',
-        heading: 'Filing the VAT3 step by step',
-        body: [
-          "The return itself is the VAT3, and the flow on iTax is the same every month once you have done it once.",
-        ],
-        bullets: [
-          'Log in to iTax with your PIN and password',
-          'Open Returns, then File Return, and select the VAT obligation',
-          'Download the VAT3 Excel return template that iTax provides',
-          'Fill the sales schedule (output VAT) and the purchases schedule (input VAT) offline',
-          'Validate the template, which zips it ready for upload',
-          'Upload the zipped file back on iTax and submit',
-          'Download the acknowledgement receipt and keep it for your records',
-        ],
-      },
-      {
-        id: 'nil-return',
-        heading: 'Filing a NIL return when you did not trade',
-        body: [
-          "A registered business files every single month, even one with no sales at all. When there is nothing to declare you submit a NIL return rather than skipping the period, because the duty attaches to your registration, not to whether you traded that month. On iTax you select the same VAT obligation and choose the NIL filing option instead of uploading a full VAT3.",
-          "Treating a quiet month as a free pass is the most common avoidable mistake. A missed NIL return is recorded as a failure to file, and it carries the same penalty as failing to file a return with tax due, so the safest habit is to file something every month without exception.",
-        ],
-      },
-      {
-        id: 'paying',
-        heading: 'Paying what you owe',
-        body: [
-          "If your output VAT is higher than your input VAT for the period, the difference is payable and the deadline to pay is the same as the deadline to file: on or before the 20th of the month after the tax period. A return for June is filed and paid by 20 July.",
-          "To pay, you generate a payment slip on iTax and settle it through the listed channels, including M-Pesa using KRA's Paybill number 572572, your bank, or an authorised agent. Filing on time but paying late still triggers interest, so generate and clear the payment slip in the same sitting rather than filing and coming back to it.",
-        ],
-      },
-      {
-        id: 'deadlines-penalties',
-        heading: 'The deadline and what late costs you',
-        body: [
-          "The single date to hold onto is the 20th of the following month, which covers both filing and payment. The penalty structure behind that date is set in law under the Tax Procedures Act, alongside the wider VAT rules in the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/).",
-          "For failing to file or remit, KRA charges the greater of 5% of the tax due or KES 10,000. Late payment then adds interest of 1% per month on the unpaid amount until it is cleared, and because that interest compounds it keeps growing quietly even after the one-off penalty has landed. For a monthly tax those costs stack up fast across a year, which is why most businesses set a fixed reminder or hand the monthly filing to an accountant.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'How do I file a VAT return in Kenya?', a: 'Log in to iTax, open Returns then File Return, select the VAT obligation, download and fill the VAT3 Excel template with your sales and purchases, validate it to create a zip file, upload and submit, then save the acknowledgement.' },
-      { q: 'When is the VAT return deadline in Kenya?', a: 'The VAT3 return and any payment are due on or before the 20th of the month after the tax period. June VAT, for example, is filed and paid by 20 July.' },
-      { q: 'Do I have to file VAT if I had no sales?', a: 'Yes. You file a NIL return for any month with nothing to declare. A missed NIL return counts as a failure to file and carries the same penalty.' },
-      { q: 'How do I pay VAT in Kenya?', a: 'Generate a payment slip on iTax and pay it via M-Pesa using KRA Paybill 572572, through your bank, or an authorised agent, by the 20th.' },
-      { q: 'What is the penalty for filing a VAT return late?', a: 'Failing to file or remit attracts the greater of 5% of the tax due or KES 10,000, and late payment adds interest of 1% per month on the unpaid amount until cleared.' },
-    ],
-    relatedService: 'vat',
-  },
-  {
-    slug: 'turnover-tax-kenya',
-    draft: true,
-    title: 'Turnover Tax in Kenya: Who Pays, the Rate and How to File',
-    metaTitle: 'Turnover Tax in Kenya: Rate, Threshold and Filing (2026)',
-    description:
-      'Turnover Tax in Kenya explained: the 1.5% rate on gross sales, the KES 1M to 25M threshold, who is excluded, filing by the 20th on iTax, and the penalties.',
-    lead: 'Turnover Tax is the simplified regime for smaller Kenyan businesses that sit below the VAT line but above the smallest traders. It taxes your sales, not your profit, so it is quick to work out and easy to get wrong. Here is who falls under it, the rate, and how filing works.',
-    updated: '2026-07-02',
-    sections: [
-      {
-        id: 'what-is-tot',
-        heading: 'What Turnover Tax is',
-        body: [
-          "Turnover Tax, usually shortened to TOT, is a simplified tax for small businesses that charges a flat rate on your gross sales rather than on your profit. Because it is worked out on turnover, you do not deduct costs, stock, rent or wages first; the rate applies to the money that comes in from your trade.",
-          "That simplicity is the whole point of the regime. It exists so that a small trader can meet their obligation from a basic sales record instead of preparing full accounts, and it sits deliberately between the smallest informal traders and the businesses large enough to fall under [VAT and the standard company tax rules](/guides/vat-kenya/). It is a final tax on that business income, so once you have paid it for the period there is nothing further to reconcile on those sales.",
-          "TOT covers business turnover only. It does not sweep in rental income, which is taxed under its own monthly regime, nor income that is management, professional or training fees, nor income that has already suffered a final withholding tax such as qualifying dividends or interest. If your income is a mix of these, only the trading turnover goes into the TOT calculation.",
-        ],
-      },
-      {
-        id: 'who-pays',
-        heading: 'Who has to pay TOT',
-        body: [
-          "The regime is defined by turnover, and the band is narrow. You fall under TOT if your gross turnover from business is more than KES 1 million and does not exceed KES 25 million in a year, according to the [Kenya Revenue Authority's Turnover Tax guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot). Below KES 1 million you are outside TOT; above KES 25 million you leave it and move onto the standard income tax and, once your taxable sales reach the registration line, VAT.",
-          "Both individuals and companies can be liable, so a limited company trading within that band is not automatically on corporation tax; it can sit under TOT the same as a sole trader. The regime applies to residents only. A non-resident carrying on business in Kenya is taxed under the ordinary rules, not TOT.",
-          "You can also choose to leave the regime. Under the [Income Tax (Turnover Tax) Rules](https://new.kenyalaw.org/akn/ke/act/ln/2008/5/eng@2022-12-31), a person may elect by written notice to the Commissioner not to be taxed under TOT and to be assessed under the annual income tax regime instead. That election is worth modelling with an accountant, because a business with thin margins can pay more on a percentage of gross sales than it would on its actual profit, and the standard regime lets you deduct real costs.",
-        ],
-        bullets: [
-          'Turnover above KES 1 million and up to KES 25 million a year',
-          'Open to both individuals and companies that are resident',
-          'Excludes rental income, professional or management fees, and final-withholding income',
-          'You can elect out in writing and be taxed on profit instead',
-        ],
-      },
-      {
-        id: 'rate',
-        heading: 'The rate and how it is worked out',
-        body: [
-          "The current rate is 1.5% of gross sales. It has moved in recent years: it was reduced back to 1.5% with effect from 1 July 2023 after a spell at a higher figure, so any guide still quoting 3% is out of date. Always confirm the live rate against KRA before you file, because the rate and the threshold are set by the Finance Act and can be changed in the annual budget cycle.",
-          "Working out what you owe is straightforward. You take the gross sales for the month, ignore your costs entirely, and apply 1.5%. On monthly sales of KES 400,000, for example, the TOT due is KES 6,000. There is no personal relief, no expense set-off and no capital allowance in this regime; the trade-off for the low headline rate is that you are taxed on the top line rather than the bottom line.",
-          "This is exactly why the election out matters. A business turning over KES 20 million on wafer-thin margins can find that 1.5% of sales dwarfs what the standard regime would charge on its slim profit, while a high-margin service business often prefers the simplicity of TOT. The maths is specific to your numbers, so it is a decision to run rather than assume.",
-        ],
-      },
-      {
-        id: 'filing',
-        heading: 'Filing and paying on iTax',
-        body: [
-          "TOT is a monthly obligation. The return and the payment are both due on or before the 20th day of the month following the tax period, so sales made in January are declared and paid by 20 February. You file through iTax, and you pay the tax due using the same channels as the rest of the KRA system, including M-Pesa via the KRA Paybill, your bank, or an authorised agent.",
-          "As with the other monthly taxes, a quiet month is not a month off. If you had no sales you still file a nil return for the period rather than skipping it, because the duty is tied to your registration for the tax, not to whether you traded. Falling into the same monthly rhythm you would use for [filing a VAT return](/guides/how-to-file-vat-return-itax-kenya/) keeps the 20th from slipping.",
-          "One practical point that catches people out is invoicing. Being on TOT rather than VAT does not exempt you from electronic tax invoicing; the requirement to issue invoices through the system applies to persons in business generally. [How eTIMS works](/guides/etims-kenya/) determines what a valid electronic invoice looks like, and it matters even for a small trader on the simplified regime.",
-        ],
-      },
-      {
-        id: 'penalties',
-        heading: 'What late filing costs',
-        body: [
-          "The penalties are modest per month but they compound if ignored. Late filing of a TOT return attracts a penalty of KES 1,000 for each month the return is outstanding. Late payment of the tax adds a penalty of 5% of the tax due, and interest then runs at 1% per month on the unpaid amount until it is cleared, so a small balance left alone keeps growing quietly in the background.",
-          "Because the return is monthly, a habit of letting it drift turns a small tax into a running penalty. Most traders on TOT either set a fixed reminder for the 20th or hand the monthly filing to a professional, and a tax accountant can also file the election out and model whether TOT or the standard regime leaves you better off. If you would rather not manage the monthly cycle yourself, matching with a verified [tax accountant through our directory](/services/tax-returns/) takes the deadline off your plate.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What is the Turnover Tax rate in Kenya?', a: 'Turnover Tax is 1.5% of gross sales, applied with no deduction for costs. The rate was reduced to 1.5% with effect from 1 July 2023, so older figures such as 3% are out of date. Confirm the current rate on the KRA portal before you file.' },
-      { q: 'Who has to pay Turnover Tax in Kenya?', a: 'Resident individuals and companies whose gross business turnover is more than KES 1 million and up to KES 25 million a year. Below KES 1 million you are outside TOT; above KES 25 million you move to the standard income tax rules and possibly VAT.' },
-      { q: 'What income is excluded from Turnover Tax?', a: 'TOT does not apply to rental income, management, professional or training fees, or income already subject to a final withholding tax such as qualifying dividends or interest. It also does not apply to non-residents.' },
-      { q: 'When is Turnover Tax filed and paid?', a: 'TOT is monthly. Both the return and the payment are due on or before the 20th of the month after the tax period, filed on iTax. You file a nil return for any month with no sales.' },
-      { q: 'Can I opt out of Turnover Tax?', a: 'Yes. You can elect in writing to the Commissioner not to be taxed under TOT, which puts you on the annual income tax regime where you are taxed on profit and can deduct costs. It is worth modelling both with an accountant.' },
-      { q: 'What is the penalty for filing Turnover Tax late?', a: 'Late filing attracts a penalty of KES 1,000 for each month the return is outstanding. Late payment adds 5% of the tax due, plus interest of 1% per month on the unpaid amount until cleared.' },
-    ],
-    relatedService: 'tax-returns',
-  },
-  {
-    slug: 'vat-registration-threshold-kenya',
-    draft: true,
-    title: 'VAT Registration Threshold in Kenya: When You Must Register',
-    metaTitle: 'VAT Registration Threshold in Kenya (KES 5M)',
-    description:
-      'The KES 5 million VAT registration threshold in Kenya explained: the forward-looking test, voluntary registration, deregistration, and what changes the day you register.',
-    lead: 'Value Added Tax turns on one line in your accounts more than any other. Cross it and registration becomes compulsory, with a new set of monthly duties from day one. Here is exactly where the line sits, how the test works both ways, and when it can pay to register before you have to.',
-    updated: '2026-07-03',
-    sections: [
-      {
-        id: 'the-threshold',
-        heading: 'The KES 5 million line',
-        body: [
-          "You must register for VAT once the value of your taxable supplies reaches or is expected to reach KES 5 million in any twelve-month period, according to the [Kenya Revenue Authority's VAT guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/value-added-tax). The figure is turnover, not profit, and it counts only your taxable supplies, meaning the standard-rated and zero-rated sales you make. Purely exempt supplies do not go into the count, which is why classifying your products correctly matters before you even get to the threshold question.",
-          "The test is measured across a rolling twelve months rather than a calendar or accounting year. That is easy to miss: a seasonal business can breach the line on a run of good months even if the full-year figure looks comfortable, so it is the trailing twelve months you watch, not the annual return.",
-        ],
-        bullets: [
-          'Registration is compulsory at KES 5 million of taxable supplies',
-          'The count is turnover, not profit, and excludes exempt supplies',
-          'The period is any rolling twelve months, not the accounting year',
-        ],
-      },
-      {
-        id: 'forward-looking',
-        heading: 'Why the test looks forward as well as back',
-        body: [
-          "The threshold is not only backward-looking. If you can reasonably expect your taxable supplies to reach KES 5 million in the coming twelve months, you are expected to register before you breach the line rather than after. A signed contract, a large order or a clear growth trend can trigger the expectation, and KRA treats the duty as arising when the expectation is reasonable, not when the money finally lands.",
-          "This is the point businesses get wrong most often. Waiting until the annual accounts confirm the breach can mean you have been trading above the line, and charging no VAT, for months you should have been registered. Any VAT you failed to charge in that window is generally still owed, which is a bill you have to find rather than one your customers covered. Watching a rolling total and registering on the expectation is what keeps that gap from opening, and it is the same discipline that runs through [VAT in Kenya](/guides/vat-kenya/) more broadly.",
-        ],
-      },
-      {
-        id: 'voluntary',
-        heading: 'Registering voluntarily below the line',
-        body: [
-          "A business under KES 5 million can apply for voluntary registration, and some do so deliberately. The usual reason is input tax: once registered, you can reclaim the VAT you pay on stock, equipment and other business costs, which a supplier buying heavily from VAT-registered wholesalers may find worthwhile. Selling mostly to other registered businesses is another common trigger, since they can reclaim the VAT you charge, so adding it does not raise your real price to them.",
-          "Voluntary registration is granted subject to KRA conditions and it carries exactly the same duties as compulsory registration. You file every month, you charge VAT on your standard-rated sales, and you must issue valid electronic invoices for the input tax to hold up, which is where [how eTIMS invoicing works](/guides/etims-kenya/) becomes part of the decision rather than a separate chore. Weigh the input tax you would recover against that ongoing compliance load before you apply, because the paperwork does not scale down just because you registered early.",
-        ],
-      },
-      {
-        id: 'after-you-register',
-        heading: 'What changes the day you register',
-        body: [
-          "Registration is the start of a monthly obligation, not a one-off event. From the effective date you charge 16% on standard-rated supplies, file a return every month, and pay the difference between the VAT you charged and the input VAT you can reclaim. The return and payment are due on or before the 20th of the following month on iTax, and a month with no sales still needs a nil return rather than a skipped filing. The full monthly routine, including how to complete the VAT3, is set out in the walkthrough on [filing a VAT return on iTax](/guides/how-to-file-vat-return-itax-kenya/).",
-          "Getting the effective date and the first return right is the part worth handing over. A verified [VAT accountant through the directory](/services/vat/) can confirm whether you have actually crossed the line, register you from the correct date, and set up compliant invoicing so your first filings do not unravel under KRA's expense validation.",
-        ],
-      },
-      {
-        id: 'deregistration',
-        heading: 'Coming back off the register',
-        body: [
-          "Registration is not permanent. A business that stops making taxable supplies altogether must apply to deregister, and a business whose turnover has fallen below KES 5 million in a year may opt to deregister, though that one is a choice rather than an automatic switch. The legal basis for the whole regime sits in the [VAT Act 2013](https://new.kenyalaw.org/akn/ke/act/2013/35/), which is worth reading alongside the KRA guidance when a borderline case comes up.",
-          "Two practical points catch people out. First, you keep filing returns until KRA confirms the deregistration, not from the day you apply, so a premature stop still counts as a missed filing. Second, KRA will not approve deregistration while you have outstanding returns or unpaid VAT, so the account has to be clean before the application goes in.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What is the VAT registration threshold in Kenya?', a: 'You must register for VAT once your taxable supplies reach or are expected to reach KES 5 million in any twelve-month period. The count is turnover, not profit, and it excludes exempt supplies.' },
-      { q: 'Is the VAT threshold based on the calendar year?', a: 'No. It is any rolling twelve-month period, not the calendar or accounting year. A seasonal run of strong months can breach the line even if the full-year figure looks lower.' },
-      { q: 'Can I register for VAT voluntarily in Kenya?', a: 'Yes. A business below KES 5 million can apply for voluntary registration, often to reclaim input VAT on stock and equipment. It carries the same monthly filing duty as compulsory registration.' },
-      { q: 'Do I have to register before I cross the threshold?', a: 'If you can reasonably expect taxable supplies to reach KES 5 million in the coming twelve months, you are expected to register before you breach the line, not after. VAT you failed to charge while above the line is generally still owed.' },
-      { q: 'How do I deregister from VAT in Kenya?', a: 'Apply to KRA. You must if you have stopped making taxable supplies, and you may if turnover has fallen below KES 5 million in a year. Keep filing until KRA confirms it, and clear all outstanding returns and VAT first.' },
-    ],
-    relatedService: 'vat',
-  },
-  {
-    slug: 'corporation-tax-in-kenya',
-    draft: true,
-    title: 'Corporation Tax in Kenya: The Rate, Who Pays and What Is Taxed',
-    metaTitle: 'Corporation Tax in Kenya: Rate and Scope (2026)',
-    description:
-      'Corporation tax in Kenya explained: the 30% resident company rate, how branches and non-residents are taxed, what counts as taxable profit, and the filing deadline.',
-    lead: 'Corporation tax is the tax a company pays on its profits, and for most Kenyan companies the headline rate is settled. What trips businesses up is the detail around it: residence, how branches are treated, and what actually counts as taxable profit once the accounts are adjusted. Here is how it works.',
-    updated: '2026-07-03',
-    sections: [
-      {
-        id: 'the-rate',
-        heading: 'The resident company rate',
-        body: [
-          "A resident company in Kenya is taxed on its profits at 30%, the standard corporation tax rate confirmed on the [Kenya Revenue Authority's company tax pages](https://www.kra.go.ke/business/companies-partnerships/companies-partnerships-pin-taxes). The rate applies to the taxable profit for the year of income, which is the accounting profit adjusted for tax purposes rather than the raw figure at the bottom of your profit and loss account. Rates are set by the annual Finance Act and can change, so confirm the live figure against KRA before you rely on it for a return.",
-          "Corporation tax sits apart from the other taxes a company handles. It is charged on profit, whereas VAT is charged on turnover and PAYE is deducted from staff wages, so a company can owe all three at once for entirely different reasons. A small trader below the VAT line can still owe corporation tax on its profit, and a loss-making company can still owe VAT on its sales.",
-        ],
-      },
-      {
-        id: 'residence',
-        heading: 'When a company is resident',
-        body: [
-          "Residence decides which rules apply. A company is resident in Kenya if it is incorporated under Kenyan law, or if the management and control of its affairs are exercised in Kenya in a given year of income. Incorporation abroad does not put a company outside Kenyan tax if the real decision-making happens in Nairobi, which is a point group structures need to think through carefully.",
-          "A resident company is taxed on its worldwide business income, subject to relief for foreign tax already paid, while a non-resident is taxed only on the income attributable to its Kenyan activity. That distinction is why residence is settled first and the rate second, because the two answers together decide what actually falls into the Kenyan tax net.",
-        ],
-      },
-      {
-        id: 'branches-non-residents',
-        heading: 'Branches and non-resident companies',
-        body: [
-          "A non-resident company trading in Kenya through a branch or permanent establishment is taxed at 30% on the profits attributable to that Kenyan presence, the same headline rate as a resident company, as summarised in the [PwC Kenya tax overview](https://taxsummaries.pwc.com/kenya/corporate/taxes-on-corporate-income). The older gap between the branch rate and the resident rate has closed, so the choice between a branch and a locally incorporated subsidiary now turns more on liability, repatriation and administration than on a raw rate difference.",
-          "Non-residents that supply services into Kenya over the internet or an electronic network may instead fall under the Significant Economic Presence tax, which replaced the Digital Service Tax and runs on a deemed-profit basis rather than the 30% company rate. If a foreign group is weighing how to structure a Kenyan operation, that is exactly the kind of question a verified [company tax accountant through the directory](/services/tax-returns/) is there to model before anything is registered.",
-        ],
-      },
-      {
-        id: 'taxable-profit',
-        heading: 'What counts as taxable profit',
-        body: [
-          "Taxable profit is not the same as accounting profit. You start from the profit in your accounts, then add back expenses the law does not allow, such as fines, private costs and general provisions, and you claim capital allowances in place of the depreciation you charged in the books. The result is the figure the 30% actually applies to, which is why two companies with identical accounting profit can owe different tax.",
-          "The adjustment that increasingly matters is expense validation. From 2026 KRA cross-checks the costs on a company return against electronic invoices, so a genuine expense without a valid record can be disallowed and pushed back into taxable profit. Keeping every purchase backed by a compliant invoice is now part of protecting the rate, which is where [how eTIMS invoicing works](/guides/etims-kenya/) feeds straight into your corporation tax bill.",
-        ],
-      },
-      {
-        id: 'filing',
-        heading: 'Filing and paying company tax',
-        body: [
-          "A company files an annual income tax return on iTax, and the balance of tax for the year is due by the end of the sixth month after the accounting year-end. For a December year-end that means the return and any balance are due by 30 June. The tax itself is not left entirely to year-end, though: profitable companies pay in advance during the year through instalment tax, and the annual return then reconciles what has already been paid against the final liability.",
-          "A company registered for VAT also runs that monthly cycle in parallel, which is a different tax on a different base with its own deadline. The overlap between the annual company return and the monthly [VAT obligation](/guides/vat-kenya/) is where a lot of small companies lose track, so mapping every deadline for your own year-end at the start of the year is time well spent.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What is the corporation tax rate in Kenya?', a: 'Resident companies are taxed on their profits at 30%. Rates are set by the Finance Act and can change, so confirm the current figure on the KRA portal before you file.' },
-      { q: 'How much tax do branches of foreign companies pay in Kenya?', a: 'A non-resident company trading through a Kenyan branch or permanent establishment is taxed at 30% on the profits attributable to that Kenyan presence, the same headline rate as a resident company.' },
-      { q: 'When is a company resident in Kenya for tax?', a: 'A company is resident if it is incorporated under Kenyan law, or if the management and control of its affairs are exercised in Kenya in a given year of income.' },
-      { q: 'Is corporation tax charged on turnover or profit?', a: 'On profit. Corporation tax applies to taxable profit, which is accounting profit adjusted for tax, including adding back disallowed expenses and claiming capital allowances in place of depreciation.' },
-      { q: 'When is the company tax return due in Kenya?', a: 'The annual income tax return and the balance of tax are due by the end of the sixth month after the accounting year-end, so 30 June for a December year-end. Profitable companies also pay instalment tax during the year.' },
-    ],
-    relatedService: 'tax-returns',
-  },
-  {
-    slug: 'instalment-tax-in-kenya',
-    draft: true,
-    title: 'Instalment Tax in Kenya: Who Pays, the Quarters and How to Estimate',
-    metaTitle: 'Instalment Tax in Kenya: Dates and Rules (2026)',
-    description:
-      'Instalment tax in Kenya explained: the KES 40,000 threshold, the 110% prior-year and current-year methods, the four quarterly dates, the agricultural schedule, and the balance of tax.',
-    lead: 'Instalment tax is how Kenya collects income tax during the year rather than all at once at the end of it. If your tax bill is large enough, KRA expects payments on account across four quarters. Here is who it applies to, how to work out each instalment, and the dates you cannot let slip.',
-    updated: '2026-07-03',
-    sections: [
-      {
-        id: 'what-it-is',
-        heading: 'What instalment tax is',
-        body: [
-          "Instalment tax is not a separate tax. It is income tax paid in advance, in stages, during the year of income, and then reconciled against your final liability when you file the annual return. The idea is to spread the burden and give KRA a steadier flow of revenue rather than a single year-end lump, so the money you pay in instalments is simply your own income tax settled early.",
-          "It applies to both individuals and companies with income that is not already taxed at source. Someone whose income is entirely PAYE has their tax deducted every month by their employer, so instalment tax rarely bites them. It is the business owner, landlord on the standard regime, or company with trading profit who has to pay it, because nobody is withholding their tax for them along the way.",
-        ],
-      },
-      {
-        id: 'who-pays',
-        heading: 'Who has to pay it',
-        body: [
-          "For an individual, instalment tax applies once your tax liability for the year is expected to exceed KES 40,000 after accounting for any PAYE and withholding tax already deducted, as set out in the [Kenya Revenue Authority's instalment tax guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/installment-tax). Below that, you settle the whole bill with your annual return instead. Companies with a corporation tax liability generally fall within the system regardless of that individual threshold.",
-          "There is one clear exclusion worth stating plainly. Businesses on the simplified Turnover Tax regime do not pay instalment tax, because it already collects a flat percentage of sales every month, so layering instalments on top would double up. That regime is the small-trader alternative to registering for a turnover-based tax like [VAT in Kenya](/guides/vat-kenya/), and if you sit under it this obligation is not yours; if you are on the standard income tax rules, it usually is.",
-        ],
-        bullets: [
-          'Individuals: applies when the tax due exceeds KES 40,000 after PAYE and withholding',
-          'Companies: generally within the system where corporation tax is due',
-          'Turnover Tax payers are excluded, since TOT already collects monthly',
-        ],
-      },
-      {
-        id: 'estimating',
-        heading: 'The two ways to estimate',
-        body: [
-          "You do not wait for the final figure to pay instalment tax; you estimate. KRA allows two methods, and you pick whichever fits. The prior-year basis takes the tax you paid last year and multiplies it by 110%, then spreads that across the instalments. It is the safe default for an established business with steady results, because it removes the guesswork and protects you from underpayment penalties as long as the previous year was a normal one.",
-          "The current-year basis lets you estimate this year's profit and calculate the tax on it directly. That suits a new business with no prior-year figure, or one whose results are swinging up or down sharply, where 110% of last year would be badly wrong in either direction. The trade-off is that if you lowball a current-year estimate, KRA can charge a penalty on the shortfall, so the current-year route rewards a realistic forecast and punishes an optimistic one.",
-        ],
-      },
-      {
-        id: 'the-dates',
-        heading: 'The four quarterly dates',
-        body: [
-          "For most taxpayers the year's instalment tax is split into four equal payments of 25% each, due on the 20th day of the fourth, sixth, ninth and twelfth months of the year of income. For a business on a standard January-to-December year, that lands on 20 April, 20 June, 20 September and 20 December. You pay each one on iTax, generating a payment slip and settling it the same way you would any other KRA liability.",
-          "Farmers get a different rhythm. The agricultural sector pays 75% of the instalment tax in the ninth month and the remaining 25% in the twelfth, which fits the seasonal pattern of income arriving around harvest rather than evenly across the year. The mechanics of generating and paying the slip on iTax are the same as for [filing a VAT return](/guides/how-to-file-vat-return-itax-kenya/), even though the tax and the schedule are different.",
-        ],
-      },
-      {
-        id: 'balance-and-penalties',
-        heading: 'The balance of tax and getting it wrong',
-        body: [
-          "Instalments are payments on account, not the final word. When you file the annual return, the total instalment tax you paid is set against your actual liability for the year. If you underpaid, you clear the balance of tax, which is due by the end of the fourth month after your year-end, so 30 April for a December year-end. If you overpaid, the excess sits as a credit you can carry forward or reclaim. The wider rules live in the Income Tax Act, available in full on [Kenya Law](https://new.kenyalaw.org/akn/ke/act/1973/16/).",
-          "Underpaying instalments has a cost beyond the balance itself. KRA can charge a penalty where the instalments paid fall short of what was properly due, on top of interest on the late amount, which is why a careless estimate is more expensive than a careful one. A verified [tax accountant through the directory](/services/tax-returns/) can pick the right estimation method for your position and keep the four dates from slipping, which for a growing business is usually cheaper than the penalties for guessing.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What is instalment tax in Kenya?', a: 'It is income tax paid in advance during the year of income, in stages, then reconciled against your final liability when you file the annual return. It is not a separate tax, just your own income tax paid early.' },
-      { q: 'Who has to pay instalment tax?', a: 'Individuals whose tax due for the year is expected to exceed KES 40,000 after PAYE and withholding, and companies with a corporation tax liability. Turnover Tax payers are excluded because TOT already collects monthly.' },
-      { q: 'How is instalment tax calculated in Kenya?', a: 'By one of two methods: the prior-year basis, which is 110% of last year’s tax spread across the instalments, or the current-year basis, where you estimate this year’s profit and calculate the tax directly. New or volatile businesses usually use the current-year basis.' },
-      { q: 'When is instalment tax due in Kenya?', a: 'For most taxpayers it is four equal payments of 25%, due on the 20th of the fourth, sixth, ninth and twelfth months of the year of income, so 20 April, 20 June, 20 September and 20 December for a calendar year. Agriculture pays 75% in the ninth month and 25% in the twelfth.' },
-      { q: 'What is the balance of tax?', a: 'It is the difference between your final annual liability and the instalment tax you already paid. It is due by the end of the fourth month after your year-end, so 30 April for a December year-end. Overpayments carry forward as a credit.' },
-    ],
-    relatedService: 'tax-returns',
-  },
-  {
-    slug: 'paye-employer-obligations-kenya',
-    draft: true,
-    title: 'PAYE Employer Obligations in Kenya: Deducting, Remitting and Filing',
-    metaTitle: 'PAYE Employer Obligations in Kenya (2026)',
-    description:
-      'What Kenyan employers must do for PAYE: register, deduct tax from wages, remit by the 9th, file the P10, issue P9A forms, and avoid the 25% failure-to-deduct penalty.',
-    lead: 'PAYE puts the responsibility for an employee’s income tax on the employer. You deduct it from wages, you remit it, and you file for it, all on a tight monthly clock. Getting this wrong is one of the fastest ways for a Kenyan business to run up penalties, so here is what the duty actually involves.',
-    updated: '2026-07-03',
-    sections: [
-      {
-        id: 'the-duty',
-        heading: 'The employer sits in the middle',
-        body: [
-          "Pay As You Earn is the system for collecting income tax from employment income, and the law places the mechanics on the employer rather than the worker. You calculate the tax due on each employee’s pay, deduct it before you hand over their net wage, and remit what you deducted to KRA. In effect you are collecting the government’s tax and passing it on, which is why the penalties for getting it wrong fall on you, not on the employee.",
-          "The employer side of that duty is registering, deducting, remitting and filing. If what you want is to see how a given salary breaks down into tax, statutory deductions and take-home, that is a different calculation, and the [Kenya PAYE calculator](https://payecalculator.co.ke) works through an employee’s net pay band by band rather than repeating it here.",
-        ],
-      },
-      {
-        id: 'register',
-        heading: 'Registering as an employer',
-        body: [
-          "Before you run a single payroll you register for a PAYE obligation on your KRA PIN. Any business that pays emoluments has to do this, whether it is a limited company with fifty staff or a sole proprietor with one employee, because the duty attaches to the act of paying wages, not to the size of the payroll.",
-          "Registration adds PAYE to the obligations already on your PIN, sitting alongside things like [VAT](/guides/vat-kenya/) if you are registered for it. Each obligation has its own return and its own deadline, so an employer that is also VAT-registered is running two separate monthly cycles that happen to share the same portal.",
-        ],
-      },
-      {
-        id: 'deduct',
-        heading: 'Deducting the right amount',
-        body: [
-          "Each month you work out the PAYE on every employee’s taxable pay using the graduated bands, apply the personal relief every resident employee is entitled to, and deduct the result from their gross before paying them. Taxable pay is not just the basic salary; it includes most cash allowances and the value of many non-cash benefits, so the calculation starts from a wider figure than the headline salary.",
-          "Getting the taxable figure right also means accounting for the deductions that reduce it, such as allowable pension contributions and the statutory deductions that now come off taxable income. This is where payroll errors cluster, because a wrong taxable base flows straight into a wrong deduction, and KRA reconciles what you filed against what you paid. Every expense and benefit you record should be backed by proper documentation, which is part of why [eTIMS invoicing](/guides/etims-kenya/) discipline reaches into payroll as well as your other costs.",
-        ],
-      },
-      {
-        id: 'remit-file',
-        heading: 'Remitting and filing by the 9th',
-        body: [
-          "The deadline that governs PAYE is the 9th of the following month, and it covers both jobs at once. You remit the PAYE you deducted, and you file the monthly PAYE return, the P10, on iTax on or before the 9th, as the [Kenya Revenue Authority's PAYE guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/paye) confirms. Miss it and you have missed a filing as well as a payment, so the safest habit is to run payroll early enough that the return and the remittance are both done well before the date.",
-          "The 9th is deliberately tighter than the 20th that governs VAT and several other taxes, which trips up employers who assume every KRA deadline lands mid-month. If you are also handling those monthly taxes, treat PAYE as the earlier of the two clocks so it is never the one you forget.",
-        ],
-      },
-      {
-        id: 'annual-penalties',
-        heading: 'Annual returns and the cost of slipping',
-        body: [
-          "On top of the monthly cycle there is an annual layer. You issue each employee a P9A form, the record of their pay and tax for the year, by the end of January so they can file their own individual return. Your P10 returns across the year should reconcile with those P9A figures, and a mismatch is one of the first things KRA looks at, so tidy monthly filing is what makes the year-end painless.",
-          "The penalties make timeliness the cheaper option. Failing to deduct or account for PAYE attracts a penalty of 25% of the tax involved or KES 10,000, whichever is higher, and late payment then adds interest on the unpaid amount until it is cleared. Because the duty repeats every month, a habit of slipping turns a manageable payroll into a running liability, which is why many employers hand the monthly cycle to a verified [payroll accountant through the directory](/services/payroll/) rather than carry the risk in-house.",
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What are an employer’s PAYE obligations in Kenya?', a: 'Register for a PAYE obligation on your KRA PIN, deduct the correct tax from each employee’s pay, remit it to KRA, file the monthly P10 return by the 9th, and issue P9A forms to employees by the end of January.' },
-      { q: 'When must an employer remit PAYE in Kenya?', a: 'PAYE is remitted and the P10 return filed on iTax on or before the 9th of the following month. That is tighter than the 20th that governs VAT, so it is easy to miss if you assume every deadline is mid-month.' },
-      { q: 'What is the penalty for not deducting or remitting PAYE?', a: 'Failing to deduct or account for PAYE attracts a penalty of 25% of the tax involved or KES 10,000, whichever is higher, plus interest on the unpaid amount until it is cleared.' },
-      { q: 'What is a P9A form?', a: 'It is the annual record of an employee’s pay and PAYE for the year, which the employer must issue to each employee by the end of January so they can file their own individual income tax return.' },
-      { q: 'Does an employer calculate the employee’s take-home pay?', a: 'The employer deducts PAYE and statutory deductions and pays the net wage, but the band-by-band take-home breakdown is a separate calculation. A dedicated PAYE calculator works through an employee’s net pay rather than the employer’s filing duty.' },
-    ],
-    relatedService: 'payroll',
-  },
-
-  // ----- GROUP B: Careers (jobs-board pivot). All draft until published. -----
-  // These funnel to the live /jobs board, not /match. Facts verified against
-  // KASNEB, ICPAK and ACCA at write time. No invented salary figures.
-  {
-    slug: 'accounting-jobs-in-kenya',
-    draft: false,
+      'Find accounting and finance jobs in Kenya plus a full how-to-get-hired guide. Latest vacancies, top employers, CVs, interviews and salaries.',
+    lead: 'Accounting and finance roles are among the most advertised jobs in Kenya, but the market has tightened. This guide covers where the vacancies are, who is hiring, and how to get shortlisted in a market with plenty of qualified candidates chasing each role.',
     kind: 'hub',
-    title: 'Accounting Jobs in Kenya: How to Find and Land Them',
-    metaTitle: 'Accounting Jobs in Kenya: How to Find and Land Them',
-    description:
-      'How to find accounting jobs in Kenya and actually get hired: where roles are advertised, what employers screen for, and how to move from applying to an offer.',
-    lead: 'The accounting job market in Kenya rewards people who apply in the right places, in the right way, and with the right proof on the page. Here is how the market is structured, where the roles sit, and what it takes to move from an application to an offer.',
-    updated: '2026-07-06',
+    updated: '2026-07-13',
     sections: [
       {
         id: 'the-market',
-        heading: 'How the market is shaped',
+        heading: 'What the accounting job market looks like now',
         body: [
-          'Accounting sits inside almost every organisation in Kenya, so demand is spread widely rather than concentrated in one sector. Audit and advisory firms hire in cohorts, industry finance teams hire as they grow, and the public sector, SACCOs, NGOs and county governments all run their own finance functions. That breadth is why an accounting qualification travels: the same core skills open doors in banking, manufacturing, retail, development work and practice.',
-          'Roles cluster into a few families. Practice work covers audit, tax and advisory inside firms, from the Big Four down to mid-tier and small local firms. Industry work covers the finance team of a business that is not itself an accounting firm, running the books, the reporting and the controls. Public and not-for-profit finance covers government bodies, SACCOs and NGOs, each with its own compliance rhythm. Knowing which family a role belongs to tells you what the day actually looks like, and browsing the live roles on the [Kenyan accounting job board](/jobs) is the quickest way to see how each one is advertised.',
+          'Accountant is consistently one of the most in demand roles on Kenyan job boards, and finance, banking and insurance make up the single largest share of white collar listings. The catch is supply. Kenya produces thousands of CPA finalists and commerce graduates every year, so most advertised roles draw a deep pool of applicants and employers can afford to be selective.',
+          'The bigger shift is at the entry level. Routine bookkeeping, data entry and payroll processing are exactly the tasks accounting software now automates, and clerical accounting roles are among those [most exposed to automation](https://odi.org/en/insights/the-ai-time-bomb-25-million-jobs-at-risk-is-kenya-ready/) over the coming decade. The work that is growing sits one rung up, in analysis, controls, reporting and advisory, where judgement still matters.',
+          'The practical takeaway is that a qualification alone no longer sets you apart. Pairing [CPA certification from KASNEB](/guides/cpa-kenya-kasneb-guide/) with a working command of Excel, a cloud accounting package and some data analysis is what moves an application from the reject pile to the shortlist.',
         ],
       },
       {
-        id: 'qualifications',
-        heading: 'What employers expect on paper',
+        id: 'who-is-hiring',
+        heading: 'Who hires accountants in Kenya',
         body: [
-          'The dominant local qualification is the Certified Public Accountant credential examined by the [Kenya Accountants and Secretaries National Examinations Board](https://www.kasneb.or.ke/cpa), sat over Foundation, Intermediate and Advanced levels. Many listings ask for CPA completion, some for CPA in progress, and senior roles increasingly ask for full membership of the [Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/) alongside years of experience. How far along the [route to becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya) you need to be depends on the role, and junior positions are open well before the final papers.',
-          'A degree in commerce, finance or a related field is common but not universal; plenty of qualified accountants came through a diploma and CPA rather than a bachelor degree. What employers screen hardest is the match between the level you are at and the level the role sits at. An entry-level listing that asks for CPA Foundation and a year of exposure is a different filter from a financial-controller listing that asks for CPA(K) membership and five years, and applying up two rungs rarely works.',
-        ],
-      },
-      {
-        id: 'where-to-look',
-        heading: 'Where the roles are actually advertised',
-        body: [
-          'Kenyan accounting vacancies surface across general job boards, recruiter shortlists, firm career pages and professional networks, and the same role can appear in several of these at once. Relying on a single channel is the most common reason a strong candidate misses roles that would have suited them, so it pays to watch a spread rather than one site.',
-          'A focused board that only carries accounting, audit, tax and finance roles cuts the noise that comes with general listings. Browsing and filtering the [accounting and finance roles on our jobs board](/jobs) lets you see the live market by function and seniority in one place, and applying through it keeps your application inside the pipeline rather than lost in a generic inbox.',
+          'Demand is concentrated across a handful of sectors. Banks, SACCOs and insurers carry large in house finance teams. Audit and advisory firms, led by the Big Four, recruit in annual graduate cohorts. Manufacturers, NGOs, county governments and the national government all run sizeable finance functions, and the growing finance outsourcing sector in Nairobi adds a steady stream of shared services roles.',
+          'Location matters more than most candidates expect. Nairobi accounts for the large majority of advertised accounting vacancies, followed at a distance by Mombasa, Kisumu and Nakuru. A fuller picture of the cities and named employers that dominate hiring sits in the guide to [where accountants actually work in Kenya](/guides/accounting-jobs-kenya-locations-employers/).',
         ],
         bullets: [
-          'Dedicated accounting and finance job boards, filtered by function and level',
-          'Firm career pages, especially for graduate and audit-associate intakes',
-          'Recruitment agencies that place finance staff',
-          'Professional networks where recruiters source passively',
+          'Banking, insurance and SACCOs, the largest single employer group',
+          'Audit and advisory firms, including the Big Four and mid tier firms',
+          'NGOs and donor funded programmes, strong on compliance skills',
+          'National and county government, including KRA and state corporations',
+          'Manufacturing, retail and the fast growing finance outsourcing sector',
         ],
       },
       {
-        id: 'get-shortlisted',
-        heading: 'Getting past the first screen',
+        id: 'how-to-get-hired',
+        heading: 'How to get shortlisted',
         body: [
-          'Most applications are filtered before a human reads them closely, so the first job of your documents is to survive that screen. A tuned, results-led [accounting CV in Kenya](/blog/accounting-cv-kenya) that mirrors the language of the listing does more work here than any covering note, which is why it is worth building the document carefully rather than sending one generic version everywhere.',
-          'If you are early in your career, the barrier is usually experience rather than qualification, and the way through is to target roles pitched at your level, the tactics for [breaking into entry-level accounting jobs in Kenya](/blog/entry-level-accounting-jobs-kenya), and making transferable exposure legible.',
+          'Most applications fail before a human reads them. Larger Kenyan employers now filter CVs through applicant tracking software, so a [CV built around the exact keywords in the advert](/guides/accountant-cv-kenya/) is what gets you past the first gate. After that comes the human skim, and then, increasingly, an online aptitude or competency test.',
+          'Prepare for the assessment stage as seriously as the interview itself. The [questions Kenyan accounting panels ask](/guides/accounting-interview-questions-kenya/), from bank reconciliations to IFRS and iTax, reward candidates who can explain their reasoning rather than recite definitions. Knowing [what the role should pay](/guides/accountant-salary-kenya/) also lets you negotiate from a position of information rather than hope.',
+          'If you are early in your career, do not wait for a permanent role to appear. Attachment, internships and graduate schemes are the normal way into the profession, and the [entry level and graduate routes](/guides/entry-level-graduate-accounting-jobs-kenya/) are where most first jobs actually start.',
         ],
       },
       {
-        id: 'interview-offer',
-        heading: 'From interview to offer',
+        id: 'avoid-scams',
+        heading: 'How to avoid fake job adverts',
         body: [
-          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you handle a reconciliation that will not balance, and on judgement questions that have no clean answer. Working through the common [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) and preparing real, structured responses ahead of time is what separates a nervous candidate from a hireable one.',
-          'On salary, be led by the market rather than a guess. Ranges advertised on live job listings are the honest reference point, and they move with sector, seniority and location, so quote the band the current roles are showing rather than a fixed number. When an offer comes, weighing it against what comparable roles on the [live jobs board](/jobs) are advertising keeps the negotiation grounded in evidence.',
+          'A tighter market has produced more recruitment scams. Fake adverts circulate on WhatsApp, Telegram and social media promising instant hiring, then ask for a registration, training or medical fee. No legitimate Kenyan employer asks you to pay to be considered for a job.',
+          'Treat any request for money, a personal mobile number instead of a company email, or pressure to act immediately as a warning sign, and check the advert against [known recruitment scam tactics](https://africacheck.org/fact-checks/meta-programme-fact-checks/steer-clear-scam-tactics-used-fake-online-ad-hundreds-jobs) before you respond. Apply through the employer or a recognised board, and browse [current accounting vacancies](/jobs) rather than clicking a link from an unsolicited message.',
         ],
       },
     ],
     faqs: [
-      { q: 'What qualifications do I need for accounting jobs in Kenya?', a: 'Most roles expect the CPA qualification examined by KASNEB, either completed or in progress depending on the level. Senior roles often ask for ICPAK membership and several years of experience. A commerce or finance degree is common but not universal.' },
-      { q: 'Where are accounting jobs in Kenya advertised?', a: 'Across general job boards, dedicated accounting and finance boards, recruitment agencies, firm career pages and professional networks. The same role often appears in several places, so watch a spread of channels rather than one.' },
-      { q: 'Can I get an accounting job in Kenya without full CPA?', a: 'Yes, for entry-level and support roles that ask for CPA in progress rather than completion. The barrier early on is usually experience, so target roles pitched at your level and make transferable exposure clear.' },
-      { q: 'How much do accountants earn in Kenya?', a: 'Pay varies with sector, seniority and location. The honest reference is the range advertised on live job listings for the specific role and level, rather than a single figure, so check current listings for the band employers are actually offering.' },
-      { q: 'How do I stand out when applying?', a: 'Tune your CV to each listing, prepare structured answers to the common technical and judgement questions, and apply through a focused pipeline so your application is not lost in a generic inbox.' },
+      {
+        q: 'Are accounting jobs in demand in Kenya?',
+        a: 'Yes. Accountant is one of the most advertised roles in Kenya, and finance, banking and insurance make up the largest share of professional vacancies. Competition is high, though, because the country produces far more CPA finalists and commerce graduates than there are advertised roles.',
+      },
+      {
+        q: 'What qualifications do you need for an accounting job in Kenya?',
+        a: 'Most roles ask for CPA certification, or steady progress toward it, alongside a diploma or degree in a related field. Employers increasingly value practical skills too, such as Excel, a cloud accounting package and some data analysis, on top of the qualification.',
+      },
+      {
+        q: 'How do I get an accounting job in Kenya with no experience?',
+        a: 'Start through attachment, an internship or a graduate scheme rather than waiting for a permanent role. Build a targeted CV, complete some hands on software training, and apply widely. Government routes such as the KRA attachment and the Public Service internship are reliable, documented starting points.',
+      },
+      {
+        q: 'Which sectors hire the most accountants in Kenya?',
+        a: 'Banking, insurance and SACCOs hire the most, followed by audit and advisory firms, NGOs, national and county government, manufacturing and the growing finance outsourcing sector. Nairobi carries the majority of advertised roles.',
+      },
+      {
+        q: 'How can I tell if an accounting job advert is genuine?',
+        a: 'A genuine employer never asks you to pay a fee to apply, interview or be hired. Be wary of adverts that use a personal phone number instead of a company email, promise instant hiring, or pressure you to act at once. Apply through the employer or a recognised job board.',
+      },
     ],
   },
+
+  // ============================================================
+  // HUB 2 - CPA
+  // ============================================================
   {
-    slug: 'how-to-become-an-accountant-in-kenya',
-    draft: false,
-    kind: 'hub',
-    title: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
-    metaTitle: 'How to Become an Accountant in Kenya: CPA, KASNEB & ICPAK',
+    slug: 'cpa-kenya-kasneb-guide',
+    title: 'CPA Kenya: The Complete KASNEB CPA Guide',
+    metaTitle: 'CPA Kenya: Complete KASNEB CPA Guide',
     description:
-      'The route to becoming an accountant in Kenya: the KASNEB CPA levels and papers, the entry grade, ICPAK membership and the practising certificate, and where ACCA fits.',
-    lead: 'Becoming an accountant in Kenya runs along a well-marked path: qualify through KASNEB, gain experience, and join ICPAK. Here is exactly how the CPA route works, what each step demands, and how the alternatives such as ACCA fit alongside it.',
-    updated: '2026-07-06',
+      'Everything on becoming a CPA in Kenya: KASNEB requirements, fees, exam structure, exemptions, duration, ICPAK membership and the careers it opens.',
+    lead: 'The CPA is Kenya’s flagship accounting qualification, examined by KASNEB and leading to membership of ICPAK. This guide covers the current three level structure, the entry requirements, the real cost and duration, and, honestly, whether it is still worth it.',
+    kind: 'hub',
+    updated: '2026-07-13',
     sections: [
       {
-        id: 'the-route',
-        heading: 'The route in outline',
+        id: 'structure',
+        heading: 'How the CPA course is structured now',
         body: [
-          'The standard path to becoming an accountant in Kenya has three stages: pass the professional examinations, build practical experience, and register with the professional body. The examinations are set by the Kenya Accountants and Secretaries National Examinations Board, known as KASNEB, and the leading qualification is the Certified Public Accountant credential. Membership of the Institute of Certified Public Accountants of Kenya, ICPAK, is what lets you use the CPA(K) designation and, in time, practise publicly.',
-          'None of these stages is skippable if you want to work as a recognised accountant, but they do not all have to happen in a strict order. Many people begin working in a finance role while still sitting KASNEB papers, which is often the fastest way to accumulate the experience that both employers and ICPAK will later ask for. Watching the [entry-level accounting roles on the jobs board](/jobs) while you study is a practical way to line up that experience early.',
+          'Many older guides still describe CPA as six sections split across Part I, II and III. That is out of date. Under the revised syllabus, the qualification runs across three levels, Foundation, Intermediate and Advanced, and sits at Level 7 on the national qualifications framework. Anyone planning their studies should work from the [current CPA syllabus and structure](https://kasneb.or.ke/cpa) rather than an old section based outline.',
+          'Foundation and Intermediate carry six papers each, covering financial accounting, law and governance, economics, quantitative analysis, ICT, company law, financial management, financial reporting, auditing, management accounting, and public finance and taxation. The Advanced level adds compulsory papers plus a specialisation, and now bundles an ethics component and a work simulation workshop rather than being a pure examination.',
+          'In total the course is around seventeen examinable papers plus the ethics and work simulation workshops, and it carries a one year practical experience requirement. Because KASNEB reviews the syllabus periodically, confirm the exact paper list for your intake before you register.',
         ],
       },
       {
-        id: 'cpa-levels',
-        heading: 'The CPA qualification: levels and papers',
+        id: 'requirements',
+        heading: 'Entry requirements and how long it takes',
         body: [
-          'Under the revised KASNEB syllabus, the [CPA course in Kenya](/blog/cpa-course-kenya) is examined across three levels: Foundation, Intermediate and Advanced. The Foundation level covers six papers including Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. The Intermediate level covers a further six, including Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation.',
-          'The Advanced level moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis, and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation elements. Because the syllabus has been revised, the exact paper list at the Advanced level and any transition rules are worth confirming against KASNEB before you register.',
-        ],
-        bullets: [
-          'Foundation level: six papers, the accounting and business fundamentals',
-          'Intermediate level: six papers, reporting, audit, management accounting and tax',
-          'Advanced level: higher-level papers plus a specialisation and ethics and work-simulation elements',
+          'The standard entry requirement is a KCSE mean grade of C+, or a recognised diploma. Degree holders and holders of the KASNEB diploma can also register and may qualify for exemptions from some Foundation papers.',
+          'Examinations are held three times a year, in April, August and December, which means you rarely wait long for the next sitting. A focused candidate sitting a full level a year completes the examinations in about three years, with additional time for the practical experience and workshop requirements. Actual timelines vary widely with the number of papers taken per sitting, work commitments and resits.',
         ],
       },
       {
-        id: 'entry-exams',
-        heading: 'Who qualifies and how the exams run',
+        id: 'fees',
+        heading: 'What the CPA course costs',
         body: [
-          'The minimum entry requirement for the CPA course is a KCSE mean grade of C+, and holders of relevant diplomas or degrees can register too, with degree holders in accounting often eligible for exemptions from parts of the Foundation level. Confirm your own exemption position with KASNEB, since it depends on the exact qualification you hold.',
-          'KASNEB professional examinations are held three times a year, in April, August and December, which gives candidates several attempts within a single year and lets a focused student move through the levels quickly. You register with KASNEB, book the papers you are ready to sit, and pay the exam fees per paper, with the current fee schedule published on the KASNEB portal.',
+          'Budget for three kinds of cost. There is a one off KASNEB registration fee, currently in the region of KES 7,500, an annual registration renewal, and an examination fee charged per paper that rises with each level, roughly in the low thousands per paper at Foundation and higher at Advanced. On top of KASNEB charges you will usually pay tuition to a college or online provider.',
+          'Because these figures change and exemption charges apply per paper, treat the numbers here as indicative and confirm the current schedule on the official fee structures page before you budget. Reactivation fees also apply if your registration lapses, so keep your renewal current.',
         ],
       },
       {
         id: 'icpak',
-        heading: 'Joining ICPAK and practising',
+        heading: 'From CPA to CPA(K): the ICPAK step',
         body: [
-          'Passing the CPA examinations makes you a qualified accountant, but using the CPA(K) designation and being recognised professionally means registering with ICPAK, the [statutory body established under the Accountants Act to regulate the profession](https://www.icpak.com/member-categories/). Fresh graduates typically enter as associate members, then move to full membership once they have accumulated the required years of practical experience.',
-          'Offering audit and accountancy services to the public is a further step again, gated behind a practising certificate that ICPAK issues only to full members with additional supervised experience and up-to-date professional development. If your goal is to run your own practice rather than work in industry, that certificate is the milestone that matters.',
+          'Passing the KASNEB examinations is not the end of the road. To use the CPA(K) designation and to practise, you register with [ICPAK](https://icpak.com/), the statutory body for the profession, established under the Accountants Act. ICPAK confers membership and, for those who need it, the practising certificate that allows you to sign off audits.',
+          'This distinction trips up many candidates. KASNEB examines and certifies, ICPAK admits you to the profession and regulates it. Both matter, and both carry their own fees, so factor membership into your longer term budget.',
         ],
       },
       {
-        id: 'acca-alternative',
-        heading: 'Where ACCA and other routes fit',
+        id: 'worth-it',
+        heading: 'Is CPA still worth it in Kenya?',
         body: [
-          'CPA is not the only qualification recognised in Kenya. The [ACCA qualification](https://www.accaglobal.com/gb/en/qualifications/glance/acca/overview.html) offered by the UK-based Association of Chartered Certified Accountants is widely respected, particularly for roles with an international or multinational dimension, and it combines a series of exams with an ethics module and three years of practical experience to reach membership. Some Kenyan accountants hold both CPA and ACCA.',
-          'For most people building a career in Kenya, CPA is the natural spine because it is examined locally, is cheaper, and maps directly onto ICPAK membership and Kenyan tax and regulatory practice. ACCA is the stronger add-on where global mobility matters. Whichever route you take, the qualification only converts into a career when you pair it with real roles, so treat [finding accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) as part of the plan rather than something you do only at the end.',
+          'This is the honest question behind most CPA searches, and the answer is nuanced. The qualification is still the baseline expectation for accounting roles, and without it many doors stay shut. But a CPA on its own no longer guarantees a job, because so many people now hold one and because routine processing work is being automated.',
+          'What lifts the return is direction. Deciding early whether you want compliance and audit, or the faster growing analysis and investment path, and stacking the right skills on top of CPA, is what turns the qualification into a career. The [route from a first accounting role toward finance leadership](/guides/accounting-career-paths-kenya/) shows where each choice leads, and the [pay each CPA level tends to command](/guides/accountant-salary-kenya/) makes the trade offs concrete.',
         ],
       },
     ],
     faqs: [
-      { q: 'How do I become an accountant in Kenya?', a: 'Pass the KASNEB CPA examinations across the Foundation, Intermediate and Advanced levels, build practical experience, and register with ICPAK. ICPAK membership lets you use the CPA(K) designation, and a practising certificate is needed to offer services to the public.' },
-      { q: 'What is the entry requirement for CPA in Kenya?', a: 'A KCSE mean grade of C+ is the minimum for the CPA course. Holders of relevant diplomas or degrees can also register, and accounting degree holders may qualify for exemptions from parts of the Foundation level. Confirm your exemptions with KASNEB.' },
-      { q: 'How many CPA papers are there?', a: 'Under the revised KASNEB syllabus the CPA course runs across three levels, with six papers each at Foundation and Intermediate and a set of higher-level and specialisation papers plus ethics and work-simulation elements at Advanced. Confirm the current paper list with KASNEB.' },
-      { q: 'When are KASNEB CPA exams held?', a: 'KASNEB professional examinations are held three times a year, in April, August and December, so candidates can sit papers several times within a single year.' },
-      { q: 'Is ACCA recognised in Kenya?', a: 'Yes. The ACCA qualification is recognised and respected in Kenya, especially for international roles, and combines exams, an ethics module and three years of experience. CPA remains the natural local route because it is examined in Kenya and maps directly onto ICPAK membership.' },
+      {
+        q: 'What are the requirements to do CPA in Kenya?',
+        a: 'The minimum entry requirement is a KCSE mean grade of C+, or a recognised diploma. Degree holders and KASNEB diploma holders can also register and may qualify for exemptions from some Foundation papers.',
+      },
+      {
+        q: 'How long does CPA take in Kenya?',
+        a: 'KASNEB frames each level as about a year, so roughly three years of examinations for a steady candidate, plus time for the practical experience and workshop requirements. Timelines vary with the papers taken per sitting, work commitments and resits.',
+      },
+      {
+        q: 'How much does the CPA course cost in Kenya?',
+        a: 'Expect a one off KASNEB registration fee, an annual renewal, and examination fees charged per paper that rise by level, plus tuition if you study with a college. Fees are set and revised by KASNEB, so confirm the current schedule before budgeting.',
+      },
+      {
+        q: 'How many papers and levels are in CPA Kenya?',
+        a: 'The course runs across three levels, Foundation, Intermediate and Advanced. Foundation and Intermediate have six papers each, and the Advanced level adds compulsory and specialisation papers plus an ethics component and a work simulation workshop, for around seventeen examinable papers in total.',
+      },
+      {
+        q: 'What is the difference between KASNEB and ICPAK?',
+        a: 'KASNEB sets and marks the CPA examinations and certifies that you have passed. ICPAK is the professional body you join afterwards to use the CPA(K) designation and, where needed, to hold a practising certificate. You pass through KASNEB and then register with ICPAK.',
+      },
+      {
+        q: 'When are CPA exams held in Kenya?',
+        a: 'KASNEB professional examinations are held three times a year, in April, August and December, so there is no long wait between attempts.',
+      },
     ],
   },
+
+  // ============================================================
+  // HUB 3 - CV
+  // ============================================================
+  {
+    slug: 'accountant-cv-kenya',
+    title: 'Accountant CV and Job Applications in Kenya',
+    metaTitle: 'Accountant CV & Applications in Kenya',
+    description:
+      'Write an accountant CV that gets interviews in Kenya: format, ATS keywords, referees, cover letters and the mistakes that get you rejected.',
+    lead: 'A strong accountant CV in Kenya now has to clear three gates before it wins an interview: the applicant tracking system that scans it, the recruiter who skims it in seconds, and a newer filter for CVs that read as if a machine wrote them. This guide shows you how to pass all three.',
+    kind: 'hub',
+    updated: '2026-07-13',
+    sections: [
+      {
+        id: 'three-gates',
+        heading: 'The three gates your CV must pass',
+        body: [
+          'The Kenyan hiring conversation has shifted decisively toward automated screening. Larger employers in banking, NGOs, ICT and government now run CVs through applicant tracking software before any person sees them, so a CV that is not machine readable can be rejected without a human ever opening it.',
+          'The second gate is the human skim, which Kenyan recruiters put at roughly six to ten seconds. The third is new for 2026. Recruiters increasingly complain that generic, artificially generated CVs all sound the same, leaning on tired phrases like results driven professional, and they screen them out. The winning CV is therefore both machine parseable and unmistakably yours, written in specifics only you could have lived.',
+        ],
+      },
+      {
+        id: 'format',
+        heading: 'The right format for a Kenyan accountant CV',
+        body: [
+          'Keep it to one page if you are a fresh graduate and no more than two pages once you have a few years behind you. Use a single column layout with clear headings and no tables, text boxes, graphics or icons, all of which confuse tracking software. A standard font at eleven or twelve point keeps it readable to both software and people.',
+          'Follow the order Kenyan recruiters expect: contact details, a short professional summary, work experience, education, skills, certifications, and referees. Save and send it as the format the advert asks for, defaulting to a Word document for the cleanest machine parsing and a PDF where layout matters.',
+        ],
+        bullets: [
+          'One page for graduates, up to two pages with experience',
+          'Single column, no tables, graphics or icons',
+          'Standard font at eleven or twelve point',
+          'Contact, summary, experience, education, skills, certifications, referees',
+          'Match the file format the advert requests',
+        ],
+      },
+      {
+        id: 'what-changed',
+        heading: 'What to leave off a modern Kenyan CV',
+        body: [
+          'Older local templates still ask for a passport photo, ID number, age, religion and marital status. The current consensus among Kenyan recruiters is to drop all of these. They add nothing an employer can lawfully act on, and they date your CV. Include a photo only where the advert specifically requests one, as some government and corporate roles still do.',
+          'Referees remain expected in Kenya, unlike in some other markets. List two or three professional referees, former supervisors, lecturers or senior colleagues rather than relatives, with their name, title, organisation, phone and email, or note that they are available on request.',
+        ],
+      },
+      {
+        id: 'accountant-specifics',
+        heading: 'The accountant specific content that wins',
+        body: [
+          'A tracking system scans your skills section first, so mirror the language of the advert. If it asks for IFRS, write both the acronym and the full form once, and do the same for tax and reconciliation terms the employer names. List six to ten skills using the exact keywords, and keep them true to what you can actually do.',
+          'Prove competence with quantified, standards aware bullets rather than duties. Preparing monthly management accounts in line with [IFRS](https://www.ifrs.org/) reads far stronger than responsible for accounts, and adding a number, such as cutting reporting errors or closing the books faster, turns a claim into evidence. Where you hold a professional qualification, present your [KASNEB level and ICPAK status](/guides/cpa-kenya-kasneb-guide/) clearly so both software and reviewers pick it up, and list current membership of [ICPAK](https://icpak.com/) where you have it.',
+          'A tailored CV is only the first step. Once it earns you a call, the [questions Kenyan accounting interviews turn on](/guides/accounting-interview-questions-kenya/) are where the offer is won or lost, so treat the two as one preparation task.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'How many pages should an accountant CV be in Kenya?',
+        a: 'One page for a fresh graduate and no more than two pages once you have several years of experience. Longer documents are only expected for academic, medical or research roles.',
+      },
+      {
+        q: 'Should I include a photo, ID number or age on my Kenyan CV?',
+        a: 'The modern consensus among Kenyan recruiters is to leave out your photo, ID number, age, religion and marital status. Include a photo only if the advert specifically asks for one, which some government and corporate roles still do.',
+      },
+      {
+        q: 'What is an ATS friendly CV?',
+        a: 'It is a CV that applicant tracking software can read cleanly: a single column, standard fonts, no tables, graphics or icons, and keywords that mirror the job advert. Many larger Kenyan employers filter CVs this way before a person sees them.',
+      },
+      {
+        q: 'How many referees should a Kenyan CV have?',
+        a: 'Two or three professional referees, such as former supervisors, lecturers or senior colleagues, with their name, title, organisation, phone and email. Avoid listing relatives or friends. You can also state that referees are available on request.',
+      },
+      {
+        q: 'Why is my accountant CV not getting shortlisted?',
+        a: 'The most common reasons are a CV that tracking software cannot read, one that does not mirror the keywords in the advert, or generic wording that fails to show how you fit the specific role. Tailor each application and lead with quantified, standards aware achievements.',
+      },
+    ],
+  },
+
+  // ============================================================
+  // HUB 4 - Interviews
+  // ============================================================
   {
     slug: 'accounting-interview-questions-kenya',
-    draft: false,
-    kind: 'spoke',
-    hub: 'accounting-jobs-in-kenya',
-    title: 'Top 100 Accounting Interview Questions in Kenya (With Answers)',
-    metaTitle: 'Top 100 Accounting Interview Questions in Kenya (With Answers)',
+    title: 'Accounting Interview Questions and Answers in Kenya',
+    metaTitle: 'Accounting Interview Questions & Answers Kenya',
     description:
-      'The 100 accounting interview questions Kenyan employers actually ask, numbered and grouped into categories from the opener and fundamentals to KRA tax, payroll, software, audit and competency, each with how to answer it.',
-    lead: 'An accounting interview in Kenya tests whether you can do the technical work and whether you will be steady doing it. Below are 100 questions employers actually ask, numbered and grouped into the categories interviewers work through, each with the answer an interviewer is listening for.',
-    updated: '2026-07-06',
-    sections: [
-      {
-        id: 'how-they-assess',
-        heading: 'What the interview is really testing',
-        body: [
-          'A Kenyan accounting interview usually has three layers running at once: can you handle the core accounting, do you understand local compliance, and will you exercise sound judgement when something is unclear. Employers rarely announce which layer a question belongs to, so part of interviewing well is hearing what a question is actually probing and answering that, not the surface of it.',
-          'This matters most for candidates coming straight out of the [KASNEB CPA examinations](https://www.kasneb.or.ke/cpa), where the instinct is to recite the syllabus. Interviewers want the syllabus applied to a messy situation, not repeated back. If you are still working towards the qualification, the study route is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya), but the interview is where you show you can use it. The 100 questions below are numbered and grouped into the categories interviewers move through, from the opener to compliance, management accounting and ethics.',
-        ],
-      },
-      {
-        id: 'opening',
-        heading: 'Opening and about-you questions',
-        body: [
-          'Almost every accounting interview in Kenya starts here, and this is where many candidates waste their strongest minutes rambling through the whole CV. Treat these as the frame for the story the rest of the interview will follow.',
-        ],
-        qa: [
-          { q: '1. Tell me about yourself and your experience as an accountant.', a: 'Give a tight sixty-second pitch: your qualification, whether a CPA stage or a B.Com, where you have worked and what you handled there, one strength backed by a result, and what you are looking for now. Point it at the role in front of you rather than reciting your CV top to bottom, and stop cleanly instead of trailing off.' },
-          { q: '2. Why do you want to be an accountant?', a: 'Give a reason grounded in the work itself, an interest in accuracy, solving problems with numbers, or understanding a business through its figures, and back it with something you have actually done rather than a generic line about loving numbers.' },
-          { q: '3. Why do you want to work here specifically?', a: 'Show you have read about the employer, its sector, its size, or a recent development, and connect that to what you bring. A tailored answer beats one that would fit any firm.' },
-          { q: '4. What are your strengths as an accountant?', a: 'Pick two the role actually needs, such as accuracy under deadline and clean reconciliation work, and prove each with a short example rather than listing adjectives.' },
-          { q: '5. What is your biggest weakness?', a: 'Name a real but non-fatal one and the step you take to manage it, for example over-checking, which you handle by setting review time limits. Avoid the fake weakness that is really a boast.' },
-          { q: '6. Where do you see yourself in five years?', a: 'Point at growth that fits an accounting path, such as qualifying fully, moving into management accounts, or specialising in tax or audit, showing ambition without implying you will leave quickly.' },
-          { q: '7. Why are you leaving your current role?', a: 'Answer briefly and without bitterness: seeking more responsibility, a stronger finance team, or a fresh challenge. If there is a gap, state it plainly and say how you kept your skills current.' },
-          { q: '8. What do you know about our company?', a: 'Reflect back a few concrete facts, what it does, roughly how big it is, its market, and one thing that interested you. This question is really a test of whether you prepared.' },
-        ],
-      },
-      {
-        id: 'fundamentals',
-        heading: 'Accounting fundamentals and concepts',
-        body: [
-          'These establish that the basics are solid. The strongest answers state the principle, then ground it in a quick example, so keep a simple illustration ready for each rather than reciting a definition.',
-        ],
-        qa: [
-          { q: '9. What is the accounting equation?', a: 'Assets equal liabilities plus equity. Every transaction keeps it in balance, which is the foundation of double entry.' },
-          { q: '10. Explain double-entry bookkeeping.', a: 'Every transaction has two equal and opposite entries, a debit and a credit, so the books always balance. A cash sale, for example, debits cash and credits sales.' },
-          { q: '11. What is the difference between accruals and cash accounting?', a: 'Accruals accounting records income when it is earned and costs when they are incurred, no matter when cash moves; cash accounting records them only when money changes hands. A sale invoiced in June but paid in July is June income under accruals, and Kenyan financial statements use the accruals basis.' },
-          { q: '12. What is the matching concept?', a: 'Costs are matched to the revenue they help earn in the same period, regardless of when cash is paid, so profit reflects activity rather than payment timing.' },
-          { q: '13. What is the going concern assumption?', a: 'Accounts are prepared assuming the business will keep operating for the foreseeable future, so assets are not valued at fire-sale prices. If that assumption is in doubt, it must be disclosed.' },
-          { q: '14. What is the prudence concept?', a: 'Recognise losses and liabilities as soon as they are foreseeable but income only when reasonably certain, so profit and assets are not overstated.' },
-          { q: '15. What is materiality?', a: 'An item is material if omitting or misstating it could change the decision a user makes. It lets you treat small items pragmatically while giving significant ones full attention.' },
-          { q: '16. What is the difference between capital and revenue expenditure?', a: 'Capital expenditure buys or improves a long-term asset and sits on the balance sheet; revenue expenditure is day-to-day running cost and goes to the income statement. Misclassifying one distorts both profit and assets.' },
-          { q: '17. What is depreciation, and which methods do you know?', a: 'Depreciation spreads the cost of a fixed asset over its useful life. The common methods are straight-line, an equal charge each year, and reducing balance, a fixed percentage of the falling book value.' },
-          { q: '18. What is the difference between depreciation and amortisation?', a: 'Both spread cost over time; depreciation applies to tangible fixed assets and amortisation to intangibles such as software or goodwill.' },
-          { q: '19. What is working capital?', a: 'Current assets minus current liabilities, the short-term funds a business needs to run. Too little risks cash strain; too much ties up money that could work harder.' },
-          { q: '20. What is the difference between accounts payable and accounts receivable?', a: 'Payables are what the business owes suppliers; receivables are what customers owe the business. One is a liability, the other an asset.' },
-          { q: '21. What is the difference between a provision and a reserve?', a: 'A provision is a liability of uncertain timing or amount, such as doubtful debts, charged against profit; a reserve is profit set aside and is part of equity. Confusing the two misstates profit.' },
-          { q: '22. What is the difference between a provision and a contingent liability?', a: 'A provision is recognised when an outflow is probable and can be estimated; a contingent liability is only possible or cannot be measured reliably, so it is disclosed in a note rather than booked.' },
-        ],
-      },
-      {
-        id: 'statements',
-        heading: 'Financial statements and reporting',
-        body: [
-          'Reporting questions test whether you understand how the numbers fit together, not just how to post them. Be ready to trace a figure from one statement into another.',
-        ],
-        qa: [
-          { q: '23. What are the main financial statements?', a: 'The statement of financial position, the statement of profit or loss, the statement of cash flows, and the statement of changes in equity, with notes supporting them.' },
-          { q: '24. What goes on the balance sheet versus the income statement?', a: 'The balance sheet shows assets, liabilities and equity at a point in time; the income statement shows income and expenses over a period. One is a snapshot, the other a film.' },
-          { q: '25. Walk me through how a sale reaches the financial statements.', a: 'Start at the invoice, then the journal entry debiting the customer and crediting sales and output VAT, through the sales and general ledgers to the trial balance, and finally into the income statement as revenue and the balance sheet as a receivable until it is settled. Naming each stage shows you understand the flow, not just the endpoints.' },
-          { q: '26. How are the three main statements linked?', a: 'Net profit flows from the income statement into equity on the balance sheet and starts the cash flow statement, which reconciles to the cash balance on the balance sheet. A change in one ripples through the others.' },
-          { q: '27. What is the difference between the direct and indirect cash flow methods?', a: 'The direct method lists actual cash receipts and payments; the indirect method starts from profit and adjusts for non-cash items and working-capital movements. Most businesses report using the indirect method.' },
-          { q: '28. Why can a profitable company still run out of cash?', a: 'Profit is not cash: money can be tied up in unpaid invoices, stock, or asset purchases, or drained by loan repayments. That is why cash flow is watched alongside profit.' },
-          { q: '29. What is the difference between gross profit and net profit?', a: 'Gross profit is sales less the direct cost of sales; net profit is what remains after all other expenses, finance costs and tax. The gap shows how much overheads consume.' },
-          { q: '30. What is a trial balance, and what does it prove?', a: 'A list of all ledger balances with debits and credits totalled. Agreement shows the books are arithmetically balanced, though it does not prove they are free of error.' },
-          { q: '31. When is revenue recognised?', a: 'When control of the goods or service passes to the customer and the amount can be measured, not simply when cash arrives. IFRS 15 sets out the steps.' },
-          { q: '32. How do you treat accruals and prepayments at period end?', a: 'Accrue for costs incurred but not yet invoiced, and defer prepaid costs to the period they belong to, so each period carries its true expense. Both reverse in the next period.' },
-          { q: '33. What is the difference between IFRS and IFRS for SMEs?', a: 'Kenya applies IFRS, with a simplified IFRS for SMEs available to smaller entities. The SME version cuts disclosure and some measurement complexity while keeping the same principles.' },
-          { q: '34. What is deferred tax in simple terms?', a: 'It arises from timing differences between accounting profit and taxable profit, for example when tax depreciation differs from book depreciation, and it aligns the tax charge with the accounting periods.' },
-        ],
-      },
-      {
-        id: 'bookkeeping',
-        heading: 'Bookkeeping, ledgers and reconciliations',
-        body: [
-          'This is the daily craft of the role, and interviewers use it to check that your foundations are automatic. Answer with the routine you would actually follow.',
-        ],
-        qa: [
-          { q: '35. What is the difference between a debit and a credit?', a: 'Debits increase assets and expenses and decrease liabilities, income and equity; credits do the opposite. Which side increases depends on the type of account.' },
-          { q: '36. What is the difference between the general ledger and a subsidiary ledger?', a: 'The general ledger holds the summarised accounts that build the trial balance; a subsidiary ledger holds the detail behind a control account, such as individual customer balances behind receivables.' },
-          { q: '37. What are control accounts, and why reconcile them?', a: 'A control account summarises a subsidiary ledger, such as total receivables. Reconciling it to the list of individual balances catches posting errors early.' },
-          { q: '38. A bank reconciliation will not balance. How would you find the difference?', a: 'Tick off the matched items first, then hunt the usual culprits: unpresented cheques, bank charges or standing orders not yet in the cashbook, a transposition error, or an entry made twice or with the wrong sign. The proof is that the adjusted cashbook and the adjusted bank statement finally agree.' },
-          { q: '39. What is a suspense account, and when do you use it?', a: 'A temporary holding account for an entry you cannot yet classify or a difference on the trial balance. It should be investigated and cleared, never left to linger.' },
-          { q: '40. What is the difference between a trade discount and a cash discount?', a: 'A trade discount reduces the list price before the sale is recorded and never appears in the books; a cash discount rewards early payment and is recorded when it is taken.' },
-          { q: '41. How do you handle petty cash?', a: 'Run it on an imprest system: a fixed float, a voucher for every payment, and top-ups that restore the float to its set amount, so cash plus vouchers always reconcile.' },
-          { q: '42. What is a fixed asset register, and why keep one?', a: 'A record of each asset, its cost, location, depreciation and net book value. It supports the accounts, guards against loss, and underpins physical asset verification.' },
-          { q: '43. How do you manage debtors to keep cash flowing?', a: 'Set clear credit terms, invoice promptly, monitor an aged receivables report, and chase overdue accounts on a schedule before they turn into bad debts.' },
-          { q: '44. What do you do at month-end close?', a: 'Post accruals and prepayments, reconcile the bank and control accounts, review the trial balance for anomalies, and prepare the management figures, working to a checklist so nothing is missed.' },
-        ],
-      },
-      {
-        id: 'compliance',
-        heading: 'Kenyan tax and KRA compliance',
-        body: [
-          'Because so much of Kenyan accounting is compliance work, expect questions rooted in the local tax system. You are not expected to quote every figure from memory, but you are expected to know how it fits together and where to confirm a rate against the [Kenya Revenue Authority](https://www.kra.go.ke/). Show you understand the shape of each obligation and its deadline, then say you would confirm the current rate before relying on it.',
-        ],
-        qa: [
-          { q: '45. What taxes must a Kenyan business account for?', a: 'Typically VAT, PAYE on employees, withholding tax on certain payments, and corporation or instalment tax on profits, all administered through iTax and eTIMS.' },
-          { q: '46. When are VAT returns due?', a: 'A VAT return and payment are due by the 20th of the month following the tax period, and a nil return is still required for a month with no activity. Mentioning the nil return shows you understand the deadline discipline, not just the date.' },
-          { q: '47. What is the standard rate of VAT in Kenya?', a: 'The standard rate is 16 percent, with some supplies zero-rated or exempt. Know the difference: zero-rated allows input recovery while exempt does not, and confirm the current rate before relying on it.' },
-          { q: '48. What is the difference between input and output VAT?', a: 'Output VAT is charged on sales; input VAT is paid on purchases. You remit the difference to the KRA, or reclaim it when input exceeds output.' },
-          { q: '49. What is the difference between zero-rated and exempt supplies?', a: 'Both carry no VAT to the customer, but a zero-rated supplier can reclaim input VAT while an exempt one cannot, which affects how much VAT the business ultimately bears.' },
-          { q: '50. What PAYE obligations does an employer have?', a: 'Register for PAYE, deduct tax from each employee monthly, and remit it to the KRA by the 9th of the following month with the statutory deductions, then file the annual reconciliation. Knowing it is a monthly remittance with an annual return behind it is what the question tests.' },
-          { q: '51. What is withholding tax, and when do you deduct it?', a: 'Withholding tax is deducted at source on specified payments such as professional or consultancy fees, rent, dividends, interest and royalties, then remitted to the KRA by the 20th of the following month with a certificate issued to the payee. The rate depends on the payment type and whether the recipient is resident, so confirm it before applying it.' },
-          { q: '52. What is the difference between withholding tax and withholding VAT?', a: 'Withholding tax is deducted from income payments such as fees or rent; withholding VAT is a portion of the VAT on a supply withheld by an appointed agent and remitted directly to the KRA. They sit on different taxes.' },
-          { q: '53. What are corporation tax and instalment tax?', a: 'Resident companies pay corporation tax on profits, and instalment tax pays it in advance across the year in instalments, with a balancing payment after year-end. Confirm the current rate before quoting it.' },
-          { q: '54. How is rental income taxed?', a: 'Residential rental income is taxed under Monthly Rental Income, a final tax on gross rent filed monthly, unless the landlord elects the annual regime to claim expenses. You need not state the exact percentage under pressure, but know it is a monthly, final, gross-basis tax with an election available.' },
-          { q: '55. What is Turnover Tax, and who pays it?', a: 'Turnover Tax is a simplified tax on gross sales for small businesses whose turnover falls within a set band, filed monthly, instead of the normal profit-based regime. Confirm the current band and rate before applying it.' },
-          { q: '56. What is eTIMS, and why does it matter for an expense?', a: 'eTIMS is the KRA electronic tax invoicing system, and an expense generally needs a valid eTIMS invoice to be deductible. The point is that supplier compliance now affects your employer tax bill, so you would check that purchases carry valid invoices.' },
-          { q: '57. What is a KRA PIN, and why does it matter?', a: 'The Personal Identification Number identifies a taxpayer on iTax and is needed to transact, file, employ, or claim an expense against a supplier. Missing or wrong PINs cause compliance and deductibility problems.' },
-          { q: '58. What is filed on iTax?', a: 'iTax is the KRA online platform where VAT, PAYE, withholding and income tax returns are filed and payments are generated. Day-to-day compliance runs through it.' },
-          { q: '59. What is the risk of filing late?', a: 'Late filing and late payment attract penalties and interest that grow over time. The practical answer is that you diarise deadlines and file even a nil return on time to avoid them.' },
-          { q: '60. How do you keep up with changes in Kenyan tax law?', a: 'Follow KRA notices and the annual Finance Act, and confirm any rate or rule before applying it rather than trusting memory. Interviewers value the habit of checking over false certainty.' },
-        ],
-      },
-      {
-        id: 'payroll',
-        heading: 'Payroll and statutory deductions',
-        body: [
-          'Payroll questions test current knowledge as much as method, because the Kenyan statutory deductions have changed recently. Showing you are up to date matters here.',
-        ],
-        qa: [
-          { q: '61. What statutory deductions apply to Kenyan payroll?', a: 'PAYE for tax, plus NSSF for pension, SHIF for health, which replaced NHIF, and the Affordable Housing Levy, each with its own rate and remittance deadline.' },
-          { q: '62. What changed when SHIF replaced NHIF?', a: 'The Social Health Insurance Fund replaced the National Hospital Insurance Fund, changing how the health contribution is calculated and remitted. Knowing this shows your payroll knowledge is current.' },
-          { q: '63. How is PAYE calculated on a payslip?', a: 'Apply the graduated tax bands to taxable pay, then subtract personal relief and any qualifying reliefs to reach the tax due. Do not quote the bands from memory under pressure; know the method.' },
-          { q: '64. What is the Affordable Housing Levy?', a: 'A levy on gross monthly pay, deducted from the employee and matched by the employer, remitted to the KRA. It is a recent addition to payroll, so mentioning it signals you are up to date.' },
-          { q: '65. What is the difference between gross pay and net pay?', a: 'Gross pay is earnings before deductions; net pay is what the employee receives after PAYE and statutory and voluntary deductions. Payroll works down from one to the other.' },
-          { q: '66. When are payroll deductions remitted?', a: 'PAYE by the 9th of the following month, with the other statutory deductions on their own deadlines. Missing a date brings penalties, so the payroll calendar is fixed.' },
-          { q: '67. How do you handle a payroll error found after payment?', a: 'Quantify it, tell the employee and your manager promptly, and correct it in the next run or by an adjustment, documenting the fix. Hiding a payroll error damages trust fastest.' },
-        ],
-      },
-      {
-        id: 'software',
-        heading: 'Accounting software and systems',
-        body: [
-          'Kenyan finance teams run on a mix of packages and spreadsheets, so expect practical questions about the tools. Name what you have genuinely used and tie it to a task.',
-        ],
-        qa: [
-          { q: '68. Which accounting software have you used, and how proficient are you?', a: 'Name the packages you have actually worked in, from QuickBooks and Sage on smaller books to SAP or another ERP in larger finance teams, and be honest about your level in each. Tie it to a real task, such as running a month-end or reconciling a ledger, and mention comfort with iTax and eTIMS, since day-to-day Kenyan work runs through both.' },
-          { q: '69. What is the difference between QuickBooks, Sage and an ERP like SAP?', a: 'QuickBooks and Sage suit small and mid-sized books; an ERP such as SAP integrates finance with the rest of the business at larger scale. The right tool depends on size and complexity, not prestige.' },
-          { q: '70. How proficient are you in Excel?', a: 'Name the functions you actually use, such as lookups, pivot tables and SUMIF, and a task you built with them, for example an automated reconciliation. Interviewers want applied skill, not a claim of being an expert.' },
-          { q: '71. What is a lookup or a pivot table used for in accounting?', a: 'A lookup pulls matching data across sheets, such as mapping codes to names; a pivot table summarises a large ledger quickly. Both cut manual work in reconciliations and analysis.' },
-          { q: '72. How do you ensure data accuracy when entering transactions?', a: 'Work from source documents, use consistent coding, reconcile regularly, and let the system flag imbalances. Accuracy is a routine, not a one-off check.' },
-          { q: '73. How would you move a business from spreadsheets to accounting software?', a: 'Clean the opening balances first, set up a sensible chart of accounts, migrate in stages with a parallel run, and reconcile the two before switching the spreadsheets off.' },
-          { q: '74. What is cloud accounting, and what are its benefits?', a: 'Software hosted online and reachable anywhere, with automatic backups and updates and often bank feeds. It suits remote teams and keeps data current without local servers.' },
-          { q: '75. How do you keep financial data secure?', a: 'Restrict access by role, use strong authentication, back up regularly, and keep an audit trail of who changed what. Security is both a system setting and a daily habit.' },
-        ],
-      },
-      {
-        id: 'management',
-        heading: 'Management and cost accounting',
-        body: [
-          'These move you from recording the past to helping run the business, and they matter more the more senior the role. Expect to reason, not just define.',
-        ],
-        qa: [
-          { q: '76. What is the difference between financial and management accounting?', a: 'Financial accounting reports past results to outsiders in a regulated format; management accounting produces forward-looking figures for managers to run the business. One looks back, the other ahead.' },
-          { q: '77. What is the difference between fixed and variable costs?', a: 'Fixed costs stay the same regardless of output, such as rent; variable costs rise and fall with activity, such as materials. The split drives break-even and pricing.' },
-          { q: '78. What is break-even analysis?', a: 'The point where total revenue equals total cost, so profit is zero. It is found by dividing fixed costs by the contribution per unit; above it you make money, below it you lose it.' },
-          { q: '79. What is contribution margin?', a: 'Selling price less variable cost per unit, the amount each sale contributes towards fixed costs and profit. It sits at the heart of break-even and pricing decisions.' },
-          { q: '80. What is a budget, and why prepare one?', a: 'A financial plan for a future period against which actual performance is measured. It sets targets, allocates resources, and gives early warning when results drift.' },
-          { q: '81. What is variance analysis?', a: 'Comparing actual results with budget and explaining the difference, whether in price, volume or efficiency, so managers can act. The explanation matters more than the number.' },
-          { q: '82. What is the difference between marginal and absorption costing?', a: 'Marginal costing charges only variable costs to units and treats fixed costs as period costs; absorption costing spreads fixed overheads into unit cost. They can report different profits when stock levels change.' },
-          { q: '83. Which financial ratios do you find most useful?', a: 'The current and quick ratios for liquidity, gross and net margins for profitability, gearing for leverage, and debtor days for collection. Which matters most depends on the question being asked.' },
-          { q: '84. How would you tell whether a business is performing well?', a: 'Read the trend rather than a single number: compare margins, cash flow and key ratios over time and against budget or peers, then look behind the figures for the cause.' },
-        ],
-      },
-      {
-        id: 'audit-ethics',
-        heading: 'Audit, controls and ethics',
-        body: [
-          'Employers want to know you protect the numbers and yourself. Answer these with judgement and discretion, not bravado.',
-        ],
-        qa: [
-          { q: '85. What is the difference between internal and external audit?', a: 'Internal audit reviews controls and processes for management on an ongoing basis; external audit gives an independent opinion on the financial statements for shareholders. One improves, the other assures.' },
-          { q: '86. What are internal controls, and why do they matter?', a: 'Policies and procedures that safeguard assets and keep records reliable, such as approvals, reconciliations and access limits. They prevent and detect both error and fraud.' },
-          { q: '87. What is segregation of duties?', a: 'Splitting a task so no one person controls it end to end, for example separating who authorises a payment from who makes it. It is a basic defence against fraud and error.' },
-          { q: '88. What is an audit trail?', a: 'The record that lets you trace a transaction from source document to the accounts and back. A clear trail is what makes the books auditable and disputes resolvable.' },
-          { q: '89. What would you do if you spotted a possible fraud?', a: 'Do not confront or tip off the suspect; secure the evidence, follow the reporting or whistleblowing policy, and escalate to the right person. Judgement and discretion matter here.' },
-          { q: '90. What would you do if asked to record something you believed was wrong?', a: 'Name the line you would not cross, raise it with the person who asked and then a manager if needed, and document your position. An escalation instinct matters more than sounding agreeable.' },
-          { q: '91. You find a mistake after a return has already been filed. What do you do?', a: 'Quantify the error, tell your manager promptly, and correct it through the proper route, an amended return or the next filing, rather than hiding it. Employers listen for someone who surfaces problems early, because a hidden error costs far more later.' },
-          { q: '92. Why does professional ethics matter in accounting?', a: 'Because users rely on the figures being honest, and integrity, objectivity and confidentiality protect that trust. In Kenya these are set by ICPAK, and breaching them puts your licence and the firm at risk.' },
-        ],
-      },
-      {
-        id: 'competency',
-        heading: 'Competency and behavioural questions',
-        body: [
-          'Competency questions ask for a real example, and the reliable structure is situation, action, result. Pick examples that show ownership rather than luck, and prepare two or three you can flex across several of these.',
-        ],
-        qa: [
-          { q: '93. Tell me about a time you spotted an error.', a: 'Name the specific error, what you did to confirm and correct it, and the result. "I noticed a supplier invoice posted twice during a month-end review, reversed it, and added a duplicate-payment check to the routine" beats a general claim of being detail-oriented.' },
-          { q: '94. Tell me about a deadline you protected under pressure.', a: 'Describe the deadline, the risk to it, the concrete step you took, whether reprioritising, flagging early, or staying to finish a reconciliation, and the outcome. The interviewer is testing whether you manage a deadline actively rather than hoping it holds.' },
-          { q: '95. How do you prioritise when everything is due at once?', a: 'List the tasks, weigh them by deadline and consequence, tackle the highest-impact first, and flag early if something will slip. Interviewers want a method, not heroics.' },
-          { q: '96. Tell me about working in a team to close the accounts.', a: 'Describe your specific part, how you coordinated with others, and the result, such as hitting a reporting deadline. Own your contribution rather than speaking only about the team.' },
-          { q: '97. How do you handle feedback or correction of your work?', a: 'Take it as a chance to improve, ask what specifically to change, and apply it. A defensive answer here worries an interviewer more than the mistake being corrected.' },
-          { q: '98. Describe a time you improved a process.', a: 'Name the inefficiency, the change you made, and the measurable gain, for example automating a reconciliation to save hours each month. Concrete beats vague.' },
-        ],
-      },
-      {
-        id: 'closing',
-        heading: 'Closing the interview',
-        body: [
-          'The end of the interview is still part of the assessment, so do not switch off. How you close and what you ask leaves a lasting impression.',
-        ],
-        qa: [
-          { q: '99. Do you have any questions for us?', a: 'Always have some. Ask about the team, the reporting cycle, or how the role develops, which shows genuine interest. Avoid leading with pay.' },
-          { q: '100. What are your salary expectations?', a: 'Anchor to the range advertised for the role and level rather than a figure out of the air, and give a band rather than a single number. It shows you have done your homework.' },
-        ],
-      },
-      {
-        id: 'prepare',
-        heading: 'Turning the list into an offer',
-        body: [
-          'Reading a hundred questions is not the same as being ready for them, so rehearse structured answers aloud rather than skimming, and prepare a few real examples you can adapt across the competency questions. Preparation is what turns a nervous candidate into a hireable one.',
-          'A sharp [accounting CV in Kenya](/blog/accounting-cv-kenya) is what gets you into the room in the first place, and once you are ready, applying to the roles on the [live accounting jobs board](/jobs) puts that preparation to work. Reading the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) alongside it keeps the whole application, not just the interview, sharp.',
-        ],
-      },
-    ],
-    faqs: [
-      { q: 'What questions are asked in an accounting interview in Kenya?', a: 'A mix of technical questions on the fundamentals, compliance questions rooted in KRA obligations such as VAT, PAYE and eTIMS, and competency and judgement questions that ask for real examples and test your integrity under pressure.' },
-      { q: 'How do I answer technical accounting questions?', a: 'Structure the answer: state the principle, show the steps you would take, then name the check that confirms it is right. If you have only studied an area, say so and reason from principle rather than bluffing.' },
-      { q: 'Do accounting interviews in Kenya test tax knowledge?', a: 'Yes. Because much of the work is compliance, expect questions on VAT deadlines, PAYE employer duties, rental income tax and eTIMS. You are expected to understand how the system fits together and to verify specific rates before relying on them.' },
-      { q: 'How should I answer competency questions?', a: 'Give a real example using a simple situation, action and result structure, and choose examples that show ownership. Vague answers with no clear outcome are the ones that let strong candidates down.' },
-      { q: 'What questions should I ask the interviewer?', a: 'Two or three genuine questions about the team, the reporting cycle or how the role grows. Avoid leading with salary, and when it comes up, anchor to the ranges advertised on live listings for the role and level.' },
-    ],
-  },
-  {
-    slug: 'ways-to-get-an-accounting-job-in-kenya',
-    draft: false,
+      'Accounting interview questions and answers for Kenya: common, technical, audit and behavioural, plus the Big Four process and questions to ask back.',
+    lead: 'Passing a Kenyan accounting interview in 2026 starts before you meet anyone. Many employers now screen with online aptitude and competency tests first, then probe your technical grounding in IFRS and tax. This guide walks through both stages, with the questions that actually come up and how to answer them.',
     kind: 'hub',
-    title: 'How To Get An Accounting Job In Kenya',
-    metaTitle: 'How to Get an Accounting Job in Kenya: A Practical Guide',
-    description:
-      'A practical, step-by-step guide to getting an accounting job in Kenya: the qualifications employers want, the skills and experience to build, where the jobs are, how to apply, what to expect in the interview and how much you can earn.',
-    lead: 'Getting an accounting job in Kenya comes down to a few things done well: the right qualification, proof that you can do the work, and applying in the right places at the right time. This guide walks the whole path in eight practical steps, from choosing the right kind of role through to landing and negotiating the offer.',
-    updated: '2026-07-06',
+    updated: '2026-07-13',
     sections: [
       {
-        id: 'market',
-        heading: 'The Kenyan accounting job market, briefly',
+        id: 'before-the-interview',
+        heading: 'What to expect before the interview in 2026',
         body: [
-          'Accounting sits inside almost every organisation in Kenya, so demand is broad rather than tied to one industry. The biggest recruiters are in banking, finance and insurance, followed by manufacturing, audit and advisory firms, the public sector, NGOs and SACCOs. That breadth is the good news, because the same core skills travel across all of them.',
-          'The harder news is that entry-level roles are competitive. Many graduates qualify each year, so getting hired is as much about how you present and apply as about the certificate itself. The rest of this guide is the practical route through that. If you would rather see how the whole market is structured first, the overview of [accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) sets out the landscape.',
+          'The single biggest change from older interview guides is that the interview is often not the first hurdle. Big Four firms and larger employers now run an online aptitude test, covering numerical, verbal and logical reasoning, before any conversation, and some use gamified or personality assessments on top. These [aptitude and psychometric tests](https://www.shl.com/) are now mainstream in Kenyan hiring, not just at the Big Four.',
+          'The public sector has moved the same way. KRA runs a computer based test that mixes reasoning and situational judgement with genuine tax knowledge, including iTax, eTIMS, PAYE and VAT. Banks and consulting firms increasingly add recorded video interviews for bulk graduate screening. Prepare for the test as deliberately as the interview, because failing it means the panel never meets you.',
         ],
       },
       {
-        id: 'paths',
-        heading: 'Step 1: Choose the type of accounting role to target',
+        id: 'common-questions',
+        heading: 'Common and behavioural questions',
         body: [
-          'Accounting roles in Kenya fall into a few families, and knowing which one you are aiming at makes every later step sharper. Practice work sits inside audit, tax and advisory firms, from the Big Four down to mid-tier and small local practices, and it is the classic training ground where you rotate across many clients and qualify quickly. Industry work means the finance team of a business that is not itself an accounting firm, running its books, reporting and controls, and it tends to offer more stability and more depth in a single sector.',
-          'Public and not-for-profit finance covers government bodies, county governments, SACCOs and NGOs, each with its own compliance rhythm and recruitment cycle. The pace, the day-to-day work and the progression differ across these families, so it pays to be honest about which suits you rather than applying to everything. A graduate who wants to qualify fast and see many businesses is well suited to practice, while someone who prefers to own a single set of books in depth is often happier in industry. Browsing how each type is advertised on the [live jobs board](/jobs) is the quickest way to see what the work really looks like before you commit your applications to one direction.',
+          'The opening stretch of most interviews is predictable, which means it is winnable with preparation. Answer behavioural questions with a specific situation, the action you took and the result, rather than a general statement about yourself.',
+        ],
+        qa: [
+          {
+            q: 'Tell me about yourself and your experience as an accountant.',
+            a: 'Give a ninety second arc from your qualification to your current focus, ending with why this role fits. Anchor it to the job you are interviewing for, not your whole history. A tailored [accountant CV](/guides/accountant-cv-kenya/) gives you the through line to follow here.',
+          },
+          {
+            q: 'How do you make sure your work is accurate?',
+            a: 'Describe your actual checks: reconciling to source documents, reviewing against prior periods, and a second pass before sign off. Name a time a check caught an error before it reached the accounts.',
+          },
+          {
+            q: 'Tell me about a time you found and resolved a financial discrepancy.',
+            a: 'A bank reconciliation example works well. State the size of the difference, how you traced it, and what you changed so it did not recur.',
+          },
         ],
       },
       {
-        id: 'qualifications',
-        heading: 'Step 2: Get the qualifications employers require',
+        id: 'technical-questions',
+        heading: 'Technical questions on IFRS and tax',
         body: [
-          'On paper, the dominant qualification is the Certified Public Accountant credential examined by [KASNEB](https://www.kasneb.or.ke/cpa). You usually enter the CPA after a KCSE mean grade of C+, though alternative routes exist through a diploma or the Accounting Technician certificate for those who do not meet that grade. Most listings ask for CPA completed or CPA in progress depending on the level, and a bachelor degree in commerce with an accounting option is common, although plenty of qualified accountants came through a diploma plus CPA rather than a degree.',
-          'For senior roles, employers increasingly ask for membership of the [Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/). Full membership requires three years of relevant experience; before you reach that, you can join in the Associate category. If you are still working through the papers, the [route to becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya) and the detail of the [CPA course levels and cost](/blog/cpa-course-kenya) show exactly where each stage takes you.',
-          'The single most important thing is to match your level to the role. An entry listing that asks for CPA Foundation and a year of exposure is a very different filter from a financial-controller role that asks for CPA(K) membership and five years, and applying two rungs above where you are rarely works.',
+          'This is where depth beats memorised definitions, and where Kenyan panels test whether you can apply standards rather than recite them.',
+        ],
+        qa: [
+          {
+            q: 'What is the accounting equation, and name the main financial statements.',
+            a: 'Assets equal liabilities plus equity. The main statements are the statement of financial position, the statement of profit or loss, the statement of cash flows and the statement of changes in equity, each answering a different question about the business.',
+          },
+          {
+            q: 'Why must Kenyan financial statements comply with IFRS?',
+            a: 'Kenya has adopted [IFRS](https://www.ifrs.org/) as the reporting framework, so compliance is what makes statements comparable and auditable, and audits themselves follow the international standards on auditing. Be ready to discuss a standard you have applied in practice.',
+          },
+          {
+            q: 'How do you handle PAYE, VAT and withholding tax on iTax?',
+            a: 'Walk through registration, computation and filing on iTax, and mention eTIMS for VAT compliance. Employers, and especially KRA, want to see that you understand the current filing process, not just the theory.',
+          },
         ],
       },
       {
-        id: 'skills',
-        heading: 'Step 3: Build the skills that get you hired',
+        id: 'audit-and-firms',
+        heading: 'Audit questions and how firms differ',
         body: [
-          'A qualification opens the door; demonstrable skills get you through it. Employers expect practical fluency with accounting software, so be ready to name the packages you have used, from QuickBooks and Sage on smaller books to an ERP such as SAP in larger finance teams. Just as important in Kenya is comfort with the KRA systems, iTax and eTIMS, because day-to-day compliance runs through them, along with a working grasp of VAT, PAYE and withholding tax.',
-          'Strong Excel, clean reconciliations and the ability to close a month end are the everyday skills that separate a hireable candidate from a paper one. If your technical foundation is thin, build it deliberately rather than hoping the interview will not probe it, because in accounting it almost always does.',
-        ],
-      },
-      {
-        id: 'experience',
-        heading: 'Step 4: Get experience, especially early on',
-        body: [
-          'Early in a career the barrier is almost always experience rather than qualification. The way through is to get real, citable work however you can: an internship or industrial attachment, a graduate trainee scheme, volunteering to keep the books of a church, SACCO or small NGO, or freelancing small bookkeeping and tax-filing jobs. Even a few months of genuine exposure turns "no experience" into a reference and a story you can tell.',
-          'Entry-level roles themselves, such as accounts assistant or accounts clerk, are a legitimate first rung, and the tactics for [breaking into entry-level accounting jobs in Kenya](/blog/entry-level-accounting-jobs-kenya) are worth reading before you apply. Do not dismiss unpaid or short-term work at this stage, because it is often the exact thing that unlocks the first paid role.',
-        ],
-      },
-      {
-        id: 'cv',
-        heading: 'Step 5: Write a CV that gets shortlisted',
-        body: [
-          'Most applications are filtered before a person reads them closely, so your CV has to survive that first screen. Lead each role with what you delivered rather than a list of duties, quantify your results where you can, and put your CPA stage near the top where a recruiter scans first. Tailor it to each listing by mirroring the wording of the advert, keep it to two clean pages, and fix every typo, because in accounting a careless document implies careless work.',
-          'The full method, with the structure that gets Kenyan accountants shortlisted, is set out in the guide to your [accounting CV in Kenya](/blog/accounting-cv-kenya). A tuned, results-led CV does more work here than any covering note, so it is worth building carefully rather than sending one generic version everywhere.',
-        ],
-      },
-      {
-        id: 'find',
-        heading: 'Step 6: Find the openings, starting with the right board',
-        body: [
-          'The best place to start is a board built only for accounting and finance, because it strips out the noise of general listings and shows you the whole live market by function and seniority in one place. Make the [accounting and finance jobs in Kenya](/jobs) here your home base: browse and filter the current roles, set up alerts so you see new ones early, and apply through the board so your application stays inside the pipeline rather than lost in a generic inbox. It is the single most efficient channel, so build your search around it first.',
-          'From there, widen out, because relying on any one channel is the most common reason a strong candidate misses roles. Also follow the career pages of the firms you want to work for, since audit and graduate intakes are often posted there first, register with recruitment agencies that place finance staff, and keep an eye on professional networks such as LinkedIn where recruiters source passively. Treat your own network as a channel in its own right too, because a large share of roles are filled through referral before they are ever advertised.',
-          'It also helps to be visible in the profession itself. Attending ICPAK events and continuing professional development sessions puts you in the same room as the people who hire accountants, and a useful, up-to-date LinkedIn profile makes you findable when a recruiter is searching passively for someone at your level.',
-        ],
-      },
-      {
-        id: 'apply',
-        heading: 'Step 7: Apply so you actually get a reply',
-        body: [
-          'Applying well matters as much as applying widely. Read the listing properly and address its must-have requirements explicitly rather than leaving them to be inferred. Apply within the first day or two while the applicant pool is still small, and apply through the pipeline rather than a generic inbox so your application stays inside the process.',
-          'Ten tailored applications will out-perform fifty generic ones, so resist the urge to mass-apply. Where you can, get a referral into the process, because a referred application is read differently from a cold one. If a role does not work out, ask for feedback where you can, improve, and come back for the next cycle.',
-        ],
-      },
-      {
-        id: 'interview',
-        heading: 'Step 8: Prepare for and pass the interview',
-        body: [
-          'Once you are shortlisted, the interview tests two things: whether you can do the technical work and whether you will be steady doing it. Kenyan accounting interviews lean on the fundamentals, on KRA compliance, on how you would handle a reconciliation that will not balance, and on judgement questions that have no clean answer.',
-          'Prepare structured answers ahead of the day, and have two or three real examples ready for the competency questions. Working through the common [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) beforehand is what separates a nervous candidate from a hireable one.',
-        ],
-      },
-      {
-        id: 'salary',
-        heading: 'How much accountants earn in Kenya',
-        body: [
-          'Pay varies widely with sector, seniority and location, so treat any single figure with caution. As a rough guide, public salary trackers put entry-level accounting pay in the region of KES 40,000 to KES 65,000 a month, with experienced CPA-qualified accountants often reaching the KES 150,000 to KES 250,000 range and finance managers and chief accountants higher still. Nairobi tends to pay more than Mombasa, Kisumu or the county towns.',
-          'The honest reference, though, is the band advertised on live listings for the specific role and level, which moves with the market, so quote what current roles are showing rather than a number pulled from the air. When an offer comes, weigh it against what comparable roles on the [live jobs board](/jobs) are advertising so the negotiation stays grounded in evidence.',
-        ],
-      },
-      {
-        id: 'timeline',
-        heading: 'How long does it take to get hired?',
-        body: [
-          'There is no fixed timeline. How quickly you get hired depends on your level, your location and how actively you apply, and a search that runs for a few months is normal, especially for a first role. What shortens it is doing the controllable things consistently: keep your CPA moving, tailor every application, apply early, use referrals, and prepare properly for interviews.',
-          'Improve a little after each rejection rather than taking it personally, and keep going. Persistence paired with steady improvement is what eventually lands the job, and once you are ready, the quickest next step is to browse the current [accounting jobs in Kenya](/jobs) and apply to one today.',
+          'Audit interviews add questions on materiality, audit risk, and the difference between internal and external audit, and the Big Four in particular put candidates through a group exercise, often a live numerical problem, before manager and partner stages that revisit your CV and motivation.',
+          'Tailor your preparation to the employer. The Big Four weight the aptitude test and case work, banks and SACCOs lean on reconciliations, software and IFRS, and KRA combines a panel with its tax knowledge test. Knowing [how the major employers hire](/guides/accounting-jobs-kenya-locations-employers/) lets you rehearse the right stage. Have your own questions ready too, about career progression, CPA support and how performance is assessed, because a candidate who asks nothing reads as uninterested.',
         ],
       },
     ],
     faqs: [
-      { q: 'What qualifications do I need for an accounting job in Kenya?', a: 'Most roles expect the CPA qualification examined by KASNEB, either completed or in progress depending on the level. A bachelor degree in commerce is common but not universal, since a diploma plus CPA also qualifies. Senior roles increasingly ask for ICPAK membership, which requires three years of experience for the full category.' },
-      { q: 'Can I get an accounting job in Kenya without experience?', a: 'Yes, by targeting entry-level and support roles and making transferable exposure real. Internships, industrial attachments, graduate trainee schemes, volunteering to keep small books, and freelance bookkeeping all count as citable experience that gets you past the first barrier.' },
-      { q: 'How much do accountants earn in Kenya?', a: 'It varies with sector, seniority and location. Public salary trackers put entry-level pay roughly in the KES 40,000 to KES 65,000 a month range, with experienced CPA-qualified accountants often reaching KES 150,000 to KES 250,000 and senior managers higher. The honest reference is the band advertised on live listings for the specific role.' },
-      { q: 'Where are accounting jobs in Kenya advertised?', a: 'Across a spread of channels: a focused accounting and finance job board, firm career pages, recruitment agencies and professional networks such as LinkedIn. The same role often appears in several places, so watch more than one and apply early.' },
-      { q: 'How long does it take to get an accounting job in Kenya?', a: 'There is no fixed timeline, and a search of a few months is normal for a first role. Keeping your CPA moving, tailoring each application, applying early and using referrals all shorten it, so consistency matters more than luck.' },
+      {
+        q: 'What questions are asked in an accounting interview in Kenya?',
+        a: 'Expect a mix of behavioural questions such as tell me about yourself, technical questions on the accounting equation, financial statements, IFRS and Kenyan tax filing on iTax, and, for audit roles, questions on materiality and audit risk. Many employers add an aptitude or competency test first.',
+      },
+      {
+        q: 'Do Kenyan employers use aptitude or psychometric tests for accountants?',
+        a: 'Increasingly, yes. The Big Four, banks, larger corporates and KRA use online aptitude, numerical or psychometric tests, and sometimes recorded video interviews, before or alongside the interview. Prepare for the test as seriously as the interview itself.',
+      },
+      {
+        q: 'How do I prepare for a KRA accounting interview?',
+        a: 'KRA typically combines a panel interview with a computer based test covering reasoning, situational judgement and real tax knowledge, including iTax, eTIMS, PAYE and VAT. Revise the current filing processes, not just the theory, and prepare concise examples of your work.',
+      },
+      {
+        q: 'What is the Big Four interview process in Kenya?',
+        a: 'It usually starts with an online aptitude test, followed by a group interview that often includes a live numerical exercise, then manager and partner interviews that revisit your CV, motivation and behavioural competencies. The process can take several weeks.',
+      },
+      {
+        q: 'What questions should I ask the interviewer?',
+        a: 'Ask about career progression and CPA support, how performance and competency are assessed, the day to day shape of the role, and the interviewer’s own experience of the team. Thoughtful questions signal genuine interest.',
+      },
     ],
   },
+
+  // ============================================================
+  // HUB 5 - Salary
+  // ============================================================
   {
-    slug: 'accounting-cv-kenya',
-    draft: false,
-    kind: 'spoke',
-    hub: 'accounting-jobs-in-kenya',
-    title: 'Accounting CV in Kenya: How to Get Shortlisted',
-    metaTitle: 'Accounting CV in Kenya: How to Get Shortlisted',
+    slug: 'accountant-salary-kenya',
+    title: 'Accountant Salary in Kenya: Pay by Role, Experience and CPA Level',
+    metaTitle: 'Accountant Salary in Kenya: Full Guide',
     description:
-      'How to write an accounting CV in Kenya that gets shortlisted: structure, how to show CPA and ICPAK status, quantifying results, tuning to the listing, and common mistakes.',
-    lead: 'Most accounting applications in Kenya are filtered before a person reads them closely, so your CV has one job first: survive the screen. Here is how to structure it, what to put where, and the mistakes that get strong candidates rejected on sight.',
-    updated: '2026-07-06',
+      'Accountant salary in Kenya: pay by role, experience and CPA level, plus city and employer comparisons and what you actually take home after deductions.',
+    lead: 'Most salary guides for Kenyan accountants quote gross pay and stop there. Since statutory deductions were overhauled across 2024 and 2025, your take home on the same salary is now lower than older articles suggest. This guide gives realistic gross ranges by role and, just as important, what actually lands in your account.',
+    kind: 'hub',
+    updated: '2026-07-13',
     sections: [
       {
-        id: 'the-job-of-a-cv',
-        heading: 'What your CV has to do first',
+        id: 'by-role',
+        heading: 'Accountant salary by role and experience',
         body: [
-          'An accounting CV in Kenya is read twice: quickly, to decide whether you clear the basic bar, and then slowly, only if you clear it. The first read is often a scan against the listing for the qualification, the years, and a few keywords. If those are not visible in seconds, a strong candidate can be filtered out before anyone reads the detail, so the top third of the first page has to do the heavy lifting.',
-          'That means leading with the facts an employer is screening for: your CPA status, your ICPAK membership if you have it, your total relevant experience, and the kind of accounting you do. Burying the qualification on page two is one of the most common reasons a capable applicant never makes the shortlist. Tuning the CV to each listing, so those facts line up with what the role asks for, is what the guide to [landing accounting jobs in Kenya](/guides/accounting-jobs-in-kenya) treats as the single highest-leverage step.',
-        ],
-      },
-      {
-        id: 'structure',
-        heading: 'The structure that works',
-        body: [
-          'A clean, conventional structure beats a designed one for accounting roles. Lead with a short professional summary, then qualifications, then experience in reverse order, then education and any additional skills. Keep it to two pages, use plain formatting that survives being parsed by software, and avoid photos, tables and graphics that can scramble in an applicant-tracking system.',
-          'Put your qualifications where they are seen. State clearly whether you have completed [the KASNEB CPA qualification](https://www.kasneb.or.ke/cpa) or are at a specific stage, and name your [ICPAK membership category](https://www.icpak.com/member-categories/) if you hold one, because those two lines answer the first question the employer has. The full qualification picture, and how far along you need to be for different roles, is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya).',
+          'The figures below are reported ranges drawn from Kenyan salary trackers and job listings. They are monthly gross pay and vary widely with sector, city and employer, so treat them as a guide to the shape of the market rather than fixed bands.',
         ],
         bullets: [
-          'Professional summary: three or four lines, qualification and focus up front',
-          'Qualifications: CPA stage and ICPAK category stated plainly',
-          'Experience: reverse order, achievements not just duties',
-          'Education and skills: concise, relevant, no filler',
+          'Accounts clerk or ATD holder, roughly KES 15,000 to 40,000',
+          'Junior accountant, roughly KES 20,000 to 70,000',
+          'Assistant accountant, roughly KES 39,000 to 135,000',
+          'CPA(K) accountant, commonly KES 35,000 to 90,000 to start',
+          'Senior accountant, roughly KES 100,000 to 200,000',
+          'Finance manager, broadly KES 150,000 to 300,000 and above',
+          'Chief accountant or financial controller, roughly KES 160,000 to 250,000 and up in large firms',
         ],
       },
       {
-        id: 'quantify',
-        heading: 'Show results, not duties',
+        id: 'by-employer-city',
+        heading: 'How pay differs by employer and city',
         body: [
-          'The difference between a CV that lists duties and one that shows results is the difference between blending in and standing out. "Responsible for accounts payable" tells an employer nothing; "cleared a backlog of supplier reconciliations and cut month-end close from ten days to six" shows impact. Wherever you can, attach a number to what you did, because numbers are how an accountant demonstrates they think in outcomes.',
-          'Be truthful with those numbers. Inflated or invented figures are easy to unpick in an interview, and accounting is a field where getting caught embellishing is fatal to trust. If you cannot quantify something honestly, describe the scope instead, the size of the ledger, the number of entities, the systems you worked in, so the reader can gauge the level you operated at.',
+          'Who you work for moves the number as much as your title. NGOs, telcos and multinationals tend to pay above small and medium firms, usually with medical cover and allowances on top. Banks and SACCOs sit in the middle to upper range. Government pay follows the salary scales, where a total package matters more than the basic, since house and commuter allowances make up a large part of it.',
+          'City matters too. Nairobi pays most, reflecting the concentration of banks, the Big Four and the finance sector, with Mombasa and Kisumu some way behind. The guide to [where accountants work and which employers pay best](/guides/accounting-jobs-kenya-locations-employers/) breaks this down by sector, and the [pay each CPA level tends to unlock](/guides/cpa-kenya-kasneb-guide/) explains why the same title can pay very differently.',
         ],
       },
       {
-        id: 'tune-to-listing',
-        heading: 'Tune it to the listing',
+        id: 'take-home',
+        heading: 'What you actually take home in 2026',
         body: [
-          'One generic CV sent everywhere is the quiet reason many applications fail. Each listing uses particular language, for the software it runs, the standards it works to, the sector it sits in, and mirroring that language, honestly, is what gets you past the keyword screen and signals you actually read the role. This does not mean rewriting your history; it means reordering and rephrasing so the relevant parts surface first.',
-          'Read the listing and ask what this specific employer is screening for, then make sure those exact things are visible high up. When you apply through the [accounting jobs board](/jobs), that tuned version is what enters the pipeline, and a version aimed at the role beats a stronger but generic CV aimed at nothing in particular.',
-        ],
-      },
-      {
-        id: 'mistakes',
-        heading: 'The mistakes that get you rejected',
-        body: [
-          'A handful of errors reject candidates before their experience is even weighed. Typos and inconsistent figures are read as carelessness, which is disqualifying for someone who will be trusted with the books. An unexplained gap, an email address that looks unprofessional, or a CV that runs to five pages all cost you before the interview.',
-          'Once the CV is clean, the rest of the application has to match it. A tuned covering note and, above all, being ready for the technical and judgement questions in the [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) walkthrough are what convert a shortlisting into an offer. The CV opens the door; the preparation behind it is what walks you through.',
+          'This is where older guides mislead. Three changes have cut Kenyan take home pay on the same gross salary. The National Health Insurance Fund was replaced by the Social Health Insurance Fund at 2.75 percent of gross with no cap from October 2024. The Affordable Housing Levy of 1.5 percent from the employee became permanent. And the National Social Security Fund rose to a second tier from February 2025, taking the maximum employee contribution to KES 4,320 a month.',
+          'The current statutory picture is worth knowing paper by paper. Pay As You Earn is banded from 10 percent up to 35 percent with a personal relief of KES 2,400 a month, as set out in [KRA’s PAYE guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/paye). On top of tax you pay 2.75 percent to the [Social Health Insurance Fund](https://sha.go.ke/), 1.5 percent to the housing levy, and your NSSF contribution.',
+          'As an illustration, an accountant on a gross salary of KES 100,000 in 2026 takes home in the region of KES 70,000 to 72,000 once PAYE, the health levy, the housing levy and NSSF are taken out. The exact figure depends on the reliefs and deductions applied in the current rules, so use it as a realistic guide and confirm the live rates before relying on a precise number.',
         ],
       },
     ],
     faqs: [
-      { q: 'How do I write an accounting CV for the Kenyan job market?', a: 'Lead with your CPA status and ICPAK membership, keep it to two pages of clean, parseable formatting, show results with numbers rather than listing duties, and tune it to each listing so the facts the employer is screening for appear high on the first page.' },
-      { q: 'Where should I put my CPA and ICPAK details on my CV?', a: 'Near the top, in a clear qualifications section, stating whether you have completed CPA or your current stage and your ICPAK membership category. Employers screen for these first, so burying them costs you the shortlist.' },
-      { q: 'How long should an accounting CV be?', a: 'Two pages. Longer CVs dilute the facts that matter, and overly designed layouts can scramble when parsed by applicant-tracking software, so keep the formatting plain.' },
-      { q: 'Should I use one CV for every application?', a: 'No. Tune each CV to the listing, mirroring its language honestly and surfacing the relevant experience first. A version aimed at the specific role beats a stronger but generic CV.' },
-      { q: 'What are the most common accounting CV mistakes?', a: 'Typos and inconsistent numbers, burying your qualification, unexplained gaps, an unprofessional email address, and excessive length. In accounting, carelessness on the page reads as carelessness with the books.' },
+      {
+        q: 'How much does an accountant earn in Kenya per month?',
+        a: 'Reported ranges run from roughly KES 20,000 for junior roles to KES 100,000 to 200,000 for senior accountants, with finance managers and controllers earning more. Pay varies widely by sector, employer and city, so these are indicative ranges rather than fixed figures.',
+      },
+      {
+        q: 'What is the starting salary of an accountant in Kenya?',
+        a: 'Entry level and junior accountant pay is commonly reported between KES 20,000 and 70,000 a month, with CPA(K) holders often starting around KES 35,000 to 50,000. Audit firms sometimes start fresh graduates lower, which is a common complaint among new CPAs.',
+      },
+      {
+        q: 'How much does a CPA holder earn in Kenya?',
+        a: 'A CPA(K) accountant commonly starts around KES 35,000 to 50,000 and rises well into six figures with experience and seniority. The qualification lifts earning potential over time rather than guaranteeing a high starting salary.',
+      },
+      {
+        q: 'What is the take home pay on a KES 100,000 salary in Kenya?',
+        a: 'As an illustration, take home on a KES 100,000 gross salary in 2026 is in the region of KES 70,000 to 72,000 after PAYE, the Social Health Insurance Fund at 2.75 percent, the 1.5 percent housing levy and NSSF. The exact figure depends on the current reliefs and deductions.',
+      },
+      {
+        q: 'Do NGOs or banks pay accountants more in Kenya?',
+        a: 'NGOs, telcos and multinationals are generally reported as the top payers, usually with allowances and medical cover, while banks and SACCOs sit in the middle to upper range and small firms pay least. Nairobi pays more than other cities.',
+      },
     ],
   },
+
+  // ============================================================
+  // HUB 6 - Careers
+  // ============================================================
   {
-    slug: 'entry-level-accounting-jobs-kenya',
-    draft: false,
-    kind: 'spoke',
-    hub: 'accounting-jobs-in-kenya',
-    title: 'Entry-Level Accounting Jobs in Kenya: How to Break In',
-    metaTitle: 'Entry-Level Accounting Jobs in Kenya: How to Break In',
+    slug: 'accounting-career-paths-kenya',
+    title: 'Accounting and Finance Career Paths in Kenya',
+    metaTitle: 'Accounting & Finance Career Paths in Kenya',
     description:
-      'How to break into entry-level accounting jobs in Kenya: the roles that hire juniors, using attachments and internships, what employers want, and how to apply well.',
-    lead: 'The hardest accounting job to get in Kenya is the first one, because almost every listing seems to want experience you do not yet have. Here is how the entry-level market actually works, the roles that hire juniors, and how to break in.',
-    updated: '2026-07-06',
+      'Accounting and finance career paths in Kenya: the ladder from assistant to CFO, how to advance and which certifications to stack for each route.',
+    lead: 'An accounting career in Kenya is no longer a single ladder. The traditional entry rungs are being automated at the same time as outsourcing and capital markets create new demand higher up. This guide maps the routes, the rungs and the certifications that fit each one, so you can choose a direction rather than drift.',
+    kind: 'hub',
+    updated: '2026-07-13',
     sections: [
       {
-        id: 'the-catch-22',
-        heading: 'The experience trap, and the way out',
+        id: 'the-ladder',
+        heading: 'The accounting career ladder in Kenya',
         body: [
-          'Every new accountant hits the same wall: roles ask for experience, and you need a role to get experience. The way out is to recognise that not every listing means it. Plenty of entry-level roles ask for CPA in progress and a willingness to learn rather than years on the job, and the skill early on is telling those apart from the roles that are genuinely out of reach so you spend your applications where they can land.',
-          'The other half of the answer is that experience does not only come from a permanent job. Attachments, internships and short contracts all count, and treating them as the on-ramp rather than a detour is what gets most people their first real role. Watching the junior and trainee listings on the [accounting jobs board](/jobs) shows you which employers are hiring at that level right now.',
+          'The usual progression runs from accounts clerk or assistant, to accountant, to senior accountant, then finance manager, financial controller and ultimately chief finance officer. Each rung adds responsibility for judgement, people and strategy rather than just processing, and the pay steps up accordingly, which the guide to [what each level tends to earn](/guides/accountant-salary-kenya/) sets out.',
+          'This shape is a useful model rather than a fixed path. Many Kenyan accountants branch sideways into tax, audit, public sector finance or consulting long before the top, and the years spent on each rung vary with sector and employer.',
         ],
       },
       {
-        id: 'roles-that-hire',
-        heading: 'The roles that actually hire juniors',
+        id: 'the-split',
+        heading: 'Why the ladder is splitting at the bottom',
         body: [
-          'A handful of role types are the usual entry points, and knowing their titles helps you search for them. Audit firms hire audit associates in cohorts, often straight out of the CPA examinations, and this is one of the most reliable ways into [the accountancy profession regulated by ICPAK](https://www.icpak.com/member-categories/) because firms expect to train you. Industry finance teams hire accounts assistants, accounts clerks and junior accountants to handle payables, receivables and reconciliations under supervision.',
-          'Beyond those, bookkeeping roles in small businesses, finance-officer roles in SACCOs and NGOs, and trainee positions in shared-service centres all take people early in their careers. Each has a different texture, but all of them value someone who is reliable with detail and eager to learn over someone who claims to know everything, and the [live jobs board](/jobs) lets you filter these entry points by function.',
-        ],
-        bullets: [
-          'Audit associate: cohort hiring in firms, structured training',
-          'Accounts assistant or clerk: payables, receivables, reconciliations',
-          'Junior accountant: supervised general ledger and reporting work',
-          'Finance officer: common in SACCOs and NGOs',
+          'The most important trend for anyone starting out is that the entry level is being pulled in two directions at once. Routine bookkeeping, payroll and data entry are exactly the tasks software now handles, so demand for pure processing roles is flattening. At the same time, Kenya’s growth as a finance and accounting outsourcing hub is creating entry level headcount serving overseas clients.',
+          'The advice that follows is to move through the number processing phase quickly and toward analysis, controls and advisory, where judgement keeps you valuable. That means treating your first role as a springboard, not a destination, and building analytical skills alongside your qualification from the start.',
         ],
       },
       {
-        id: 'attachments',
-        heading: 'Using attachments and internships',
+        id: 'credentials',
+        heading: 'Which certification for which route',
         body: [
-          'Industrial attachments and internships are the standard bridge into Kenyan accounting, and for many people they are how the first line of experience gets onto the CV. The value is not only the technical exposure; it is the reference, the professional network, and often the inside track when the same organisation next hires permanently. Treating an attachment as a serious audition rather than a box to tick is what turns it into a job.',
-          'Apply for these the way you would a permanent role, with a tuned CV and a clear reason for wanting that specific placement. The document that gets you shortlisted for an attachment is the same one that gets you shortlisted later, so it is worth building well from the start, which is what the guide to writing an [accounting CV that gets shortlisted](/blog/accounting-cv-kenya) walks through.',
+          'The right credential depends on the branch you want. The [CPA from KASNEB](/guides/cpa-kenya-kasneb-guide/) remains the backbone for accounting, tax and audit, and the strongest choice for local and regional practice. ACCA suits those aiming at multinationals and international mobility, and many combine the two.',
+          'For the investment and capital markets branch, the Certified Investment and Financial Analyst qualification is the Kenyan route, leading to [ICIFA membership](https://icifa.co.ke/), and it is increasingly in demand as the capital markets grow. The globally recognised CFA is the international step up from there. The full range of [KASNEB courses beyond CPA](https://kasneb.or.ke/) is worth understanding before you commit, because stacking the wrong credential is expensive in both time and money.',
         ],
       },
       {
-        id: 'what-employers-want',
-        heading: 'What employers want from a junior',
+        id: 'specialisations',
+        heading: 'Where the growth is',
         body: [
-          'At entry level, employers are not expecting deep expertise. They are looking for someone who is accurate with detail, honest about what they do not know, and quick to learn a process and stick to it. Reliability under a deadline and a willingness to ask rather than guess matter more than a long list of skills, because the technical depth is what the job itself will build.',
-          'Progress on the [KASNEB CPA qualification](https://www.kasneb.or.ke/cpa) signals exactly this, that you are committed to the profession and are building the technical base in parallel. If you have not started or are early in the process, the study route and how it fits around a first job is set out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya), and being visibly in progress is often enough for an entry-level employer.',
-        ],
-      },
-      {
-        id: 'apply-well',
-        heading: 'Applying so you get noticed',
-        body: [
-          'Volume alone does not work; targeted applications do. Aim at roles pitched at your actual level, tune each application to the listing, and apply through a focused pipeline rather than scattering the same CV across the internet. A smaller number of well-aimed applications through the [accounting jobs board](/jobs) beats a hundred generic ones, because each one lands in front of an employer who is hiring at your level.',
-          'Then prepare for the conversation. Entry-level interviews still test the fundamentals and your judgement, and walking in with structured answers, as covered in the [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) walkthrough, is what converts a first shortlisting into a first job. The candidates who break in are rarely the most experienced, because none of them are; they are the ones who applied precisely and prepared properly.',
+          'Compliance heavy work, straight bookkeeping and basic audit, is the most exposed to automation. The branches growing fastest are analysis and finance business partnering, investment and capital markets, advisory and consulting, and specialisms such as forensic accounting. Positioning yourself toward these, rather than toward commodity processing, is the single biggest lever on a long term accounting career in Kenya.',
+          'None of this happens by accident. It starts with the [right first role and graduate route](/guides/entry-level-graduate-accounting-jobs-kenya/) and a deliberate plan to add skills each year rather than waiting to be promoted.',
         ],
       },
     ],
     faqs: [
-      { q: 'How do I get an entry-level accounting job in Kenya with no experience?', a: 'Target roles that ask for CPA in progress rather than years of experience, use attachments and internships as the on-ramp, and apply with a tuned CV through a focused pipeline. The first line of experience often comes from a placement rather than a permanent job.' },
-      { q: 'What are the common entry-level accounting roles?', a: 'Audit associate positions in firms, accounts assistant or clerk roles handling payables and receivables, junior accountant roles doing supervised ledger work, and finance-officer roles in SACCOs and NGOs.' },
-      { q: 'Do internships and attachments help?', a: 'Yes. They are the standard bridge into the profession, providing the first experience, a reference, a network and often an inside track when the organisation next hires permanently. Apply for them as seriously as a permanent role.' },
-      { q: 'Do I need to have finished CPA for an entry-level job?', a: 'Usually not. Many entry-level roles accept CPA in progress. Being visibly on the qualification signals commitment and a growing technical base, which is what entry-level employers screen for alongside reliability and willingness to learn.' },
-      { q: 'What do employers want from a junior accountant?', a: 'Accuracy with detail, honesty about what you do not yet know, and the ability to learn and follow a process. Reliability under deadline and asking rather than guessing matter more than a long skills list at this stage.' },
+      {
+        q: 'Is accounting a good career in Kenya?',
+        a: 'It can be, but it is competitive. Qualifications are widely held and routine processing work is being automated, so the accountants who do best choose a direction early, such as analysis, tax, audit or investment, and build skills to match rather than relying on the qualification alone.',
+      },
+      {
+        q: 'What is the accounting career ladder in Kenya?',
+        a: 'The common path runs from accounts clerk or assistant, to accountant, senior accountant, finance manager, financial controller and chief finance officer. Many accountants also branch sideways into tax, audit, public sector finance or consulting.',
+      },
+      {
+        q: 'Which is better in Kenya, CPA or ACCA?',
+        a: 'CPA is the stronger choice for local and regional practice, tax and audit, while ACCA suits careers aimed at multinationals and international mobility. They are not mutually exclusive, and combining them is common.',
+      },
+      {
+        q: 'Is CIFA more marketable than CPA in Kenya?',
+        a: 'CIFA is often described as more marketable for investment and capital markets roles, such as fund management and stockbroking, and demand is growing as the markets expand. CPA remains broader and stronger for mainstream accounting, tax and audit, so the better choice depends on the career you want.',
+      },
+      {
+        q: 'How do I advance from accountant to finance manager in Kenya?',
+        a: 'Build a track record in reporting and controls, complete your CPA, and take on responsibility for people and decisions rather than just processing. Adding analytical and business partnering skills, and gaining exposure across the finance function, is what employers look for when promoting into management.',
+      },
     ],
   },
+
+  // ============================================================
+  // HUB 7 - Location / Employer
+  // ============================================================
   {
-    slug: 'cpa-course-kenya',
-    draft: false,
-    kind: 'spoke',
-    hub: 'how-to-become-an-accountant-in-kenya',
-    title: 'The CPA Course in Kenya: Levels, Papers & Cost',
-    metaTitle: 'The CPA Course in Kenya: Levels, Papers & Cost',
+    slug: 'accounting-jobs-kenya-locations-employers',
+    title: 'Where Accountants Work in Kenya: Jobs by City, Sector and Top Employers',
+    metaTitle: 'Where Accountants Work in Kenya: Cities & Employers',
     description:
-      'The KASNEB CPA course in Kenya explained: the Foundation, Intermediate and Advanced levels and their papers, entry grade, exam sittings, registration and fees, and duration.',
-    lead: 'The CPA course is the backbone qualification for accountants in Kenya, examined by KASNEB across three levels. Here is exactly how it is structured, what each level covers, how the exams and fees work, and how long the whole thing takes.',
-    updated: '2026-07-06',
+      'Where accountants work in Kenya: jobs by city and sector plus profiles of top employers, from the Big Four and banks to SACCOs, NGOs and government.',
+    lead: 'Accounting jobs in Kenya are not spread evenly. They concentrate in a handful of cities and a shortlist of employers, and in 2025 and 2026 that concentration is deepening. This guide maps where the work actually is, who the major employers are, and how location and sector shape your prospects.',
+    kind: 'hub',
+    updated: '2026-07-13',
     sections: [
       {
-        id: 'what-cpa-is',
-        heading: 'What the CPA course is',
+        id: 'concentrating',
+        heading: 'Why the jobs are concentrating',
         body: [
-          'The Certified Public Accountant course is the professional accountancy qualification set by the Kenya Accountants and Secretaries National Examinations Board, KASNEB. It is the standard route to becoming a recognised accountant in Kenya, and completing it is what lets you apply for [membership of the Institute of Certified Public Accountants of Kenya](https://www.icpak.com/member-categories/) and use the CPA(K) designation. The wider route, from exams through experience to ICPAK, is laid out in the guide to [becoming an accountant in Kenya](/guides/how-to-become-an-accountant-in-kenya).',
-          'Under the revised KASNEB syllabus, the course is examined across three levels, Foundation, Intermediate and Advanced, each building on the last. It is designed to be studied alongside work, which is why many candidates sit papers while holding a finance role, and watching the [trainee and junior listings on the jobs board](/jobs) is a practical way to line up that experience while you study.',
+          'Three current forces are pulling accounting work toward a few centres. Nairobi is consolidating as a regional finance hub, with the Nairobi International Financial Centre adding certified firms and targeting new capital and jobs across fintech, investment management and capital markets. The finance and accounting outsourcing sector is growing fast, serving overseas clients from Nairobi. And the public sector has run large hiring waves, including sizeable batches of accountant and internal auditor posts.',
+          'This sits against a real oversupply of qualified candidates, so where you look matters more than it used to. The paradox to plan around is that jobs exist and are being created, but they cluster in specific cities, sectors and employers rather than being available everywhere.',
         ],
       },
       {
-        id: 'levels-papers',
-        heading: 'The three levels and their papers',
+        id: 'cities',
+        heading: 'Accounting jobs by city',
         body: [
-          'The Foundation level covers six papers that build the base: Financial Accounting, Communication Skills, Introduction to Law and Governance, Economics, Quantitative Analysis, and Information Communication Technology. This level assumes no prior accounting knowledge and is where most candidates start.',
-          'The Intermediate level covers a further six papers, moving into the working core of the profession: Company Law, Financial Management, Financial Reporting and Analysis, Auditing and Assurance, Management Accounting, and Public Finance and Taxation. The Advanced level then moves into higher-level papers such as Leadership and Management, Advanced Financial Reporting and Analysis and Advanced Financial Management, together with a specialisation choice and required ethics and work-simulation components. Because the syllabus was revised, confirm the exact Advanced-level paper list and any specialisation rules on the KASNEB CPA course page before you register.',
+          'Nairobi dominates, home to the bank headquarters, the Big Four, the financial centre and most NGO and corporate finance functions, and it pays the most. Mombasa is the clear second, with demand around the port, logistics, shipping and tourism. Kisumu follows, with notable NGO and county government demand, while Nakuru and Eldoret are emerging regional centres driven by agriculture and county administration.',
+          'Because listings concentrate in the capital, most candidates should expect to compete there, and the [live vacancies across the country](/jobs) give the clearest read on where openings are at any moment.',
+        ],
+      },
+      {
+        id: 'employers',
+        heading: 'The major accounting employers',
+        body: [
+          'A shortlist of employers accounts for a large share of professional accounting roles. Knowing who they are, and what they pay, helps you target rather than scatter applications.',
         ],
         bullets: [
-          'Foundation: six papers, the accounting and business fundamentals',
-          'Intermediate: six papers, reporting, audit, management accounting and tax',
-          'Advanced: higher-level papers, a specialisation, and ethics and work-simulation elements',
+          'The Big Four, Deloitte, PwC, KPMG and EY, all headquartered in Nairobi',
+          'Banks, including Equity, KCB, Co-operative, Absa, NCBA and Standard Chartered',
+          'SACCOs and the growing fintech sector',
+          'NGOs and donor funded programmes, strong in Nairobi and Kisumu',
+          'Government, including KRA, the National Treasury and county public service boards',
         ],
       },
       {
-        id: 'entry-exams',
-        heading: 'Entry requirements and exam sittings',
+        id: 'pay-and-sector',
+        heading: 'How employer choice shapes pay and entry',
         body: [
-          'The minimum entry requirement for the CPA course is a KCSE mean grade of C+. Candidates with relevant diplomas or degrees can also register, and accounting degree holders are often eligible for exemptions from parts of the Foundation level, though the exact exemptions depend on the qualification and should be confirmed with KASNEB.',
-          'KASNEB professional examinations are held three times a year, in April, August and December. That three-sitting rhythm is one reason a committed candidate can move through the levels relatively quickly, since there is no long wait between attempts. You register with KASNEB, book the papers you are ready for, and sit them at an approved centre.',
-        ],
-      },
-      {
-        id: 'cost',
-        heading: 'Registration and exam fees',
-        body: [
-          'The cost of the CPA course is made up of a one-off registration fee with KASNEB and then a fee for each paper you sit, alongside separate charges such as an annual registration renewal. Exam fees are charged per paper and differ by level, so the total cost depends on how many papers you attempt and how many attempts each one takes.',
-          'Because these figures are set by KASNEB and updated periodically, the reliable source is the official fee schedule rather than any third-party summary. Check the current fees on the [KASNEB fee structures page](https://www.kasneb.or.ke/fee-structures) before you budget, and factor in tuition if you study with a college rather than privately, since that sits on top of the KASNEB fees.',
-        ],
-      },
-      {
-        id: 'duration',
-        heading: 'How long it takes',
-        body: [
-          'KASNEB guidance frames each level as requiring roughly a year on average, which puts the examinations at about three years for a candidate who progresses steadily and passes cleanly. On top of that, candidates are advised to allow additional time for the practical experience and workshop requirements built into the qualification, so the realistic end-to-end picture is a little longer than the exam timetable alone.',
-          'In practice the timeline varies widely with how many papers you take per sitting, how you balance study against work, and resits. Some finish faster by sitting a full level at once; others spread it out around a demanding job. Either way, the qualification only pays off when it meets real roles, so treating the [live accounting jobs](/jobs) as part of the plan, and preparing with the [accounting interview questions in Kenya](/blog/accounting-interview-questions-kenya) walkthrough, is what turns exam passes into a career.',
+          'Employer type drives both pay and how you get in. NGOs, telcos and multinationals tend to pay best, banks and the Big Four offer structured progression, and government roles follow published scales but come with allowances. The [full breakdown of accountant pay by employer and city](/guides/accountant-salary-kenya/) makes the differences concrete.',
+          'The profession’s footprint is genuinely national. ICPAK reports members across all 47 counties, and the [Institute of Certified Public Accountants of Kenya](https://icpak.com/) is present well beyond Nairobi, even though the densest hiring is in the capital. Labour market context, including employment trends by industry, is published by the [Kenya National Bureau of Statistics](https://www.knbs.or.ke/) for those who want the wider picture. To convert this into applications, the guide to [how to get hired in the Kenyan accounting market](/guides/accounting-finance-jobs-kenya/) is the practical next step.',
         ],
       },
     ],
     faqs: [
-      { q: 'How many levels and papers are in the CPA course in Kenya?', a: 'Under the revised KASNEB syllabus the CPA course has three levels: Foundation and Intermediate with six papers each, and Advanced with higher-level papers plus a specialisation and ethics and work-simulation elements. Confirm the exact Advanced-level paper list with KASNEB.' },
-      { q: 'What is the entry requirement for the CPA course?', a: 'A KCSE mean grade of C+ is the minimum. Holders of relevant diplomas or degrees can also register, and accounting degree holders may qualify for exemptions from parts of the Foundation level, subject to confirmation by KASNEB.' },
-      { q: 'How much does the CPA course cost in Kenya?', a: 'There is a one-off KASNEB registration fee, per-paper exam fees that differ by level, and periodic renewal charges, plus tuition if you study with a college. Fees are set and updated by KASNEB, so check the official fee structures page before budgeting.' },
-      { q: 'When are CPA exams held?', a: 'KASNEB professional examinations are held three times a year, in April, August and December, so there is no long wait between attempts.' },
-      { q: 'How long does the CPA course take in Kenya?', a: 'KASNEB frames each level as about a year on average, so roughly three years of examinations for a steady candidate, with extra time allowed for the practical experience and workshop requirements. Actual timelines vary with papers taken per sitting, work commitments and resits.' },
+      {
+        q: 'Where are most accounting jobs in Kenya?',
+        a: 'Nairobi carries the large majority of advertised accounting roles, followed by Mombasa and Kisumu, with Nakuru and Eldoret emerging. Nairobi also pays the most, reflecting the concentration of banks, the Big Four and the finance sector.',
+      },
+      {
+        q: 'Which companies hire the most accountants in Kenya?',
+        a: 'The Big Four audit firms, the major banks, SACCOs and fintechs, NGOs and donor programmes, and national and county government are the largest employers of accountants. Manufacturers and the growing finance outsourcing sector also hire steadily.',
+      },
+      {
+        q: 'Which employer pays accountants best in Kenya?',
+        a: 'NGOs, telcos and multinationals are generally reported as the top payers, often with allowances and medical cover. Banks and the Big Four offer strong structured progression, while government roles follow published scales plus allowances.',
+      },
+      {
+        q: 'Are there accounting jobs outside Nairobi?',
+        a: 'Yes. Mombasa has demand around the port, logistics and tourism, Kisumu has NGO and county government roles, and Nakuru and Eldoret are growing regional centres. The volume is smaller than Nairobi, but the roles are real, and the profession has members in all 47 counties.',
+      },
+      {
+        q: 'Is it worth working for the Big Four in Kenya?',
+        a: 'The Big Four offer structured training, a recognised name and clear progression, which is valuable early in a career, though starting pay can be modest relative to the workload. Many accountants use a few years there as a springboard into industry or advisory roles.',
+      },
+    ],
+  },
+
+  // ============================================================
+  // HUB 8 - Entry-level
+  // ============================================================
+  {
+    slug: 'entry-level-graduate-accounting-jobs-kenya',
+    title: 'Entry-Level and Graduate Accounting Jobs in Kenya: Internships, Attachment and First Roles',
+    metaTitle: 'Entry-Level & Graduate Accounting Jobs in Kenya',
+    description:
+      'Entry-level and graduate accounting jobs in Kenya: attachment, internships, graduate schemes and how to land your first role with no experience.',
+    lead: 'Almost no accountant in Kenya starts with a permanent job. The normal way in is attachment, an internship or a graduate scheme, and knowing the difference, and which ones actually pay, is half the battle. This guide maps the routes into the profession and how to turn a first placement into a career.',
+    kind: 'hub',
+    updated: '2026-07-13',
+    sections: [
+      {
+        id: 'attachment-vs-internship',
+        heading: 'Attachment, internship and graduate scheme',
+        body: [
+          'Kenyans treat these as distinct, and the distinction matters. Attachment is a placement taken while you are still a student, usually part of your course, often unpaid or paying only a small stipend. An internship is normally taken after graduation, tends to run longer, and is more likely to carry a stipend. A graduate or management trainee scheme is a structured entry job at a bank or large firm, and is the closest thing to a first real role.',
+          'The practical rule many advisers give is to pursue the one that fits your stage, an attachment while studying and an internship or graduate scheme after, rather than stacking them without direction.',
+        ],
+      },
+      {
+        id: 'who-pays',
+        heading: 'Who actually pays, and how much',
+        body: [
+          'The honest picture is mixed. Many private firms pay attachés and interns little or nothing, treating the placement as training. The reliably paid routes are in the public sector, which is why they are worth targeting first.',
+          'The KRA industrial attachment pays a stipend of around KES 7,000 a month to students, applied for through the authority’s e-recruitment portal, and it runs intakes across the year. The Public Service internship programme, aimed at graduates, pays around KES 25,000 a month for a twelve month placement. Both are documented and competitive, and the gap between the two, a student stipend versus a graduate stipend, is a useful marker of how much your stage of study changes the offer.',
+        ],
+        bullets: [
+          'KRA industrial attachment, around KES 7,000 a month for students, applied via the KRA e-recruitment portal',
+          'Public Service internship programme, around KES 25,000 a month for graduates, twelve months',
+          'Bank and Big Four graduate schemes, structured roles with their own application windows',
+          'Private firm attachments and internships, often little or no pay',
+        ],
+      },
+      {
+        id: 'how-to-apply',
+        heading: 'How to apply and where to look',
+        body: [
+          'Government routes run through official portals. The KRA attachment is applied for on the authority’s [e-recruitment portal](https://www.kra.go.ke/) during each intake window, and the graduate internship runs through the [Public Service Commission](https://www.publicservice.go.ke/). Bank and Big Four graduate schemes each publish their own dates on their careers pages, so track them and apply as soon as they open, since windows are short.',
+          'Because intake dates rotate, verify the current window before you rely on it. For private sector entry level roles and internships, browse [current openings on the job board](/jobs) alongside the government programmes.',
+        ],
+      },
+      {
+        id: 'first-job',
+        heading: 'Breaking the no experience deadlock',
+        body: [
+          'The catch is familiar. Employers want experience, and you cannot get experience without a job. Attachment and internships are the accepted way to break it, and a placement that you turn into a strong reference is often worth more than the stipend.',
+          'Give yourself the best chance at each stage. A tailored [graduate accountant CV](/guides/accountant-cv-kenya/) gets you past the screening, and preparing for the [attachment and internship interview](/guides/accounting-interview-questions-kenya/) turns the placement into an offer. You do not need to have finished CPA to start, but steady progress on the [CPA qualification](/guides/cpa-kenya-kasneb-guide/) alongside your first role signals commitment to employers.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between attachment and internship in Kenya?',
+        a: 'Attachment is a placement taken while you are still a student, usually part of your course and often unpaid or paying a small stipend. An internship is normally taken after graduation, runs longer and is more likely to carry a stipend. A graduate scheme is a structured entry job at a bank or large firm.',
+      },
+      {
+        q: 'Do interns and attachés get paid in Kenya?',
+        a: 'It varies. Many private firms pay little or nothing, treating the placement as training. Government routes are the reliably paid ones: the KRA attachment pays around KES 7,000 a month to students, and the Public Service internship pays around KES 25,000 a month to graduates.',
+      },
+      {
+        q: 'How much does the KRA attachment pay?',
+        a: 'The KRA industrial attachment pays a stipend of around KES 7,000 a month, applied for through the KRA e-recruitment portal. KRA runs several intakes across the year, so confirm the current window and stipend before applying.',
+      },
+      {
+        q: 'How do I get an accounting job in Kenya with no experience?',
+        a: 'Start with attachment, an internship or a graduate scheme rather than waiting for a permanent role. Target the reliably paid government programmes first, build a strong graduate CV, prepare for the interview, and make steady progress on CPA alongside your first placement.',
+      },
+      {
+        q: 'Do you need CPA to get an entry level accounting job in Kenya?',
+        a: 'Not to start. You can begin through attachment or an internship while still studying, but steady progress on CPA strengthens your applications and is expected as you move toward permanent roles. Employers value a mix of qualification progress and practical placement experience.',
+      },
     ],
   },
 ];

@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import { PUBLISHED_HUBS } from '@/data/guides';
 
 export const metadata: Metadata = {
-  title: 'Kenya tax & accounting guides',
+  title: 'Accounting career guides in Kenya',
   description:
-    'Practical, current guides on Kenyan tax and accounting: rental income tax, eTIMS, VAT and more, for businesses and individuals.',
+    'Practical guides to accounting and finance careers in Kenya: CPA, salaries, CVs, interviews, career paths, top employers and how to get hired.',
   alternates: { canonical: '/guides' },
 };
 
@@ -14,11 +14,11 @@ export default function GuidesIndex() {
   return (
     <div className="shell py-12">
       <h1 className="font-display text-4xl font-extrabold tracking-tight text-navy-900">
-        Tax &amp; Accounting Guides
+        Accounting Career Guides
       </h1>
       <p className="mt-3 max-w-2xl text-lg text-slate-600">
-        Clear, current guidance on Kenyan tax and compliance, and a verified
-        accountant to hand it to when you’re ready.
+        Clear, current guidance on building an accounting and finance career in
+        Kenya, from qualifying to getting hired, with the live jobs a click away.
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">

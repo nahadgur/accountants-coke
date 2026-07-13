@@ -11,8 +11,8 @@ const NAV = [
   { href: '/directory', label: 'Directory' },
   { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
-  { href: '/guides', label: 'Guides' },
-  { href: '/blog', label: 'Career Guides' },
+  { href: '/guides', label: 'Career Guides' },
+  // /blog (spokes) re-added to nav once the first spokes ship; empty for now.
   { href: '/match', label: 'Get matched' },
 ];
 
