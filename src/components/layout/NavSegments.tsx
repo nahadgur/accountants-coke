@@ -7,8 +7,7 @@ const ITEMS = [
   { href: '/directory', label: 'Directory' },
   { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
-  { href: '/guides', label: 'Guides' },
-  { href: '/blog', label: 'Career Guides' },
+  // /guides + /blog content sections hidden for now (see HIDDEN-FOR-LAUNCH.md).
 ];
 
 export function NavSegments() {

@@ -31,6 +31,23 @@ account/upgrade CTAs, change `href="/directory"` back and relabel:
 - `src/app/dashboard/jobs/page.tsx` — uncomment the "Post a job" `<Link>`.
 - Job BROWSING (`/jobs`, `/jobs/[id]`) was never hidden.
 
+### 4. Guides + Blog content sections (all of /guides and /blog)
+Both content sections are hidden for now. No data was deleted: `src/data/guides.ts`
+and the route files under `src/app/guides` and `src/app/blog` are untouched. To
+turn it back on:
+- `next.config.ts` — delete the four `/guides` + `/blog` redirect entries (the
+  ones bouncing to `/`). If you still want the old `/guides/turnover-tax-kenya`
+  and `/blog/ways-to-get-an-accounting-job-in-kenya` redirects, re-add them.
+- `src/components/layout/NavSegments.tsx` — restore the `/guides` (Guides) and
+  `/blog` (Career Guides) nav items.
+- `src/components/layout/MobileNav.tsx` — restore the same two items.
+- `src/app/layout.tsx` — restore the two footer "Tax guides" (`/guides`) links.
+- `src/app/services/[service]/page.tsx` — uncomment the related-guide `<p>`
+  block (currently a JSX comment) to bring back the related-guide link.
+- `src/app/sitemap.ts` — restore the `/guides` + `/blog` static entries, the
+  `PUBLISHED_HUBS`/`PUBLISHED_SPOKES` import, the `guideRoutes`/`blogRoutes`
+  arrays, and add them back into the returned array.
+
 ## Logging out while Sign in is hidden
 The dashboard is still reachable by URL. Go to **/dashboard** and use the
 **Sign out** button in the left nav (`src/app/dashboard/layout.tsx`, posts to
