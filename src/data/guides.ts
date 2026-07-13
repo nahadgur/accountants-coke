@@ -19,6 +19,8 @@ export type Guide = {
   description: string;
   lead: string;
   updated: string; // ISO date
+  heroImage?: string; // /guides/<slug>.jpg in public/, featured + og:image
+  heroImageAlt?: string; // descriptive alt text for the hero image
   sections: GuideSection[];
   faqs: Faq[];
   relatedService?: string; // service slug, surfaces matching pros
@@ -51,6 +53,8 @@ export const GUIDES: Guide[] = [
     description:
       'Find accounting and finance jobs in Kenya plus a full how-to-get-hired guide. Latest vacancies, top employers, CVs, interviews and salaries.',
     lead: 'Accounting and finance roles are among the most advertised jobs in Kenya, but the market has tightened. This guide covers where the vacancies are, who is hiring, the skills employers now screen for, and how to get shortlisted in a market with plenty of qualified candidates chasing each role.',
+    heroImage: '/guides/accounting-finance-jobs-kenya.jpg',
+    heroImageAlt: 'An accountant working on a laptop spreadsheet at a desk in a bright modern Nairobi office, with the city skyline through the window.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -157,6 +161,8 @@ export const GUIDES: Guide[] = [
     description:
       'Everything on becoming a CPA in Kenya: KASNEB requirements, fees, exam structure, exemptions, duration, ICPAK membership and the careers it opens.',
     lead: 'The CPA is Kenya’s flagship accounting qualification, examined by KASNEB and leading to membership of ICPAK. This guide covers the current three level structure, the entry requirements, the real cost and duration, the exemptions, and, honestly, whether it is still worth it.',
+    heroImage: '/guides/cpa-kenya-kasneb-guide.jpg',
+    heroImageAlt: 'CPA study materials on a desk: textbooks on financial reporting, auditing and management accounting beside a calculator, handwritten notes and a cup of tea.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -268,6 +274,8 @@ export const GUIDES: Guide[] = [
     description:
       'Write an accountant CV that gets interviews in Kenya: format, ATS keywords, referees, cover letters and the mistakes that get you rejected.',
     lead: 'A strong accountant CV in Kenya now has to clear three gates before it wins an interview: the applicant tracking system that scans it, the recruiter who skims it in seconds, and a newer filter for CVs that read as if a machine wrote them. This guide shows you how to pass all three and how to write the letters that go with it.',
+    heroImage: '/guides/accountant-cv-kenya.jpg',
+    heroImageAlt: 'An accountant reviewing a financial spreadsheet on a laptop, with a printed report and pen on the desk in a bright office.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -373,6 +381,8 @@ export const GUIDES: Guide[] = [
     description:
       'Accounting interview questions and answers for Kenya: common, technical, audit and behavioural, plus the Big Four process and questions to ask back.',
     lead: 'Passing a Kenyan accounting interview in 2026 starts before you meet anyone. Many employers now screen with online aptitude and competency tests first, then probe your technical grounding in IFRS and tax. This guide walks through both stages, with the questions that actually come up, how to answer them, and what to do afterwards.',
+    heroImage: '/guides/accounting-interview-questions-kenya.jpg',
+    heroImageAlt: 'A modern meeting room table set for an interview with a laptop, two coffee cups and a notebook, overlooking the Nairobi skyline.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -503,6 +513,8 @@ export const GUIDES: Guide[] = [
     description:
       'Accountant salary in Kenya: pay by role, experience and CPA level, plus city and employer comparisons and what you actually take home after deductions.',
     lead: 'Most salary guides for Kenyan accountants quote gross pay and stop there. Since statutory deductions were overhauled across 2024 and 2025, your take home on the same salary is now lower than older articles suggest. This guide gives realistic gross ranges by role and, just as important, what actually lands in your account.',
+    heroImage: '/guides/accountant-salary-kenya.jpg',
+    heroImageAlt: 'Kenyan shilling banknotes and coins beside a payslip, a calculator and a laptop spreadsheet on an office desk.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -604,6 +616,8 @@ export const GUIDES: Guide[] = [
     description:
       'Accounting and finance career paths in Kenya: the ladder from assistant to CFO, how to advance and which certifications to stack for each route.',
     lead: 'An accounting career in Kenya is no longer a single ladder. The traditional entry rungs are being automated at the same time as outsourcing and capital markets create new demand higher up. This guide maps the routes, the rungs, the certifications that fit each one, and what the first ten years usually look like, so you can choose a direction rather than drift.',
+    heroImage: '/guides/accounting-career-paths-kenya.jpg',
+    heroImageAlt: 'A professional in a suit climbing a glass staircase in a bright, modern corporate atrium.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -699,6 +713,8 @@ export const GUIDES: Guide[] = [
     description:
       'Where accountants work in Kenya: jobs by city and sector plus profiles of top employers, from the Big Four and banks to SACCOs, NGOs and government.',
     lead: 'Accounting jobs in Kenya are not spread evenly. They concentrate in a handful of cities and a shortlist of employers, and in 2025 and 2026 that concentration is deepening. This guide maps where the work actually is, who the major employers are, and how location and sector shape your prospects.',
+    heroImage: '/guides/accounting-jobs-kenya-locations-employers.jpg',
+    heroImageAlt: 'The Nairobi central business district skyline at golden hour, with glass office towers above busy streets.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [
@@ -812,6 +828,8 @@ export const GUIDES: Guide[] = [
     description:
       'Entry-level and graduate accounting jobs in Kenya: attachment, internships, graduate schemes and how to land your first role with no experience.',
     lead: 'Almost no accountant in Kenya starts with a permanent job. The normal way in is attachment, an internship or a graduate scheme, and knowing the difference, which ones actually pay, and how to turn a placement into a career is half the battle. This guide maps every route into the profession.',
+    heroImage: '/guides/entry-level-graduate-accounting-jobs-kenya.jpg',
+    heroImageAlt: 'A young graduate in a blazer walking toward the glass entrance of a modern office building, holding a folder and an ID lanyard.',
     kind: 'hub',
     updated: '2026-07-13',
     sections: [

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { PUBLISHED_HUBS, getGuide } from '@/data/guides';
 import {
@@ -44,6 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: g.metaTitle ?? g.title,
     description: g.description,
     alternates: { canonical: `/guides/${g.slug}` },
+    openGraph: g.heroImage
+      ? { images: [{ url: g.heroImage, width: 1400, height: 784, alt: g.heroImageAlt ?? g.title }] }
+      : undefined,
   };
 }
 
@@ -73,6 +77,20 @@ export default async function GuidePage({ params }: Props) {
         title={g.title}
         lead={g.lead}
       />
+
+      {g.heroImage && (
+        <div className="mt-8 max-w-4xl overflow-hidden rounded-2xl border border-slate-200 shadow-soft">
+          <Image
+            src={g.heroImage}
+            alt={g.heroImageAlt ?? g.title}
+            width={1400}
+            height={784}
+            priority
+            sizes="(max-width: 896px) 100vw, 896px"
+            className="h-auto w-full object-cover"
+          />
+        </div>
+      )}
 
       {g.sections.map((sec, i) => (
         <div key={sec.id}>
