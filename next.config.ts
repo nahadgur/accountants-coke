@@ -31,15 +31,10 @@ const nextConfig: NextConfig = {
       { source: '/firms', destination: '/directory', permanent: true },
       // Job posting hidden for now (paid checkout not live). Temporary.
       { source: '/jobs/new/:path*', destination: '/jobs', permanent: false },
-      // Guides + blog content sections hidden for now (temporary, reversible).
-      // Bounce the section roots and every detail URL to the homepage. To
-      // restore, delete these four entries (see HIDDEN-FOR-LAUNCH.md). These
-      // supersede the old /guides/turnover-tax-kenya and /blog/ways-to-get-...
-      // redirects, which are now covered by the catch-alls below.
-      { source: '/guides', destination: '/', permanent: false },
-      { source: '/guides/:slug*', destination: '/', permanent: false },
-      { source: '/blog', destination: '/', permanent: false },
-      { source: '/blog/:slug*', destination: '/', permanent: false },
+      // Discontinued client-tax content (site is a jobs board): send the dead tax URL to the guides hub.
+      { source: '/guides/turnover-tax-kenya', destination: '/guides', permanent: true },
+      // Moved from spoke (/blog) to guide (/guides) and reframed as the 9-ways guide.
+      { source: '/blog/ways-to-get-an-accounting-job-in-kenya', destination: '/guides/ways-to-get-an-accounting-job-in-kenya', permanent: true },
     ];
   },
 };

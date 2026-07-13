@@ -11,7 +11,8 @@ const NAV = [
   { href: '/directory', label: 'Directory' },
   { href: '/services', label: 'Services' },
   { href: '/jobs', label: 'Jobs' },
-  // /guides + /blog content sections hidden for now (see HIDDEN-FOR-LAUNCH.md).
+  { href: '/guides', label: 'Guides' },
+  { href: '/blog', label: 'Career Guides' },
   { href: '/match', label: 'Get matched' },
 ];
 

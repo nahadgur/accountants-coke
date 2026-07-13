@@ -130,19 +130,18 @@ export default async function ServicePage({ params }: Props) {
         <div className="mt-5 max-w-3xl">
           <FaqAccordion items={s.faqs} />
         </div>
-        {/*
-          Related /guides link hidden for now (guides + blog sections down;
-          see HIDDEN-FOR-LAUNCH.md). Restore by uncommenting:
-
-          guide && (
-            <p className="mt-6 text-sm text-slate-600">
-              Want the full picture{' '}
-              <Link href={`/guides/${guide.slug}`} className="font-semibold text-brand-700 hover:underline">
-                Read our {guide.title.toLowerCase()}
-              </Link>
-            </p>
-          )
-        */}
+        {guide && (
+          <p className="mt-6 text-sm text-slate-600">
+            Want the full picture?{' '}
+            <Link
+              href={`/guides/${guide.slug}`}
+              className="font-semibold text-brand-700 hover:underline"
+            >
+              Read our {guide.title.toLowerCase()}
+            </Link>
+            .
+          </p>
+        )}
       </section>
     </article>
   );

@@ -194,7 +194,7 @@ export default function RootLayout({
                 links={[
                   { href: '/directory', label: 'Find a firm' },
                   { href: '/match', label: 'Get matched' },
-                  // 'Tax guides' (/guides) hidden for now.
+                  { href: '/guides', label: 'Tax guides' },
                 ]}
               />
               {/* "List your practice" (/login) and "Premium plans"
@@ -204,7 +204,7 @@ export default function RootLayout({
                 links={[
                   { href: '/directory', label: 'Claim your firm' },
                   { href: '/directory', label: 'Firms directory' },
-                  // 'Tax guides' (/guides) hidden for now.
+                  { href: '/guides', label: 'Tax guides' },
                 ]}
               />
               <FooterCol
